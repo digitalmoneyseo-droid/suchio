@@ -18,8 +18,6 @@ const nodeVariants = {
   visible: { opacity: 1, y: 0, scale: 1 },
 };
 
-const processLoopDuration = 4.8;
-
 function TriggerPulse({ running }: { running: boolean }) {
   return (
     <motion.span
@@ -30,7 +28,7 @@ function TriggerPulse({ running }: { running: boolean }) {
         ? { opacity: [0, 0.42, 0], transform: ["scale(0.8)", "scale(1.35)", "scale(1.35)"] }
         : { opacity: 0, transform: "scale(0.8)" }}
       transition={running
-        ? { duration: 1.5, repeat: Number.POSITIVE_INFINITY, repeatDelay: 0.8, ease: OFFER_EASE_OUT }
+        ? { duration: 1.5, ease: OFFER_EASE_OUT }
         : { duration: 0.15 }}
       aria-hidden="true"
     />
@@ -47,7 +45,7 @@ function ProcessEmphasis({ running, delay }: { running: boolean; delay: number }
         ? { opacity: [0, 0.36, 0], transform: ["scale(0.995)", "scale(1.01)", "scale(1.018)"] }
         : { opacity: 0, transform: "scale(1)" }}
       transition={running
-        ? { duration: 0.8, delay, repeat: Number.POSITIVE_INFINITY, repeatDelay: processLoopDuration - 0.8, ease: OFFER_EASE_IN_OUT }
+        ? { duration: 0.8, delay, ease: OFFER_EASE_IN_OUT }
         : { duration: 0.15 }}
       aria-hidden="true"
     />
@@ -94,8 +92,6 @@ function LineSignal({
         ? {
             duration,
             delay,
-            repeat: Number.POSITIVE_INFINITY,
-            repeatDelay: processLoopDuration - duration,
             times: [0, 0.08, 0.9, 1],
             ease: "linear",
           }
@@ -110,10 +106,9 @@ function LineSignal({
 export function AutomationFlowAnimation({ copy }: { copy: AutomationAnimationCopy }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, OFFER_VIEWPORT);
-  const isCurrentlyVisible = useInView(containerRef, { amount: 0.1 });
   const noMotion = useHydratedReducedMotion();
   const active = noMotion || isInView;
-  const loopActive = !noMotion && isCurrentlyVisible;
+  const loopActive = !noMotion && isInView;
 
   return (
     <motion.div

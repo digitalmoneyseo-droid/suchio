@@ -65,7 +65,7 @@ export function ServiceScopeGrid({ groups, serviceId }: { groups: readonly Scope
             data-reveal
             data-reveal-threshold="half"
             data-scope-item
-            key={group.title}
+            key={group.id}
           >
             <div className="flex items-center gap-3.5">
               <span className={`grid size-10 shrink-0 place-items-center rounded-control ${scopeIconStyles[index] ?? "bg-brand-50 text-brand-600"}`} data-scope-icon>

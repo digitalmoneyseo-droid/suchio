@@ -18,8 +18,10 @@ jobs:
         with:
           bun-version: 1.4.0
       - run: bun ci
+      - run: bun audit
       - run: bunx playwright install --with-deps chromium
       - run: bun run lint
+      - run: bun run types:workers --check
       - run: bun run validate:content
       - run: bun run test
       - run: bun run build
@@ -29,3 +31,12 @@ jobs:
       - run: bun run validate:performance
       - run: bun run validate:bundle
       - run: bun run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification-reports
+          path: |
+            test-results/
+            .wrangler/performance-budgets.json
+          include-hidden-files: true
+          retention-days: 7

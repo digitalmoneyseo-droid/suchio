@@ -1,4 +1,4 @@
-import { Resend } from "resend";
+import { readLimitedJson } from "@/lib/request-body";
 import { getServiceCopy } from "@/i18n/services";
 import { hasLocale, t, type Locale } from "@/lib/i18n";
 import { isServiceId } from "@/lib/service-catalog";
@@ -18,23 +18,13 @@ export interface ContactEmailConfig {
   to?: string;
 }
 
-export async function handleContactRequest(request: Request, emailConfig: ContactEmailConfig) {
+export async function handleContactRequest(request: Request, emailConfig: ContactEmailConfig, transport: (url: string, init: RequestInit) => Promise<Response> = fetch) {
   const origin = request.headers.get("origin");
-  const requestHosts = new Set([
-    new URL(request.url).host,
-    request.headers.get("host"),
-    request.headers.get("x-forwarded-host"),
-  ].filter(Boolean));
-  if (origin && !requestHosts.has(safeHost(origin))) return Response.json({ error: "Forbidden" }, { status: 403 });
+  if (origin && origin !== new URL(request.url).origin) return Response.json({ error: "Forbidden" }, { status: 403 });
   if (!request.headers.get("content-type")?.includes("application/json")) return Response.json({ error: "Unsupported content type" }, { status: 415 });
-  if (Number(request.headers.get("content-length") ?? 0) > 20_000) return Response.json({ error: "Request too large" }, { status: 413 });
-
-  let value: unknown;
-  try {
-    value = await request.json();
-  } catch {
-    return Response.json({ error: "Invalid request" }, { status: 400 });
-  }
+  const parsed = await readLimitedJson(request);
+  if (!parsed.ok) return Response.json({ error: parsed.status === 413 ? "Request too large" : "Invalid request" }, { status: parsed.status });
+  const { value } = parsed;
   if (!value || typeof value !== "object" || Array.isArray(value)) return Response.json({ error: "Invalid request" }, { status: 400 });
 
   const body = value as Record<string, unknown>;
@@ -48,6 +38,7 @@ export async function handleContactRequest(request: Request, emailConfig: Contac
   const locale = typeof body.locale === "string" && hasLocale(body.locale) ? body.locale : null;
   const serviceId = typeof body.service === "string" ? body.service : "";
   const budgetId = typeof body.budget === "string" ? body.budget : "";
+  const submissionId = cleanString(body.submissionId);
 
   if (
     !name || name.length > 100 ||
@@ -56,14 +47,15 @@ export async function handleContactRequest(request: Request, emailConfig: Contac
     companyUrl.length > 2048 || (companyUrl && !isHttpUrl(companyUrl)) ||
     !locale || !message || message.length < 20 || message.length > 5000 ||
     (!isServiceId(serviceId) && serviceId !== "not-sure") ||
-    !isBudgetId(budgetId)
+    !isBudgetId(budgetId) ||
+    !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(submissionId)
   ) {
     return Response.json({ error: "Invalid form data" }, { status: 400 });
   }
 
   const { apiKey, to, from } = emailConfig;
   if (!apiKey || !to || !from) {
-    console.error("Contact email is not configured. RESEND_API_KEY, CONTACT_EMAIL_TO, and CONTACT_EMAIL_FROM are required.");
+    console.error(JSON.stringify({ event: "contact.unconfigured", submissionId }));
     return Response.json({ error: "Email service unavailable" }, { status: 503 });
   }
 
@@ -79,24 +71,22 @@ export async function handleContactRequest(request: Request, emailConfig: Contac
   });
 
   try {
-    const resend = new Resend(apiKey);
-    const { data, error } = await resend.emails.send({
-      from,
-      to,
-      replyTo: email,
-      subject: emailContent.subject,
-      text: emailContent.text,
-      html: emailContent.html,
+    const response = await transport("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json", "Idempotency-Key": `contact/${submissionId}` },
+      signal: AbortSignal.timeout(10_000),
+      body: JSON.stringify({ from, to: [to], reply_to: email, subject: emailContent.subject, text: emailContent.text, html: emailContent.html }),
     });
-
-    if (error) {
-      console.error("Resend contact email failed", error);
+    if (!response.ok) {
+      console.error(JSON.stringify({ event: "contact.rejected", submissionId, status: response.status }));
       return Response.json({ error: "Email delivery failed" }, { status: 502 });
     }
-
-    return Response.json({ ok: true, id: data?.id });
-  } catch (error) {
-    console.error("Resend contact email failed", error);
+    const data: unknown = await response.json();
+    if (!data || typeof data !== "object" || !("id" in data) || typeof data.id !== "string" || !data.id) throw new Error("Invalid provider response");
+    console.info(JSON.stringify({ event: "contact.accepted", submissionId, emailId: data.id }));
+    return Response.json({ ok: true, id: data.id }, { headers: { "Cache-Control": "no-store" } });
+  } catch {
+    console.error(JSON.stringify({ event: "contact.failed", submissionId }));
     return Response.json({ error: "Email delivery failed" }, { status: 502 });
   }
 }
@@ -225,14 +215,6 @@ function escapeHtml(value: string): string {
 
 function cleanString(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
-}
-
-function safeHost(value: string): string {
-  try {
-    return new URL(value).host;
-  } catch {
-    return "";
-  }
 }
 
 function isHttpUrl(value: string): boolean {

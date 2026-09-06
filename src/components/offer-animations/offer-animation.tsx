@@ -1,26 +1,15 @@
 "use client";
 
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
-import { WebExperienceAnimation } from "@/components/offer-animations/web-experience-animation";
 import type { ServiceAnimation as ServiceAnimationDefinition } from "@/lib/service-catalog";
 import type { Locale } from "@/lib/i18n";
 
+const WebExperienceAnimation = lazy(() => import("@/components/offer-animations/web-experience-animation").then(({ WebExperienceAnimation: Component }) => ({ default: Component })));
 const OptimizationSearchAnimation = lazy(() => import("@/components/offer-animations/optimization-search-animation").then(({ OptimizationSearchAnimation: Component }) => ({ default: Component })));
 const CampaignGrowthAnimation = lazy(() => import("@/components/offer-animations/campaign-growth-animation").then(({ CampaignGrowthAnimation: Component }) => ({ default: Component })));
 const AutomationFlowAnimation = lazy(() => import("@/components/offer-animations/automation-flow-animation").then(({ AutomationFlowAnimation: Component }) => ({ default: Component })));
 
-type DeferredAnimationDefinition = Exclude<ServiceAnimationDefinition, { type: "web-experience" }>;
-
 export function OfferAnimation({ animation, locale }: { animation: ServiceAnimationDefinition; locale: Locale }) {
-  switch (animation.type) {
-    case "web-experience": return <WebExperienceAnimation copy={animation.copy} />;
-    case "optimization":
-    case "campaign":
-    case "automation": return <DeferredOfferAnimation animation={animation} locale={locale} />;
-  }
-}
-
-function DeferredOfferAnimation({ animation, locale }: { animation: DeferredAnimationDefinition; locale: Locale }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
 
@@ -47,8 +36,9 @@ function DeferredOfferAnimation({ animation, locale }: { animation: DeferredAnim
   );
 }
 
-function renderDeferredAnimation(animation: DeferredAnimationDefinition, locale: Locale) {
+function renderDeferredAnimation(animation: ServiceAnimationDefinition, locale: Locale) {
   switch (animation.type) {
+    case "web-experience": return <WebExperienceAnimation copy={animation.copy} />;
     case "optimization": return <OptimizationSearchAnimation copy={animation.copy} />;
     case "campaign": return <CampaignGrowthAnimation copy={animation.copy} locale={locale} />;
     case "automation": return <AutomationFlowAnimation copy={animation.copy} />;

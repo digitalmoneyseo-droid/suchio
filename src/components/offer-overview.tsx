@@ -1,8 +1,4 @@
-"use client";
-
-import { ChevronRight } from "lucide-react";
-import { useState } from "react";
-import { CollapsePanel } from "@/components/collapse-panel";
+import { Disclosure } from "@/components/disclosure";
 import { CtaButton } from "@/components/cta-button";
 import { OfferAnimation } from "@/components/offer-animations/offer-animation";
 import type { ServiceCatalogEntry } from "@/lib/service-catalog";
@@ -17,7 +13,6 @@ export function OfferOverview({ locale, services }: { locale: Locale; services: 
 }
 
 function Service({ deferRendering, locale, service, revealDelay }: { deferRendering: boolean; locale: Locale; service: OfferOverviewService; revealDelay: number }) {
-  const [open, setOpen] = useState<number | null>(0);
   const { copy } = service;
 
   return <div className={`reveal mb-content-stack last:mb-0 ${deferRendering ? "deferred-rendering" : ""}`} data-reveal style={{ "--reveal-delay": `${revealDelay}ms` } as React.CSSProperties}>
@@ -25,15 +20,11 @@ function Service({ deferRendering, locale, service, revealDelay }: { deferRender
       <div className={`min-w-0 max-w-[31rem] ${service.reverse ? "nav:order-2 nav:justify-self-end" : ""}`}>
         <h3 className="m-0 text-heading-md">{copy.name}</h3>
         <p className="mt-4 max-w-[46ch] text-lg/7 text-muted">{copy.summary}</p>
-        <div className="relative mt-8">{copy.rows.map(([label, detail], row) => {
-          const panelId = `service-${service.id}-${row}`;
-          const buttonId = `${panelId}-button`;
-          const expanded = open === row;
-          return <div className={`relative before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-1 before:h-px before:bg-line before:content-[''] last:after:pointer-events-none last:after:absolute last:after:inset-x-0 last:after:bottom-0 last:after:z-1 last:after:h-px last:after:bg-line last:after:content-[''] ${expanded ? "[&_.faq-toggle_svg]:rotate-90" : ""}`} key={label}>
-            <h4 className="m-0"><button id={buttonId} className="grid min-h-16 w-full cursor-pointer grid-cols-[minmax(0,1fr)_1.5rem] items-center gap-4 rounded-inset bg-transparent px-2 py-4 text-left transition-colors duration-150 hover:bg-interaction" type="button" aria-expanded={expanded} aria-controls={panelId} onClick={() => setOpen(expanded ? null : row)}><span className="text-base/6 font-semibold">{label}</span><span className="faq-toggle grid size-6 place-items-center" aria-hidden="true"><ChevronRight className="size-4.5 transition-transform duration-200 ease-[var(--ease-out)] motion-reduce:transition-none" strokeWidth={1.7} /></span></button></h4>
-            <CollapsePanel id={panelId} labelledBy={buttonId} expanded={expanded}><p className="m-0 max-w-[44ch] px-2 pb-5 text-base/6 text-muted">{detail}</p></CollapsePanel>
-          </div>;
-        })}</div>
+        <div className="relative mt-8">{copy.rows.map(([label, detail], row) => (
+          <Disclosure key={label} id={`service-${service.id}-${row}`} group={`service-${service.id}`} title={label} compact defaultOpen={row === 0}>
+            <p className="m-0 max-w-[44ch]">{detail}</p>
+          </Disclosure>
+        ))}</div>
         <CtaButton href={service.href} className="mt-6">{copy.cta}</CtaButton>
       </div>
       <div data-offer-visual={service.animation.type} className={`relative grid min-w-0 aspect-[1.1/1] min-h-[24rem] overflow-hidden rounded-card p-10 shadow-surface [&>*]:relative ${service.theme} ${service.reverse ? "nav:order-1" : ""} max-nav:mx-auto max-nav:aspect-[4/3] max-nav:min-h-0 max-nav:w-full max-nav:max-w-[44rem] max-narrow:h-[clamp(19rem,68vw,25rem)] max-narrow:aspect-auto max-narrow:p-4`} aria-hidden="true">

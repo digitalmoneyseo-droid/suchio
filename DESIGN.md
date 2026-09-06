@@ -43,6 +43,8 @@ Tailwind Neutral and the compact `brand-*` scale are raw materials, not the ordi
 
 ### Typography
 
+Load only the Latin JetBrains Mono subsets used by the configured locales. Keep DM Sans Latin and Latin Extended subsets for prose. Preload the Latin face and use optional font display to avoid moving content when a slow font arrives; a slow first visit may retain the system fallback.
+
 Use DM Sans Variable for headings, prose, labels, navigation, and controls. Use JetBrains Mono only for code, technical identifiers, short step numbers, and tabular data. The wordmark is an optical brand exception.
 
 Use regular weight for reading, medium for headings, and semibold for controls or short emphasis. Avoid light weights for small text and avoid weight `700` unless a control or strong inline emphasis needs it.
@@ -162,6 +164,7 @@ Use borders for rules and segmented geometry; use one-pixel shadow boundaries fo
 Reuse these patterns before creating a variation:
 
 - `EditorialHero`: about, contact, and other editorial introductions.
+- `Disclosure`: native `details` and `summary` own FAQ and offer expansion. Preserve keyboard activation and readable answers without JavaScript; use shared heading, separator, and focus roles.
 - `SectionHeading`: main section title with optional intro; left by default, centered for short peer grids or FAQs.
 - `CtaButton`: primary and secondary conversion links.
 - `FinalCta`: the generic shared final conversion band. Service-specific final sections use the same roles and may remain page-owned while their copy contract differs.
@@ -196,6 +199,7 @@ Default to stillness. Motion should explain state, continuity, process, or confi
 - Standard reveal: 420ms with `var(--ease-out)`.
 - Longer illustrative sequences are allowed when their sequence communicates cause and effect.
 - Animate transform and opacity where possible and list transitioned properties explicitly.
+- The automation demonstration runs once per mount and completes within five seconds. Reduced motion shows its settled state.
 - Motion must be interruptible, must not gate content, and needs a complete reduced-motion state.
 - Use `IntersectionObserver` for viewport entry rather than an unthrottled scroll handler.
 

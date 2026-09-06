@@ -4,6 +4,35 @@ import { servicesContent } from "../src/i18n/services";
 import { legalContent, type LegalPageKind } from "../src/i18n/legal-content";
 import { budgetOptions } from "../src/lib/contact-options";
 import { getLegacyServiceRedirectPath, getServicePath, serviceOrder, serviceRouteSlugs } from "../src/lib/service-routes";
+import { dictionaries } from "../src/i18n/translations";
+
+function placeholders(value: string) { return [...value.matchAll(/\{([a-zA-Z][a-zA-Z0-9]*)\}/g)].map((match) => match[1]).sort(); }
+function contentShape(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(contentShape);
+  if (value && typeof value === "object") return Object.fromEntries(Object.entries(value).map(([key, entry]) => [key, key === "id" || key === "href" ? entry : contentShape(entry)]));
+  return typeof value === "string" ? placeholders(value) : typeof value;
+}
+
+test("preserves service sections, item order, and placeholders in every locale", () => {
+  for (const locale of locales) {
+    expect(contentShape(servicesContent[locale])).toEqual(contentShape(servicesContent.de));
+    for (const service of servicesContent[locale].services) {
+      for (const items of [service.page.outcomes, service.page.scopeGroups, service.page.process, service.page.faqs]) {
+        expect(new Set(items.map(({ id }) => id)).size).toBe(items.length);
+      }
+    }
+    for (const key of Object.keys(dictionaries.de) as (keyof typeof dictionaries.de)[]) {
+      expect(placeholders(dictionaries[locale][key])).toEqual(placeholders(dictionaries.de[key]));
+    }
+  }
+});
+
+test("preserves legal disclosures, links, and dates without changing localized wording", () => {
+  for (const locale of locales) expect(contentShape(legalContent[locale])).toEqual(contentShape(legalContent.de));
+  expect(legalContent.de.privacy.updated).toBe("Stand: 27. August 2026");
+  expect(legalContent.en.privacy.updated).toBe("Last updated: 27 August 2026");
+  expect(legalContent.fr.privacy.updated).toBe("Mise à jour : 27 août 2026");
+});
 
 test("keeps service identities equivalent across locales", () => {
   const expectedIds = servicesContent.de.services.map(({ id }) => id);

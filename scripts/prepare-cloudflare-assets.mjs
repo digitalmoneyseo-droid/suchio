@@ -7,7 +7,6 @@ const prerenderDirectory = "dist/server/prerendered-routes";
 const assetDirectory = "dist/client";
 
 await cp(prerenderDirectory, assetDirectory, { recursive: true });
-await inlineStaticStylesheets();
 const fontCount = await copyReferencedFonts();
 await Promise.all([
   Bun.write(`${assetDirectory}/robots.txt`, serializeRobots(robots())),
@@ -17,84 +16,6 @@ await Promise.all([
 
 const htmlRouteCount = Array.from(new Bun.Glob("**/*.html").scanSync({ cwd: prerenderDirectory, onlyFiles: true })).length;
 console.log(`Prepared ${htmlRouteCount} static HTML routes, ${fontCount} fonts, robots.txt, and sitemap.xml for Cloudflare Assets.`);
-
-async function inlineStaticStylesheets() {
-  const cssDirectory = `${assetDirectory}/_next/static/css`;
-  const cssFiles = Array.from(new Bun.Glob("*.css").scanSync({ cwd: cssDirectory, onlyFiles: true }));
-  const stylesheets = new Map();
-
-  for (const file of cssFiles) {
-    const css = (await Bun.file(`${cssDirectory}/${file}`).text())
-      .replaceAll("url(./files/", "url(/_next/static/css/files/");
-    if (css.toLowerCase().includes("</style")) throw new Error(`${file} cannot be safely inlined into HTML.`);
-    stylesheets.set(`/_next/static/css/${file}`, { css });
-  }
-
-  const htmlFiles = Array.from(new Bun.Glob("**/*.html").scanSync({ cwd: assetDirectory, onlyFiles: true }));
-  for (const file of htmlFiles) {
-    const path = `${assetDirectory}/${file}`;
-    let html = await Bun.file(path).text();
-    html = html.replace(/<link\b(?=[^>]*\brel="stylesheet")(?=[^>]*\bhref="([^"?]+\.css)(?:\?[^\"]*)?")[^>]*\/?>/g, (tag, stylesheet) => {
-      const asset = stylesheets.get(stylesheet);
-      if (!asset) throw new Error(`${file} references an unknown stylesheet: ${stylesheet}`);
-      const precedence = tag.match(/\bdata-precedence="([^"]*)"/)?.[1];
-      const precedenceAttribute = precedence ? ` data-precedence="${precedence}"` : "";
-      return `<style data-vinext-inline-css data-href="${stylesheet}"${precedenceAttribute}>${asset.css}</style>`;
-    });
-    for (const stylesheet of stylesheets.keys()) {
-      html = removeStylesheetFromEmbeddedRsc(html, stylesheet);
-    }
-    if (/<link\b(?=[^>]*\brel="stylesheet")[^>]*>/i.test(html)) throw new Error(`${file} still contains a render-blocking stylesheet.`);
-    assertRscDoesNotReferenceInlinedStylesheets(html, file, stylesheets.keys());
-    await Bun.write(path, html);
-  }
-
-  const rscFiles = Array.from(new Bun.Glob("**/*.rsc").scanSync({ cwd: assetDirectory, onlyFiles: true }));
-  for (const file of rscFiles) {
-    const path = `${assetDirectory}/${file}`;
-    let payload = await Bun.file(path).text();
-    for (const stylesheet of stylesheets.keys()) {
-      payload = removeStylesheetFromRsc(payload, stylesheet);
-    }
-    assertRscDoesNotReferenceInlinedStylesheets(payload, file, stylesheets.keys());
-    await Bun.write(path, payload);
-  }
-}
-
-function removeStylesheetFromEmbeddedRsc(html, stylesheet) {
-  const escaped = escapeRegExp(stylesheet);
-  return html
-    .replace(new RegExp(`:HL\\[\\\\"${escaped}\\\\",\\\\"style\\\\"\\s*\\]\\\\n`, "g"), "")
-    .replace(
-      new RegExp(`\\[\\\\"\\$\\\\",\\\\"link\\\\",\\\\"css:${escaped}\\\\",\\{[^}]*?\\\\"data-rsc-css-href\\\\":\\\\"${escaped}\\\\"\\}\\]`, "g"),
-      "null",
-    );
-}
-
-function removeStylesheetFromRsc(payload, stylesheet) {
-  const escaped = escapeRegExp(stylesheet);
-  return payload
-    .replace(new RegExp(`:HL\\["${escaped}","style"\\s*\\]\\r?\\n`, "g"), "")
-    .replace(
-      new RegExp(`\\["\\$","link","css:${escaped}",\\{[^}]*?"data-rsc-css-href":"${escaped}"\\}\\]`, "g"),
-      "null",
-    );
-}
-
-function assertRscDoesNotReferenceInlinedStylesheets(payload, file, stylesheets) {
-  for (const stylesheet of stylesheets) {
-    if (payload.includes(`css:${stylesheet}`) || payload.includes(`css:${stylesheet.replaceAll("/", "\\/")}`)) {
-      throw new Error(`${file} still embeds a React stylesheet element for ${stylesheet}.`);
-    }
-    if (payload.includes(`:HL[\\"${stylesheet}`) || payload.includes(`:HL["${stylesheet}`)) {
-      throw new Error(`${file} still embeds a stylesheet preload for ${stylesheet}.`);
-    }
-  }
-}
-
-function escapeRegExp(value) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
 
 async function copyReferencedFonts() {
   const cssDirectory = `${assetDirectory}/_next/static/css`;

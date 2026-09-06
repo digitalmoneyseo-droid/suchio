@@ -1,5 +1,5 @@
 import { EditorialHero } from "@/components/editorial-hero";
-import { legalContent, type LegalPageKind } from "@/i18n/legal-content";
+import { legalContent, legalUpdatedAt, type LegalPageKind } from "@/i18n/legal-content";
 import type { Locale } from "@/lib/i18n";
 
 export function LegalPage({ locale, kind }: { locale: Locale; kind: LegalPageKind }) {
@@ -13,12 +13,12 @@ export function LegalPage({ locale, kind }: { locale: Locale; kind: LegalPageKin
         <div className="mx-auto max-w-reading">
           <div className="flex items-center justify-between gap-6 border-b border-line pb-5 text-sm/5 text-muted max-compact:flex-col max-compact:items-start max-compact:gap-1">
             <span className="font-medium tracking-widest uppercase">{page.eyebrow}</span>
-            <time dateTime="2026-08-27">{page.updated}</time>
+            <time dateTime={legalUpdatedAt}>{page.updated}</time>
           </div>
 
           <div className="grid">
             {page.sections.map((section) => (
-              <section className="border-b border-line py-10 last:border-b-0" key={section.title}>
+              <section className="border-b border-line py-10 last:border-b-0" key={section.id}>
                 <h2 className="m-0 text-heading-md">{section.title}</h2>
 
                 {section.paragraphs?.map((paragraph) => (
@@ -31,7 +31,7 @@ export function LegalPage({ locale, kind }: { locale: Locale; kind: LegalPageKin
                       <div className="grid grid-cols-[minmax(7rem,10rem)_1fr] gap-4 max-compact:grid-cols-1 max-compact:gap-1" key={detail.label}>
                         <dt className="text-base/6 font-medium">{detail.label}</dt>
                         <dd className="m-0 text-base/6 text-muted">
-                          {detail.href ? <a className="underline decoration-line underline-offset-4 hover:text-foreground" href={detail.href}>{detail.value}</a> : detail.value}
+                          {detail.href ? <a className="underline decoration-line underline-offset-4 hover:text-accent" href={detail.href}>{detail.value}</a> : detail.value}
                         </dd>
                       </div>
                     ))}

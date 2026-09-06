@@ -3,15 +3,9 @@ import { defaultLocale, hasLocale, localeCookie, type Locale } from "./i18n/conf
 import { handleContactRequest } from "./lib/contact-handler";
 import { securityHeaders } from "./lib/security-headers";
 import { getLegacyServiceRedirectPath } from "./lib/service-routes";
+import { healthResponse } from "./lib/health";
 
-interface CloudflareEnv {
-  ASSETS: {
-    fetch(request: Request): Promise<Response>;
-  };
-  CONTACT_EMAIL_FROM?: string;
-  CONTACT_EMAIL_TO?: string;
-  RESEND_API_KEY?: string;
-}
+type CloudflareEnv = Pick<CloudflareBindings, "ASSETS" | "CONTACT_RATE_LIMITER"> & Partial<Pick<CloudflareBindings, "RESEND_API_KEY" | "CONTACT_EMAIL_FROM" | "CONTACT_EMAIL_TO">>;
 
 interface CloudflareContext {
   passThroughOnException(): void;
@@ -51,6 +45,16 @@ async function handleContactRoute(request: Request, env: CloudflareEnv) {
     return withSecurityHeaders(new Response(null, { headers: { allow: "POST" }, status: 405 }));
   }
 
+  try {
+    // Anonymous form: a generous per-IP burst limit also permits shared networks.
+    const ip = request.headers.get("cf-connecting-ip") ?? "local";
+    const { success } = await env.CONTACT_RATE_LIMITER.limit({ key: `suchio:contact:${ip}` });
+    if (!success) return withSecurityHeaders(Response.json({ error: "Too many requests" }, { status: 429, headers: { "Retry-After": "60", "Cache-Control": "no-store" } }));
+  } catch {
+    console.error(JSON.stringify({ event: "contact.rate_limit_unavailable" }));
+    return withSecurityHeaders(Response.json({ error: "Email service unavailable" }, { status: 503 }));
+  }
+
   const response = await handleContactRequest(request, {
     apiKey: env.RESEND_API_KEY,
     to: env.CONTACT_EMAIL_TO,
@@ -65,12 +69,6 @@ function isRscRequest(request: Request, url: URL) {
     || url.searchParams.has("_rsc");
 }
 
-async function serveGermanHome(request: Request, env: CloudflareEnv, url: URL) {
-  if (!isRscRequest(request, url)) return env.ASSETS.fetch(request);
-
-  const assetUrl = new URL("/index.rsc", url);
-  return env.ASSETS.fetch(new Request(assetUrl, request));
-}
 
 const worker = {
   async fetch(request: Request, env: CloudflareEnv | undefined, context: CloudflareContext) {
@@ -87,7 +85,9 @@ const worker = {
     if (url.pathname === "/" && (request.method === "GET" || request.method === "HEAD")) {
       const locale = preferredLocale(request);
       if (locale !== defaultLocale) return redirect(`/${locale}${url.search}`);
-      return serveGermanHome(request, env, url);
+      return isRscRequest(request, url)
+        ? withSecurityHeaders(await vinextHandler.fetch(request, env, context))
+        : withSecurityHeaders(await env.ASSETS.fetch(request));
     }
 
     if (url.pathname === "/de" || url.pathname.startsWith("/de/")) {
@@ -95,7 +95,14 @@ const worker = {
     }
 
     if (url.pathname === "/api/contact") return handleContactRoute(request, env);
+    if (url.pathname === "/api/health") {
+      if (request.method !== "GET" && request.method !== "HEAD") return withSecurityHeaders(new Response(null, { status: 405, headers: { Allow: "GET, HEAD" } }));
+      return withSecurityHeaders(healthResponse({ apiKey: env.RESEND_API_KEY, to: env.CONTACT_EMAIL_TO, from: env.CONTACT_EMAIL_FROM }));
+    }
 
+    if (request.method === "GET" || request.method === "HEAD") return isRscRequest(request, url)
+      ? withSecurityHeaders(await vinextHandler.fetch(request, env, context))
+      : withSecurityHeaders(await env.ASSETS.fetch(request));
     return vinextHandler.fetch(request, env, context);
   },
 };

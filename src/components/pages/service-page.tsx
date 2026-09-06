@@ -64,7 +64,7 @@ export function ServicePage({ locale, serviceId }: { locale: Locale; serviceId: 
   const { copy } = service;
   const contact = `${localizePath("/contact", locale)}?service=${serviceId}`;
   const related = services.filter((entry) => entry.id !== serviceId);
-  const faqItems = copy.page.faqs.map((faq, index) => ({ id: `${serviceId}-${index}`, data: faq }));
+  const faqItems = copy.page.faqs.map((faq) => ({ id: `${serviceId}-${faq.id}`, data: faq }));
 
   return (
     <main id="main-content">
@@ -96,7 +96,7 @@ export function ServicePage({ locale, serviceId }: { locale: Locale; serviceId: 
             </Reveal>
             {copy.page.outcomes.slice(1).map((item, index) => {
               const Icon = outcomeIcons[index + 1]!;
-              return <Reveal className="flex min-h-[9.5rem] items-start gap-5 rounded-card bg-white p-card-padding shadow-surface" delay={(index + 1) * 50} key={item.title}><Icon className="mt-1 size-7 shrink-0" strokeWidth={1.7} aria-hidden="true" /><div><h3 className="m-0 text-heading-sm">{item.title}</h3><p className="mt-2 text-base/6 text-muted">{item.copy}</p></div></Reveal>;
+              return <Reveal className="flex min-h-[9.5rem] items-start gap-5 rounded-card bg-white p-card-padding shadow-surface" delay={(index + 1) * 50} key={item.id}><Icon className="mt-1 size-7 shrink-0" strokeWidth={1.7} aria-hidden="true" /><div><h3 className="m-0 text-heading-sm">{item.title}</h3><p className="mt-2 text-base/6 text-muted">{item.copy}</p></div></Reveal>;
             })}
           </div>
         </div>
@@ -121,7 +121,7 @@ export function ServicePage({ locale, serviceId }: { locale: Locale; serviceId: 
                   style={{ "--process-delay": `${index * 160}ms` } as React.CSSProperties}
                   data-reveal
                   data-reveal-threshold="half"
-                  key={item.title}
+                  key={item.id}
                 >
                   <span className="process-node absolute -top-13 left-[calc(50%_-_19px)] z-[1] grid size-[38px] place-items-center rounded-full bg-ink font-mono text-meta text-white tabular-nums max-nav:top-6 max-nav:-left-12" aria-hidden="true">{index + 1}</span>
                   <Icon className="block size-8" strokeWidth={1.7} aria-hidden="true" />

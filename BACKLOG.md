@@ -1,26 +1,24 @@
-# Suchio backlog
+# Suchio follow-up work
 
-This file records review findings that are valid but do not justify changing the current release without more evidence or design work.
+## Public copy, deferred at the owner's request
 
-## Next
+- Review commercial claims, including the campaign demonstration's numbers and the illustrated Suchio search ranking. Source claims or clearly label illustrations. Do not invent customer results.
+- Review all three locales for positioning, service specificity, clarity, calls to action, search intent, and answer-engine usefulness. Preserve equivalent meaning and structure.
+- Review contact expectations and the privacy disclosure near submission together with the privacy policy. Confirm the actual controller, processors, retention practices, and international transfers before changing legal text.
+- Add case studies, credentials, testimonials, social profiles, or Organization structured data only when the owner provides verified facts.
+- Review titles, descriptions, internal-link wording, and FAQ answers as part of the copy pass. Keep sitemap modification dates tied to real content changes.
 
-- Add focused tests for proxy locale negotiation, canonical and hreflang output, `robots.txt`, and `sitemap.xml`.
-- Trial a Content Security Policy in report-only mode. Account for Next.js scripts, local fonts, and inline style usage before enforcing it.
-- Add and tune a Cloudflare rate-limit rule for `POST /api/contact` after the custom domain is attached, then confirm it does not catch legitimate enquiries.
+## Account and release follow-up
 
-## Refactoring
+- Deploy the reviewed technical changes, verify Resend sender configuration, and run the post-release checks in OPERATIONS.md.
+- Enable failure notifications for the availability workflow and assign a responsible maintainer.
+- Observe the rate limiter on real traffic, particularly shared networks. Inspect contact delivery in Resend.
+- Observe the report-only CSP in production before enforcing it. Decide whether central violation reporting is needed.
+- Confirm production DNS, canonical-host redirects, Search Console ownership and indexing, and account-level security settings. Repository checks cannot prove external account state.
+- Collect real-user performance data before making claims about production Core Web Vitals. Local throttled Chromium measurements are lab checks.
 
-- Extract the duplicated home and service process markup into one `ProcessSteps` component while preserving the current motion and narrow-screen geometry.
-- Decide whether the submit button and 404 link need a shared pill-control shell. Do not generalize `CtaButton` until the states and semantics line up.
-- Route simple reveal wrappers through `Reveal` where its delay API is useful. Keep the process and scope-grid variants separate because they use different thresholds and timing.
-- Split service copy into one file per locale if another locale is added or service editing becomes frequent.
+## Revisit only with evidence
 
-## Performance and design-system maintenance
-
-- Re-evaluate the JavaScript scroll-progress bar against browser support and measured runtime cost before replacing it with scroll-driven CSS.
-- Check the Services disclosure on short mobile viewports for nested scrolling, and add listbox type-ahead if keyboard testing shows a real usability gap.
-
-## SEO
-
-- Add Organization and WebSite structured data after the legal entity name, address, public contact address, and social profiles are final.
-- Add sitemap `lastModified` values only when they come from real content or release timestamps. Do not use every build time as a fake content modification date.
+- Share duplicated process markup if changes begin drifting across home and service pages.
+- Split service copy by locale if editing volume or another locale makes the current organization difficult.
+- Reassess the scroll-progress implementation if profiling identifies a material cost or browser support changes.

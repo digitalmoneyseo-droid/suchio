@@ -11,6 +11,7 @@ import { defaultLocale, localeConfig, locales, type Locale } from "@/i18n/config
 import type { ServiceId } from "@/i18n/services";
 import { alternatePath, localizePath } from "@/lib/locale-path";
 import { requestRouteScrollTop, scrollToPageTopSmoothly } from "@/lib/route-scroll";
+import { rememberLocale } from "@/lib/locale-preference";
 
 export type SiteHeaderCopy = {
   about: string;
@@ -67,6 +68,7 @@ function scrollToPageTop(event: MouseEvent<HTMLAnchorElement>) {
 
 function LanguageMenu({ dark = false, id, locale, mobile = false, onSelect, pathname, selectLocaleLabel }: { dark?: boolean; id: string; locale: Locale; mobile?: boolean; onSelect?: () => void; pathname: string; selectLocaleLabel: string }) {
   const [open, setOpen] = useState(false);
+  const openedByHover = useRef(false);
   const [highlightedLocale, setHighlightedLocale] = useState<Locale | null>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -76,7 +78,7 @@ function LanguageMenu({ dark = false, id, locale, mobile = false, onSelect, path
   return (
     <div
       className={`relative ${mobile ? "ml-auto nav:hidden" : "max-nav:hidden"}`}
-      onPointerEnter={mobile ? undefined : () => setOpen(true)}
+      onPointerEnter={mobile ? undefined : (event) => { if (event.pointerType !== "mouse") return; openedByHover.current = !open; setOpen(true); }}
       onPointerLeave={mobile ? undefined : () => { setOpen(false); setHighlightedLocale(null); }}
       onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) { setOpen(false); setHighlightedLocale(null); } }}
       onKeyDown={(event) => {
@@ -94,7 +96,7 @@ function LanguageMenu({ dark = false, id, locale, mobile = false, onSelect, path
         aria-label={`${selectLocaleLabel}: ${localeConfig[locale].shortLabel}`}
         aria-expanded={open}
         aria-controls={id}
-        onClick={() => setOpen((current) => !current)}
+        onClick={() => { const keepOpen = openedByHover.current; openedByHover.current = false; setOpen((current) => keepOpen || !current); }}
         onKeyDown={(event) => {
           if (event.key !== "ArrowDown") return;
           event.preventDefault();
@@ -123,7 +125,7 @@ function LanguageMenu({ dark = false, id, locale, mobile = false, onSelect, path
           {locales.map((candidate) => {
             const active = candidate === locale;
             const highlighted = highlightedLocale === null ? active : highlightedLocale === candidate;
-            return <a key={candidate} className={`flex h-9 items-center justify-between gap-6 rounded-inset px-3 text-sm font-medium transition-[background-color,scale] duration-150 active:scale-[.96] motion-reduce:transition-none motion-reduce:active:scale-100 ${dark ? highlighted ? "bg-white/8 text-white" : "text-inverse-muted" : highlighted ? "bg-interaction text-ink" : "text-muted"}`} href={localeSwitchPath(pathname, locale, candidate)} aria-current={active ? "page" : undefined} onPointerEnter={() => setHighlightedLocale(candidate)} onPointerLeave={() => setHighlightedLocale(null)} onFocus={() => setHighlightedLocale(candidate)} onBlur={() => setHighlightedLocale(null)} onClick={(event) => { scrollToPageTop(event); setOpen(false); onSelect?.(); }}><span>{localeConfig[candidate].name}</span><span className={`text-meta font-normal ${dark ? "text-inverse-muted" : "text-subtle"}`} aria-hidden="true">{localeConfig[candidate].shortLabel}</span></a>;
+            return <a key={candidate} className={`flex h-9 items-center justify-between gap-6 rounded-inset px-3 text-sm font-medium transition-[background-color,scale] duration-150 active:scale-[.96] motion-reduce:transition-none motion-reduce:active:scale-100 ${dark ? highlighted ? "bg-white/8 text-white" : "text-inverse-muted" : highlighted ? "bg-interaction text-ink" : "text-muted"}`} href={localeSwitchPath(pathname, locale, candidate)} aria-current={active ? "page" : undefined} onPointerEnter={() => setHighlightedLocale(candidate)} onPointerLeave={() => setHighlightedLocale(null)} onFocus={() => setHighlightedLocale(candidate)} onBlur={() => setHighlightedLocale(null)} onClick={(event) => { if (event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) rememberLocale(candidate); scrollToPageTop(event); setOpen(false); onSelect?.(); }}><span>{localeConfig[candidate].name}</span><span className={`text-meta font-normal ${dark ? "text-inverse-muted" : "text-subtle"}`} aria-hidden="true">{localeConfig[candidate].shortLabel}</span></a>;
           })}
         </div>
       </div>
@@ -140,6 +142,7 @@ export function SiteHeader({ contactEmail, copy, locale, services }: { contactEm
   const servicesRef = useRef<HTMLDivElement>(null);
   const servicesButtonRef = useRef<HTMLButtonElement>(null);
   const mobileServicesButtonRef = useRef<HTMLButtonElement>(null);
+  const servicesOpenedByHover = useRef(false);
   const closeServicesTimer = useRef<number | undefined>(undefined);
   const pathname = usePathname();
   const isActive = (href: string) => {
@@ -154,6 +157,17 @@ export function SiteHeader({ contactEmail, copy, locale, services }: { contactEm
       document.body.style.overflow = previousOverflow;
     };
   }, [open]);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 900px)");
+    const closeOnDesktop = () => {
+      if (!desktop.matches) return;
+      setOpen(false);
+      setMobileServicesOpen(false);
+    };
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -232,7 +246,7 @@ export function SiteHeader({ contactEmail, copy, locale, services }: { contactEm
           <div
             ref={servicesRef}
             className="relative"
-            onPointerEnter={openServices}
+            onPointerEnter={(event) => { if (event.pointerType !== "mouse") return; servicesOpenedByHover.current = !servicesOpen; openServices(); }}
             onPointerLeave={scheduleServicesClose}
             onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setServicesOpen(false); }}
           >
@@ -242,7 +256,7 @@ export function SiteHeader({ contactEmail, copy, locale, services }: { contactEm
               type="button"
               aria-expanded={servicesOpen}
               aria-controls="services-menu"
-              onClick={() => setServicesOpen((current) => !current)}
+              onClick={() => { const keepOpen = servicesOpenedByHover.current; servicesOpenedByHover.current = false; setServicesOpen((current) => keepOpen || !current); }}
               onKeyDown={(event) => {
                 if (event.key === "ArrowDown") {
                   event.preventDefault();

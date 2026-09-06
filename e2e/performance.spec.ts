@@ -1,0 +1,60 @@
+import { expect, test } from "@playwright/test";
+
+declare global {
+  interface Window { suchioLab: { lcp: number; cls: number; blocking: number; interaction: number; violations: string[] } }
+}
+
+test("mobile performance budgets across locales and page types", async ({ browser, baseURL }, testInfo) => {
+  test.skip(testInfo.project.name !== "workers-chromium", "Measure the production runtime.");
+  test.setTimeout(180_000);
+  const results = [];
+  for (const prefix of ["", "/en", "/fr"]) {
+    for (const suffix of ["", "/services/seo", "/contact"]) {
+      const path = `${prefix}${suffix}` || "/";
+      const context = await browser.newContext({ baseURL, viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, reducedMotion: "reduce" });
+      try {
+        const page = await context.newPage();
+        page.on("console", (message) => { if (message.text().startsWith("Layout shift")) console.log(message.text()); });
+        const cdp = await context.newCDPSession(page);
+        await cdp.send("Network.enable");
+        await cdp.send("Network.emulateNetworkConditions", { offline: false, latency: 100, downloadThroughput: 500_000, uploadThroughput: 250_000 });
+        await cdp.send("Emulation.setCPUThrottlingRate", { rate: 4 });
+        await page.addInitScript(() => {
+          window.suchioLab = { lcp: 0, cls: 0, blocking: 0, interaction: 0, violations: [] };
+          document.addEventListener("securitypolicyviolation", (event) => window.suchioLab.violations.push(event.effectiveDirective));
+          for (const type of ["largest-contentful-paint", "layout-shift", "longtask", "event"]) {
+            new PerformanceObserver((list) => {
+              for (const entry of list.getEntries()) {
+                if (entry.entryType === "largest-contentful-paint") window.suchioLab.lcp = entry.startTime;
+                if (entry.entryType === "layout-shift" && "hadRecentInput" in entry && !entry.hadRecentInput && "value" in entry && typeof entry.value === "number") { window.suchioLab.cls += entry.value; if (entry.value > 0.05 && "sources" in entry) console.log("Layout shift", JSON.stringify(entry.sources)); }
+                if (entry.entryType === "longtask") window.suchioLab.blocking += Math.max(0, entry.duration - 50);
+                if (entry.entryType === "event") window.suchioLab.interaction = Math.max(window.suchioLab.interaction, entry.duration);
+              }
+            }).observe({ type, buffered: true, ...(type === "event" ? { durationThreshold: 16 } : {}) });
+          }
+        });
+        const failedResources: string[] = [];
+        page.on("response", (response) => { if (response.status() >= 400) failedResources.push(new URL(response.url()).pathname); });
+        await page.goto(path);
+        await page.evaluate(() => document.fonts.ready);
+        await page.waitForLoadState("networkidle");
+        const opening = await page.evaluate(() => ({ ...window.suchioLab }));
+        await page.locator('button[aria-controls="site-menu"]').click();
+        await page.keyboard.press("Escape");
+        await page.waitForTimeout(100);
+        const final = await page.evaluate(() => ({ ...window.suchioLab, transferBytes: performance.getEntriesByType("resource").reduce((sum, entry) => sum + ("transferSize" in entry && typeof entry.transferSize === "number" ? entry.transferSize : 0), 0) }));
+        const metrics = { path, ...opening, interaction: final.interaction, transferBytes: final.transferBytes };
+        results.push(metrics);
+        console.log(JSON.stringify(metrics));
+        expect(failedResources, path).toEqual([]);
+        expect(final.violations, path).toEqual([]);
+        expect(opening.lcp, path).toBeGreaterThan(0);
+        expect(opening.lcp, path).toBeLessThan(2500);
+        expect(opening.cls, path).toBeLessThan(0.1);
+        expect(opening.blocking, path).toBeLessThan(250);
+        expect(final.interaction, path).toBeLessThan(200);
+      } finally { await context.close(); }
+    }
+  }
+  await testInfo.attach("mobile-performance", { body: JSON.stringify(results, null, 2), contentType: "application/json" });
+});

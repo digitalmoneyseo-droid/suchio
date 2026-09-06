@@ -3,6 +3,7 @@ import robots from "../src/app/robots";
 import sitemap from "../src/app/sitemap";
 import { locales } from "../src/i18n/config";
 import { absoluteUrl, noIndexPageMetadata, pageMetadata, siteOrigin } from "../src/lib/site";
+import domainRedirect from "../src/domain-redirect-worker";
 
 const indexablePaths = [
   "/",
@@ -92,4 +93,14 @@ test("exposes only the canonical production host", async () => {
   expect(config).toContain('"workers_dev": false');
   expect(config).not.toContain("suchio.info");
   expect(config).not.toContain("digitalmoneyseo.workers.dev");
+});
+
+test("redirects insecure and www requests to HTTPS without losing the path or query", async () => {
+  const config = await Bun.file("wrangler.redirects.jsonc").text();
+  expect(config).toContain('"http://suchio.net/*"');
+  for (const origin of ["http://suchio.net", "http://www.suchio.net", "https://www.suchio.net"]) {
+    const response = domainRedirect.fetch(new Request(`${origin}/fr/contact?service=websites-apps`));
+    expect(response.status).toBe(308);
+    expect(response.headers.get("location")).toBe("https://suchio.net/fr/contact?service=websites-apps");
+  }
 });

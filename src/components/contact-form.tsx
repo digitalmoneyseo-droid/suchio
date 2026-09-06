@@ -5,6 +5,7 @@ import { type FormEvent, type KeyboardEvent, type ReactNode, useEffect, useRef, 
 import type { Locale } from "@/i18n/config";
 import type { ServiceId } from "@/i18n/services";
 import type { BudgetId } from "@/lib/contact-options";
+import { useContactDraft, type ContactDraft } from "@/components/contact-draft";
 
 type FieldName = "name" | "email" | "companyUrl" | "service" | "budget" | "message";
 type Errors = Partial<Record<FieldName | "form", string>>;
@@ -74,12 +75,17 @@ export function ContactForm({
   locale: Locale;
   services: ServiceOption[];
 }) {
+  const { draft, setDraft } = useContactDraft();
+  const formRef = useRef<HTMLFormElement>(null);
+  const pendingRequest = useRef<AbortController | null>(null);
+  const hydrated = useSyncExternalStore(subscribeToHydration, () => true, () => false);
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [submittedEmail, setSubmittedEmail] = useState("");
   const [isDirty, setIsDirty] = useState(false);
   const [budgetOpen, setBudgetOpen] = useState(false);
-  const [selectedBudget, setSelectedBudget] = useState("");
+  const [budgetSelection, setSelectedBudget] = useState<string>();
+  const selectedBudget = budgetSelection ?? draft?.budget ?? "";
   const [selectedServiceId, setSelectedServiceId] = useState<ServiceChoiceId>();
   const budgetControlRef = useRef<HTMLDivElement>(null);
   const budgetButtonRef = useRef<HTMLButtonElement>(null);
@@ -89,8 +95,28 @@ export function ContactForm({
   const locationSearch = useSyncExternalStore(subscribeToLocation, getLocationSearch, getServerLocationSearch);
   const requestedServiceId = new URLSearchParams(locationSearch).get("service");
   const requestedService = services.find(({ id }) => id === requestedServiceId);
-  const effectiveServiceId = selectedServiceId ?? requestedService?.id;
+  const effectiveServiceId = selectedServiceId ?? draft?.service ?? requestedService?.id;
   const preselectedServiceLabel = selectedServiceId === undefined ? requestedService?.name : undefined;
+
+  useEffect(() => () => pendingRequest.current?.abort(), []);
+
+  function saveDraft(changes: Partial<Pick<ContactDraft, "service" | "budget">> = {}) {
+    const form = formRef.current;
+    if (!form) return;
+    const fields = new FormData(form);
+    setDraft({
+      name: String(fields.get("name") ?? ""),
+      email: String(fields.get("email") ?? ""),
+      company: String(fields.get("company") ?? ""),
+      companyUrl: String(fields.get("companyUrl") ?? ""),
+      message: String(fields.get("message") ?? ""),
+      service: serviceOptions.find(({ id }) => id === fields.get("service"))?.id,
+      budget: selectedBudget,
+      submission: draft?.submission,
+      ...changes,
+    });
+    setIsDirty(true);
+  }
 
   useEffect(() => {
     if (!budgetOpen) return;
@@ -111,14 +137,14 @@ export function ContactForm({
   }, [budgetOpen]);
 
   useEffect(() => {
-    if (!isDirty) return;
+    if (!isDirty && !draft) return;
     const warnBeforeUnload = (event: BeforeUnloadEvent) => {
       event.preventDefault();
       event.returnValue = "";
     };
     window.addEventListener("beforeunload", warnBeforeUnload);
     return () => window.removeEventListener("beforeunload", warnBeforeUnload);
-  }, [isDirty]);
+  }, [isDirty, draft]);
 
   function clearError(field: FieldName) {
     setErrors((current) => current[field] || current.form ? { ...current, [field]: undefined, form: undefined } : current);
@@ -126,6 +152,7 @@ export function ContactForm({
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (pendingRequest.current) return;
     const form = event.currentTarget;
     const data = new FormData(form);
     const name = String(data.get("name") ?? "").trim();
@@ -147,37 +174,44 @@ export function ContactForm({
     if (Object.keys(nextErrors).length) {
       const firstInvalidField = Object.keys(nextErrors)[0] as FieldName;
       if (firstInvalidField === "budget") budgetButtonRef.current?.focus();
-      else (form.elements.namedItem(firstInvalidField) as HTMLElement | null)?.focus();
+      else form.querySelector<HTMLElement>(`[name="${firstInvalidField}"]`)?.focus();
       return;
     }
 
+    saveDraft();
+    const requestData = { name, email, company: String(data.get("company") ?? "").trim(), companyUrl, service, budget, message, locale, website: String(data.get("website") ?? "") };
+    const payload = JSON.stringify(requestData);
+    const previousSubmission = draft?.submission;
+    const submission = previousSubmission?.payload === payload ? previousSubmission : { payload, id: crypto.randomUUID() };
+    setDraft((current) => current ? { ...current, submission } : current);
+    const controller = new AbortController();
+    pendingRequest.current = controller;
+    const timeout = window.setTimeout(() => controller.abort(), 15_000);
     setStatus("sending");
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          company: String(data.get("company") ?? "").trim(),
-          companyUrl,
-          service,
-          budget,
-          message,
-          locale,
-          website: String(data.get("website") ?? ""),
-        }),
+        signal: controller.signal,
+        body: JSON.stringify({ ...requestData, submissionId: submission.id }),
       });
 
       if (!response.ok) throw new Error("Contact request failed");
+      const result: unknown = await response.json();
+      if (!result || typeof result !== "object" || !("ok" in result) || result.ok !== true) throw new Error("Invalid contact response");
+      setDraft(undefined);
       setSubmittedEmail(email);
       setStatus("success");
       setIsDirty(false);
       setSelectedBudget("");
+      setSelectedServiceId(undefined);
       form.reset();
     } catch {
       setErrors({ form: copy.error });
       setStatus("idle");
+    } finally {
+      window.clearTimeout(timeout);
+      pendingRequest.current = null;
     }
   }
 
@@ -203,7 +237,8 @@ export function ContactForm({
   }
 
   return (
-    <form className="grid gap-6" noValidate onChange={() => setIsDirty(true)} onSubmit={onSubmit}>
+    <form ref={formRef} className="grid gap-6" method="post" action="/api/contact" noValidate onChange={() => saveDraft()} onSubmit={onSubmit}>
+      <noscript><p className="text-sm text-error">{copy.error} <a className="underline" href={`mailto:${contactEmail}`}>{contactEmail}</a></p></noscript>
       {preselectedServiceLabel ? <p className="mt-0 mb-2 inline-flex justify-self-start rounded-control bg-interaction px-3 py-2 text-sm text-muted"><span>{copy.selectedService}: </span>&nbsp;<strong className="font-semibold text-ink">{preselectedServiceLabel}</strong></p> : null}
       <div className="grid grid-cols-2 gap-4 max-narrow:grid-cols-1">
         <Field id="contact-name" label={copy.name} error={errors.name} required={copy.requiredLabel}>
@@ -211,6 +246,7 @@ export function ContactForm({
             id="contact-name"
             className={`min-h-12 ${fieldControlClass}`}
             name="name"
+            defaultValue={draft?.name}
             autoComplete="name"
             placeholder={copy.namePlaceholder}
             maxLength={100}
@@ -226,6 +262,7 @@ export function ContactForm({
             className={`min-h-12 ${fieldControlClass}`}
             type="email"
             name="email"
+            defaultValue={draft?.email}
             autoComplete="email"
             placeholder={copy.emailPlaceholder}
             inputMode="email"
@@ -245,6 +282,7 @@ export function ContactForm({
             id="contact-company"
             className={`min-h-12 ${fieldControlClass}`}
             name="company"
+            defaultValue={draft?.company}
             autoComplete="organization"
             placeholder={copy.companyPlaceholder}
             maxLength={120}
@@ -256,6 +294,7 @@ export function ContactForm({
             className={`min-h-12 ${fieldControlClass}`}
             type="url"
             name="companyUrl"
+            defaultValue={draft?.companyUrl}
             autoComplete="url"
             placeholder={copy.companyUrlPlaceholder}
             inputMode="url"
@@ -346,7 +385,7 @@ export function ContactForm({
                   tabIndex={budgetOpen ? 0 : -1}
                   onClick={() => {
                     setSelectedBudget(option.id);
-                    setIsDirty(true);
+                    saveDraft({ budget: option.id });
                     clearError("budget");
                     setBudgetOpen(false);
                     budgetButtonRef.current?.focus();
@@ -367,6 +406,7 @@ export function ContactForm({
           id="contact-message"
           className={`min-h-44 resize-y p-4 ${fieldControlClass}`}
           name="message"
+          defaultValue={draft?.message}
           autoComplete="off"
           placeholder={copy.placeholder}
           minLength={20}
@@ -387,7 +427,7 @@ export function ContactForm({
         <button
           className="pill-button pill-button--dark inline-flex min-h-[52px] items-center gap-3.5 rounded-pill bg-inverse-surface py-0 pr-2.5 pl-4 text-ui font-semibold text-white shadow-dark-surface disabled:cursor-wait disabled:opacity-65 max-narrow:w-full max-narrow:justify-between"
           type="submit"
-          disabled={status === "sending"}
+          disabled={!hydrated || status === "sending"}
         >
           <span className="block h-[1.5em] overflow-hidden leading-control">
             <span className="pill-button__label-track flex h-[200%] flex-col">
@@ -411,6 +451,8 @@ export function ContactForm({
     </form>
   );
 }
+
+function subscribeToHydration() { return () => {}; }
 
 function subscribeToLocation(onStoreChange: () => void) {
   window.addEventListener("popstate", onStoreChange);

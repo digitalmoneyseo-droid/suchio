@@ -14,6 +14,9 @@
     "virtual:vinext-worker-entry": "./dist/server/index.js"
   },
   "workers_dev": false,
+  "ratelimits": [
+    { "name": "CONTACT_RATE_LIMITER", "namespace_id": "2026090501", "simple": { "limit": 10, "period": 60 } }
+  ],
   "routes": [
     {
       "pattern": "suchio.net",
@@ -30,6 +33,7 @@
       "/de",
       "/de/*",
       "/api/contact",
+      "/api/health",
       "/services/websites-apps",
       "/services/seo-ai-visibility",
       "/services/paid-campaigns",
@@ -41,7 +45,33 @@
       "/fr/services/websites-apps",
       "/fr/services/seo-ai-visibility",
       "/fr/services/paid-campaigns",
-      "/fr/services/ai-automation"
+      "/fr/services/ai-automation",
+      "/about",
+      "/contact",
+      "/imprint",
+      "/privacy",
+      "/services/websites",
+      "/services/seo",
+      "/services/ads",
+      "/services/automation",
+      "/en",
+      "/en/about",
+      "/en/contact",
+      "/en/imprint",
+      "/en/privacy",
+      "/en/services/websites",
+      "/en/services/seo",
+      "/en/services/ads",
+      "/en/services/automation",
+      "/fr",
+      "/fr/about",
+      "/fr/contact",
+      "/fr/imprint",
+      "/fr/privacy",
+      "/fr/services/websites",
+      "/fr/services/seo",
+      "/fr/services/ads",
+      "/fr/services/automation"
     ]
   },
   "cache": {

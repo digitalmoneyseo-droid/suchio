@@ -14,6 +14,7 @@ interface LegalLink {
 }
 
 export interface LegalSection {
+  id: string;
   title: string;
   paragraphs?: string[];
   details?: LegalDetail[];
@@ -31,6 +32,13 @@ export interface LegalPageContent {
 
 type LegalContent = Record<LegalPageKind, LegalPageContent>;
 
+export const legalUpdatedAt = "2026-08-27";
+const updatedLabel = (locale: Locale) => {
+  const prefix = { de: "Stand: ", en: "Last updated: ", fr: "Mise à jour : " }[locale];
+  const date = new Intl.DateTimeFormat(locale === "en" ? "en-GB" : locale, { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${legalUpdatedAt}T00:00:00Z`));
+  return `${prefix}${date}`;
+};
+
 const cloudflareLinks = [
   { href: "https://www.cloudflare.com/privacypolicy/", label: "Cloudflare Privacy Policy" },
   { href: "https://www.cloudflare.com/cloudflare-customer-dpa/", label: "Cloudflare Data Processing Addendum" },
@@ -46,28 +54,28 @@ const de: LegalContent = {
     eyebrow: "Rechtliches",
     title: "Impressum",
     intro: "Anbieterkennzeichnung und Kontaktangaben für Suchio.",
-    updated: "Stand: 27. August 2026",
+    updated: updatedLabel("de"),
     sections: [
-      {
+      { id: "information-pursuant-to-section-5-ddg",
         title: "Angaben gemäß § 5 DDG",
         paragraphs: ["Aleks Tsenov\nGeschäftsbezeichnung: Suchio\nBergstraße 41\n65795 Hattersheim am Main\nDeutschland"],
       },
-      {
+      { id: "contact",
         title: "Kontakt",
         details: [
           { label: "Telefon", value: "+49 176 42767348", href: "tel:+4917642767348" },
           { label: "E-Mail", value: "contact@suchio.net", href: "mailto:contact@suchio.net" },
         ],
       },
-      {
+      { id: "business-details",
         title: "Unternehmensangaben",
         paragraphs: ["Nicht in das Handelsregister eingetragenes Einzelunternehmen.\nInhaber: Aleks Tsenov"],
       },
-      {
+      { id: "responsible-for-content",
         title: "Verantwortlich für die Inhalte",
         paragraphs: ["Aleks Tsenov\nBergstraße 41\n65795 Hattersheim am Main\nDeutschland"],
       },
-      {
+      { id: "consumer-dispute-resolution",
         title: "Verbraucherstreitbeilegung",
         paragraphs: ["Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."],
       },
@@ -77,9 +85,9 @@ const de: LegalContent = {
     eyebrow: "Rechtliches",
     title: "Datenschutzerklärung",
     intro: "Diese Erklärung beschreibt, wie Suchio personenbezogene Daten beim Besuch der Website und bei einer Kontaktaufnahme verarbeitet.",
-    updated: "Stand: 27. August 2026",
+    updated: updatedLabel("de"),
     sections: [
-      {
+      { id: "1-controller",
         title: "1. Verantwortlicher",
         paragraphs: ["Aleks Tsenov\nSuchio\nBergstraße 41\n65795 Hattersheim am Main\nDeutschland"],
         details: [
@@ -87,7 +95,7 @@ const de: LegalContent = {
           { label: "E-Mail", value: "contact@suchio.net", href: "mailto:contact@suchio.net" },
         ],
       },
-      {
+      { id: "2-hosting-delivery-and-server-logs",
         title: "2. Hosting, Auslieferung und Serverprotokolle",
         paragraphs: [
           "Die Website wird über Cloudflare Workers und Cloudflare Static Assets ausgeliefert. Beim Aufruf verarbeitet Cloudflare insbesondere IP-Adresse, Datum und Uhrzeit, angeforderte URL, HTTP-Status, Referrer, Browser- und Geräteangaben sowie technische Netzwerk- und Sicherheitsdaten. Die Verarbeitung dient der sicheren und schnellen Auslieferung, der Fehleranalyse und der Abwehr missbräuchlicher Zugriffe.",
@@ -96,7 +104,7 @@ const de: LegalContent = {
         ],
         links: cloudflareLinks,
       },
-      {
+      { id: "3-contact-form-and-email-communication",
         title: "3. Kontaktformular und E-Mail-Kommunikation",
         paragraphs: [
           "Bei einer Anfrage verarbeiten wir die von dir eingegebenen Daten. Dazu können Name, E-Mail-Adresse, Unternehmen, Unternehmenswebsite, gewünschte Leistung, Budgetrahmen, Nachricht und Sprache gehören. Ein unsichtbares Honeypot-Feld dient ausschließlich der Spam-Abwehr. Die Angaben werden nicht in einer eigenen Website-Datenbank gespeichert.",
@@ -106,22 +114,22 @@ const de: LegalContent = {
         ],
         links: resendLinks,
       },
-      {
+      { id: "4-language-preference",
         title: "4. Spracheinstellung",
         paragraphs: [
           "Die Website speichert die gewählte Sprache im Cookie „suchio-locale“. Das Cookie enthält nur den Sprachcode, gilt für die gesamte Website und wird nach einem Jahr gelöscht. Es ist erforderlich, damit die ausdrücklich gewählte Sprachversion bei späteren Aufrufen erhalten bleibt.",
           "Die Speicherung ist nach § 25 Abs. 2 Nr. 2 TDDDG ohne Einwilligung zulässig. Soweit der Sprachcode einer Person zugeordnet werden kann, ist Art. 6 Abs. 1 lit. f DSGVO die Rechtsgrundlage. Das Cookie kann jederzeit über die Browsereinstellungen gelöscht werden.",
         ],
       },
-      {
+      { id: "5-no-analytics-or-marketing-services",
         title: "5. Keine Analyse- oder Marketingdienste",
         paragraphs: ["Derzeit verwenden wir keine Webanalyse, keine Werbetracker, keine Social-Media-Pixel und keine nicht erforderlichen Cookies. Sollte sich das ändern, wird diese Datenschutzerklärung vor dem Einsatz angepasst und eine erforderliche Einwilligung eingeholt."],
       },
-      {
+      { id: "6-encryption",
         title: "6. Verschlüsselung",
         paragraphs: ["Die Übertragung zwischen deinem Browser und der Website erfolgt verschlüsselt über HTTPS/TLS. Eine verschlüsselte Verbindung ist am Schloss-Symbol und an „https://“ in der Adresszeile erkennbar."],
       },
-      {
+      { id: "7-your-rights",
         title: "7. Deine Rechte",
         paragraphs: ["Soweit die gesetzlichen Voraussetzungen erfüllt sind, hast du gegenüber dem Verantwortlichen folgende Rechte:"],
         items: [
@@ -133,20 +141,20 @@ const de: LegalContent = {
           "Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 21 DSGVO)",
         ],
       },
-      {
+      { id: "8-right-to-object",
         title: "8. Widerspruchsrecht",
         paragraphs: ["Du kannst einer Verarbeitung, die auf Art. 6 Abs. 1 lit. f DSGVO beruht, aus Gründen widersprechen, die sich aus deiner besonderen Situation ergeben. Wir verarbeiten die betroffenen Daten dann nicht weiter, sofern keine zwingenden schutzwürdigen Gründe oder Gründe zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen überwiegen."],
       },
-      {
+      { id: "9-right-to-complain",
         title: "9. Beschwerderecht",
         paragraphs: ["Du kannst dich bei einer Datenschutzaufsichtsbehörde beschweren. Die für den Sitz von Suchio zuständige Behörde ist der Hessische Beauftragte für Datenschutz und Informationsfreiheit, Gustav-Stresemann-Ring 1, 65189 Wiesbaden, Deutschland."],
         links: [{ href: "https://datenschutz.hessen.de/", label: "Datenschutzaufsicht Hessen" }],
       },
-      {
+      { id: "10-providing-data-and-automated-decisions",
         title: "10. Bereitstellung der Daten und automatisierte Entscheidungen",
         paragraphs: ["Die Nutzung des Kontaktformulars ist freiwillig. Ohne die als erforderlich markierten Angaben können wir die Anfrage nicht über das Formular bearbeiten; eine Kontaktaufnahme per E-Mail oder Telefon bleibt möglich. Es findet keine automatisierte Entscheidungsfindung einschließlich Profiling statt."],
       },
-      {
+      { id: "11-changes-to-this-policy",
         title: "11. Änderungen dieser Erklärung",
         paragraphs: ["Wir aktualisieren diese Datenschutzerklärung, wenn sich die Website, die eingesetzten Dienste oder die rechtlichen Anforderungen ändern. Es gilt die auf dieser Seite veröffentlichte Fassung."],
       },
@@ -159,23 +167,23 @@ const en: LegalContent = {
     eyebrow: "Legal",
     title: "Legal notice",
     intro: "Provider identification and contact details for Suchio.",
-    updated: "Last updated: 27 August 2026",
+    updated: updatedLabel("en"),
     sections: [
-      { title: "Information pursuant to section 5 DDG", paragraphs: ["Aleks Tsenov\nTrading name: Suchio\nBergstraße 41\n65795 Hattersheim am Main\nGermany"] },
-      { title: "Contact", details: [{ label: "Phone", value: "+49 176 42767348", href: "tel:+4917642767348" }, { label: "Email", value: "contact@suchio.net", href: "mailto:contact@suchio.net" }] },
-      { title: "Business details", paragraphs: ["Sole proprietorship not registered in the German commercial register.\nOwner: Aleks Tsenov"] },
-      { title: "Responsible for content", paragraphs: ["Aleks Tsenov\nBergstraße 41\n65795 Hattersheim am Main\nGermany"] },
-      { title: "Consumer dispute resolution", paragraphs: ["We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board."] },
+      { id: "information-pursuant-to-section-5-ddg", title: "Information pursuant to section 5 DDG", paragraphs: ["Aleks Tsenov\nTrading name: Suchio\nBergstraße 41\n65795 Hattersheim am Main\nGermany"] },
+      { id: "contact", title: "Contact", details: [{ label: "Phone", value: "+49 176 42767348", href: "tel:+4917642767348" }, { label: "Email", value: "contact@suchio.net", href: "mailto:contact@suchio.net" }] },
+      { id: "business-details", title: "Business details", paragraphs: ["Sole proprietorship not registered in the German commercial register.\nOwner: Aleks Tsenov"] },
+      { id: "responsible-for-content", title: "Responsible for content", paragraphs: ["Aleks Tsenov\nBergstraße 41\n65795 Hattersheim am Main\nGermany"] },
+      { id: "consumer-dispute-resolution", title: "Consumer dispute resolution", paragraphs: ["We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board."] },
     ],
   },
   privacy: {
     eyebrow: "Legal",
     title: "Privacy policy",
     intro: "This policy explains how Suchio processes personal data when you visit the website or contact us.",
-    updated: "Last updated: 27 August 2026",
+    updated: updatedLabel("en"),
     sections: [
-      { title: "1. Controller", paragraphs: ["Aleks Tsenov\nSuchio\nBergstraße 41\n65795 Hattersheim am Main\nGermany"], details: [{ label: "Phone", value: "+49 176 42767348", href: "tel:+4917642767348" }, { label: "Email", value: "contact@suchio.net", href: "mailto:contact@suchio.net" }] },
-      {
+      { id: "1-controller", title: "1. Controller", paragraphs: ["Aleks Tsenov\nSuchio\nBergstraße 41\n65795 Hattersheim am Main\nGermany"], details: [{ label: "Phone", value: "+49 176 42767348", href: "tel:+4917642767348" }, { label: "Email", value: "contact@suchio.net", href: "mailto:contact@suchio.net" }] },
+      { id: "2-hosting-delivery-and-server-logs",
         title: "2. Hosting, delivery, and server logs",
         paragraphs: [
           "The website is delivered through Cloudflare Workers and Cloudflare Static Assets. When you access the site, Cloudflare processes data including your IP address, date and time, requested URL, HTTP status, referrer, browser and device information, and technical network and security data. This processing supports secure and fast delivery, error analysis, and protection against misuse.",
@@ -184,7 +192,7 @@ const en: LegalContent = {
         ],
         links: cloudflareLinks,
       },
-      {
+      { id: "3-contact-form-and-email-communication",
         title: "3. Contact form and email communication",
         paragraphs: [
           "When you contact us, we process the information you provide. This may include your name, email address, company, company website, selected service, budget range, message, and language. An invisible honeypot field is used only to prevent spam. The information is not stored in a separate website database.",
@@ -194,14 +202,14 @@ const en: LegalContent = {
         ],
         links: resendLinks,
       },
-      { title: "4. Language preference", paragraphs: ["The website stores your chosen language in the “suchio-locale” cookie. It contains only the language code, applies across the website, and expires after one year. It is necessary to retain the language version you expressly selected for later visits.", "Storage does not require consent under section 25(2)(2) TDDDG. Where the language code can be linked to a person, Article 6(1)(f) GDPR is the legal basis. You can delete the cookie at any time in your browser settings."] },
-      { title: "5. No analytics or marketing services", paragraphs: ["We currently use no web analytics, advertising trackers, social media pixels, or non-essential cookies. If this changes, we will update this policy before introducing the service and obtain consent where required."] },
-      { title: "6. Encryption", paragraphs: ["Data transmitted between your browser and the website is encrypted using HTTPS/TLS. You can recognise an encrypted connection by the lock symbol and “https://” in the address bar."] },
-      { title: "7. Your rights", paragraphs: ["Where the statutory conditions are met, you have the following rights against the controller:"], items: ["Access to your personal data (Article 15 GDPR)", "Rectification of inaccurate data (Article 16 GDPR)", "Erasure (Article 17 GDPR)", "Restriction of processing (Article 18 GDPR)", "Data portability (Article 20 GDPR)", "Objection to processing based on legitimate interests (Article 21 GDPR)"] },
-      { title: "8. Right to object", paragraphs: ["You may object to processing based on Article 6(1)(f) GDPR for reasons arising from your particular situation. We will then stop processing the relevant data unless compelling legitimate grounds or the establishment, exercise, or defence of legal claims override your interests."] },
-      { title: "9. Right to complain", paragraphs: ["You may lodge a complaint with a data protection authority. The authority responsible for Suchio’s place of establishment is the Hessian Commissioner for Data Protection and Freedom of Information, Gustav-Stresemann-Ring 1, 65189 Wiesbaden, Germany."], links: [{ href: "https://datenschutz.hessen.de/", label: "Hessian data protection authority" }] },
-      { title: "10. Providing data and automated decisions", paragraphs: ["Using the contact form is voluntary. Without the fields marked as required, we cannot process the enquiry through the form; you can still contact us by email or phone. We do not use automated decision-making, including profiling."] },
-      { title: "11. Changes to this policy", paragraphs: ["We update this privacy policy when the website, the services used, or legal requirements change. The version published on this page applies."] },
+      { id: "4-language-preference", title: "4. Language preference", paragraphs: ["The website stores your chosen language in the “suchio-locale” cookie. It contains only the language code, applies across the website, and expires after one year. It is necessary to retain the language version you expressly selected for later visits.", "Storage does not require consent under section 25(2)(2) TDDDG. Where the language code can be linked to a person, Article 6(1)(f) GDPR is the legal basis. You can delete the cookie at any time in your browser settings."] },
+      { id: "5-no-analytics-or-marketing-services", title: "5. No analytics or marketing services", paragraphs: ["We currently use no web analytics, advertising trackers, social media pixels, or non-essential cookies. If this changes, we will update this policy before introducing the service and obtain consent where required."] },
+      { id: "6-encryption", title: "6. Encryption", paragraphs: ["Data transmitted between your browser and the website is encrypted using HTTPS/TLS. You can recognise an encrypted connection by the lock symbol and “https://” in the address bar."] },
+      { id: "7-your-rights", title: "7. Your rights", paragraphs: ["Where the statutory conditions are met, you have the following rights against the controller:"], items: ["Access to your personal data (Article 15 GDPR)", "Rectification of inaccurate data (Article 16 GDPR)", "Erasure (Article 17 GDPR)", "Restriction of processing (Article 18 GDPR)", "Data portability (Article 20 GDPR)", "Objection to processing based on legitimate interests (Article 21 GDPR)"] },
+      { id: "8-right-to-object", title: "8. Right to object", paragraphs: ["You may object to processing based on Article 6(1)(f) GDPR for reasons arising from your particular situation. We will then stop processing the relevant data unless compelling legitimate grounds or the establishment, exercise, or defence of legal claims override your interests."] },
+      { id: "9-right-to-complain", title: "9. Right to complain", paragraphs: ["You may lodge a complaint with a data protection authority. The authority responsible for Suchio’s place of establishment is the Hessian Commissioner for Data Protection and Freedom of Information, Gustav-Stresemann-Ring 1, 65189 Wiesbaden, Germany."], links: [{ href: "https://datenschutz.hessen.de/", label: "Hessian data protection authority" }] },
+      { id: "10-providing-data-and-automated-decisions", title: "10. Providing data and automated decisions", paragraphs: ["Using the contact form is voluntary. Without the fields marked as required, we cannot process the enquiry through the form; you can still contact us by email or phone. We do not use automated decision-making, including profiling."] },
+      { id: "11-changes-to-this-policy", title: "11. Changes to this policy", paragraphs: ["We update this privacy policy when the website, the services used, or legal requirements change. The version published on this page applies."] },
     ],
   },
 };
@@ -213,11 +221,11 @@ const fr: LegalContent = {
     intro: "Identification de l’éditeur et coordonnées de Suchio.",
     updated: "Mise à jour : 27 août 2026",
     sections: [
-      { title: "Informations conformément à l’article 5 du DDG allemand", paragraphs: ["Aleks Tsenov\nNom commercial : Suchio\nBergstraße 41\n65795 Hattersheim am Main\nAllemagne"] },
-      { title: "Contact", details: [{ label: "Téléphone", value: "+49 176 42767348", href: "tel:+4917642767348" }, { label: "E-mail", value: "contact@suchio.net", href: "mailto:contact@suchio.net" }] },
-      { title: "Informations sur l’entreprise", paragraphs: ["Entreprise individuelle non inscrite au registre du commerce allemand.\nPropriétaire : Aleks Tsenov"] },
-      { title: "Responsable du contenu", paragraphs: ["Aleks Tsenov\nBergstraße 41\n65795 Hattersheim am Main\nAllemagne"] },
-      { title: "Règlement des litiges de consommation", paragraphs: ["Nous ne sommes ni disposés ni tenus de participer à une procédure de règlement des litiges devant un organisme de médiation de la consommation."] },
+      { id: "information-pursuant-to-section-5-ddg", title: "Informations conformément à l’article 5 du DDG allemand", paragraphs: ["Aleks Tsenov\nNom commercial : Suchio\nBergstraße 41\n65795 Hattersheim am Main\nAllemagne"] },
+      { id: "contact", title: "Contact", details: [{ label: "Téléphone", value: "+49 176 42767348", href: "tel:+4917642767348" }, { label: "E-mail", value: "contact@suchio.net", href: "mailto:contact@suchio.net" }] },
+      { id: "business-details", title: "Informations sur l’entreprise", paragraphs: ["Entreprise individuelle non inscrite au registre du commerce allemand.\nPropriétaire : Aleks Tsenov"] },
+      { id: "responsible-for-content", title: "Responsable du contenu", paragraphs: ["Aleks Tsenov\nBergstraße 41\n65795 Hattersheim am Main\nAllemagne"] },
+      { id: "consumer-dispute-resolution", title: "Règlement des litiges de consommation", paragraphs: ["Nous ne sommes ni disposés ni tenus de participer à une procédure de règlement des litiges devant un organisme de médiation de la consommation."] },
     ],
   },
   privacy: {
@@ -226,8 +234,8 @@ const fr: LegalContent = {
     intro: "Cette politique explique comment Suchio traite les données personnelles lors de votre visite du site ou d’une prise de contact.",
     updated: "Mise à jour : 27 août 2026",
     sections: [
-      { title: "1. Responsable du traitement", paragraphs: ["Aleks Tsenov\nSuchio\nBergstraße 41\n65795 Hattersheim am Main\nAllemagne"], details: [{ label: "Téléphone", value: "+49 176 42767348", href: "tel:+4917642767348" }, { label: "E-mail", value: "contact@suchio.net", href: "mailto:contact@suchio.net" }] },
-      {
+      { id: "1-controller", title: "1. Responsable du traitement", paragraphs: ["Aleks Tsenov\nSuchio\nBergstraße 41\n65795 Hattersheim am Main\nAllemagne"], details: [{ label: "Téléphone", value: "+49 176 42767348", href: "tel:+4917642767348" }, { label: "E-mail", value: "contact@suchio.net", href: "mailto:contact@suchio.net" }] },
+      { id: "2-hosting-delivery-and-server-logs",
         title: "2. Hébergement, diffusion et journaux serveur",
         paragraphs: [
           "Le site est diffusé à l’aide de Cloudflare Workers et Cloudflare Static Assets. Lors d’une consultation, Cloudflare traite notamment l’adresse IP, la date et l’heure, l’URL demandée, le statut HTTP, le référent, les informations sur le navigateur et l’appareil ainsi que des données techniques de réseau et de sécurité. Ce traitement permet une diffusion sûre et rapide, l’analyse des erreurs et la prévention des abus.",
@@ -236,7 +244,7 @@ const fr: LegalContent = {
         ],
         links: cloudflareLinks,
       },
-      {
+      { id: "3-contact-form-and-email-communication",
         title: "3. Formulaire de contact et communications par e-mail",
         paragraphs: [
           "Lorsque vous nous contactez, nous traitons les informations fournies. Il peut s’agir du nom, de l’adresse e-mail, de l’entreprise, de son site web, du service souhaité, de la tranche budgétaire, du message et de la langue. Un champ invisible de type honeypot sert uniquement à lutter contre le spam. Ces informations ne sont pas enregistrées dans une base de données propre au site.",
@@ -246,14 +254,14 @@ const fr: LegalContent = {
         ],
         links: resendLinks,
       },
-      { title: "4. Préférence linguistique", paragraphs: ["Le site enregistre la langue choisie dans le cookie « suchio-locale ». Il contient uniquement le code de langue, s’applique à l’ensemble du site et expire après un an. Il est nécessaire pour conserver la version linguistique expressément choisie lors des visites ultérieures.", "Ce stockage ne requiert pas de consentement en vertu de l’article 25, paragraphe 2, point 2 du TDDDG allemand. Lorsque le code peut être rattaché à une personne, la base juridique est l’article 6, paragraphe 1, point f) du RGPD. Vous pouvez supprimer le cookie à tout moment dans les réglages du navigateur."] },
-      { title: "5. Aucun service d’analyse ou de marketing", paragraphs: ["Nous n’utilisons actuellement aucun outil d’analyse web, traceur publicitaire, pixel de réseau social ni cookie non essentiel. Si cela change, cette politique sera mise à jour avant la mise en service et un consentement sera recueilli si nécessaire."] },
-      { title: "6. Chiffrement", paragraphs: ["Les échanges entre votre navigateur et le site sont chiffrés via HTTPS/TLS. Une connexion chiffrée se reconnaît au cadenas et à « https:// » dans la barre d’adresse."] },
-      { title: "7. Vos droits", paragraphs: ["Lorsque les conditions légales sont remplies, vous disposez des droits suivants auprès du responsable :"], items: ["Accès à vos données personnelles (article 15 du RGPD)", "Rectification des données inexactes (article 16 du RGPD)", "Effacement (article 17 du RGPD)", "Limitation du traitement (article 18 du RGPD)", "Portabilité des données (article 20 du RGPD)", "Opposition aux traitements fondés sur un intérêt légitime (article 21 du RGPD)"] },
-      { title: "8. Droit d’opposition", paragraphs: ["Vous pouvez vous opposer à un traitement fondé sur l’article 6, paragraphe 1, point f) du RGPD pour des raisons tenant à votre situation particulière. Nous cesserons alors le traitement, sauf motifs légitimes impérieux ou nécessité liée à la constatation, à l’exercice ou à la défense de droits en justice."] },
-      { title: "9. Droit d’introduire une réclamation", paragraphs: ["Vous pouvez déposer une réclamation auprès d’une autorité de protection des données. L’autorité compétente pour le siège de Suchio est le Commissaire de Hesse à la protection des données et à la liberté d’information, Gustav-Stresemann-Ring 1, 65189 Wiesbaden, Allemagne."], links: [{ href: "https://datenschutz.hessen.de/", label: "Autorité de protection des données de Hesse" }] },
-      { title: "10. Fourniture des données et décisions automatisées", paragraphs: ["L’utilisation du formulaire est facultative. Sans les champs marqués comme obligatoires, nous ne pouvons pas traiter la demande par ce moyen ; un contact par e-mail ou téléphone reste possible. Aucune décision automatisée, y compris aucun profilage, n’est réalisée."] },
-      { title: "11. Modification de cette politique", paragraphs: ["Nous mettons cette politique à jour lorsque le site, les services utilisés ou les exigences juridiques évoluent. La version publiée sur cette page s’applique."] },
+      { id: "4-language-preference", title: "4. Préférence linguistique", paragraphs: ["Le site enregistre la langue choisie dans le cookie « suchio-locale ». Il contient uniquement le code de langue, s’applique à l’ensemble du site et expire après un an. Il est nécessaire pour conserver la version linguistique expressément choisie lors des visites ultérieures.", "Ce stockage ne requiert pas de consentement en vertu de l’article 25, paragraphe 2, point 2 du TDDDG allemand. Lorsque le code peut être rattaché à une personne, la base juridique est l’article 6, paragraphe 1, point f) du RGPD. Vous pouvez supprimer le cookie à tout moment dans les réglages du navigateur."] },
+      { id: "5-no-analytics-or-marketing-services", title: "5. Aucun service d’analyse ou de marketing", paragraphs: ["Nous n’utilisons actuellement aucun outil d’analyse web, traceur publicitaire, pixel de réseau social ni cookie non essentiel. Si cela change, cette politique sera mise à jour avant la mise en service et un consentement sera recueilli si nécessaire."] },
+      { id: "6-encryption", title: "6. Chiffrement", paragraphs: ["Les échanges entre votre navigateur et le site sont chiffrés via HTTPS/TLS. Une connexion chiffrée se reconnaît au cadenas et à « https:// » dans la barre d’adresse."] },
+      { id: "7-your-rights", title: "7. Vos droits", paragraphs: ["Lorsque les conditions légales sont remplies, vous disposez des droits suivants auprès du responsable :"], items: ["Accès à vos données personnelles (article 15 du RGPD)", "Rectification des données inexactes (article 16 du RGPD)", "Effacement (article 17 du RGPD)", "Limitation du traitement (article 18 du RGPD)", "Portabilité des données (article 20 du RGPD)", "Opposition aux traitements fondés sur un intérêt légitime (article 21 du RGPD)"] },
+      { id: "8-right-to-object", title: "8. Droit d’opposition", paragraphs: ["Vous pouvez vous opposer à un traitement fondé sur l’article 6, paragraphe 1, point f) du RGPD pour des raisons tenant à votre situation particulière. Nous cesserons alors le traitement, sauf motifs légitimes impérieux ou nécessité liée à la constatation, à l’exercice ou à la défense de droits en justice."] },
+      { id: "9-right-to-complain", title: "9. Droit d’introduire une réclamation", paragraphs: ["Vous pouvez déposer une réclamation auprès d’une autorité de protection des données. L’autorité compétente pour le siège de Suchio est le Commissaire de Hesse à la protection des données et à la liberté d’information, Gustav-Stresemann-Ring 1, 65189 Wiesbaden, Allemagne."], links: [{ href: "https://datenschutz.hessen.de/", label: "Autorité de protection des données de Hesse" }] },
+      { id: "10-providing-data-and-automated-decisions", title: "10. Fourniture des données et décisions automatisées", paragraphs: ["L’utilisation du formulaire est facultative. Sans les champs marqués comme obligatoires, nous ne pouvons pas traiter la demande par ce moyen ; un contact par e-mail ou téléphone reste possible. Aucune décision automatisée, y compris aucun profilage, n’est réalisée."] },
+      { id: "11-changes-to-this-policy", title: "11. Modification de cette politique", paragraphs: ["Nous mettons cette politique à jour lorsque le site, les services utilisés ou les exigences juridiques évoluent. La version publiée sur cette page s’applique."] },
     ],
   },
 };

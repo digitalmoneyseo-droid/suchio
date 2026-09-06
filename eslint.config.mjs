@@ -5,5 +5,5 @@ import nextVitals from "eslint-config-next/core-web-vitals";
 export default defineConfig([
   ...nextVitals,
   ...nextTypescript,
-  globalIgnores([".next/**", ".vinext/**", ".wrangler/**", "dist/**", "node_modules/**", "next-env.d.ts"]),
+  globalIgnores([".next/**", ".vinext/**", ".wrangler/**", "dist/**", "node_modules/**", "next-env.d.ts", "src/worker-configuration.d.ts"]),
 ]);

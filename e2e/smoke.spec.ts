@@ -107,6 +107,15 @@ test("sends the site security headers", async ({ request }) => {
   expect(response.headers()["referrer-policy"]).toBe("strict-origin-when-cross-origin");
   expect(response.headers()["permissions-policy"]).toBe("camera=(), microphone=(), geolocation=(), browsing-topics=()");
   expect(response.headers()["x-powered-by"]).toBeUndefined();
+  expect(response.headers()["content-security-policy-report-only"]).toContain("form-action 'self'");
+});
+
+test("reports unavailable email configuration without exposing secrets", async ({ request }) => {
+  const response = await request.get("/api/health");
+  expect(response.status()).toBe(503);
+  expect(await response.json()).toEqual({ ok: false });
+  expect(response.headers()["cache-control"]).toBe("no-store");
+  expect(response.headers()["x-robots-tag"]).toBe("noindex");
 });
 
 test("keeps mobile navigation keyboard-accessible and within the viewport", async ({ page }) => {
@@ -200,6 +209,7 @@ test("returns a controlled error when contact email is not configured", async ({
   const response = await request.post("/api/contact", {
     data: {
       name: "Runtime check",
+      submissionId: "d0d5bcd1-e816-42af-894c-3eac734a502d",
       email: "runtime@example.com",
       company: "",
       companyUrl: "",
