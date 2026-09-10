@@ -2,22 +2,8 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 const outputDirectory = join(process.cwd(), "dist", "client");
-const siteOrigin = "https://suchio.net";
-const localeDefinitions = [
-  { locale: "de", prefix: "" },
-  { locale: "en", prefix: "/en" },
-  { locale: "fr", prefix: "/fr" },
-];
-const indexableBasePaths = [
-  "/",
-  "/about",
-  "/contact",
-  "/services/ads",
-  "/services/automation",
-  "/services/seo",
-  "/services/websites",
-];
-const legalBasePaths = ["/imprint", "/privacy"];
+import { siteOrigin } from "../src/lib/site-config.ts";
+import { localeDefinitions, indexableBasePaths, legalBasePaths } from "../src/lib/public-routes.ts";
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);

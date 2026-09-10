@@ -1,5 +1,6 @@
-import { expect, test } from "bun:test";
+import { expect, spyOn, test } from "bun:test";
 import { buildContactEmail, handleContactRequest } from "../src/lib/contact-handler";
+import { retryAfterSeconds } from "../src/lib/contact-response";
 
 const validEnquiry = {
   name: "Audit example", email: "audit@example.com", company: "", companyUrl: "",
@@ -27,7 +28,7 @@ test("rejects malformed JSON, spoofed forwarded hosts, and invalid fields before
   }
 });
 
-test("sends the same provider idempotency key on retries without logging enquiry contents", async () => {
+test("sends the same provider idempotency key on retries", async () => {
   const keys: (string | null)[] = [];
   const transport = async (url: string, init: RequestInit) => {
     expect(url).toBe("https://api.resend.com/emails");
@@ -42,6 +43,37 @@ test("sends the same provider idempotency key on retries without logging enquiry
     expect(response.status).toBe(200);
   }
   expect(keys).toEqual([`contact/${validEnquiry.submissionId}`, `contact/${validEnquiry.submissionId}`]);
+});
+
+test("logs operational events without enquiry contents or credentials", async () => {
+  const info = spyOn(console, "info").mockImplementation(() => {});
+  const error = spyOn(console, "error").mockImplementation(() => {});
+  try {
+    const config = { apiKey: "private-test-key", from: "sender@example.com", to: "recipient@example.com" };
+    for (const transport of [async () => Response.json({ id: "provider-id" }), async () => new Response(null, { status: 403 }), async () => { throw new Error(validEnquiry.email); }]) {
+      await handleContactRequest(enquiryRequest(validEnquiry), config, transport);
+    }
+    await handleContactRequest(enquiryRequest(validEnquiry), {});
+    const logs = [...info.mock.calls, ...error.mock.calls].map(call => JSON.parse(String(call[0])));
+    expect(logs.map(log => log.event).sort()).toEqual(["contact.accepted", "contact.failed", "contact.rejected", "contact.unconfigured"]);
+    for (const value of [validEnquiry.name, validEnquiry.email, validEnquiry.message, ...Object.values(config)]) expect(JSON.stringify(logs)).not.toContain(value);
+    for (const log of logs) expect(Object.keys(log).every(key => ["event", "submissionId", "emailId", "status"].includes(key))).toBeTrue();
+  } finally {
+    info.mockRestore();
+    error.mockRestore();
+  }
+});
+
+test("returns stable error codes and interprets retry delays safely", async () => {
+  const response = await handleContactRequest(enquiryRequest({ ...validEnquiry, service: "unknown" }), {});
+  expect(await response.json()).toMatchObject({ code: "invalid_fields" });
+  expect(response.headers.get("cache-control")).toBe("no-store");
+  const now = Date.parse("2026-09-07T12:00:00Z");
+  expect(retryAfterSeconds("120", now)).toBe(120);
+  expect(retryAfterSeconds("Mon, 07 Sep 2026 12:00:30 GMT", now)).toBe(30);
+  expect(retryAfterSeconds("not-a-date", now)).toBe(60);
+  expect(retryAfterSeconds(null, now)).toBe(60);
+  expect(retryAfterSeconds("99999999", now)).toBe(3600);
 });
 
 test("returns a controlled failure for provider rejection, malformed success, and network failure", async () => {

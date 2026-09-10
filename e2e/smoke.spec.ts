@@ -1,5 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { expectContentWithinViewport } from "./helpers";
 
 const routeSuffixes = [
   "",
@@ -23,8 +24,7 @@ const legacyServiceRoutes = [
 ] as const;
 
 async function expectNoHorizontalOverflow(page: Page) {
-  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-  expect(overflow).toBeLessThanOrEqual(1);
+  await expectContentWithinViewport(page);
 }
 
 async function completeContactForm(page: Page) {
@@ -222,7 +222,7 @@ test("returns a controlled error when contact email is not configured", async ({
   });
 
   expect(response.status()).toBe(503);
-  await expect(response.json()).resolves.toEqual({ error: "Email service unavailable" });
+  await expect(response.json()).resolves.toEqual({ error: "Email service unavailable", code: "unavailable" });
 });
 
 test("keeps representative pages accessible with reduced motion", async ({ page }) => {

@@ -18,8 +18,8 @@
     "dev:vinext": "vinext dev --port 3001",
     "build:vinext": "vinext build && bun scripts/prepare-cloudflare-assets.mjs",
     "start:vinext": "wrangler dev --config dist/server/wrangler.json",
-    "deploy:vinext": "bun run build:vinext && wrangler deploy --config dist/server/wrangler.json",
-    "deploy:redirects": "wrangler deploy --config wrangler.redirects.jsonc",
+    "deploy:vinext": "bun scripts/deploy-verified.mjs",
+    "deploy:redirects": "bun scripts/deploy-verified.mjs --redirects",
     "types:workers": "wrangler types src/worker-configuration.d.ts --env-interface CloudflareBindings --env-file .env.example"
   },
   "dependencies": {
@@ -57,7 +57,8 @@
   },
   "type": "module",
   "overrides": {
-    "js-yaml": "4.3.1",
+    "js-yaml": "4.3.2",
+    "sharp": "0.35.4",
     "nanoid": "3.3.18"
   }
 }

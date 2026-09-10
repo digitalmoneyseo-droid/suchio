@@ -1,9 +1,11 @@
+import { contactError } from "./lib/contact-response";
 import vinextHandler from "vinext/server/fetch-handler";
 import { defaultLocale, hasLocale, localeCookie, type Locale } from "./i18n/config";
 import { handleContactRequest } from "./lib/contact-handler";
 import { securityHeaders } from "./lib/security-headers";
 import { getLegacyServiceRedirectPath } from "./lib/service-routes";
 import { healthResponse } from "./lib/health";
+import { handleSecurityReport } from "./lib/security-report";
 
 type CloudflareEnv = Pick<CloudflareBindings, "ASSETS" | "CONTACT_RATE_LIMITER"> & Partial<Pick<CloudflareBindings, "RESEND_API_KEY" | "CONTACT_EMAIL_FROM" | "CONTACT_EMAIL_TO">>;
 
@@ -49,10 +51,10 @@ async function handleContactRoute(request: Request, env: CloudflareEnv) {
     // Anonymous form: a generous per-IP burst limit also permits shared networks.
     const ip = request.headers.get("cf-connecting-ip") ?? "local";
     const { success } = await env.CONTACT_RATE_LIMITER.limit({ key: `suchio:contact:${ip}` });
-    if (!success) return withSecurityHeaders(Response.json({ error: "Too many requests" }, { status: 429, headers: { "Retry-After": "60", "Cache-Control": "no-store" } }));
+    if (!success) return withSecurityHeaders(contactError("rate_limited", 60));
   } catch {
     console.error(JSON.stringify({ event: "contact.rate_limit_unavailable" }));
-    return withSecurityHeaders(Response.json({ error: "Email service unavailable" }, { status: 503 }));
+    return withSecurityHeaders(contactError("unavailable"));
   }
 
   const response = await handleContactRequest(request, {
@@ -95,6 +97,17 @@ const worker = {
     }
 
     if (url.pathname === "/api/contact") return handleContactRoute(request, env);
+    if (url.pathname === "/api/security-report") {
+      if (request.method !== "POST") return withSecurityHeaders(await handleSecurityReport(request));
+      try {
+        const ip = request.headers.get("cf-connecting-ip") ?? "local";
+        const { success } = await env.CONTACT_RATE_LIMITER.limit({ key: `suchio:security-report:${ip}` });
+        if (!success) return withSecurityHeaders(new Response(null, { status: 429, headers: { "Cache-Control": "no-store", "Retry-After": "60" } }));
+      } catch {
+        return withSecurityHeaders(new Response(null, { status: 503, headers: { "Cache-Control": "no-store" } }));
+      }
+      return withSecurityHeaders(await handleSecurityReport(request));
+    }
     if (url.pathname === "/api/health") {
       if (request.method !== "GET" && request.method !== "HEAD") return withSecurityHeaders(new Response(null, { status: 405, headers: { Allow: "GET, HEAD" } }));
       return withSecurityHeaders(healthResponse({ apiKey: env.RESEND_API_KEY, to: env.CONTACT_EMAIL_TO, from: env.CONTACT_EMAIL_FROM }));

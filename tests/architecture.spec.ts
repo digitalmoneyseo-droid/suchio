@@ -5,6 +5,9 @@ import { legalContent, type LegalPageKind } from "../src/i18n/legal-content";
 import { budgetOptions } from "../src/lib/contact-options";
 import { getLegacyServiceRedirectPath, getServicePath, serviceOrder, serviceRouteSlugs } from "../src/lib/service-routes";
 import { dictionaries } from "../src/i18n/translations";
+import { publicRoutes, legacyServiceRoutes } from "../src/lib/public-routes";
+import { publicBusinessAddress, publicContactEmail, publicContactPhone } from "../src/lib/contact";
+import ts from "typescript";
 
 function placeholders(value: string) { return [...value.matchAll(/\{([a-zA-Z][a-zA-Z0-9]*)\}/g)].map((match) => match[1]).sort(); }
 function contentShape(value: unknown): unknown {
@@ -12,6 +15,30 @@ function contentShape(value: unknown): unknown {
   if (value && typeof value === "object") return Object.fromEntries(Object.entries(value).map(([key, entry]) => [key, key === "id" || key === "href" ? entry : contentShape(entry)]));
   return typeof value === "string" ? placeholders(value) : typeof value;
 }
+
+test("every public and legacy route reaches the production Worker for RSC or redirects", async () => {
+  const parsed = ts.parseConfigFileTextToJson("wrangler.jsonc", await Bun.file("wrangler.jsonc").text());
+  expect(parsed.error).toBeUndefined();
+  const configured: unknown = parsed.config.assets.run_worker_first;
+  expect(Array.isArray(configured)).toBeTrue();
+  if (!Array.isArray(configured)) throw new Error("Missing Worker routes");
+  const expected = [...publicRoutes.map(route => route.pathname), ...legacyServiceRoutes.map(route => route.from), "/de", "/de/*", "/api/contact", "/api/health", "/api/security-report", "/audit/*", "/en/audit/*", "/fr/audit/*", "/datenschutz", "/en/datenschutz", "/fr/datenschutz"];
+  expect([...configured].sort()).toEqual([...new Set(expected)].sort());
+  const proxy = await Bun.file("src/proxy.ts").text();
+  const matcher = proxy.match(/matcher:\s*(\[[\s\S]*?\])/);
+  expect(matcher).not.toBeNull();
+  const paths: unknown = ts.parseConfigFileTextToJson("matcher.json", `{"matcher": ${matcher![1]}}`).config.matcher;
+  expect(paths).toEqual(["/", "/de", "/de/:path*", ...legacyServiceRoutes.map(route => route.from)]);
+});
+
+test("public contact facts remain consistent with every legal locale", () => {
+  for (const locale of locales) {
+    for (const kind of ["imprint", "privacy"] as const) {
+      const serialized = JSON.stringify(legalContent[locale][kind]);
+      for (const value of [publicContactEmail, publicContactPhone, publicBusinessAddress.streetAddress, publicBusinessAddress.postalCode, publicBusinessAddress.addressLocality]) expect(serialized).toContain(value);
+    }
+  }
+});
 
 test("preserves service sections, item order, and placeholders in every locale", () => {
   for (const locale of locales) {
@@ -29,9 +56,9 @@ test("preserves service sections, item order, and placeholders in every locale",
 
 test("preserves legal disclosures, links, and dates without changing localized wording", () => {
   for (const locale of locales) expect(contentShape(legalContent[locale])).toEqual(contentShape(legalContent.de));
-  expect(legalContent.de.privacy.updated).toBe("Stand: 27. August 2026");
-  expect(legalContent.en.privacy.updated).toBe("Last updated: 27 August 2026");
-  expect(legalContent.fr.privacy.updated).toBe("Mise à jour : 27 août 2026");
+  expect(legalContent.de.privacy.updated).toBe("Stand: 9. September 2026");
+  expect(legalContent.en.privacy.updated).toBe("Last updated: 9 September 2026");
+  expect(legalContent.fr.privacy.updated).toBe("Mise à jour : 9 septembre 2026");
 });
 
 test("keeps service identities equivalent across locales", () => {

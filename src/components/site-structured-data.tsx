@@ -1,4 +1,4 @@
-import { publicContactEmail } from "@/lib/contact";
+import { publicBusinessAddress, publicContactEmail, publicContactPhone } from "@/lib/contact";
 import { locales } from "@/lib/i18n";
 import { absoluteUrl } from "@/lib/site";
 
@@ -19,13 +19,10 @@ export function SiteStructuredData() {
           height: 180,
         },
         email: publicContactEmail,
-        telephone: "+49 176 42767348",
+        telephone: publicContactPhone,
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Bergstraße 41",
-          postalCode: "65795",
-          addressLocality: "Hattersheim am Main",
-          addressCountry: "DE",
+          ...publicBusinessAddress,
         },
       },
       {

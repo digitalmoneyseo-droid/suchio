@@ -89,8 +89,8 @@ Reading prose uses `max-w-reading` (68ch); narrow introductions use `max-w-narro
 | Tertiary text | `text-subtle` | Tailwind `neutral-500` | Compact metadata, placeholders, secondary icons |
 | Inverse text | `text-inverse`, `text-white` | `#FFFFFF` | Primary text on dark fields |
 | Inverse secondary | `text-inverse-muted` | Tailwind `neutral-400` | Supporting text on dark fields |
-| Interactive text | `text-accent` | blue 800 | Links and text actions on light surfaces |
-| Focus | `outline-focus` | blue 700 | Visible keyboard focus |
+| Interactive text | `text-accent` | `brand-600` / `hsl(212 100% 41%)` | Links and text actions on light surfaces |
+| Focus | `outline-focus` | `brand-500` / `hsl(212 100% 48%)` | Visible keyboard focus |
 | Error | `text-error`, `outline-error` | `#B42318` | Error copy and invalid state |
 | Hero highlight | `bg-highlight` / `--color-highlight` | `#FFF500` | Homepage headline mark only |
 
@@ -110,7 +110,7 @@ Use numbered utilities for local component relationships and semantic utilities 
 
 | Role | Utility | Range | Use |
 |---|---|---:|---|
-| Page gutter | `px-page` | 24px minimum | Shared inset for header, sections, and footer |
+| Page gutter | `px-page` | 24px baseline; narrow inset capped at 7.5vw | Shared inset for header, sections, and footer |
 | Page-title start | `pt-page-title` | 104px narrow; 128–160px wide | Clears the floating header |
 | Section turn | `py-section` | 64–96px | Major reader-question boundary |
 | Compact section turn | `py-section-compact` | 48–64px | Related supporting section |
@@ -118,9 +118,11 @@ Use numbered utilities for local component relationships and semantic utilities 
 | Split-layout gap | `gap-split` | 40–96px | Unequal editorial and visual columns |
 | Peer-grid gap | `gap-grid` | 24–64px | Reflowing peer columns or steps |
 | Repeated composition turn | `mb-content-stack` | 80–112px | Major repeated offer rows |
-| Standard card inset | `p-card-padding` | 24px | Ordinary content card |
+| Standard card inset | `p-card-padding` | 24px baseline, capped at 7.5vw | Ordinary content card |
 | Fluid card inset | `p-card-fluid` | 24–40px | Large or featured card |
 | Overlay gutter | `px-menu` | 24–80px | Full-screen menu only |
+
+Page and standard-card insets stop growing with text size on narrow screens. Form choices and CTA icons wrap when enlarged labels need the full row; avoid squeezing words into single-character columns.
 
 Every gap has one owner:
 
@@ -166,7 +168,7 @@ Reuse these patterns before creating a variation:
 - `EditorialHero`: about, contact, and other editorial introductions.
 - `Disclosure`: native `details` and `summary` own FAQ and offer expansion. Preserve keyboard activation and readable answers without JavaScript; use shared heading, separator, and focus roles.
 - `SectionHeading`: main section title with optional intro; left by default, centered for short peer grids or FAQs.
-- `CtaButton`: primary and secondary conversion links.
+- `CtaButton`: primary and secondary conversion links. Labels wrap within the available width; their duplicate animated label shares the same grid cell and moves by its full height. Never lock conversion labels to a single line.
 - `FinalCta`: the generic shared final conversion band. Service-specific final sections use the same roles and may remain page-owned while their copy contract differs.
 - `Faq`: disclosure behavior and question typography.
 - `Reveal`: standard viewport reveal behavior.
@@ -195,12 +197,14 @@ Use Lucide at the established 1.7–2 stroke range. Icons clarify an action, con
 
 Default to stillness. Motion should explain state, continuity, process, or confirmation:
 
+- Native FAQ and service disclosures enhance to interruptible 240ms height animations, including grouped closing. Reduced motion toggles immediately; without JavaScript native details remain usable.
 - Direct control feedback: 150–250ms.
 - Standard reveal: 420ms with `var(--ease-out)`.
 - Longer illustrative sequences are allowed when their sequence communicates cause and effect.
 - Animate transform and opacity where possible and list transitioned properties explicitly.
 - The automation demonstration runs once per mount and completes within five seconds. Reduced motion shows its settled state.
 - Motion must be interruptible, must not gate content, and needs a complete reduced-motion state.
+- Offer visuals retain inline static geometry before loading and when their isolated error boundary catches a failed chunk. Decorative failures never replace page content.
 - Use `IntersectionObserver` for viewport entry rather than an unthrottled scroll handler.
 
 Interactive elements need the states their behavior can enter: default, hover where available, active, `:focus-visible`, disabled or loading, error, and selected/current. Use buttons for actions and links for navigation. Keep targets at least 44px where practical and never require hover to reveal essential information.
@@ -218,6 +222,8 @@ WCAG 2.2 AA is the baseline:
 - User text-spacing overrides do not clip, overlap, or hide content.
 - Pages use ordered headings, landmarks, one `h1`, a skip link, visible focus, native controls, accessible names, and text alternatives.
 - Errors are visible, specific, and actionable.
+- Contact fields lock during submission, retries respect server cooldowns, and the budget listbox restores selected focus with one Tab stop and type-ahead.
+- The regular header is present in server HTML. A noscript-only native disclosure provides navigation when JavaScript is disabled, without flashing a fallback during language changes.
 - A usable path remains when animation or enhanced interaction is unavailable wherever the feature permits it.
 
 Responsive, keyboard, reduced-motion, content, and locale behavior are one acceptance criterion, not separate polish passes.
@@ -234,7 +240,7 @@ Confirm that:
 - Semantic colors, spacing, radii, boundaries, and shared components are used where their roles apply.
 - The primary next action is obvious and every claim is supported.
 - Text and UI contrast meet the documented thresholds.
-- Layout survives narrow reflow, 200% zoom, and text-spacing overrides without clipping or hidden overflow.
+- Layout survives narrow reflow, 200% zoom, and text-spacing overrides without clipping or hidden overflow. Check meaningful element bounds as well as document width; clipped descendants can escape document-width checks.
 - Interactive states, errors, accessible names, and reduced-motion alternatives work.
 - Any local visual exception is scoped, purposeful, and inaccessible to the editorial design API.
 

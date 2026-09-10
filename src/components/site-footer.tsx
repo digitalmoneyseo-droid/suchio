@@ -10,13 +10,24 @@ export function SiteFooter({ locale }: { locale: Locale }) {
     <footer className="mt-auto bg-black px-page pt-16 text-inverse" style={{ paddingBottom: "max(2rem, env(safe-area-inset-bottom))" }}>
       <div className="footer-main flex min-h-40 justify-between gap-12 max-narrow:block">
         <Link href={localizePath("/", locale)} className="group/brand inline-flex min-h-11 self-start items-center"><BrandMark inverse /></Link>
-        <div className="footer-links grid grid-cols-3 gap-x-20 gap-y-12 max-compact:gap-x-10 max-narrow:mt-16 max-narrow:grid-cols-2 max-narrow:gap-x-6">
-          <div className="flex min-w-25 flex-col gap-2"><span className="mb-3 text-meta text-inverse-muted">{t(locale, "nav.services")}</span>{services.map((service) => <Link className="text-meta transition-colors duration-150 hover:text-white" href={service.href} key={service.id}>{service.copy.name}</Link>)}</div>
-          <div className="flex min-w-25 flex-col gap-2"><span className="mb-3 text-meta text-inverse-muted">{t(locale, "footer.studio")}</span><Link className="text-meta transition-colors duration-150 hover:text-white" href={localizePath("/about", locale)}>{t(locale, "nav.about")}</Link><Link className="text-meta transition-colors duration-150 hover:text-white" href={localizePath("/contact", locale)}>{t(locale, "nav.contact")}</Link></div>
-          <div className="flex min-w-25 flex-col gap-2"><span className="mb-3 text-meta text-inverse-muted">{t(locale, "footer.legal")}</span><Link className="text-meta transition-colors duration-150 hover:text-white" href={localizePath("/imprint", locale)}>{t(locale, "footer.imprint")}</Link><Link className="text-meta transition-colors duration-150 hover:text-white" href={localizePath("/privacy", locale)}>{t(locale, "footer.privacy")}</Link></div>
+        <div className="footer-links grid grid-cols-3 gap-x-20 gap-y-12 max-compact:gap-x-10 max-narrow:mt-16 max-narrow:grid-cols-[repeat(auto-fit,minmax(min(100%,8rem),1fr))] max-narrow:gap-x-6">
+          <div className="flex min-w-0 flex-col gap-2"><span className="mb-3 text-meta text-inverse-muted">{t(locale, "nav.services")}</span>{services.map((service) => <Link className="text-meta transition-colors duration-150 hover:text-white" href={service.href} key={service.id}>{service.copy.name}</Link>)}</div>
+          <div className="flex min-w-0 flex-col gap-2"><span className="mb-3 text-meta text-inverse-muted">{t(locale, "footer.studio")}</span><Link className="text-meta transition-colors duration-150 hover:text-white" href={localizePath("/about", locale)}>{t(locale, "nav.about")}</Link><Link className="text-meta transition-colors duration-150 hover:text-white" href={localizePath("/contact", locale)}>{t(locale, "nav.contact")}</Link></div>
+          <div className="flex min-w-0 flex-col gap-2"><span className="mb-3 text-meta text-inverse-muted">{t(locale, "footer.legal")}</span><Link className="text-meta transition-colors duration-150 hover:text-white" href={localizePath("/imprint", locale)}>{t(locale, "footer.imprint")}</Link><Link className="text-meta transition-colors duration-150 hover:text-white" href={localizePath("/privacy", locale)}>{t(locale, "footer.privacy")}</Link></div>
         </div>
       </div>
-      <div className="footer-legal flex justify-between border-t border-inverse-line pt-6 text-meta text-inverse-muted max-narrow:mt-12 max-narrow:flex-col max-narrow:gap-2"><span>© 2026 Suchio</span><a className="transition-colors duration-150 hover:text-white" href={`mailto:${publicContactEmail}`}>{publicContactEmail}</a></div>
+      <div className="footer-legal flex items-center justify-between pt-6 text-meta text-inverse-muted max-narrow:mt-12 max-narrow:flex-col max-narrow:items-start max-narrow:gap-2">
+        <span>© 2026 Suchio</span>
+        <div className="flex items-center gap-4">
+          <a className="inline-flex size-11 shrink-0 items-center justify-center text-white" href="https://x.com/suchionet" aria-label="X (@suchionet)">
+            {/* Official logo: https://about.x.com/en/who-we-are/brand-toolkit */}
+            <svg className="h-4 w-auto" viewBox="0 0 1200 1227" fill="none" aria-hidden="true" focusable="false">
+              <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="currentColor" />
+            </svg>
+          </a>
+          <a className="transition-colors duration-150 hover:text-white" href={`mailto:${publicContactEmail}`}>{publicContactEmail}</a>
+        </div>
+      </div>
     </footer>
   );
 }

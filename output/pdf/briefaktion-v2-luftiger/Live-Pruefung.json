@@ -1,0 +1,60 @@
+{
+  "checkedAt": "2026-09-10T05:13:54.838Z",
+  "version": "96b4ea90-585c-4cc8-96e2-6cd82221523b",
+  "audits": [
+    {
+      "company": "CW Cosmetics",
+      "url": "https://suchio.net/audit/8d8558899dfe506aed6f",
+      "status": 200,
+      "locales": "de/en/fr",
+      "contact": true,
+      "privacy": true,
+      "noindex": true
+    },
+    {
+      "company": "Marquardt Küchen · Werksstudio Kriftel",
+      "url": "https://suchio.net/audit/24bf48c8056137494c6d",
+      "status": 200,
+      "locales": "de/en/fr",
+      "contact": true,
+      "privacy": true,
+      "noindex": true
+    },
+    {
+      "company": "LM Limousines",
+      "url": "https://suchio.net/audit/71d41cfb21764ea61dd9",
+      "status": 200,
+      "locales": "de/en/fr",
+      "contact": true,
+      "privacy": true,
+      "noindex": true
+    },
+    {
+      "company": "PowerHouse Main-Taunus",
+      "url": "https://suchio.net/audit/708977f0e498de728742",
+      "status": 200,
+      "locales": "de/en/fr",
+      "contact": true,
+      "privacy": true,
+      "noindex": true
+    },
+    {
+      "company": "The Varied Project",
+      "url": "https://suchio.net/audit/d6aa9cfcf9e2396f961b",
+      "status": 200,
+      "locales": "de/en/fr",
+      "contact": true,
+      "privacy": true,
+      "noindex": true
+    },
+    {
+      "company": "Allround-Handwerker · Frankfurt am Main",
+      "url": "https://suchio.net/audit/dcf26dcad45cdfce4469",
+      "status": 200,
+      "locales": "de/en/fr",
+      "contact": true,
+      "privacy": true,
+      "noindex": true
+    }
+  ]
+}

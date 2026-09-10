@@ -11,7 +11,7 @@ export function BrandMark({
       alt="Suchio"
       width={729}
       height={223}
-      className="block h-7 w-auto"
+      className="block h-7 max-w-full w-auto object-contain"
       draggable={false}
     />
   );

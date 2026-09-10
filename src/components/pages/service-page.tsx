@@ -1,3 +1,4 @@
+import { serviceIcons } from "@/components/service-icons";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -8,18 +9,14 @@ import {
   FlaskConical,
   Layers3,
   ListTodo,
-  MonitorSmartphone,
   PanelsTopLeft,
-  RadioTower,
   Rocket,
   ScanSearch,
-  Search,
   ShieldCheck,
   Telescope,
   TestTubeDiagonal,
   TrendingUp,
   Waypoints,
-  Workflow,
   type LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
@@ -42,12 +39,6 @@ const processIcons: Record<ServiceId, readonly [LucideIcon, LucideIcon, LucideIc
   "ai-automation": [Waypoints, TestTubeDiagonal, ShieldCheck],
 };
 
-const relatedServiceIcons: Record<ServiceId, LucideIcon> = {
-  "websites-apps": MonitorSmartphone,
-  "seo-ai-visibility": Search,
-  "paid-campaigns": RadioTower,
-  "ai-automation": Workflow,
-};
 
 const relatedServiceIconStyles: Record<ServiceId, string> = {
   "websites-apps": "bg-service-websites-bg text-service-websites-fg",
@@ -96,7 +87,7 @@ export function ServicePage({ locale, serviceId }: { locale: Locale; serviceId: 
             </Reveal>
             {copy.page.outcomes.slice(1).map((item, index) => {
               const Icon = outcomeIcons[index + 1]!;
-              return <Reveal className="flex min-h-[9.5rem] items-start gap-5 rounded-card bg-white p-card-padding shadow-surface" delay={(index + 1) * 50} key={item.id}><Icon className="mt-1 size-7 shrink-0" strokeWidth={1.7} aria-hidden="true" /><div><h3 className="m-0 text-heading-sm">{item.title}</h3><p className="mt-2 text-base/6 text-muted">{item.copy}</p></div></Reveal>;
+              return <Reveal className="flex min-h-[9.5rem] items-start gap-5 rounded-card bg-white p-card-padding shadow-surface" delay={(index + 1) * 50} key={item.id}><Icon className="mt-1 size-7 shrink-0" strokeWidth={1.7} aria-hidden="true" /><div className="min-w-0"><h3 className="m-0 text-heading-sm">{item.title}</h3><p className="mt-2 text-base/6 text-muted">{item.copy}</p></div></Reveal>;
             })}
           </div>
         </div>
@@ -147,7 +138,7 @@ export function ServicePage({ locale, serviceId }: { locale: Locale; serviceId: 
           <h2 className="m-0 text-heading-md">{t(locale, "service.otherServices")}</h2>
           <nav className="mt-6 grid grid-cols-3 gap-3 max-nav:grid-cols-1" aria-label={t(locale, "service.otherServices")} data-other-services>
             {related.map((entry) => {
-              const Icon = relatedServiceIcons[entry.id];
+              const Icon = serviceIcons[entry.id];
               return (
                 <Link className="pill-button flex min-w-0 items-center gap-3 rounded-card bg-white p-5 shadow-surface transition-[background-color,box-shadow,transform] duration-150 hover:bg-interaction hover:shadow-surface-hover motion-reduce:transition-none" href={entry.href} key={entry.id}>
                   <span className={`grid size-9 shrink-0 place-items-center rounded-inset ${relatedServiceIconStyles[entry.id]}`} data-related-service-icon>
@@ -168,8 +159,8 @@ export function ServicePage({ locale, serviceId }: { locale: Locale; serviceId: 
         </div>
       </section>
 
-      <section className="flex min-h-[28rem] flex-col items-center justify-center border-b border-inverse-line bg-black px-page py-section text-center text-inverse">
-        <Reveal>
+      <section className="flex min-h-[28rem] flex-col items-center justify-center bg-black px-page py-section text-center text-inverse">
+        <Reveal className="min-w-0 w-full">
           <h2 className="mx-auto max-w-[18ch] text-display-sm text-white">{copy.page.finalTitle}</h2>
           <p className="mx-auto mt-6 mb-7 max-w-[35rem] text-lg/7 text-inverse-muted">{copy.page.finalCopy}</p>
           <CtaButton href={contact} light>{copy.page.finalCta}</CtaButton>

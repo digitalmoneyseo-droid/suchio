@@ -1,11 +1,15 @@
 "use client";
 
-import { ArrowRight, ArrowUpRight, Check, ChevronDown, CircleHelp, LoaderCircle, MonitorSmartphone, RadioTower, Search, Workflow } from "lucide-react";
-import { type FormEvent, type KeyboardEvent, type ReactNode, useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { serviceIcons as sharedServiceIcons } from "@/components/service-icons";
+
+import { ArrowRight, ArrowUpRight, Check, ChevronDown, CircleHelp, LoaderCircle } from "lucide-react";
+import { type FormEvent, type ReactNode, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/i18n/config";
 import type { ServiceId } from "@/i18n/services";
 import type { BudgetId } from "@/lib/contact-options";
 import { useContactDraft, type ContactDraft } from "@/components/contact-draft";
+import { retryAfterSeconds } from "@/lib/contact-response";
+import Link from "next/link";
 
 type FieldName = "name" | "email" | "companyUrl" | "service" | "budget" | "message";
 type Errors = Partial<Record<FieldName | "form", string>>;
@@ -46,7 +50,7 @@ export type ContactFormCopy = {
   another: string;
 };
 
-const fieldControlClass = "w-full rounded-control border-0 bg-surface-subtle px-4 text-ink shadow-surface transition-[background-color,box-shadow,scale] duration-150 ease-[var(--ease-out)] placeholder:text-subtle hover:bg-white hover:shadow-surface-hover focus-visible:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus aria-invalid:outline-2 aria-invalid:outline-error motion-reduce:transition-none";
+const fieldControlClass = "min-w-0 w-full rounded-control border-0 bg-surface-subtle px-4 text-ink shadow-surface transition-[background-color,box-shadow,scale] duration-150 ease-[var(--ease-out)] placeholder:text-subtle hover:bg-white hover:shadow-surface-hover focus-visible:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus aria-invalid:outline-2 aria-invalid:outline-error motion-reduce:transition-none";
 
 const serviceOptionStyles: Record<ServiceChoiceId, { selected: string; icon: string }> = {
   "websites-apps": { selected: "peer-checked:bg-service-websites-bg peer-checked:text-service-websites-fg", icon: "bg-service-websites-bg text-service-websites-fg" },
@@ -56,24 +60,20 @@ const serviceOptionStyles: Record<ServiceChoiceId, { selected: string; icon: str
   "not-sure": { selected: "peer-checked:bg-surface-selected peer-checked:text-ink peer-checked:shadow-surface-hover", icon: "bg-white text-subtle" },
 };
 
-const serviceIcons: Record<ServiceChoiceId, typeof MonitorSmartphone> = {
-  "websites-apps": MonitorSmartphone,
-  "seo-ai-visibility": Search,
-  "paid-campaigns": RadioTower,
-  "ai-automation": Workflow,
-  "not-sure": CircleHelp,
-};
+const serviceIcons = { ...sharedServiceIcons, "not-sure": CircleHelp };
 
 export function ContactForm({
   contactEmail,
   copy,
   locale,
   services,
+  privacy,
 }: {
   contactEmail: string;
   copy: ContactFormCopy;
   locale: Locale;
   services: ServiceOption[];
+  privacy: { href: string; label: string };
 }) {
   const { draft, setDraft } = useContactDraft();
   const formRef = useRef<HTMLFormElement>(null);
@@ -81,6 +81,7 @@ export function ContactForm({
   const hydrated = useSyncExternalStore(subscribeToHydration, () => true, () => false);
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>("idle");
+  const [retrySeconds, setRetrySeconds] = useState(0);
   const [submittedEmail, setSubmittedEmail] = useState("");
   const [isDirty, setIsDirty] = useState(false);
   const [budgetOpen, setBudgetOpen] = useState(false);
@@ -90,6 +91,8 @@ export function ContactForm({
   const budgetControlRef = useRef<HTMLDivElement>(null);
   const budgetButtonRef = useRef<HTMLButtonElement>(null);
   const budgetMenuRef = useRef<HTMLDivElement>(null);
+  const budgetSearch = useRef({ text: "", time: 0 });
+  const [activeBudgetIndex, setActiveBudgetIndex] = useState(0);
   const serviceOptions: readonly { id: ServiceChoiceId; name: string }[] = [...services, { id: "not-sure", name: copy.serviceUnsure }];
   const selectedBudgetLabel = copy.budgetOptions.find(({ id }) => id === selectedBudget)?.label;
   const locationSearch = useSyncExternalStore(subscribeToLocation, getLocationSearch, getServerLocationSearch);
@@ -99,6 +102,27 @@ export function ContactForm({
   const preselectedServiceLabel = selectedServiceId === undefined ? requestedService?.name : undefined;
 
   useEffect(() => () => pendingRequest.current?.abort(), []);
+
+  useEffect(() => {
+    if (!retrySeconds) return;
+    const timer = window.setTimeout(() => setRetrySeconds(value => Math.max(0, value - 1)), 1000);
+    return () => window.clearTimeout(timer);
+  }, [retrySeconds]);
+
+  function focusBudget(index: number) {
+    setActiveBudgetIndex(index);
+    setBudgetOpen(true);
+  }
+
+  useLayoutEffect(() => {
+    if (budgetOpen) budgetMenuRef.current?.querySelectorAll<HTMLButtonElement>("[role='option']")[activeBudgetIndex]?.focus();
+  }, [budgetOpen, activeBudgetIndex]);
+
+  function openBudget(last = false) {
+    budgetSearch.current = { text: "", time: 0 };
+    const selectedIndex = copy.budgetOptions.findIndex(option => option.id === selectedBudget);
+    focusBudget(selectedIndex >= 0 ? selectedIndex : last ? copy.budgetOptions.length - 1 : 0);
+  }
 
   function saveDraft(changes: Partial<Pick<ContactDraft, "service" | "budget">> = {}) {
     const form = formRef.current;
@@ -152,7 +176,7 @@ export function ContactForm({
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (pendingRequest.current) return;
+    if (pendingRequest.current || retrySeconds > 0) return;
     const form = event.currentTarget;
     const data = new FormData(form);
     const name = String(data.get("name") ?? "").trim();
@@ -196,6 +220,7 @@ export function ContactForm({
         body: JSON.stringify({ ...requestData, submissionId: submission.id }),
       });
 
+      if (response.status === 429) setRetrySeconds(retryAfterSeconds(response.headers.get("retry-after")));
       if (!response.ok) throw new Error("Contact request failed");
       const result: unknown = await response.json();
       if (!result || typeof result !== "object" || !("ok" in result) || result.ok !== true) throw new Error("Invalid contact response");
@@ -221,7 +246,7 @@ export function ContactForm({
         <span className="mb-6 grid size-14 place-items-center rounded-pill bg-green-100 text-green-700" aria-hidden="true">
           <Check className="size-6" strokeWidth={2} />
         </span>
-        <h2 className="m-0 max-w-[32rem] text-heading-lg text-ink">{copy.successTitle}</h2>
+        <h2 tabIndex={-1} ref={heading => { heading?.focus(); }} className="m-0 max-w-[32rem] text-heading-lg text-ink">{copy.successTitle}</h2>
         <p className="mt-4 mb-0 max-w-[32rem] text-base/6 text-muted">
           {copy.successCopy.replace("{email}", submittedEmail)}
         </p>
@@ -237,12 +262,13 @@ export function ContactForm({
   }
 
   return (
-    <form ref={formRef} className="grid gap-6" method="post" action="/api/contact" noValidate onChange={() => saveDraft()} onSubmit={onSubmit}>
+    <form ref={formRef} className="grid min-w-0 gap-6" method="post" action="/api/contact" aria-busy={status === "sending"} noValidate onChange={() => saveDraft()} onSubmit={onSubmit}>
       <noscript><p className="text-sm text-error">{copy.error} <a className="underline" href={`mailto:${contactEmail}`}>{contactEmail}</a></p></noscript>
-      {preselectedServiceLabel ? <p className="mt-0 mb-2 inline-flex justify-self-start rounded-control bg-interaction px-3 py-2 text-sm text-muted"><span>{copy.selectedService}: </span>&nbsp;<strong className="font-semibold text-ink">{preselectedServiceLabel}</strong></p> : null}
+      {preselectedServiceLabel ? <p className="mt-0 mb-2 inline-flex max-w-full flex-wrap justify-self-start rounded-control bg-interaction px-3 py-2 text-sm text-muted"><span>{copy.selectedService}: </span>&nbsp;<strong className="font-semibold text-ink">{preselectedServiceLabel}</strong></p> : null}
       <div className="grid grid-cols-2 gap-4 max-narrow:grid-cols-1">
         <Field id="contact-name" label={copy.name} error={errors.name} required={copy.requiredLabel}>
           <input
+            disabled={status === "sending"}
             id="contact-name"
             className={`min-h-12 ${fieldControlClass}`}
             name="name"
@@ -258,6 +284,7 @@ export function ContactForm({
         </Field>
         <Field id="contact-email" label={copy.email} error={errors.email} required={copy.requiredLabel}>
           <input
+            disabled={status === "sending"}
             id="contact-email"
             className={`min-h-12 ${fieldControlClass}`}
             type="email"
@@ -279,6 +306,7 @@ export function ContactForm({
       <div className="grid grid-cols-2 gap-4 max-narrow:grid-cols-1">
         <Field id="contact-company" label={copy.company} hint={copy.companyOptional}>
           <input
+            disabled={status === "sending"}
             id="contact-company"
             className={`min-h-12 ${fieldControlClass}`}
             name="company"
@@ -290,6 +318,7 @@ export function ContactForm({
         </Field>
         <Field id="contact-company-url" label={copy.companyUrl} hint={copy.companyOptional} error={errors.companyUrl}>
           <input
+            disabled={status === "sending"}
             id="contact-company-url"
             className={`min-h-12 ${fieldControlClass}`}
             type="url"
@@ -307,7 +336,7 @@ export function ContactForm({
         </Field>
       </div>
 
-      <fieldset className="m-0 grid gap-3 border-0 p-0" aria-describedby={errors.service ? "contact-service-error" : undefined}>
+      <fieldset className="m-0 grid min-w-0 gap-3 border-0 p-0" aria-describedby={errors.service ? "contact-service-error" : undefined}>
         <legend className={`mb-1 text-sm font-medium ${errors.service ? "text-error" : "text-ink"}`}>
           {copy.service}<RequiredMarker label={copy.requiredLabel} />
         </legend>
@@ -318,6 +347,7 @@ export function ContactForm({
             return (
             <label key={service.id} className="group relative cursor-pointer">
               <input
+            disabled={status === "sending"}
                 className="peer absolute inset-0 z-10 size-full cursor-pointer opacity-0"
                 type="radio"
                 name="service"
@@ -329,11 +359,11 @@ export function ContactForm({
                   clearError("service");
                 }}
               />
-              <span className={`flex min-h-14 items-center gap-3 rounded-control bg-surface-subtle p-2 text-sm text-muted shadow-surface transition-[background-color,color,box-shadow,scale] duration-150 ease-[var(--ease-out)] group-hover:bg-white group-hover:shadow-surface-hover peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-focus peer-active:scale-[.96] motion-reduce:transition-none motion-reduce:peer-active:scale-100 ${styles.selected}`}>
+              <span className={`flex min-h-14 flex-wrap items-center gap-3 rounded-control bg-surface-subtle p-2 text-sm text-muted shadow-surface transition-[background-color,color,box-shadow,scale] duration-150 ease-[var(--ease-out)] group-hover:bg-white group-hover:shadow-surface-hover peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-focus peer-active:scale-[.96] motion-reduce:transition-none motion-reduce:peer-active:scale-100 ${styles.selected}`}>
                 <span className={`grid size-9 shrink-0 place-items-center rounded-inset shadow-surface ${styles.icon}`} aria-hidden="true">
                   <Icon className="size-4.5" strokeWidth={1.7} />
                 </span>
-                <span>{service.name}</span>
+                <span className="min-w-[min(100%,8rem)] flex-1">{service.name}</span>
               </span>
             </label>
           );})}
@@ -342,24 +372,24 @@ export function ContactForm({
       </fieldset>
 
       <Field id="contact-budget" label={copy.budget} error={errors.budget} required={copy.requiredLabel}>
-        <div ref={budgetControlRef} className="relative">
+        <div ref={budgetControlRef} className="relative min-w-0" onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setBudgetOpen(false); }}>
           <input name="budget" type="hidden" value={selectedBudget} readOnly />
           <button
             ref={budgetButtonRef}
             id="contact-budget"
             className={`flex min-h-12 w-full cursor-pointer items-center justify-between gap-4 rounded-control border-0 bg-surface-subtle px-4 text-left text-sm shadow-surface transition-[background-color,box-shadow,scale] duration-150 ease-[var(--ease-out)] hover:bg-white hover:shadow-surface-hover active:scale-[.99] focus-visible:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus data-[invalid=true]:outline-2 data-[invalid=true]:outline-error motion-reduce:transition-none motion-reduce:active:scale-100 ${selectedBudgetLabel ? "text-ink" : "text-muted"}`}
             type="button"
+            disabled={status === "sending"}
             aria-haspopup="listbox"
             aria-expanded={budgetOpen}
             aria-controls="contact-budget-menu"
             data-invalid={Boolean(errors.budget)}
             aria-describedby={errors.budget ? "contact-budget-error" : undefined}
-            onClick={() => setBudgetOpen((current) => !current)}
+            onClick={() => budgetOpen ? setBudgetOpen(false) : openBudget()}
             onKeyDown={(event) => {
               if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
               event.preventDefault();
-              setBudgetOpen(true);
-              window.setTimeout(() => budgetMenuRef.current?.querySelector<HTMLButtonElement>("[role='option']")?.focus(), 0);
+              openBudget(event.key === "ArrowUp");
             }}
           >
             <span>{selectedBudgetLabel ?? copy.budgetPlaceholder}</span>
@@ -382,7 +412,8 @@ export function ContactForm({
                   type="button"
                   role="option"
                   aria-selected={selectedBudget === option.id}
-                  tabIndex={budgetOpen ? 0 : -1}
+                  tabIndex={budgetOpen && activeBudgetIndex === index ? 0 : -1}
+                  onFocus={() => setActiveBudgetIndex(index)}
                   onClick={() => {
                     setSelectedBudget(option.id);
                     saveDraft({ budget: option.id });
@@ -390,7 +421,19 @@ export function ContactForm({
                     setBudgetOpen(false);
                     budgetButtonRef.current?.focus();
                   }}
-                  onKeyDown={(event) => moveBudgetFocus(event, index, copy.budgetOptions.length, budgetMenuRef.current)}
+                  onKeyDown={(event) => {
+                    if (["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) {
+                      event.preventDefault();
+                      focusBudget(event.key === "Home" ? 0 : event.key === "End" ? copy.budgetOptions.length - 1 : (index + (event.key === "ArrowDown" ? 1 : -1) + copy.budgetOptions.length) % copy.budgetOptions.length);
+                    } else if (event.key.length === 1 && event.key !== " " && !event.ctrlKey && !event.metaKey && !event.altKey) {
+                      event.preventDefault();
+                      const now = performance.now();
+                      const text = (now - budgetSearch.current.time < 700 ? budgetSearch.current.text : "") + event.key.toLocaleLowerCase(locale);
+                      budgetSearch.current = { text, time: now };
+                      const match = copy.budgetOptions.findIndex(option => option.label.toLocaleLowerCase(locale).startsWith(text));
+                      if (match >= 0) focusBudget(match);
+                    }
+                  }}
                 >
                   <span>{option.label}</span>
                   {selectedBudget === option.id ? <Check className="size-4" strokeWidth={1.8} aria-hidden="true" /> : null}
@@ -403,6 +446,7 @@ export function ContactForm({
 
       <Field id="contact-message" label={copy.message} error={errors.message} required={copy.requiredLabel}>
         <textarea
+          disabled={status === "sending"}
           id="contact-message"
           className={`min-h-44 resize-y p-4 ${fieldControlClass}`}
           name="message"
@@ -425,17 +469,18 @@ export function ContactForm({
 
       <div>
         <button
-          className="pill-button pill-button--dark inline-flex min-h-[52px] items-center gap-3.5 rounded-pill bg-inverse-surface py-0 pr-2.5 pl-4 text-ui font-semibold text-white shadow-dark-surface disabled:cursor-wait disabled:opacity-65 max-narrow:w-full max-narrow:justify-between"
+          className="pill-button pill-button--dark inline-flex min-h-[52px] min-w-0 max-w-full flex-wrap items-center gap-3.5 rounded-pill bg-inverse-surface py-2 pr-2.5 pl-4 text-ui font-semibold text-white shadow-dark-surface disabled:cursor-wait disabled:opacity-65 max-narrow:w-full max-narrow:justify-between"
           type="submit"
-          disabled={!hydrated || status === "sending"}
+          disabled={!hydrated || status === "sending" || retrySeconds > 0}
         >
-          <span className="block h-[1.5em] overflow-hidden leading-control">
-            <span className="pill-button__label-track flex h-[200%] flex-col">
-              <span className="flex h-[1.5em] shrink-0 items-center gap-2 whitespace-nowrap" aria-live="polite">
+          <span className="block min-w-[min(100%,8rem)] overflow-hidden leading-control">
+            <span className="pill-button__label-track grid">
+              <span className="col-start-1 row-start-1 flex items-center gap-2" aria-live="polite">
                 {status === "sending" ? <LoaderCircle className="size-4 animate-spin motion-reduce:animate-none" aria-hidden="true" /> : null}
                 {status === "sending" ? copy.sending : copy.submit}
+                {retrySeconds > 0 ? ` (${new Intl.NumberFormat(locale, { style: "unit", unit: "second", unitDisplay: "narrow" }).format(retrySeconds)})` : null}
               </span>
-              <span className="flex h-[1.5em] shrink-0 items-center whitespace-nowrap" aria-hidden="true">{status === "sending" ? copy.sending : copy.submit}</span>
+              <span className="col-start-1 row-start-1 block translate-y-full" aria-hidden="true">{status === "sending" ? copy.sending : copy.submit}{retrySeconds > 0 ? ` (${new Intl.NumberFormat(locale, { style: "unit", unit: "second", unitDisplay: "narrow" }).format(retrySeconds)})` : null}</span>
             </span>
           </span>
           <span className="pill-button__icon relative size-8 flex-none overflow-hidden rounded-pill bg-white text-ink" aria-hidden="true">
@@ -445,6 +490,7 @@ export function ContactForm({
         </button>
         <p id="contact-form-note" className="mt-4 mb-0 max-w-[36rem] text-sm text-muted">
           {copy.note}
+          {" "}<Link href={privacy.href} className="underline underline-offset-2">{privacy.label}</Link>
         </p>
         {errors.form ? <p className="mt-4 mb-0 text-sm text-error" role="alert">{errors.form} <a className="underline underline-offset-2" href={`mailto:${contactEmail}`}>{contactEmail}</a></p> : null}
       </div>
@@ -465,15 +511,6 @@ function getLocationSearch() {
 
 function getServerLocationSearch() {
   return "";
-}
-
-function moveBudgetFocus(event: KeyboardEvent<HTMLButtonElement>, index: number, optionCount: number, menu: HTMLDivElement | null) {
-  if (!["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) return;
-  event.preventDefault();
-  const options = menu?.querySelectorAll<HTMLButtonElement>("[role='option']");
-  if (!options?.length) return;
-  const nextIndex = event.key === "Home" ? 0 : event.key === "End" ? optionCount - 1 : event.key === "ArrowDown" ? (index + 1) % optionCount : (index - 1 + optionCount) % optionCount;
-  options[nextIndex]?.focus();
 }
 
 function isHttpUrl(value: string) {
@@ -500,8 +537,8 @@ function Field({
   children: ReactNode;
 }) {
   return (
-    <div className="grid gap-2">
-      <label className={`flex items-baseline gap-2 text-sm font-medium ${error ? "text-error" : "text-ink"}`} htmlFor={id}>
+    <div className="grid min-w-0 gap-2">
+      <label className={`flex flex-wrap items-baseline gap-2 text-sm font-medium ${error ? "text-error" : "text-ink"}`} htmlFor={id}>
         <span>{label}{required ? <RequiredMarker label={required} /> : null}</span>
         {hint ? <span className="font-normal italic text-muted">({hint})</span> : null}
       </label>

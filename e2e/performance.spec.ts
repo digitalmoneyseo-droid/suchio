@@ -6,12 +6,13 @@ declare global {
 
 test("mobile performance budgets across locales and page types", async ({ browser, baseURL }, testInfo) => {
   test.skip(testInfo.project.name !== "workers-chromium", "Measure the production runtime.");
-  test.setTimeout(180_000);
+  test.setTimeout(240_000);
   const results = [];
+  for (const reducedMotion of ["no-preference", "reduce"] as const) {
   for (const prefix of ["", "/en", "/fr"]) {
     for (const suffix of ["", "/services/seo", "/contact"]) {
       const path = `${prefix}${suffix}` || "/";
-      const context = await browser.newContext({ baseURL, viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, reducedMotion: "reduce" });
+      const context = await browser.newContext({ baseURL, viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, reducedMotion });
       try {
         const page = await context.newPage();
         page.on("console", (message) => { if (message.text().startsWith("Layout shift")) console.log(message.text()); });
@@ -41,9 +42,21 @@ test("mobile performance budgets across locales and page types", async ({ browse
         const opening = await page.evaluate(() => ({ ...window.suchioLab }));
         await page.locator('button[aria-controls="site-menu"]').click();
         await page.keyboard.press("Escape");
+        if (suffix === "/contact") {
+          await page.locator("#contact-name").fill("Performance test visitor");
+          await page.locator("#contact-budget").click();
+          await page.keyboard.press("End");
+          await page.keyboard.press("Enter");
+          await page.locator("#contact-message").fill("Measure a representative form interaction without sending an enquiry.");
+        } else {
+          const visual = page.locator(suffix ? "main section[aria-hidden]" : '[data-offer-visual="optimization"]');
+          if (suffix) await page.locator("[data-optimization-animation]").scrollIntoViewIfNeeded();
+          else await visual.scrollIntoViewIfNeeded();
+          await page.waitForTimeout(reducedMotion === "reduce" ? 100 : 3500);
+        }
         await page.waitForTimeout(100);
         const final = await page.evaluate(() => ({ ...window.suchioLab, transferBytes: performance.getEntriesByType("resource").reduce((sum, entry) => sum + ("transferSize" in entry && typeof entry.transferSize === "number" ? entry.transferSize : 0), 0) }));
-        const metrics = { path, ...opening, interaction: final.interaction, transferBytes: final.transferBytes };
+        const metrics = { path, reducedMotion, ...opening, interaction: final.interaction, interactionBlocking: final.blocking - opening.blocking, transferBytes: final.transferBytes };
         results.push(metrics);
         console.log(JSON.stringify(metrics));
         expect(failedResources, path).toEqual([]);
@@ -53,8 +66,10 @@ test("mobile performance budgets across locales and page types", async ({ browse
         expect(opening.cls, path).toBeLessThan(0.1);
         expect(opening.blocking, path).toBeLessThan(250);
         expect(final.interaction, path).toBeLessThan(200);
+        expect(final.blocking - opening.blocking, path).toBeLessThan(250);
       } finally { await context.close(); }
     }
+  }
   }
   await testInfo.attach("mobile-performance", { body: JSON.stringify(results, null, 2), contentType: "application/json" });
 });

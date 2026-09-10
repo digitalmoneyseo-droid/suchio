@@ -1,8 +1,10 @@
 "use client";
 
+import { serviceIcons } from "@/components/service-icons";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, ChevronDown, ChevronRight, Languages, Menu, MonitorSmartphone, RadioTower, Search, Workflow, type LucideIcon, X } from "lucide-react";
+import { ArrowUpRight, ChevronDown, ChevronRight, Languages, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { MouseEvent } from "react";
 import { BrandMark } from "@/components/brand-mark";
@@ -39,12 +41,6 @@ const serviceMenuStyles = {
   "ai-automation": { active: "bg-service-automation-bg", icon: "bg-service-automation-bg text-service-automation-fg", activeIcon: "bg-white text-service-automation-fg" },
 } satisfies Record<ServiceId, { active: string; icon: string; activeIcon: string }>;
 
-const serviceIcons: Record<ServiceId, LucideIcon> = {
-  "websites-apps": MonitorSmartphone,
-  "seo-ai-visibility": Search,
-  "paid-campaigns": RadioTower,
-  "ai-automation": Workflow,
-};
 
 function localeSwitchPath(pathname: string, currentLocale: Locale, candidate: Locale) {
   const path = alternatePath(pathname, candidate);
@@ -91,7 +87,7 @@ function LanguageMenu({ dark = false, id, locale, mobile = false, onSelect, path
     >
       <button
         ref={buttonRef}
-        className={`header-language inline-flex h-11 cursor-pointer items-center justify-center gap-2 rounded-control px-3 text-sm font-medium transition-transform duration-150 active:scale-[.96] motion-reduce:transition-none motion-reduce:active:scale-100 ${dark ? "menu-language bg-transparent text-white shadow-dark-surface" : "bg-white text-subtle shadow-surface"}`}
+        className={`header-language inline-flex h-11 cursor-pointer items-center justify-center gap-2 rounded-control px-3 max-narrow:gap-1 max-narrow:px-2 text-sm font-medium transition-transform duration-150 active:scale-[.96] motion-reduce:transition-none motion-reduce:active:scale-100 ${dark ? "menu-language bg-transparent text-white shadow-dark-surface" : "bg-white text-subtle shadow-surface"}`}
         type="button"
         aria-label={`${selectLocaleLabel}: ${localeConfig[locale].shortLabel}`}
         aria-expanded={open}
@@ -112,7 +108,7 @@ function LanguageMenu({ dark = false, id, locale, mobile = false, onSelect, path
           <span className={`header-language__code col-start-1 row-start-1 ${previewing ? "opacity-0 [transform:translate(6px,-6px)_scale(.8)]" : "opacity-100"}`}>{localeConfig[locale].shortLabel}</span>
           {previewing ? <span key={previewLocale} className="header-language__code-preview col-start-1 row-start-1">{localeConfig[previewLocale].shortLabel}</span> : null}
         </span>
-        <ChevronDown className={`size-3.5 transition-transform duration-200 motion-reduce:transition-none ${dark ? "text-white/60" : "text-subtle"} ${open ? "rotate-180" : ""}`} strokeWidth={1.8} aria-hidden="true" />
+        <ChevronDown className={`size-3.5 max-narrow:hidden transition-transform duration-200 motion-reduce:transition-none ${dark ? "text-white/60" : "text-subtle"} ${open ? "rotate-180" : ""}`} strokeWidth={1.8} aria-hidden="true" />
       </button>
       <div
         id={id}
@@ -133,7 +129,10 @@ function LanguageMenu({ dark = false, id, locale, mobile = false, onSelect, path
   );
 }
 
+
+
 export function SiteHeader({ contactEmail, copy, locale, services }: { contactEmail: string; copy: SiteHeaderCopy; locale: Locale; services: readonly SiteHeaderService[] }) {
+
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -240,8 +239,23 @@ export function SiteHeader({ contactEmail, copy, locale, services }: { contactEm
   const servicesActive = pathname.startsWith(localizePath("/services/", locale));
   return (
     <>
-      <header className="fixed left-1/2 z-50 flex w-max -translate-x-1/2 items-center gap-2 max-nav:right-4 max-nav:left-4 max-nav:w-auto max-nav:[translate:none]" style={{ top: "max(1.5rem, env(safe-area-inset-top))" }}>
-        <Link href={localizePath("/", locale)} onClick={scrollToPageTop} className="group/brand inline-flex h-11 items-center justify-center rounded-control bg-white px-4.5 shadow-surface transition-[transform,box-shadow] duration-150 hover:shadow-surface-hover active:scale-[.96] motion-reduce:transition-none motion-reduce:active:scale-100" aria-label={copy.brandHome}><BrandMark /></Link>
+      <noscript>
+        <style>{"[data-navigation-enhanced]{display:none!important}"}</style>
+      <nav data-navigation-fallback aria-label={copy.mainMenu} className="fixed inset-x-4 top-6 z-50 max-h-[80vh] overflow-y-auto rounded-control bg-white p-3 shadow-floating">
+        <details>
+          <summary className="min-h-11 cursor-pointer text-sm font-medium">{copy.mainMenu}</summary>
+          <div className="grid min-w-0 gap-2 py-2 text-sm">
+            <a className="py-2" href={localizePath("/", locale)}>{copy.brandHome}</a>
+            {services.map(service => <a className="py-2" key={service.id} href={service.href}>{service.name}</a>)}
+            {navItems.map(item => <a className="py-2" key={item.href} href={localizePath(item.href, locale)}>{item.label}</a>)}
+            <span className="mt-2 font-medium">{copy.selectLocale}</span>
+            {locales.map(candidate => <a className="py-2" key={candidate} href={localeSwitchPath(pathname, locale, candidate)} hrefLang={candidate} lang={candidate} aria-current={candidate === locale ? "page" : undefined}>{localeConfig[candidate].name}</a>)}
+          </div>
+        </details>
+      </nav>
+      </noscript>
+      <header data-navigation-enhanced className="fixed left-1/2 z-50 flex w-max -translate-x-1/2 items-center gap-2 max-nav:right-4 max-nav:left-4 max-nav:w-auto max-nav:[translate:none] max-narrow:gap-1" style={{ top: "max(1.5rem, env(safe-area-inset-top))" }}>
+        <Link href={localizePath("/", locale)} onClick={scrollToPageTop} className="group/brand inline-flex min-w-0 h-11 items-center justify-center rounded-control bg-white px-4.5 max-narrow:px-2 shadow-surface transition-[transform,box-shadow] duration-150 hover:shadow-surface-hover active:scale-[.96] motion-reduce:transition-none motion-reduce:active:scale-100" aria-label={copy.brandHome}><BrandMark /></Link>
         <nav className="relative inline-flex h-11 items-center justify-center gap-px rounded-control bg-white p-1 shadow-surface max-nav:hidden" aria-label={copy.mainMenu}>
           <div
             ref={servicesRef}
@@ -266,7 +280,7 @@ export function SiteHeader({ contactEmail, copy, locale, services }: { contactEm
               }}
             >
               {copy.services}
-              <ChevronDown className={`size-3.5 transition-transform duration-200 motion-reduce:transition-none ${servicesOpen ? "rotate-180" : ""}`} strokeWidth={1.8} aria-hidden="true" />
+              <ChevronDown className={`size-3.5 max-narrow:hidden transition-transform duration-200 motion-reduce:transition-none ${servicesOpen ? "rotate-180" : ""}`} strokeWidth={1.8} aria-hidden="true" />
             </button>
             <div
               id="services-menu"
@@ -288,11 +302,11 @@ export function SiteHeader({ contactEmail, copy, locale, services }: { contactEm
         </nav>
         <LanguageMenu id="desktop-language-menu" locale={locale} pathname={pathname} selectLocaleLabel={copy.selectLocale} />
         <LanguageMenu id="mobile-language-menu" locale={locale} mobile pathname={pathname} selectLocaleLabel={copy.selectLocale} />
-        <button ref={openRef} className="inline-flex size-11 items-center justify-center rounded-control bg-white shadow-surface transition-[transform,box-shadow] duration-150 hover:shadow-surface-hover active:scale-[.96] motion-reduce:transition-none motion-reduce:active:scale-100 nav:hidden" type="button" onClick={() => { setMobileServicesOpen(false); setOpen(true); }} aria-label={copy.openMenu} aria-expanded={open} aria-controls="site-menu"><Menu className="w-[17px]" strokeWidth={1.7} aria-hidden="true" /></button>
+        <button ref={openRef} className="inline-flex size-[44px] shrink-0 items-center justify-center rounded-control bg-white shadow-surface transition-[transform,box-shadow] duration-150 hover:shadow-surface-hover active:scale-[.96] motion-reduce:transition-none motion-reduce:active:scale-100 nav:hidden" type="button" onClick={() => { setMobileServicesOpen(false); setOpen(true); }} aria-label={copy.openMenu} aria-expanded={open} aria-controls="site-menu"><Menu className="w-[17px]" strokeWidth={1.7} aria-hidden="true" /></button>
       </header>
       <div id="site-menu" className={`fixed inset-0 z-100 flex flex-col overscroll-contain bg-inverse-surface text-white transition-[opacity,translate] duration-300 ease-[var(--ease-out)] will-change-[opacity,translate] nav:hidden max-nav:overflow-y-auto motion-reduce:transition-none ${open ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0"}`} style={{ paddingTop: "max(1.5rem, env(safe-area-inset-top))", paddingRight: "max(var(--spacing-menu), env(safe-area-inset-right))", paddingBottom: "max(2rem, env(safe-area-inset-bottom))", paddingLeft: "max(var(--spacing-menu), env(safe-area-inset-left))" }} aria-hidden={!open} inert={!open} role="dialog" aria-modal="true" aria-label={copy.siteMenu}>
         <div className="menu-top fixed right-4 left-4 z-2 flex items-center gap-2" style={{ top: "max(1.5rem, env(safe-area-inset-top))" }}>
-          <Link href={localizePath("/", locale)} onClick={(event) => { scrollToPageTop(event); setOpen(false); }} className="group/brand inline-flex h-11 items-center rounded-control bg-inverse-surface px-4.5 shadow-dark-surface transition-[background-color,scale] duration-150 hover:bg-white/8 active:scale-[.96] motion-reduce:transition-none motion-reduce:active:scale-100"><BrandMark inverse /></Link>
+          <Link href={localizePath("/", locale)} onClick={(event) => { scrollToPageTop(event); setOpen(false); }} className="group/brand inline-flex min-w-0 h-11 items-center rounded-control bg-inverse-surface px-4.5 shadow-dark-surface transition-[background-color,scale] duration-150 hover:bg-white/8 active:scale-[.96] motion-reduce:transition-none motion-reduce:active:scale-100"><BrandMark inverse /></Link>
           <LanguageMenu dark id="mobile-menu-language-menu" locale={locale} mobile onSelect={() => setOpen(false)} pathname={pathname} selectLocaleLabel={copy.selectLocale} />
           <button ref={closeRef} type="button" className="grid size-11 place-items-center rounded-control bg-transparent text-white shadow-dark-surface transition-[background-color,scale] duration-150 hover:bg-white/8 active:scale-[.96] motion-reduce:transition-none motion-reduce:active:scale-100" onClick={() => { setMobileServicesOpen(false); setOpen(false); openRef.current?.focus(); }} aria-label={copy.closeMenu}><X className="w-[19px]" strokeWidth={1.7} aria-hidden="true" /></button>
         </div>

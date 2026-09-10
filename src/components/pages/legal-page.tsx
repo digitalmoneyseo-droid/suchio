@@ -1,9 +1,11 @@
 import { EditorialHero } from "@/components/editorial-hero";
 import { legalContent, legalUpdatedAt, type LegalPageKind } from "@/i18n/legal-content";
 import type { Locale } from "@/lib/i18n";
+import { auditUi } from "@/i18n/audit-ui";
 
 export function LegalPage({ locale, kind }: { locale: Locale; kind: LegalPageKind }) {
   const page = legalContent[locale][kind];
+  const audit = auditUi[locale];
 
   return (
     <main id="main-content">
@@ -54,6 +56,15 @@ export function LegalPage({ locale, kind }: { locale: Locale; kind: LegalPageKin
               </section>
             ))}
           </div>
+          {kind === "privacy" && <section id="briefwerbung" className="scroll-mt-32 border-t border-line py-10">
+            <h2 className="m-0 text-heading-md">{audit.campaignTitle}</h2>
+            <p className="mt-4 text-base/7 text-muted">{audit.campaignIntro}</p>
+            {audit.privacySections.map(([title, body]) => <section className="mt-8" key={title}>
+              <h3 className="m-0 text-heading-sm">{title}</h3>
+              <p className="mt-4 mb-0 text-base/7 text-muted">{body}</p>
+            </section>)}
+            <a href="https://openai.com/policies/eu-privacy-policy/" rel="noreferrer" className="mt-6 inline-block text-sm text-accent underline underline-offset-4">{locale === "de" ? "OpenAI-Datenschutzerklärung" : locale === "fr" ? "Politique de confidentialité OpenAI" : "OpenAI Privacy Policy"}</a>
+          </section>}
         </div>
       </section>
     </main>

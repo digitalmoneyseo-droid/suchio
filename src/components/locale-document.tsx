@@ -6,7 +6,7 @@ export function LocaleDocument({ children, locale }: { children: React.ReactNode
     <html lang={locale} data-scroll-behavior="smooth">
       {/* eslint-disable-next-line @next/next/no-head-element -- Shared App Router root document; next/head is a Pages Router API. */}
       <head><link rel="preload" href="/fonts/dm-sans-latin-standard-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /></head>
-      <body className="flex min-h-screen flex-col overflow-x-hidden bg-canvas font-sans text-ink antialiased">
+      <body className="flex min-h-screen min-w-0 flex-col bg-canvas font-sans text-ink antialiased">
         <LocaleShell locale={locale}>{children}</LocaleShell>
       </body>
     </html>

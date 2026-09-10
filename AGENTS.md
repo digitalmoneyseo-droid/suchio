@@ -30,7 +30,7 @@
 - Match verification to the change's risk and scope. Use `.github/workflows/ci.yml` as the source of truth for required CI checks.
 - For TypeScript changes, run `bun run typecheck` unless the change already warrants `bun run build`.
 - `bun run validate:content` checks home FAQ structure and locale parity. Verify other localized content across every configured locale.
-- Run `bun run build` followed by `bun run test:e2e` for navigation, forms, route creation or canonicalization, runtime behavior, and deployment preparation. Copy changes need browser verification only when they may affect layout or interaction.
+- Run `bun run build`, `bun run build:vinext`, then `bun run test:e2e` for navigation, forms, route creation or canonicalization, runtime behavior, and deployment preparation. The browser suite starts both built runtimes. Copy changes need browser verification only when they may affect layout or interaction.
 - For layout changes, inspect the affected route in the longest relevant locale at the viewport being changed. Include a narrow viewport whenever reflow may be affected.
 - For motion changes, verify both normal and reduced-motion behavior on the affected visual.
 

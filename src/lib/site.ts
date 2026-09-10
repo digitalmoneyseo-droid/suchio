@@ -1,9 +1,23 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { alternatePath, defaultLocale, localeConfig, locales, t, type Locale } from "@/lib/i18n";
 import { siteOrigin } from "@/lib/site-config";
 
 export const googleSiteVerification = "ttGSsltDw6LeGrJfs_anOu-yBfO_hJ6rXYidUt_S0xI";
 export { siteOrigin } from "@/lib/site-config";
+
+export const rootMetadata: Metadata = {
+  metadataBase: new URL(siteOrigin),
+  icons: {
+    icon: [
+      { url: "/suchio-favicon.svg", type: "image/svg+xml", sizes: "any" },
+      { url: "/suchio-favicon-96x96.png", type: "image/png", sizes: "96x96" },
+      { url: "/suchio-favicon-32x32.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  verification: { google: googleSiteVerification },
+};
+export const rootViewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#FAF9F6" };
 
 type PageMetadataInput = {
   locale: Locale;

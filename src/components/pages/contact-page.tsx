@@ -3,7 +3,7 @@ import { EditorialHero } from "@/components/editorial-hero";
 import { getServiceCopy } from "@/i18n/services";
 import { publicContactEmail } from "@/lib/contact";
 import { budgetOptions } from "@/lib/contact-options";
-import { t, type Locale } from "@/lib/i18n";
+import { localizePath, t, type Locale } from "@/lib/i18n";
 import { serviceOrder } from "@/lib/service-catalog";
 
 export function ContactPage({ locale }: { locale: Locale }) {
@@ -48,8 +48,8 @@ export function ContactPage({ locale }: { locale: Locale }) {
       />
       <section className="px-page pb-section">
         <div className="reveal mx-auto max-w-[50rem]" data-reveal>
-          <div className="rounded-shell bg-white p-10 shadow-surface max-narrow:p-6">
-            <ContactForm contactEmail={publicContactEmail} copy={formCopy} locale={locale} services={services} />
+          <div className="rounded-shell bg-white p-10 shadow-surface max-narrow:p-card-padding">
+            <ContactForm contactEmail={publicContactEmail} copy={formCopy} locale={locale} services={services} privacy={{ href: localizePath("/privacy", locale), label: t(locale, "footer.privacy") }} />
           </div>
         </div>
       </section>

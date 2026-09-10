@@ -25,7 +25,11 @@ function useOptimizationScene(active: boolean, reducedMotion: boolean, queryLeng
     let frame = 0;
     const tick = (now: number) => {
       const elapsed = Math.min(sceneEnd, now - startedAt);
-      setElapsedMs(elapsed);
+      setElapsedMs(previous => {
+        const before = getOptimizationScene(previous, queryLength);
+        const after = getOptimizationScene(elapsed, queryLength);
+        return before.typedLength === after.typedLength && before.resultsVisible === after.resultsVisible && before.flightStarted === after.flightStarted && before.rank === after.rank && before.complete === after.complete ? previous : elapsed;
+      });
       if (elapsed < sceneEnd) frame = requestAnimationFrame(tick);
     };
     frame = requestAnimationFrame(tick);
@@ -69,7 +73,7 @@ export function OptimizationSearchAnimation({ copy }: { copy: OptimizationAnimat
       const instance = confetti.create(canvas, { resize: true, useWorker: false });
       reset = instance.reset;
       void instance(WINNER_CONFETTI_OPTIONS);
-    });
+    }).catch(() => console.error(JSON.stringify({ event: "illustration.confetti_unavailable" })));
     return () => {
       disposed = true;
       reset?.();
