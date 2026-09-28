@@ -33,7 +33,7 @@ export interface LegalPageContent {
 
 type LegalContent = Record<LegalPageKind, LegalPageContent>;
 
-export const legalUpdatedAt = "2026-09-09";
+export const legalUpdatedAt = "2026-09-26";
 const updatedLabel = (locale: Locale) => {
   const prefix = { de: "Stand: ", en: "Last updated: ", fr: "Mise à jour : " }[locale];
   const date = new Intl.DateTimeFormat(locale === "en" ? "en-GB" : locale, { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${legalUpdatedAt}T00:00:00Z`));
@@ -123,8 +123,8 @@ const de: LegalContent = {
         ],
       },
       { id: "5-no-analytics-or-marketing-services",
-        title: "5. Keine Analyse- oder Marketingdienste",
-        paragraphs: ["Derzeit verwenden wir keine Webanalyse, keine Werbetracker, keine Social-Media-Pixel und keine nicht erforderlichen Cookies. Sollte sich das ändern, wird diese Datenschutzerklärung vor dem Einsatz angepasst und eine erforderliche Einwilligung eingeholt."],
+        title: "5. Freiwillige Audit-Auswertung",
+        paragraphs: ["Wir verwenden keine Werbetracker oder Social-Media-Pixel. Auf individuellen Auditseiten können Sie freiwillig der Zählung eines Aufrufs zustimmen. Ohne Zustimmung entsteht kein Messeintrag. Einzelheiten und Widerrufsmöglichkeiten stehen unten unter der freiwilligen Auswertung der Audit-Aufrufe."],
       },
       { id: "6-encryption",
         title: "6. Verschlüsselung",
@@ -204,7 +204,7 @@ const en: LegalContent = {
         links: resendLinks,
       },
       { id: "4-language-preference", title: "4. Language preference", paragraphs: ["The website stores your chosen language in the “suchio-locale” cookie. It contains only the language code, applies across the website, and expires after one year. It is necessary to retain the language version you expressly selected for later visits.", "Storage does not require consent under section 25(2)(2) TDDDG. Where the language code can be linked to a person, Article 6(1)(f) GDPR is the legal basis. You can delete the cookie at any time in your browser settings."] },
-      { id: "5-no-analytics-or-marketing-services", title: "5. No analytics or marketing services", paragraphs: ["We currently use no web analytics, advertising trackers, social media pixels, or non-essential cookies. If this changes, we will update this policy before introducing the service and obtain consent where required."] },
+      { id: "5-no-analytics-or-marketing-services", title: "5. Optional audit measurement", paragraphs: ["We use no advertising trackers or social media pixels. On individual audit pages you may voluntarily consent to counting a visit. Without consent no measurement entry is created. Details and withdrawal options appear below under optional measurement of audit visits."] },
       { id: "6-encryption", title: "6. Encryption", paragraphs: ["Data transmitted between your browser and the website is encrypted using HTTPS/TLS. You can recognise an encrypted connection by the lock symbol and “https://” in the address bar."] },
       { id: "7-your-rights", title: "7. Your rights", paragraphs: ["Where the statutory conditions are met, you have the following rights against the controller:"], items: ["Access to your personal data (Article 15 GDPR)", "Rectification of inaccurate data (Article 16 GDPR)", "Erasure (Article 17 GDPR)", "Restriction of processing (Article 18 GDPR)", "Data portability (Article 20 GDPR)", "Objection to processing based on legitimate interests (Article 21 GDPR)"] },
       { id: "8-right-to-object", title: "8. Right to object", paragraphs: ["You may object to processing based on Article 6(1)(f) GDPR for reasons arising from your particular situation. We will then stop processing the relevant data unless compelling legitimate grounds or the establishment, exercise, or defence of legal claims override your interests."] },
@@ -256,7 +256,7 @@ const fr: LegalContent = {
         links: resendLinks,
       },
       { id: "4-language-preference", title: "4. Préférence linguistique", paragraphs: ["Le site enregistre la langue choisie dans le cookie « suchio-locale ». Il contient uniquement le code de langue, s’applique à l’ensemble du site et expire après un an. Il est nécessaire pour conserver la version linguistique expressément choisie lors des visites ultérieures.", "Ce stockage ne requiert pas de consentement en vertu de l’article 25, paragraphe 2, point 2 du TDDDG allemand. Lorsque le code peut être rattaché à une personne, la base juridique est l’article 6, paragraphe 1, point f) du RGPD. Vous pouvez supprimer le cookie à tout moment dans les réglages du navigateur."] },
-      { id: "5-no-analytics-or-marketing-services", title: "5. Aucun service d’analyse ou de marketing", paragraphs: ["Nous n’utilisons actuellement aucun outil d’analyse web, traceur publicitaire, pixel de réseau social ni cookie non essentiel. Si cela change, cette politique sera mise à jour avant la mise en service et un consentement sera recueilli si nécessaire."] },
+      { id: "5-no-analytics-or-marketing-services", title: "5. Mesure facultative des audits", paragraphs: ["Nous n’utilisons aucun traceur publicitaire ni pixel de réseau social. Sur les pages d’audit individuelles, vous pouvez consentir librement au comptage d’une consultation. Sans consentement, aucune mesure n’est enregistrée. Les détails et le retrait figurent ci-dessous dans la rubrique de mesure facultative des consultations d’audit."] },
       { id: "6-encryption", title: "6. Chiffrement", paragraphs: ["Les échanges entre votre navigateur et le site sont chiffrés via HTTPS/TLS. Une connexion chiffrée se reconnaît au cadenas et à « https:// » dans la barre d’adresse."] },
       { id: "7-your-rights", title: "7. Vos droits", paragraphs: ["Lorsque les conditions légales sont remplies, vous disposez des droits suivants auprès du responsable :"], items: ["Accès à vos données personnelles (article 15 du RGPD)", "Rectification des données inexactes (article 16 du RGPD)", "Effacement (article 17 du RGPD)", "Limitation du traitement (article 18 du RGPD)", "Portabilité des données (article 20 du RGPD)", "Opposition aux traitements fondés sur un intérêt légitime (article 21 du RGPD)"] },
       { id: "8-right-to-object", title: "8. Droit d’opposition", paragraphs: ["Vous pouvez vous opposer à un traitement fondé sur l’article 6, paragraphe 1, point f) du RGPD pour des raisons tenant à votre situation particulière. Nous cesserons alors le traitement, sauf motifs légitimes impérieux ou nécessité liée à la constatation, à l’exercice ou à la défense de droits en justice."] },

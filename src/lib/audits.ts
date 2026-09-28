@@ -10,6 +10,10 @@ export interface AuditContent {
   flow: string[];
   cta: string;
   methodextra: string;
+  methodology?: string;
+  searchNote?: string;
+  measurementNote?: string;
+  evidenceNote?: string;
 }
 
 export interface Audit {

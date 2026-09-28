@@ -1042,5 +1042,3286 @@
         "methodextra": "Le LCP atteint 13,8 secondes pour le texte de contact du test mobile. Les scores de 100 dans les autres catégories ne mesurent pas l'exhaustivité du contenu. La version Android a été vérifiée séparément."
       }
     }
+  },
+  {
+    "id": "horlacher",
+    "code": "6cad369d0bd5c59dc2f62179",
+    "company": "Elektro Horlacher",
+    "url": "https://www.elektro-horlacher.de/",
+    "measuredAt": "2026-09-12",
+    "lighthouseVersion": "Nicht durchgeführt; Browser- und CSS-Prüfung, ergänzender Chrome-Trace",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite: Einstieg, Begrüßung und Kontaktweg",
+        "https://www.elektro-horlacher.de/"
+      ],
+      [
+        "2",
+        "Leistungen: Liste auf Hintergrundbild",
+        "https://www.elektro-horlacher.de/blank-9"
+      ],
+      [
+        "3",
+        "Projekte: Bildanordnung, Beschreibung und CSS-Animationen",
+        "https://www.elektro-horlacher.de/blank-2"
+      ],
+      [
+        "4",
+        "Kontakt: Formular und Aufteilung",
+        "https://www.elektro-horlacher.de/blank-10"
+      ],
+      [
+        "5",
+        "Lokale Browseransichten, DOM und Animationskonfiguration",
+        "Prüfung vom 12.09.2026"
+      ],
+      [
+        "6",
+        "Chrome: Einordnung des LCP und seiner Bestandteile",
+        "https://developer.chrome.com/docs/performance/insights/lcp-breakdown"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Leistungen schneller verstehen. Projekte besser erklären.",
+        "summary": "Elektro Horlacher bietet unter anderem Elektroinstallationen, Photovoltaik, Netzwerktechnik und KNX an. Auf der Website müssen Interessenten diese Bandbreite aus einer langen Liste erschließen. Der Einstieg führt noch nicht gezielt zur passenden Leistung; Projektbilder zeigen die Anlagen, erklären aber kaum die Aufgabe und das Ergebnis. Lange Einblendungen verzögern zusätzlich die vollständige Darstellung.",
+        "findings": [
+          [
+            "Einstieg: Begrüßung statt konkreter Orientierung",
+            "Im großen Titelbild stehen eine Begrüßung und der Firmenname. Darunter folgt ein zentrierter Absatz über Installation, Wartung und Reparatur. Ein hervorgehobener Anfragebutton oder eine Auswahl wichtiger Leistungen fehlt in diesem Inhaltsbereich; Kontakt ist über die Navigation und den Seitenfuß erreichbar. Das Problem ist weniger die absolute Textmenge als der geringe Informationswert für eine erste Entscheidung. [1, 5]",
+            "Leistung und Ort bereits in der Überschrift nennen, etwa „Elektrotechnik in Hofheim am Taunus“. Darunter zentrale Angebote mit kurzen Erläuterungen und einen gut sichtbaren Button „Projekt anfragen“ platzieren. Die endgültigen Schwerpunkte mit dem Betrieb abstimmen."
+          ],
+          [
+            "Leistungen: Eine lange Liste ersetzt die Auswahl",
+            "Elektrogrundinstallation, erneuerbare Energien, Netzwerktechnik und weitere Angebote stehen als Textliste auf einem großflächigen Foto. Aufzählungen, Einzüge und Abstände bilden keine gleichmäßig scanbaren Einheiten. Bei den erneuerbaren Energien stehen fünf unterschiedliche Angebote in einer Zeile. Das erschwert nach unserer Einschätzung die Zuordnung zum eigenen Vorhaben. [2, 5]",
+            "Die Angebote auf ruhigem Hintergrund in klar abgegrenzte Gruppen aufteilen. Pro Gruppe: verständlicher Titel, typischer Anlass, angebotene Leistung und nächster Schritt. Photovoltaik und Speicher, Wallboxen, Elektroinstallation sowie Netzwerk/KNX können als Ausgangspunkt dienen. Keine nicht angebotenen Leistungen ergänzen."
+          ],
+          [
+            "Projekte: Hersteller und Fotos erklären den Auftrag kaum",
+            "Drei Projektbezeichnungen nennen HUAWEI, SMA und Solax mit EPS-Box. Dazu stehen unterschiedlich breite Bilder, teils nebeneinander, teils darunter. Aufgabenstellung, Umfang der Arbeiten und Ergebnis sind nicht beschrieben. Für technische Laien bleibt deshalb offen, welches Beispiel zu ihrem Vorhaben passt. [3, 5]",
+            "Einheitliche Projektkarten einsetzen. Je Beispiel ein aussagekräftiges Foto, die Ausgangsfrage, die umgesetzten Arbeiten und das nachvollziehbare Ergebnis zeigen. Technische Daten, Ort und Nutzen nur ergänzen, wenn der Betrieb sie bestätigt und veröffentlichen darf. Eine passende Anfrage direkt anschließen."
+          ],
+          [
+            "Animationen: Ein Projektbild braucht bis zu fünf Sekunden",
+            "Für das SMA-Projektbild auf dem Desktop sind 1.000 ms Verzögerung und 4.000 ms Einblend-/Vergrößerungsanimation hinterlegt. Das ergibt 5 Sekunden ab Auslösung bis zum Animationsende. Weitere Projektbilder sind mit 1.000 + 2.500 ms konfiguriert; der Begrüßungstext mit 1.500 + 2.200 ms. Diese Zeiten sind Animationsparameter, keine gemessenen Downloadzeiten. Die Projekt-CSS berücksichtigt bereits die Einstellung für reduzierte Bewegung. [1, 3, 5]",
+            "Wichtige Texte und Referenzen sofort sichtbar machen. Nicht notwendige Startverzögerungen entfernen; verbleibende Bewegungen kurz und zurückhaltend gestalten. Danach Navigation und Scrollen mit normaler sowie reduzierter Bewegung erneut prüfen."
+          ],
+          [
+            "Layout und Kontakt: Auffällige Gestaltung, kein pauschaler Defekt",
+            "Die Kontaktseite teilt ein großes Motiv links und ein relativ schmales Formular rechts auf; auf dem Handy werden die Inhalte gestapelt. Der graue Senden-Button hebt sich wenig ab. Bei 1.440 px Desktopbreite und der mobilen Stichprobe trat kein horizontaler Überstand auf. Die roten Feldränder aus dem eingereichten Screenshot waren beim frischen Aufruf schwarz. Das belegt weder ein kaputtes Formular noch einen allgemeinen Layoutbruch. Der Cookiehinweis überdeckt in den Erstansichten Inhalte und ist auf dem Handy sehr dominant. [4, 5]",
+            "Formular und Kontaktdaten visuell zusammenführen, unnötige Freiflächen reduzieren und den nächsten Schritt deutlicher markieren. Fehlerzustände verständlich beschriften. Die Cookieansicht und schmale Zwischenbreiten separat prüfen; vor einem Fehlerurteil jeweils den stabilen Zustand abwarten."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Einstieg und Leistungen ordnen",
+            "Angebot, Einsatzgebiet und Anfrageweg im ersten Bildschirm klären. Die Leistungsgruppen auf einer gut lesbaren Fläche neu aufbauen."
+          ],
+          [
+            "Danach",
+            "Referenzen nutzbar machen",
+            "Mit dem Betrieb drei kurze Projektgeschichten erarbeiten und Fotos konsistent zuordnen. Verzögerte Einblendungen entfernen."
+          ],
+          [
+            "Anschließend",
+            "Kontakt und Darstellung prüfen",
+            "Den Weg zur Anfrage auf Handy und Desktop einschließlich Tastatur durchgehen. Nach den Änderungen mehrere vergleichbare mobile Performancetests ausführen."
+          ]
+        ],
+        "flow": [
+          "Passende Leistung erkennen",
+          "Ähnliches Projekt verstehen",
+          "Vorhaben anfragen"
+        ],
+        "cta": "Gern besprechen wir, wie Ihre Leistungen schneller erfassbar werden und Ihre Projektbeispiele die ausgeführten Arbeiten verständlich zeigen. Schreiben Sie an contact@suchio.net, Stichwort „Elektro Horlacher“.",
+        "measurementNote": "Für diesen Check wurden keine Lighthouse-Punktzahlen ermittelt. Die belastbare Zeitangabe betrifft die im Browser und CSS nachgewiesenen Animationen; eine allgemeine schlechte Ladeleistung wird daraus nicht abgeleitet.",
+        "methodextra": "Ein ergänzender Chrome-152-Trace der Startseite zeigte beim erneuten Laden LCP 0,162 s und CLS 0,00. Das LCP-Element war das große Titelbild. Bedingungen: Desktop 1.249 × 1.221 CSS-Pixel, keine Netzwerkdrosselung, CPU 1×, bereits besuchte Seite ohne bewusst geleerten Cache; Cookiezustand nicht vereinheitlicht. Ein einzelner Wiederholungsaufruf ist kein mobiler Erstbesuchstest. Keine CrUX-Nutzerdaten verfügbar. Der Trace-Rohexport wurde vom Werkzeug wegen seiner Pfadbeschränkung abgewiesen; Werkzeugergebnis und LCP-Analyse sind dokumentiert. Die Werte dienen nur der Einordnung und sind keine Gesamtnote.",
+        "methodology": "Öffentliche Stichprobe vom 12.09.2026: Startseite, Leistungen, Projekte und Kontakt in Chromium 151.0.7922.34. Desktop 1.440 × 1.000 Pixel; iPhone-13-Emulation in Chromium mit 390 × 664 Pixeln, DPR 3 und mobilem User-Agent. Die Website meldet dabei einen Layoutviewport von 320 CSS-Pixeln. Kein echter Safari-/iPhone-Gerätetest. Browseransichten vor und nach Wartezeit, DOM, Links und CSS wurden gesichert. Optionale Cookies wurden nicht akzeptiert; ein Ablehnungsversuch verhinderte das erneute Erscheinen bei späteren Direktaufrufen nicht. Die eingereichten Screenshots sind ergänzende Hinweise mit unbekanntem Aufnahmezeitpunkt. Kein Formular wurde abgesendet.",
+        "searchNote": "Suchrankings waren nicht Gegenstand dieses Checks. Es wurden keine Google-Platzierung, Anfragequote oder Umsatzverluste ermittelt. Kein Zugang zu Analytics oder Search Console. Die Kritik bezieht sich auf sichtbare Inhalte, Anordnung und nachgewiesene Animationen.",
+        "evidenceNote": "Browseransichten, Linkprüfung und CSS-/DOM-Nachweise vom 12.09.2026 wurden lokal gesichert; auf Anfrage verfügbar."
+      },
+      "en": {
+        "title": "Make services easier to choose and projects easier to understand.",
+        "summary": "Elektro Horlacher lists electrical installations, solar power, networking and KNX among its services. Visitors have to interpret a long list, while project photos provide little context about the work and result. Delayed entrance animations add friction.",
+        "findings": [
+          [
+            "The opening does not guide a first decision",
+            "The hero presents a welcome and company name, followed by a centred introductory paragraph. There is no prominent enquiry button or service selection in that area. Contact remains available in navigation and the footer. The issue is the limited decision support, rather than sheer word count. [1, 5]",
+            "State the service and location, add a concise selection of core services and a clear project-enquiry button. Confirm priorities with the business."
+          ],
+          [
+            "Services are presented as a long list",
+            "Electrical installation, renewable energy, networking and other services appear as indented text over a large photograph. Five renewable-energy services share one line on desktop. This makes the list harder to scan and match to a specific need. [2, 5]",
+            "Use distinct groups on a plain background, each explaining the typical need, the offered work and the next step. Include only confirmed services."
+          ],
+          [
+            "Project photographs need context",
+            "Three project labels name HUAWEI, SMA and Solax with EPS-Box. Uneven image widths and arrangements accompany no explanation of the original task, work scope or result. A visitor cannot easily recognise a comparable project. [3, 5]",
+            "Create consistent project cards with a useful photo, the task, the work performed and a verifiable result. Publish locations and technical details only with confirmation and permission."
+          ],
+          [
+            "One project animation runs to five seconds",
+            "The desktop SMA image has a 1,000 ms delay followed by a 4,000 ms fade/scale animation: five seconds from trigger to completion. Other project images use 1,000 + 2,500 ms; the welcome text uses 1,500 + 2,200 ms. These are animation settings, not download measurements. Project CSS already honours reduced motion. [1, 3, 5]",
+            "Show important content immediately, remove unnecessary delays and keep remaining motion brief. Recheck navigation and scrolling with normal and reduced motion."
+          ],
+          [
+            "Layout concerns do not establish a broken form",
+            "A large contact image sits beside a relatively narrow form on desktop and above it on mobile. The grey submit button has limited emphasis. No horizontal overflow occurred in the sampled layouts. Initially loaded field borders were black rather than the red borders in the supplied screenshot. The prominent cookie notice covers content, particularly on mobile. [4, 5]",
+            "Bring contact details and the form together, reduce excessive empty space and make the next action distinct. Check error messages, consent states and intermediate widths before diagnosing a layout fault."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Clarify the opening and services",
+            "Show the offer, location and enquiry route early. Rebuild service groups on a readable background."
+          ],
+          [
+            "Next",
+            "Explain the project examples",
+            "Develop three short case descriptions with the business, use consistent imagery and remove delayed entrances."
+          ],
+          [
+            "Then",
+            "Verify the enquiry journey",
+            "Check phone, desktop and keyboard use. Run several comparable mobile performance tests after changes."
+          ]
+        ],
+        "flow": [
+          "Recognise the right service",
+          "Understand a similar project",
+          "Enquire about the work"
+        ],
+        "cta": "Let us discuss how to make your services easier to choose and your project examples more useful. Email contact@suchio.net with “Elektro Horlacher” in the subject.",
+        "measurementNote": "No Lighthouse scores were collected. The verified timing finding concerns browser/CSS animation settings and does not establish generally slow loading.",
+        "methodextra": "One supplemental Chrome 152 desktop reload trace reported LCP 0.162 s and CLS 0.00; the hero image was the LCP element. Viewport 1,249 × 1,221 CSS pixels, no network throttling, CPU 1×, previously visited page without deliberately clearing cache, consent state not standardised. This is not a mobile first-visit test. No CrUX field data. The tool rejected the raw-trace export path; its result and LCP analysis were documented. No overall grade is inferred.",
+        "methodology": "Public sample on 12 September 2026 covering home, services, projects and contact in Chromium 151.0.7922.34. Desktop 1,440 × 1,000; Chromium iPhone-13 emulation at 390 × 664, DPR 3 and mobile user agent; the site reports a 320 CSS-pixel layout viewport. No physical iPhone/Safari test. Screenshots, DOM, links and animation CSS were recorded. Optional cookies were not accepted; a rejection attempt did not prevent the notice returning on later direct visits. User screenshots have an unknown capture date. No forms were submitted.",
+        "searchNote": "Search rankings were outside scope. No Google position, enquiry rate or revenue loss was measured; no Analytics or Search Console access was available.",
+        "evidenceNote": "Local screenshots, link checks and CSS/DOM evidence from 12 September 2026 are available on request."
+      },
+      "fr": {
+        "title": "Des prestations plus lisibles, des projets mieux expliqués.",
+        "summary": "Elektro Horlacher propose notamment des installations électriques, du photovoltaïque, des réseaux et du KNX. La longue liste de prestations et les photos de projets peu expliquées aident peu à choisir. Des animations retardent aussi la présentation complète.",
+        "findings": [
+          [
+            "Une entrée qui oriente peu",
+            "Le grand visuel présente un accueil et le nom de l’entreprise, puis un paragraphe centré. Cette zone ne propose ni sélection de prestations ni bouton de demande mis en avant. Le contact reste accessible dans le menu et le pied de page. Le problème concerne surtout la valeur informative du texte. [1, 5]",
+            "Annoncer le métier et la zone, présenter les prestations principales et ajouter une action claire pour demander un projet. Valider les priorités avec l’entreprise."
+          ],
+          [
+            "Une longue liste de prestations",
+            "Les offres sont listées sur une grande photographie, avec des retraits et des espacements irréguliers. Cinq offres liées aux énergies renouvelables partagent une ligne sur ordinateur. La lecture rapide et le choix sont ainsi moins faciles. [2, 5]",
+            "Regrouper les offres sur un fond uni. Pour chaque groupe, expliquer le besoin, les travaux proposés et la prochaine étape. Ne citer que des offres confirmées."
+          ],
+          [
+            "Des photos sans explication du chantier",
+            "Trois intitulés mentionnent HUAWEI, SMA et Solax avec EPS-Box. Les images de tailles différentes ne sont accompagnées ni du besoin initial, ni du périmètre des travaux, ni du résultat. Il est difficile de reconnaître un projet comparable. [3, 5]",
+            "Créer des fiches cohérentes avec une photo utile, le besoin, les travaux et un résultat vérifiable. Confirmer les données techniques et les autorisations avant publication."
+          ],
+          [
+            "Une animation de projet atteint cinq secondes",
+            "Sur ordinateur, la photo SMA prévoit 1 000 ms de délai puis 4 000 ms d’animation : cinq secondes entre le déclenchement et la fin. D’autres images prévoient 1 000 + 2 500 ms et le texte d’accueil 1 500 + 2 200 ms. Ce sont des paramètres d’animation, pas des temps de téléchargement. Le CSS des projets tient déjà compte de la réduction des mouvements. [1, 3, 5]",
+            "Afficher immédiatement les contenus importants, supprimer les délais inutiles et raccourcir les mouvements restants. Vérifier ensuite la navigation avec et sans réduction des mouvements."
+          ],
+          [
+            "Une composition à améliorer, sans panne générale démontrée",
+            "La page contact juxtapose un grand visuel et un formulaire relativement étroit ; les éléments sont empilés sur mobile. Le bouton gris ressort peu. Aucun débordement horizontal n’a été observé. Les bordures initiales étaient noires, contrairement aux bordures rouges de la capture fournie. Le bandeau de cookies couvre des contenus et domine sur mobile. [4, 5]",
+            "Rapprocher les coordonnées et le formulaire, réduire les espaces inutiles et rendre l’action plus visible. Contrôler les erreurs, le consentement et les largeurs intermédiaires avant de conclure à un défaut."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Clarifier l’entrée et les prestations",
+            "Présenter rapidement l’offre, la zone et le contact. Regrouper les prestations sur un fond lisible."
+          ],
+          [
+            "Ensuite",
+            "Expliquer les références",
+            "Construire trois descriptions courtes avec l’entreprise, harmoniser les images et enlever les délais d’apparition."
+          ],
+          [
+            "Enfin",
+            "Vérifier le parcours",
+            "Tester mobile, ordinateur et clavier, puis comparer plusieurs mesures mobiles dans les mêmes conditions."
+          ]
+        ],
+        "flow": [
+          "Identifier la prestation",
+          "Comprendre un projet similaire",
+          "Présenter son besoin"
+        ],
+        "cta": "Discutons de la présentation de vos prestations et de vos références. Écrivez à contact@suchio.net avec « Elektro Horlacher » en objet.",
+        "measurementNote": "Aucun score Lighthouse n’a été relevé. Les durées vérifiées concernent les animations CSS et ne démontrent pas un chargement généralement lent.",
+        "methodextra": "Une trace complémentaire de rechargement dans Chrome 152 a indiqué LCP 0,162 s et CLS 0,00 ; le grand visuel était l’élément LCP. Ordinateur 1 249 × 1 221 pixels CSS, sans limitation réseau, CPU 1×, page déjà visitée sans vider volontairement le cache, état de consentement non harmonisé. Ce test unique ne représente pas une première visite mobile. Aucune donnée terrain CrUX. L’outil a refusé le chemin d’export de la trace brute ; son résultat et l’analyse LCP ont été documentés. Aucune note globale.",
+        "methodology": "Échantillon public du 12 septembre 2026 : accueil, prestations, projets et contact dans Chromium 151.0.7922.34. Ordinateur 1 440 × 1 000 ; émulation iPhone 13 sous Chromium, 390 × 664, DPR 3 et agent mobile. La page déclare une largeur de mise en page de 320 pixels CSS. Aucun test sur iPhone physique ou Safari. Captures, DOM, liens et CSS conservés. Cookies facultatifs non acceptés ; un refus n’a pas empêché le retour du bandeau lors d’accès directs suivants. Date des captures fournies inconnue. Aucun formulaire envoyé.",
+        "searchNote": "Les positions dans les moteurs ne faisaient pas partie du contrôle. Aucun taux de demande, perte de revenu ou classement Google mesuré ; aucun accès à Analytics ou Search Console.",
+        "evidenceNote": "Captures, contrôle des liens et preuves CSS/DOM du 12 septembre 2026 conservés localement et disponibles sur demande."
+      }
+    }
+  },
+  {
+    "id": "mp",
+    "code": "adad97808be372b818a16242",
+    "company": "MP Innenausbau",
+    "url": "https://www.mp-innenausbau.com/home/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://www.mp-innenausbau.com/home/"
+      ],
+      [
+        "2",
+        "Kontaktseite",
+        "https://www.mp-innenausbau.com/kontakt/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Innenausbau und Maßanfertigungen klar anfragen",
+        "summary": "Ein Neuaufbau kann Leistungen und Arbeitsbeispiele erstmals strukturiert darstellen und den allgemeinen Kontakt zu einer gezielten Projektanfrage machen. Startseite mit klarer Leistungswahl, Seiten für Innenausbau und Maßanfertigungen, kurze Projektbeispiele sowie Anfrage mit Vorhaben und Ort.",
+        "findings": [
+          [
+            "Startseite ohne Leistungsweg",
+            "Die Navigation der Startseite führt nur zu Home, Kontakt und Impressum. Der Text nennt Einzelanfertigungen, Umarbeitungen und Reparaturen, erklärt aber keine dieser Arbeiten anhand eines Beispiels. [1]",
+            "Startseite mit klarer Leistungswahl."
+          ],
+          [
+            "Kontakt ohne Vorhabensbezug",
+            "Das Kontaktformular fragt Name, E-Mail und Nachricht ab. Eine Auswahl des gewünschten Vorhabens wird nicht angeboten. [2]",
+            "Seiten für Innenausbau und Maßanfertigungen."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Startseite mit klarer Leistungswahl."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "Seiten für Innenausbau und Maßanfertigungen."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "kurze Projektbeispiele sowie Anfrage mit Vorhaben und Ort."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für MP Innenausbau Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Guide enquiries for interior fittings, custom furniture and repairs",
+        "summary": "The site describes custom work and repairs, but offers no separate service pages or project examples. A new structure could help visitors choose an appropriate service and describe their project before getting in touch.",
+        "findings": [
+          [
+            "Services have no dedicated route",
+            "The main navigation contains Home, Contact and Legal Notice. Custom work, alterations and repairs are mentioned together without a worked example. [1]",
+            "Create clear pages for interior fitting and bespoke work with real project examples."
+          ],
+          [
+            "A general contact form",
+            "The form asks for a name, email and message, without a project category. [2]",
+            "Ask for the intended work and location, while keeping the form short."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Create clear pages for interior fitting and bespoke work with real project examples."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Ask for the intended work and location, while keeping the form short."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Ask for the intended work and location, while keeping the form short."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Orienter les demandes d’aménagement intérieur, de mobilier sur mesure et de réparation",
+        "summary": "Le site évoque les réalisations sur mesure et les réparations sans pages de service ni exemples de projets distincts. Une nouvelle structure aiderait à choisir une prestation et à décrire le projet avant le contact.",
+        "findings": [
+          [
+            "Des prestations sans parcours dédié",
+            "La navigation principale propose Accueil, Contact et Mentions légales. Les réalisations sur mesure, modifications et réparations sont citées ensemble sans exemple détaillé. [1]",
+            "Créer des pages claires pour l’aménagement et le sur mesure, illustrées par de vrais projets."
+          ],
+          [
+            "Un formulaire de contact général",
+            "Le formulaire demande le nom, l’adresse électronique et un message, sans catégorie de projet. [2]",
+            "Demander le type de travaux et le lieu, tout en gardant un formulaire court."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Créer des pages claires pour l’aménagement et le sur mesure, illustrées par de vrais projets."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Demander le type de travaux et le lieu, tout en gardant un formulaire court."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Demander le type de travaux et le lieu, tout en gardant un formulaire court."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "alles",
+    "code": "107cf79e0c58ce8f367e461c",
+    "company": "Alles Fliest",
+    "url": "https://www.alles-fliest.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://www.alles-fliest.de/"
+      ],
+      [
+        "2",
+        "Leistungsseite",
+        "https://www.alles-fliest.de/leistungen/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Fliesen- und Ausbauprojekte besser unterscheiden",
+        "summary": "Das sehr breite Angebot braucht eine neue inhaltliche Ordnung, passende Belege und einen Anfrageweg nach Projektart; bloße Textkorrekturen lösen die Orientierung nicht. Leistungsgruppen nach Fliesen, Ausbau und Sanierung, aussagekräftige Projektbeispiele und Anfrage mit Leistungsart und Eckdaten.",
+        "findings": [
+          [
+            "Leistungen nur als Liste",
+            "Die Startseite nennt Fliesen, Trockenbau, Montage und Innenausbau mit sehr kurzen allgemeinen Beschreibungen; unter Montage wird sogar mit Farbe argumentiert. [1]",
+            "Leistungsgruppen nach Fliesen."
+          ],
+          [
+            "Breites Angebot ohne Projektführung",
+            "Die Leistungsseite listet zusätzlich Fassaden, Bodenbeläge, Holzterrassen und Entkernungen. Für Umfang, Ablauf und passende Beispiele muss der Leser selbst weiterfragen. [2]",
+            "Ausbau und Sanierung."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Leistungsgruppen nach Fliesen."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "Ausbau und Sanierung."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "aussagekräftige Projektbeispiele und Anfrage mit Leistungsart und Eckdaten."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Alles Fliest Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Separate tiling, renovation and fitting enquiries",
+        "summary": "The site covers several trades, while the descriptions remain broad. A new site could group the services, show relevant completed work and route enquiries by project type.",
+        "findings": [
+          [
+            "Very broad service presentation",
+            "The home page introduces tiling, drywall, fitting and interior work in a short general description. [1]",
+            "Group services by the projects customers actually plan."
+          ],
+          [
+            "Examples do not explain the work",
+            "The illustrated service areas name activities, but give little context on scope or completed results. [2]",
+            "Add genuine project examples that explain the task and outcome."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Group services by the projects customers actually plan."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Add genuine project examples that explain the task and outcome."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Add genuine project examples that explain the task and outcome."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Distinguer carrelage, rénovation et travaux de montage",
+        "summary": "Le site présente plusieurs métiers de façon générale. Un nouveau site pourrait regrouper les prestations, montrer des réalisations pertinentes et orienter les demandes selon le projet.",
+        "findings": [
+          [
+            "Une offre très large",
+            "L’accueil présente carrelage, cloisons sèches, montage et aménagement intérieur dans une description générale. [1]",
+            "Regrouper les prestations selon les projets recherchés par les clients."
+          ],
+          [
+            "Des exemples peu expliqués",
+            "Les rubriques illustrées nomment les activités, mais précisent peu l’ampleur ou le résultat des travaux. [2]",
+            "Ajouter de vrais projets décrivant la mission et le résultat."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Regrouper les prestations selon les projets recherchés par les clients."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Ajouter de vrais projets décrivant la mission et le résultat."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Ajouter de vrais projets décrivant la mission et le résultat."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "krebs",
+    "code": "7b46174dcd4dc382d5b8fad0",
+    "company": "Krebs und Mauer Baudekoration und Raumgestaltung GmbH",
+    "url": "https://www.krebs-und-mauer.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://www.krebs-und-mauer.de/"
+      ],
+      [
+        "2",
+        "Leistungsseite",
+        "https://www.krebs-und-mauer.de/ausfuehrungsbereiche"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Ihre Projekte früher mit Leistungen verbinden",
+        "summary": "Die vorhandenen Projektbelege sind ein gutes Fundament. Ein neuer Aufbau sollte sie in einen klaren Weg von Anliegen über vergleichbare Arbeit zur Anfrage bringen. Einstieg nach Innenraum, Fassade und Spezialgestaltung, Projektseiten mit Aufgabe und Umsetzung, Anfrage nach Vorhaben.",
+        "findings": [
+          [
+            "Allgemeiner Einstieg",
+            "Die Startseite eröffnet mit langem Qualitätsversprechen und einer Übersicht aus Außenbereichen, Innenarbeiten, Spanndecken und Gestaltungen. Der Kontakt liegt in der Navigation. [1]",
+            "Einstieg nach Innenraum."
+          ],
+          [
+            "Starke Projekte sind tiefer verborgen",
+            "Die Seite zu Ausführungsbereichen enthält konkrete Arbeiten wie Scheunensanierung und Wetterschutzsystem, beginnt aber mit einer langen Gewerke-Liste und Galeriekategorien. [2]",
+            "Fassade und Spezialgestaltung."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Einstieg nach Innenraum."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "Fassade und Spezialgestaltung."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "Projektseiten mit Aufgabe und Umsetzung."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Krebs und Mauer Baudekoration und Raumgestaltung GmbH Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Connect design services with relevant projects",
+        "summary": "The site already has useful project material. A revised structure could lead visitors from their interior or exterior project to a comparable example and then to a suitable enquiry.",
+        "findings": [
+          [
+            "Project evidence is buried",
+            "The opening gives a general company introduction while specific work appears deeper in the service and project sections. [1]",
+            "Bring selected examples close to the relevant service routes."
+          ],
+          [
+            "Different projects share one route",
+            "Interior, exterior and specialist design work are presented together at the entry point. [2]",
+            "Offer distinct paths for these project types and explain the next step."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Bring selected examples close to the relevant service routes."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Offer distinct paths for these project types and explain the next step."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Offer distinct paths for these project types and explain the next step."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Relier les prestations de décoration aux projets correspondants",
+        "summary": "Le site dispose déjà de réalisations utiles. Une nouvelle structure pourrait mener du projet intérieur ou extérieur à un exemple comparable, puis à une demande adaptée.",
+        "findings": [
+          [
+            "Les preuves de réalisation arrivent tard",
+            "L’accueil présente l’entreprise de manière générale ; les travaux concrets se trouvent plus loin dans les rubriques. [1]",
+            "Placer des exemples choisis près des prestations correspondantes."
+          ],
+          [
+            "Des projets différents partagent le même parcours",
+            "Travaux intérieurs, extérieurs et décorations spéciales sont regroupés à l’entrée du site. [2]",
+            "Créer des parcours distincts et expliquer l’étape suivante."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Placer des exemples choisis près des prestations correspondantes."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Créer des parcours distincts et expliquer l’étape suivante."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Créer des parcours distincts et expliquer l’étape suivante."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "schwenke",
+    "code": "f6140a6bb46fdc03a3c563a0",
+    "company": "Physiotherapie Schwenke",
+    "url": "https://www.physio-schwenke.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://www.physio-schwenke.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Unterseite",
+        "https://www.physio-schwenke.de/therapie/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Therapie, Kurse und Telefontermine klar führen",
+        "summary": "Ein Neuaufbau kann Behandlungswahl, Kursinformation und telefonischen Terminweg gemeinsam ordnen. Eine Onlinebuchung wäre gegen die erklärte Praxisregel und wird nicht vorgeschlagen. Getrennte Einstiege für Therapie und Prävention, verständliche Behandlungsseiten und durchgängiger Telefonhinweis.",
+        "findings": [
+          [
+            "Einstieg priorisiert Begrüßung",
+            "Auf der Startseite stehen der virtuelle Rundgang und allgemeine Praxisvorstellung vor der konkreten Wahl von Therapieschwerpunkt oder Kurs. [1]",
+            "Getrennte Einstiege für Therapie und Prävention."
+          ],
+          [
+            "Behandlungsübersicht ist eine lange Liste",
+            "Die Therapieseite zählt zahlreiche Verfahren auf. Termine sollen laut Startseite ausschließlich telefonisch oder persönlich vereinbart werden. [2]",
+            "verständliche Behandlungsseiten und durchgängiger Telefonhinweis."
+          ],
+          [
+            "Handyansicht als verkleinerte Desktopseite",
+            "Bei 390 Pixel Gerätegröße beträgt die Layoutbreite 980 CSS-Pixel. Das Menü und die Seitenleiste bleiben nebeneinander; Text und Terminregel werden klein dargestellt. [1]",
+            "Ein responsives Layout mit lesbarer Behandlungswahl und dem bestehenden Telefonweg gestalten."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Getrennte Einstiege für Therapie und Prävention."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "verständliche Behandlungsseiten und durchgängiger Telefonhinweis."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "Getrennte Einstiege für Therapie und Prävention, verständliche Behandlungsseiten und durchgängiger Telefonhinweis."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Physiotherapie Schwenke Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Make therapy, prevention and phone appointments clear",
+        "summary": "The practice explains that appointments are made by phone. The mobile page is displayed as a shrunken desktop layout, making treatment choice and the phone rule harder to read. A new responsive structure can preserve the existing booking practice.",
+        "findings": [
+          [
+            "Therapy and prevention are mixed in the introduction",
+            "The home page welcomes visitors, then lists therapies and courses further down. [1]",
+            "Give therapy and prevention distinct entry points with plain explanations."
+          ],
+          [
+            "Desktop layout on a phone",
+            "At a 390 px device width, the page lays out at 980 CSS px; menu, article and sidebar remain side by side. [1]",
+            "Use a responsive layout that keeps treatment choice and the phone number readable."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Give therapy and prevention distinct entry points with plain explanations."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Use a responsive layout that keeps treatment choice and the phone number readable."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Use a responsive layout that keeps treatment choice and the phone number readable."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Clarifier thérapies, prévention et rendez-vous par téléphone",
+        "summary": "Le cabinet précise que les rendez-vous se prennent par téléphone. Sur mobile, la page de bureau est réduite, ce qui rend les prestations et cette règle moins lisibles. Une nouvelle structure adaptée au mobile peut conserver ce fonctionnement.",
+        "findings": [
+          [
+            "Thérapies et prévention mêlées à l’accueil",
+            "L’accueil présente le cabinet ; les thérapies et les cours apparaissent plus bas. [1]",
+            "Séparer les entrées thérapies et prévention avec des explications simples."
+          ],
+          [
+            "Une page de bureau réduite sur téléphone",
+            "Pour un appareil de 390 px, la mise en page mesure 980 px CSS ; menu, article et colonne latérale restent côte à côte. [1]",
+            "Adapter la page pour garder les soins et le numéro de téléphone lisibles."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Séparer les entrées thérapies et prévention avec des explications simples."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Adapter la page pour garder les soins et le numéro de téléphone lisibles."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Adapter la page pour garder les soins et le numéro de téléphone lisibles."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "stueben",
+    "code": "15ce706b049133f113e8c682",
+    "company": "Elektro Stüben",
+    "url": "https://www.elektro-stueben.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://www.elektro-stueben.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Unterseite",
+        "https://www.elektro-stueben.de/wir-ueber-uns/referenzen.html"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Elektroleistungen statt Katalog im Mittelpunkt",
+        "summary": "Das Problem betrifft die Seitenarchitektur und die Trennung zwischen redaktionellem Katalog und den tatsächlich angebotenen Arbeiten. Ein neuer Auftritt kann beides gezielt neu ordnen. Lokale Leistungswege für Elektroinstallation, Hausgeräte und E-Check, ausgewählte Referenzen sowie ein konkreter Anfrageweg.",
+        "findings": [
+          [
+            "Unverständliche Hauptüberschrift",
+            "Die Startseite zeigt als H1 den Text „119069_stueben“. Darunter folgen viele allgemeine Themen und Produktmeldungen. [1]",
+            "Lokale Leistungswege für Elektroinstallation."
+          ],
+          [
+            "Betriebliche Leistungen sind im großen Katalog verteilt",
+            "Die Navigation führt durch viele Unterthemen zur Elektroinstallation; eigene Referenzen liegen getrennt im Bereich „Wir über uns“. [2]",
+            "Hausgeräte und E-Check."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Lokale Leistungswege für Elektroinstallation."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "Hausgeräte und E-Check."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "ausgewählte Referenzen sowie ein konkreter Anfrageweg."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Elektro Stüben Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Put local electrical services before general advice",
+        "summary": "The home page mixes actual services with broad informational and catalogue content. A new information structure could make installations, appliance service and electrical inspections easier to find and enquire about.",
+        "findings": [
+          [
+            "Technical heading in the page",
+            "The home page includes the heading “119069_stueben”, which gives visitors no useful service information. [1]",
+            "Replace the placeholder style heading with a clear description of the local offer."
+          ],
+          [
+            "Services and editorial content are mixed",
+            "Service cards, product topics and advice appear in one long sequence. [2]",
+            "Create distinct routes for installation, appliances and inspection, linked to an enquiry."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Replace the placeholder style heading with a clear description of the local offer."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Create distinct routes for installation, appliances and inspection, linked to an enquiry."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Create distinct routes for installation, appliances and inspection, linked to an enquiry."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Mettre les services électriques locaux au premier plan",
+        "summary": "L’accueil mélange prestations réelles, conseils généraux et contenus de catalogue. Une nouvelle structure aiderait à trouver les installations, le service électroménager et les contrôles électriques.",
+        "findings": [
+          [
+            "Un intitulé technique sur la page",
+            "L’accueil affiche « 119069_stueben », sans information utile pour le visiteur. [1]",
+            "Remplacer cet intitulé par une présentation claire des prestations locales."
+          ],
+          [
+            "Services et contenus éditoriaux mêlés",
+            "Cartes de services, sujets produits et conseils se suivent dans une longue page. [2]",
+            "Créer des parcours distincts pour installation, appareils et contrôle, reliés à une demande."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Remplacer cet intitulé par une présentation claire des prestations locales."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Créer des parcours distincts pour installation, appareils et contrôle, reliés à une demande."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Créer des parcours distincts pour installation, appareils et contrôle, reliés à une demande."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "luepke",
+    "code": "5589a33cd7e082a44ae494e0",
+    "company": "Installationsbetrieb Noël Lüpke",
+    "url": "https://www.noel-luepke.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://www.noel-luepke.de/"
+      ],
+      [
+        "2",
+        "Leistungsseite",
+        "https://www.noel-luepke.de/leistungen.html"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Bad, Heizung und Service gezielt anfragen",
+        "summary": "Ein neuer Aufbau kann die verschiedenen Auftragsarten erklären und für planbare Projekte einen passenden Anfrageweg ergänzen, ohne den telefonischen Kontakt zu ersetzen. Seiten für Bad, Heizung und Service, kurze Ablaufhinweise sowie Projektanfrage mit Bestandsanlage oder Umbauziel.",
+        "findings": [
+          [
+            "Allgemeine Startseite",
+            "Die Startseite spricht von Service und Verbindlichkeit, aber nicht davon, welches Anliegen ein Besucher zuerst auswählen sollte. [1]",
+            "Seiten für Bad."
+          ],
+          [
+            "Leistungen ohne Entscheidungsinformationen",
+            "Bad, Heizung, Solar, Reparatur und Wartung stehen auf der Leistungsseite als Liste; der Kontakt empfiehlt Telefon oder E-Mail. [2]",
+            "Heizung und Service."
+          ],
+          [
+            "Handyansicht skaliert die gesamte Desktopseite",
+            "Bei 390 Pixel Gerätegröße beträgt die Layoutbreite 980 CSS-Pixel. Navigation, Titelbild und Textspalte erscheinen als verkleinerte Desktopseite. [1]",
+            "Navigation, Leistungen und Kontakt für schmale Bildschirme neu anordnen."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Seiten für Bad."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "Heizung und Service."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "kurze Ablaufhinweise sowie Projektanfrage mit Bestandsanlage oder Umbauziel."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Installationsbetrieb Noël Lüpke Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Give bathroom, heating and service requests clear routes",
+        "summary": "The home page remains general, and on a phone the whole desktop page is scaled down. A new responsive site could explain different jobs and prepare planned-project enquiries while retaining the phone contact.",
+        "findings": [
+          [
+            "General introduction",
+            "The opening describes the company and its values but does not lead directly to bathroom, heating or maintenance enquiries. [1]",
+            "Show the main service routes and explain the first step for each."
+          ],
+          [
+            "Desktop page scaled on a phone",
+            "At a 390 px device width, the layout is 980 CSS px wide; navigation, banner and text appear reduced. [1]",
+            "Rebuild navigation and content for narrow screens."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Show the main service routes and explain the first step for each."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Rebuild navigation and content for narrow screens."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Rebuild navigation and content for narrow screens."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Créer des parcours clairs pour salle de bains, chauffage et entretien",
+        "summary": "L’accueil reste général et, sur téléphone, la page de bureau est réduite. Un nouveau site adapté au mobile pourrait expliquer les types de travaux et préparer les demandes tout en conservant le téléphone.",
+        "findings": [
+          [
+            "Une introduction générale",
+            "Le début présente l’entreprise et ses valeurs sans accès direct aux projets de salle de bains, de chauffage ou d’entretien. [1]",
+            "Montrer les principales prestations et leur première étape."
+          ],
+          [
+            "La page de bureau est réduite sur téléphone",
+            "Pour un appareil de 390 px, la mise en page mesure 980 px CSS ; navigation, bannière et texte sont miniaturisés. [1]",
+            "Reconstruire la navigation et les contenus pour les petits écrans."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Montrer les principales prestations et leur première étape."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Reconstruire la navigation et les contenus pour les petits écrans."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Reconstruire la navigation et les contenus pour les petits écrans."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "weber",
+    "code": "b8216459a4541173af11cc47",
+    "company": "Weber Marmor GmbH",
+    "url": "https://www.weber-marmor.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Produktübersicht",
+        "https://www.weber-marmor.de/produkte/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Natursteinprojekte mit passenden Beispielen zeigen",
+        "summary": "Für sehr unterschiedliche private und gewerbliche Vorhaben kann eine neue Informationsarchitektur den passenden Einstieg, Arbeitsbeispiele und die Anfragevorbereitung verbinden. Startseite nach Vorhaben, ausgearbeitete Leistungsseiten mit echten Beispielen, Material- und Ablaufhinweise sowie eine Anfrage nach Einsatzbereich.",
+        "findings": [
+          [
+            "Breites Angebot ohne Einstieg nach Projekt",
+            "Die Startseite begrüßt allgemein; die Produktübersicht nennt Grabdenkmäler, Bäder, Küchen, Treppen, Fassaden und Restaurierung, erläutert diese Wege aber nur knapp. [1]",
+            "Startseite nach Vorhaben."
+          ],
+          [
+            "Referenzbedarf",
+            "Die Produktübersicht ordnet den sehr unterschiedlichen Anwendungen keine erläuterten Projektbeispiele und keinen entsprechenden Anfrageweg zu. [1]",
+            "ausgearbeitete Leistungsseiten mit echten Beispielen."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Startseite nach Vorhaben."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "ausgearbeitete Leistungsseiten mit echten Beispielen."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "Material- und Ablaufhinweise sowie eine Anfrage nach Einsatzbereich."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Weber Marmor GmbH Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Help visitors choose the right natural stone project",
+        "summary": "Natural stone is used for very different private and commercial purposes. The site names product categories but gives little guidance on choosing a route. A new structure could connect examples, material advice and the enquiry.",
+        "findings": [
+          [
+            "General opening",
+            "The home page welcomes visitors and points broadly to products without distinguishing project types. [1]",
+            "Start with clear choices by intended application."
+          ],
+          [
+            "Product categories without much context",
+            "The overview names memorials, bathrooms, kitchens, stairs, façades and restoration with little explanation. [1]",
+            "Add genuine examples, material details and an enquiry route for each main area."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Start with clear choices by intended application."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Add genuine examples, material details and an enquiry route for each main area."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Add genuine examples, material details and an enquiry route for each main area."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Aider à choisir le bon projet en pierre naturelle",
+        "summary": "La pierre naturelle sert à des projets privés et professionnels très différents. Le site nomme les catégories sans beaucoup guider le choix. Une nouvelle structure pourrait relier exemples, conseils sur les matériaux et prise de contact.",
+        "findings": [
+          [
+            "Un accueil général",
+            "L’accueil souhaite la bienvenue et renvoie globalement aux produits sans distinguer les projets. [1]",
+            "Commencer par des choix clairs selon l’application recherchée."
+          ],
+          [
+            "Des catégories peu contextualisées",
+            "L’aperçu cite monuments funéraires, salles de bains, cuisines, escaliers, façades et restauration avec peu d’explications. [1]",
+            "Ajouter de vrais exemples, des détails sur les matériaux et un contact par domaine."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Commencer par des choix clairs selon l’application recherchée."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Ajouter de vrais exemples, des détails sur les matériaux et un contact par domaine."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Ajouter de vrais exemples, des détails sur les matériaux et un contact par domaine."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "seta",
+    "code": "791ab76253c8700ed5959841",
+    "company": "Seta BAU GmbH",
+    "url": "https://seta-bau.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://seta-bau.de/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Bauleistungen mit echten Projekten erklären",
+        "summary": "Leistungsstruktur und Vertrauensaufbau hängen hier zusammen. Ein Neuaufbau sollte die Gewerke und echte, eindeutig zuordenbare Projektbelege statt Wiederholungen präsentieren. Einstieg nach Bauvorhaben, kompakte Leistungsseiten, nachvollziehbare Projektberichte und Anfrage mit Vorhaben und Standort.",
+        "findings": [
+          [
+            "Sehr breiter Auftritt",
+            "Die Startseite bietet Malerarbeiten, Mauer- und Stahlbau sowie weitere Bauleistungen als langen durchlaufenden Inhalt. [1]",
+            "Einstieg nach Bauvorhaben."
+          ],
+          [
+            "Vertrauensbelege wiederholen sich",
+            "Im Bereich „Das sagen unsere Kunden“ erscheinen dieselben kurzen Stimmen mehrfach. Der Kontakt ist auf derselben Seite erreichbar. [1]",
+            "kompakte Leistungsseiten."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Einstieg nach Bauvorhaben."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "kompakte Leistungsseiten."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "nachvollziehbare Projektberichte und Anfrage mit Vorhaben und Standort."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Seta BAU GmbH Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Connect construction services with specific project evidence",
+        "summary": "The site names a broad construction offer and repeats the same testimonial. A new structure could make each trade, relevant examples and the route to an enquiry more credible and easier to follow.",
+        "findings": [
+          [
+            "Broad service list",
+            "Several building trades are presented together on the home page without a clear first choice by project. [1]",
+            "Create concise routes based on the planned construction work."
+          ],
+          [
+            "Repeated testimonial",
+            "The same customer quotation appears more than once in the page content. [1]",
+            "Use distinct, verifiable project examples with a clear task and result."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Create concise routes based on the planned construction work."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Use distinct, verifiable project examples with a clear task and result."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Use distinct, verifiable project examples with a clear task and result."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Relier les prestations du bâtiment à des projets précis",
+        "summary": "Le site présente une offre large et répète le même témoignage. Une nouvelle structure pourrait rendre chaque métier, ses exemples et le chemin vers la demande plus clairs.",
+        "findings": [
+          [
+            "Une longue liste de prestations",
+            "Plusieurs métiers du bâtiment sont réunis sur l’accueil sans premier choix selon le projet. [1]",
+            "Créer des parcours courts selon les travaux envisagés."
+          ],
+          [
+            "Un témoignage répété",
+            "La même citation de client apparaît plusieurs fois dans le contenu. [1]",
+            "Utiliser des projets distincts et vérifiables avec mission et résultat."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Créer des parcours courts selon les travaux envisagés."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Utiliser des projets distincts et vérifiables avec mission et résultat."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Utiliser des projets distincts et vérifiables avec mission et résultat."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "ruppert",
+    "code": "5c132b002aabf0846a5d66dc",
+    "company": "Andreas Ruppert Dachdeckermeister GmbH",
+    "url": "https://www.dachdecker-ruppert.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://www.dachdecker-ruppert.de/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Dachreparatur und Sanierung klar trennen",
+        "summary": "Ein neuer Auftritt würde erstmals einen belastbaren Informationsweg für unterschiedliche Dachanliegen schaffen; eine kleine Textkorrektur genügt dafür nicht. Leistungsseiten für Reparatur, Sanierung und Neubau, reale Projektbeispiele und Anfrage mit Dachart und Anliegen.",
+        "findings": [
+          [
+            "Leistungsangebot bleibt allgemein",
+            "Die Website sagt, der Betrieb führe sämtliche Dacharbeiten aus, erläutert aber keine einzelnen Leistungen oder Projekttypen. [1]",
+            "Leistungsseiten für Reparatur."
+          ],
+          [
+            "Kontakt ersetzt Beratung auf der Seite",
+            "Nach dem kurzen Überblick folgt direkt die Kontaktsektion. Referenzen, Ablauf oder Hinweise zur Einordnung eines Dachproblems erscheinen in der geprüften Seite nicht. [1]",
+            "Sanierung und Neubau."
+          ],
+          [
+            "Einseitige mobile Inhaltsfolge",
+            "In der mobilen Ansicht folgen auf den kurzen Überblick der Kontaktblock, das ausführliche Impressum und die Datenschutzhinweise auf derselben langen Seite. Eigene Leistungswege sind nicht erkennbar. [1]",
+            "Leistungen und Kontakt als kurze, getrennte Wege vor den Rechtstexten zeigen."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Leistungsseiten für Reparatur."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "Sanierung und Neubau."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "reale Projektbeispiele und Anfrage mit Dachart und Anliegen."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Andreas Ruppert Dachdeckermeister GmbH Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Separate roof repairs, renovation and planned work",
+        "summary": "The mobile page gives a short overview, then contact details and extensive legal text on one long page. A new site could explain the main roof services before asking visitors to get in touch.",
+        "findings": [
+          [
+            "Little detail on roof services",
+            "The opening says the company carries out roof work but does not distinguish repairs from planned renovation. [1]",
+            "Create service pages for repair, renovation and new roofs."
+          ],
+          [
+            "Long mobile sequence",
+            "On a phone, the short overview is followed by contact, legal notice and privacy text in the same page. [1]",
+            "Move project guidance and contact ahead of the legal sections."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Create service pages for repair, renovation and new roofs."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Move project guidance and contact ahead of the legal sections."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Move project guidance and contact ahead of the legal sections."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Séparer réparation, rénovation et travaux de toiture planifiés",
+        "summary": "Sur mobile, un bref aperçu précède le contact et de longs textes juridiques sur une même page. Un nouveau site pourrait expliquer les prestations de toiture avant la prise de contact.",
+        "findings": [
+          [
+            "Peu de détails sur les travaux",
+            "L’accueil indique que l’entreprise réalise des travaux de toiture sans distinguer réparation et rénovation prévue. [1]",
+            "Créer des pages pour réparation, rénovation et toiture neuve."
+          ],
+          [
+            "Une longue suite sur mobile",
+            "Sur téléphone, le bref aperçu est suivi du contact, des mentions légales et de la confidentialité sur la même page. [1]",
+            "Placer l’aide au choix et le contact avant les textes juridiques."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Créer des pages pour réparation, rénovation et toiture neuve."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Placer l’aide au choix et le contact avant les textes juridiques."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Placer l’aide au choix et le contact avant les textes juridiques."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "winter",
+    "code": "46678dd082aeb99f8a7ba493",
+    "company": "Gebäudeservice Winter",
+    "url": "https://www.gebaeudeservice-winter.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://www.gebaeudeservice-winter.de/"
+      ],
+      [
+        "2",
+        "Leistungsseite",
+        "https://www.gebaeudeservice-winter.de/unsere-leistungen/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Objektbetreuung gezielter anfragen",
+        "summary": "Für wiederkehrende Objektbetreuung ist die Verbindung von Leistungen und Anfrageweg wesentlich. Ein neuer Aufbau kann Zielgruppen und Leistungspakete verständlich zusammenführen. Einstiege für Verwaltung und Privatkunden, Leistungsseiten mit Umfang und Anfrage mit Objektart, Ort und Bedarf.",
+        "findings": [
+          [
+            "Allgemeiner Einstieg",
+            "Die Startseite verspricht Komplettlösungen für Haus, Wohnung, Garten und Sanitäranlagen, ohne den ersten Anwendungsfall zu strukturieren. [1]",
+            "Einstiege für Verwaltung und Privatkunden."
+          ],
+          [
+            "Leistungen liegen verteilt",
+            "Hausmeisterdienst, Grünanlagenpflege, Gebäudereinigung und Winterdienst sind als separate Navigationspunkte erreichbar. Ein gemeinsamer Weg für laufende Objektbetreuung wird im Einstieg nicht erklärt. [2]",
+            "Leistungsseiten mit Umfang und Anfrage mit Objektart."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Einstiege für Verwaltung und Privatkunden."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "Leistungsseiten mit Umfang und Anfrage mit Objektart."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "Ort und Bedarf."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Gebäudeservice Winter Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Guide property managers and private customers to the right service",
+        "summary": "The site covers many building services. A new structure could distinguish recurring property care from one-off work and ask for the property details needed to respond.",
+        "findings": [
+          [
+            "Broad promise before service choice",
+            "The opening presents general building service claims, while the precise scope has to be assembled from several sections. [1]",
+            "Give property managers and private customers separate, clear service routes."
+          ],
+          [
+            "General enquiry route",
+            "Contact options are visible, but the site does not guide visitors to state property type and required work. [2]",
+            "Prepare a concise enquiry with location, property and service need."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Give property managers and private customers separate, clear service routes."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Prepare a concise enquiry with location, property and service need."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Prepare a concise enquiry with location, property and service need."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Orienter gestionnaires et particuliers vers la bonne prestation",
+        "summary": "Le site couvre de nombreux services immobiliers. Une nouvelle structure pourrait distinguer l’entretien récurrent des interventions ponctuelles et demander les informations utiles sur l’objet.",
+        "findings": [
+          [
+            "Une promesse large avant le choix",
+            "L’accueil présente le service du bâtiment en général ; l’étendue précise doit être reconstituée dans plusieurs rubriques. [1]",
+            "Créer des parcours distincts pour gestionnaires et particuliers."
+          ],
+          [
+            "Un contact général",
+            "Les moyens de contact sont visibles, sans aider à préciser le type de bâtiment et le besoin. [2]",
+            "Préparer une demande courte avec lieu, objet et prestation souhaitée."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Créer des parcours distincts pour gestionnaires et particuliers."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Préparer une demande courte avec lieu, objet et prestation souhaitée."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Préparer une demande courte avec lieu, objet et prestation souhaitée."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "och",
+    "code": "16aab97bdc40f64d246650ea",
+    "company": "Schreinerei Och GmbH",
+    "url": "https://firma-och.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://firma-och.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Unterseite",
+        "https://firma-och.de/pages/glasreparaturen"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Schreinerleistungen verständlich ordnen",
+        "summary": "Das breite Angebot und die sehr knappen Unterseiten sprechen für eine neue Inhaltsstruktur mit Projektbelegen und einem konkreten Anfrageweg. Leistungsgruppen für Bauelemente und Innenausbau, Projektbeispiele und Anfrage nach Produkt, Maß und Einbauort.",
+        "findings": [
+          [
+            "Startseite als Angebotsliste",
+            "Die Startseite zählt viele Gewerke vom Fenster bis zum Möbelbau auf, erklärt aber keine typische Aufgabe oder Ausführung. [1]",
+            "Leistungsgruppen für Bauelemente und Innenausbau."
+          ],
+          [
+            "Einzelne Leistungsseiten bleiben knapp",
+            "Die geprüfte Seite „Glasreparaturen“ nennt nur Glasvordächer und Reparaturen in Stichpunkten. Der Kontakt ist separat erreichbar. [2]",
+            "Projektbeispiele und Anfrage nach Produkt."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Leistungsgruppen für Bauelemente und Innenausbau."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "Projektbeispiele und Anfrage nach Produkt."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "Maß und Einbauort."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Schreinerei Och GmbH Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Turn joinery and building elements into specific enquiries",
+        "summary": "The home page lists many products and services, while some subpages remain very short. A new structure could separate building elements from interior work and prepare project requests.",
+        "findings": [
+          [
+            "Long list of different work",
+            "Windows, doors, shutters, glass repairs and bespoke furniture appear together in the opening list. [1]",
+            "Group the work by customer need and show genuine examples."
+          ],
+          [
+            "Short glass repair page",
+            "The glass repair subpage contains only a few bullet points and offers little guidance on the repair process. [2]",
+            "Explain the first steps and the information needed for an enquiry."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Group the work by customer need and show genuine examples."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Explain the first steps and the information needed for an enquiry."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Explain the first steps and the information needed for an enquiry."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Transformer menuiserie et éléments du bâtiment en demandes précises",
+        "summary": "L’accueil énumère de nombreux produits et services, tandis que certaines sous-pages restent très courtes. Une nouvelle structure pourrait séparer éléments du bâtiment et aménagement intérieur.",
+        "findings": [
+          [
+            "Une longue liste de travaux différents",
+            "Fenêtres, portes, volets, réparations de verre et mobilier sur mesure figurent dans la même liste. [1]",
+            "Regrouper les travaux selon le besoin et montrer de vraies réalisations."
+          ],
+          [
+            "Une page de réparation de verre succincte",
+            "Cette sous-page ne contient que quelques points et explique peu le déroulement. [2]",
+            "Décrire les premières étapes et les informations nécessaires à la demande."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Regrouper les travaux selon le besoin et montrer de vraies réalisations."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Décrire les premières étapes et les informations nécessaires à la demande."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Décrire les premières étapes et les informations nécessaires à la demande."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "hereth",
+    "code": "41c362e3a633adb4a84cb239",
+    "company": "Hereth Metallbau GmbH",
+    "url": "https://www.hereth-metallbau.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://www.hereth-metallbau.de/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Metallbau und Brandschutz getrennt erklären",
+        "summary": "Ein neuer B2B-Auftritt kann die unterschiedlichen Anforderungen und Nachweise je Leistungsfeld besser abbilden als die derzeitige Sammelseite. Getrennte Fachbereiche, Referenzprojekte mit technischen Anforderungen und Anfrage nach Objekt, Gewerk und Planungsstand.",
+        "findings": [
+          [
+            "Leistungsfelder bleiben auf einer Seite",
+            "Die Startseite nennt Metallbau, Brandschutz und Sicherheit sowie Trennwände, Fassaden, Geländer und Steuerungstechnik in einer breiten Liste. [1]",
+            "Getrennte Fachbereiche."
+          ],
+          [
+            "Wenige Navigationswege",
+            "Die sichtbare Hauptnavigation bietet Home und Kontakt. Für ein konkretes Brandschutz- oder Sicherheitsvorhaben gibt es keinen eigenen Leistungsweg. [1]",
+            "Referenzprojekte mit technischen Anforderungen und Anfrage nach Objekt."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Getrennte Fachbereiche."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "Referenzprojekte mit technischen Anforderungen und Anfrage nach Objekt."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "Gewerk und Planungsstand."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Hereth Metallbau GmbH Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Explain metalwork, fire protection and security separately",
+        "summary": "The site brings distinct specialist services together on a long page. A new business-facing structure could show requirements and relevant evidence for each field before the enquiry.",
+        "findings": [
+          [
+            "Services share a long page",
+            "Doors, gates, glazing, fire protection and security are listed together rather than explained by use case. [1]",
+            "Create separate specialist routes and state what each covers."
+          ],
+          [
+            "Evidence is hard to match to a need",
+            "References and certifications appear lower on the page without a clear link to each service route. [1]",
+            "Connect genuine projects and technical requirements to the relevant service."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Create separate specialist routes and state what each covers."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Connect genuine projects and technical requirements to the relevant service."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Connect genuine projects and technical requirements to the relevant service."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Expliquer séparément métallerie, protection incendie et sécurité",
+        "summary": "Le site réunit des prestations spécialisées sur une longue page. Une nouvelle structure destinée aux professionnels pourrait présenter exigences et preuves par domaine avant la demande.",
+        "findings": [
+          [
+            "Des prestations réunies sur une longue page",
+            "Portes, portails, vitrage, protection incendie et sécurité sont listés ensemble plutôt qu’expliqués par usage. [1]",
+            "Créer des parcours spécialisés distincts et préciser leur portée."
+          ],
+          [
+            "Des preuves difficiles à relier au besoin",
+            "Références et certifications apparaissent plus bas sans lien clair avec chaque prestation. [1]",
+            "Relier les vrais projets et exigences techniques au domaine concerné."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Créer des parcours spécialisés distincts et préciser leur portée."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Relier les vrais projets et exigences techniques au domaine concerné."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Relier les vrais projets et exigences techniques au domaine concerné."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "wagner",
+    "code": "c3ac6a326455d7f3e8f2e465",
+    "company": "Wagner GmbH Gas und Wasserinstallation",
+    "url": "https://www.wagner-hattersheim.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://www.wagner-hattersheim.de/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Ihre Leistungen online konkret zeigen",
+        "summary": "Ein Neuaufbau würde den digitalen Leistungsauftritt überhaupt erst herstellen und den vorhandenen telefonischen Kontakt sinnvoll vorbereiten. Klare Leistungsbereiche nach tatsächlich angebotenen Arbeiten, kurze Informationen zu Ablauf und Kontaktmöglichkeiten.",
+        "findings": [
+          [
+            "Sehr kurzer öffentlicher Auftritt",
+            "Die Startseite beschreibt den Betrieb als Meisterbetrieb für Gas- und Wasserinstallation und zeigt Öffnungszeiten und Kontakt, aber keine konkreten Leistungsseiten. [1]",
+            "Klare Leistungsbereiche nach tatsächlich angebotenen Arbeiten."
+          ],
+          [
+            "Kein Leistungsweg in der Navigation",
+            "Die Hauptnavigation enthält Start, Impressum und Datenschutz; Interessenten können kein konkretes Bad- oder Heizungsanliegen auswählen. [1]",
+            "kurze Informationen zu Ablauf und Kontaktmöglichkeiten."
+          ],
+          [
+            "Platzhalter im mobilen Einstieg",
+            "Im mobilen Titelbereich steht oberhalb der Hauptaussage sichtbar „Neuer Text“. Danach folgen vor allem allgemeine Aussagen und der Telefonkontakt. [1]",
+            "Den Einstieg mit dem tatsächlichen Leistungsangebot und einer klaren Kontaktwahl neu schreiben."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Klare Leistungsbereiche nach tatsächlich angebotenen Arbeiten."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "kurze Informationen zu Ablauf und Kontaktmöglichkeiten."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "Klare Leistungsbereiche nach tatsächlich angebotenen Arbeiten, kurze Informationen zu Ablauf und Kontaktmöglichkeiten."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Wagner GmbH Gas und Wasserinstallation Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Build a clear digital route for bathroom, heating and service enquiries",
+        "summary": "The mobile opening still shows the placeholder “Neuer Text”. The site mainly offers a general claim and phone contact. A new site could explain actual services and prepare calls without replacing personal contact.",
+        "findings": [
+          [
+            "Placeholder in the opening",
+            "The words “Neuer Text” are visible above the main headline on a phone. [1]",
+            "Replace the placeholder with a precise description of the offer."
+          ],
+          [
+            "Services remain general",
+            "The home page refers broadly to gas, water, bathroom and warmth, without distinct service paths. [1]",
+            "Explain the work actually offered and how to raise each type of enquiry."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Replace the placeholder with a precise description of the offer."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Explain the work actually offered and how to raise each type of enquiry."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Explain the work actually offered and how to raise each type of enquiry."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Créer un parcours clair pour salle de bains, chauffage et dépannage",
+        "summary": "L’accueil mobile affiche encore « Neuer Text ». Le site propose surtout une formule générale et un contact téléphonique. Un nouveau site pourrait expliquer les prestations réelles et préparer les appels.",
+        "findings": [
+          [
+            "Un texte provisoire à l’accueil",
+            "Les mots « Neuer Text » sont visibles au-dessus du titre principal sur téléphone. [1]",
+            "Remplacer ce texte par une description précise de l’offre."
+          ],
+          [
+            "Des prestations générales",
+            "L’accueil évoque globalement gaz, eau, salle de bains et chaleur sans parcours distincts. [1]",
+            "Expliquer les travaux réellement proposés et le premier contact adapté."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Remplacer ce texte par une description précise de l’offre."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Expliquer les travaux réellement proposés et le premier contact adapté."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Expliquer les travaux réellement proposés et le premier contact adapté."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "bb",
+    "code": "08cb1e58cc11caf3f621cd46",
+    "company": "B&B Hausmeisterservice und Schreinerei",
+    "url": "https://www.schreinerei-bb.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://www.schreinerei-bb.de/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Hausmeisterservice und Schreinerei klar trennen",
+        "summary": "Die Trennung der zwei Leistungsbereiche, die mobile Bedienbarkeit und eine eindeutige Ortskommunikation betreffen den gesamten Auftritt. Ein neuer Aufbau kann das zusammen lösen. Getrennte Einstiege für Hausmeisterservice und Schreinerei, konkrete Leistungen und Arbeitsbeispiele, mobile Navigation und Anfrage nach Anliegen und Objekt.",
+        "findings": [
+          [
+            "Zwei Angebote ohne Leistungsweg",
+            "Die Startseite nennt Hausmeisterservice und Schreinerei, führt aber nur über Home, Über uns und Kontakt. Konkrete Leistungen stehen erst auf der Unterseite „Über uns“ und sind nicht nach Anfrageart gegliedert. [1]",
+            "Getrennte Einstiege für Hausmeisterservice und Schreinerei."
+          ],
+          [
+            "Mobile Ansicht breiter als Bildschirm",
+            "Bei 390 Pixel breitem mobilem Browser misst die Seite 768 Pixel in der Breite. Die Navigation und Inhalte liegen nebeneinander; seitliches Verschieben ist nötig. [1]",
+            "konkrete Leistungen und Arbeitsbeispiele."
+          ],
+          [
+            "Unklare Ortsangabe",
+            "Die Startseite beschreibt den Betrieb als in Frankfurt ansässig, nennt im Kontaktblock aber eine Anschrift in Hofheim am Taunus. [1]",
+            "mobile Navigation und Anfrage nach Anliegen und Objekt."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Getrennte Einstiege für Hausmeisterservice und Schreinerei."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "konkrete Leistungen und Arbeitsbeispiele."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "mobile Navigation und Anfrage nach Anliegen und Objekt."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für B&B Hausmeisterservice und Schreinerei Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Separate property care and joinery on a usable mobile site",
+        "summary": "The home page names two different businesses but gives little detail before the contact link. At 390 px device width it is 768 px wide, so visitors must move sideways. A new structure can fix both issues.",
+        "findings": [
+          [
+            "Two offers without clear routes",
+            "Property care and joinery share a general home page; concrete work is placed on the About page. [1]",
+            "Give each service area its own entry point and real work examples."
+          ],
+          [
+            "The mobile page overflows",
+            "At a 390 px device width, the document is 768 px wide and the header and content extend off screen. [1]",
+            "Make navigation and content fit narrow screens without horizontal scrolling."
+          ],
+          [
+            "Location is ambiguous",
+            "The introduction says the company is based in Frankfurt, while the contact block gives an address in Hofheim. [1]",
+            "Clarify the business location and service area consistently."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Give each service area its own entry point and real work examples."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Make navigation and content fit narrow screens without horizontal scrolling."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Clarify the business location and service area consistently."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Séparer entretien immobilier et menuiserie sur un site mobile utilisable",
+        "summary": "L’accueil nomme deux activités sans beaucoup de détails avant le contact. Pour un appareil de 390 px, la page mesure 768 px de large et oblige à se déplacer latéralement. Une nouvelle structure peut traiter ces deux problèmes.",
+        "findings": [
+          [
+            "Deux offres sans parcours clair",
+            "Entretien immobilier et menuiserie partagent un accueil général ; les travaux concrets se trouvent dans « À propos ». [1]",
+            "Créer une entrée par domaine et montrer de vrais exemples."
+          ],
+          [
+            "La page mobile déborde",
+            "Pour un appareil de 390 px, le document mesure 768 px ; l’en-tête et le contenu dépassent l’écran. [1]",
+            "Adapter navigation et contenu sans défilement horizontal."
+          ],
+          [
+            "Un lieu d’activité ambigu",
+            "L’introduction situe l’entreprise à Francfort, tandis que le bloc contact donne une adresse à Hofheim. [1]",
+            "Clarifier de façon cohérente l’adresse et la zone d’intervention."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Créer une entrée par domaine et montrer de vrais exemples."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Adapter navigation et contenu sans défilement horizontal."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Clarifier de façon cohérente l’adresse et la zone d’intervention."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "geiss",
+    "code": "e8e6ca1c0ca37e647e07c12f",
+    "company": "Geiss Markisen moderne Bauelemente GmbH",
+    "url": "http://www.geissmarkisen.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "http://www.geissmarkisen.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Unterseite",
+        "http://www.geissmarkisen.de/Referenzen/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Markisen und Bauelemente gezielt auswählen",
+        "summary": "Ein Neuaufbau kann die zahlreichen Produktarten, Beratungsbedarf und reale Einbaubeispiele gemeinsam ordnen. Produktwege nach Einsatzort, Referenzen mit Ausgangslage und Lösung sowie Anfrage mit Produktart und Einbauort.",
+        "findings": [
+          [
+            "Einstieg mit allgemeiner Begrüßung",
+            "Die Startseite begrüßt Besucher, zeigt eine Aktion und ein Leistungsangebot, das in der Texterfassung überwiegend aus Bildflächen besteht. [1]",
+            "Produktwege nach Einsatzort."
+          ],
+          [
+            "Referenzen bleiben wenig erläutert",
+            "Die Referenzübersicht kündigt Projekte an, enthält aber zunächst nur Bildgalerien und Kategorien ohne Aufgabenbeschreibung. [2]",
+            "Referenzen mit Ausgangslage und Lösung sowie Anfrage mit Produktart und Einbauort."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Produktwege nach Einsatzort."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "Referenzen mit Ausgangslage und Lösung sowie Anfrage mit Produktart und Einbauort."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "Produktwege nach Einsatzort, Referenzen mit Ausgangslage und Lösung sowie Anfrage mit Produktart und Einbauort."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Geiss Markisen moderne Bauelemente GmbH Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Help customers choose among awnings and building elements",
+        "summary": "The site shows many product types and images. A new structure could connect each option to its use, a real installation example and a suitable consultation enquiry.",
+        "findings": [
+          [
+            "Many products in the overview",
+            "Awnings, insect screens, doors, windows, shutters and garage doors appear as image categories. [1]",
+            "Organise choices by intended use and explain differences."
+          ],
+          [
+            "References need more context",
+            "The reference area mainly shows image categories rather than the starting situation and installed solution. [2]",
+            "Add authentic examples with the task, product and result."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Organise choices by intended use and explain differences."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Add authentic examples with the task, product and result."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Add authentic examples with the task, product and result."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Aider à choisir stores et éléments du bâtiment",
+        "summary": "Le site montre de nombreux produits en images. Une nouvelle structure pourrait relier chaque option à son usage, à une installation réelle et à une demande de conseil.",
+        "findings": [
+          [
+            "De nombreux produits dans l’aperçu",
+            "Stores, moustiquaires, portes, fenêtres, volets et portes de garage apparaissent comme catégories illustrées. [1]",
+            "Organiser le choix selon l’usage et expliquer les différences."
+          ],
+          [
+            "Les références manquent de contexte",
+            "La rubrique montre surtout des catégories d’images, sans situation de départ ni solution installée. [2]",
+            "Ajouter de vrais exemples avec besoin, produit et résultat."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Organiser le choix selon l’usage et expliquer les différences."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Ajouter de vrais exemples avec besoin, produit et résultat."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Ajouter de vrais exemples avec besoin, produit et résultat."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "gigadent",
+    "code": "abaf4f33a28de56454884e1b",
+    "company": "Gigadent Deutsche Dental GmbH",
+    "url": "https://www.gigadent.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://www.gigadent.de/"
+      ],
+      [
+        "2",
+        "Produktübersicht",
+        "https://www.gigadent.de/produkte"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Dentalgeräte konsistent und vergleichbar zeigen",
+        "summary": "Für erklärungsbedürftige B2B-Produkte ist ein neuer Produkt- und Anfrageweg plausibel, der Anwendungen, Unterschiede und technische Unterlagen zusammenführt. Produktübersicht nach klinischem Einsatz, Vergleich der Geräte, technische Daten und fachliche Anfrage zum passenden Produkt.",
+        "findings": [
+          [
+            "Startseite bleibt sehr kurz",
+            "Die Startseite beschreibt Hersteller und Einsatzgebiete, führt aber ohne Produktauswahl direkt zum allgemeinen Kontakt. [1]",
+            "Produktübersicht nach klinischem Einsatz."
+          ],
+          [
+            "Produktübersicht erklärt keine Auswahl",
+            "Die geprüfte Produktübersicht zeigt eine Überschrift und Kontakt, während einzelne Geräte nur in der Navigation verlinkt sind. [2]",
+            "Vergleich der Geräte."
+          ],
+          [
+            "Abweichendes Logo auf dem Handy",
+            "Im mobilen Kopfbereich erscheint „Dermato“, während die Desktopansicht und der Kontaktbereich GigaDent zeigen. Die Markenführung ist damit beim Wechsel der Bildschirmgröße uneinheitlich. [1]",
+            "Responsive Kopfzeile mit der richtigen GigaDent-Marke konsistent umsetzen."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Produktübersicht nach klinischem Einsatz."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "Vergleich der Geräte."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "technische Daten und fachliche Anfrage zum passenden Produkt."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Gigadent Deutsche Dental GmbH Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Make mobile dental devices easier to compare",
+        "summary": "Specialist buyers need to understand use cases and differences between devices. The product overview offers little guidance, while the phone layout displays a different logo from the desktop site.",
+        "findings": [
+          [
+            "Product overview gives little guidance",
+            "The overview page contains a heading and contact details, while individual devices are mainly reached through navigation. [2]",
+            "Show devices by clinical use, differences and technical documents."
+          ],
+          [
+            "Different logo on mobile",
+            "The phone header displays “Dermato”, while the desktop site and contact details use GigaDent. [1]",
+            "Use the correct brand consistently at every screen size."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Show devices by clinical use, differences and technical documents."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Use the correct brand consistently at every screen size."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Use the correct brand consistently at every screen size."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Faciliter la comparaison des appareils dentaires mobiles",
+        "summary": "Les acheteurs spécialisés doivent comprendre les usages et différences entre appareils. L’aperçu des produits guide peu, et la version téléphone affiche un autre logo que le site de bureau.",
+        "findings": [
+          [
+            "Un aperçu produit peu explicatif",
+            "La page d’aperçu contient un titre et le contact ; les appareils individuels passent surtout par la navigation. [2]",
+            "Présenter les appareils selon l’usage clinique, les différences et les documents techniques."
+          ],
+          [
+            "Un autre logo sur mobile",
+            "L’en-tête du téléphone affiche « Dermato », tandis que le site de bureau et le contact utilisent GigaDent. [1]",
+            "Employer la bonne marque sur toutes les tailles d’écran."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Présenter les appareils selon l’usage clinique, les différences et les documents techniques."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Employer la bonne marque sur toutes les tailles d’écran."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Employer la bonne marque sur toutes les tailles d’écran."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "laporta",
+    "code": "a07ae16cedbb2ff48732a311",
+    "company": "Bauunternehmen La Porta",
+    "url": "https://www.bauunternehmen-laporta.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://www.bauunternehmen-laporta.de/"
+      ],
+      [
+        "2",
+        "Leistungsseite",
+        "https://www.bauunternehmen-laporta.de/bauleistungen"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Bauprojekte gezielter zum Gespräch führen",
+        "summary": "Ein Neuaufbau kann Projektarten, Ablauf und tatsächliche Arbeitsbeispiele in eine klarere Anfrageführung bringen; ein Gespräch sollte gewünschten Projektumfang klären. Einstieg nach Neubau, Erweiterung und Modernisierung, reale Fallbeispiele und Anfrage mit Objekt, Ort und Zeitrahmen.",
+        "findings": [
+          [
+            "Allgemeine Projektansprache",
+            "Die Startseite nennt Ein- und Mehrfamilienhäuser, An- und Umbau, aber keine konkreten Projektbeispiele im Einstieg. [1]",
+            "Einstieg nach Neubau."
+          ],
+          [
+            "Leistungsseite ist ein langer Textblock",
+            "Die Bauleistungsseite beschreibt Planung, Neubau, An- und Umbau sowie weitere Gewerke nacheinander. Für Besucher fehlt eine frühe Wahl nach Vorhaben. [2]",
+            "Erweiterung und Modernisierung."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Einstieg nach Neubau."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "Erweiterung und Modernisierung."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "reale Fallbeispiele und Anfrage mit Objekt."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Bauunternehmen La Porta Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Lead different building projects to suitable conversations",
+        "summary": "The site describes planned work in long general sections. A new site could distinguish new builds, extensions and modernisation, explain the process and ask for the project scope.",
+        "findings": [
+          [
+            "Project types are not separated early",
+            "The home page addresses building wishes broadly before explaining distinct types of work. [1]",
+            "Offer clear starting points for new build, extension and renovation."
+          ],
+          [
+            "Long undifferentiated service prose",
+            "The service page discusses many types of construction in continuous text. [2]",
+            "Use genuine project examples and a short enquiry about site, location and schedule."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Offer clear starting points for new build, extension and renovation."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Use genuine project examples and a short enquiry about site, location and schedule."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Use genuine project examples and a short enquiry about site, location and schedule."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Orienter chaque projet de construction vers le bon échange",
+        "summary": "Le site décrit les travaux dans de longs passages généraux. Un nouveau site pourrait distinguer construction neuve, extension et modernisation, expliquer le déroulement et demander l’ampleur du projet.",
+        "findings": [
+          [
+            "Les projets ne sont pas séparés dès l’entrée",
+            "L’accueil s’adresse largement aux souhaits de construction avant de distinguer les travaux. [1]",
+            "Créer des entrées claires pour neuf, extension et rénovation."
+          ],
+          [
+            "Une longue présentation continue",
+            "La page de services traite de nombreux travaux dans un texte continu. [2]",
+            "Montrer de vrais projets et demander objet, lieu et calendrier."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Créer des entrées claires pour neuf, extension et rénovation."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Montrer de vrais projets et demander objet, lieu et calendrier."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Montrer de vrais projets et demander objet, lieu et calendrier."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "boxen",
+    "code": "d4685ca09090c470e2ddc828",
+    "company": "Boxenstop 2000 e.K.",
+    "url": "https://boxenstop2000.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://boxenstop2000.de/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Werkstattleistungen passend anfragen",
+        "summary": "Ein strukturierter Neuaufbau könnte die wichtigsten Werkstattfälle verständlich machen und die erste Anfrage besser einordnen. Leistungsseiten für Wartung, Diagnose und Reparatur; Kontaktweg mit Fahrzeugtyp, Anliegen und Rückrufwunsch.",
+        "findings": [
+          [
+            "Einseitige Leistungsnennung",
+            "Die Startseite listet viele Kfz-Leistungen und eine allgemeine Begrüßung, erklärt die einzelnen Werkstattleistungen aber kaum. [1]",
+            "Leistungsseiten für Wartung."
+          ],
+          [
+            "Kontakt ohne Leistungsbezug",
+            "Die Kontaktmöglichkeit ist allgemein; ein sichtbarer Ablauf für die Angabe von Fahrzeug und Anliegen fehlt auf der Startseite. [1]",
+            "Diagnose und Reparatur."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Leistungsseiten für Wartung."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "Diagnose und Reparatur."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "Kontaktweg mit Fahrzeugtyp."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Boxenstop 2000 e.K. Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Prepare workshop enquiries by vehicle and issue",
+        "summary": "The one-page site lists many workshop services but gives little explanation of individual repair or diagnostic cases. A new structure could help drivers identify the relevant service and describe their car before contact.",
+        "findings": [
+          [
+            "Broad workshop list",
+            "Repairs, inspections, accident work, climate service and care appear together in a long list. [1]",
+            "Explain the main workshop cases in separate short sections."
+          ],
+          [
+            "General first contact",
+            "The home page offers general contact but no visible guidance on vehicle and issue details. [1]",
+            "Ask for vehicle type, problem and preferred callback."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Explain the main workshop cases in separate short sections."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Ask for vehicle type, problem and preferred callback."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Ask for vehicle type, problem and preferred callback."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Préparer les demandes d’atelier selon véhicule et problème",
+        "summary": "Le site sur une page liste de nombreux services d’atelier sans beaucoup expliquer les réparations ou diagnostics. Une nouvelle structure aiderait à trouver la prestation et à décrire le véhicule avant le contact.",
+        "findings": [
+          [
+            "Une vaste liste de services",
+            "Réparations, contrôles, accidents, climatisation et entretien figurent dans une longue liste. [1]",
+            "Expliquer les principaux cas d’atelier en rubriques courtes."
+          ],
+          [
+            "Un premier contact général",
+            "L’accueil propose le contact sans guider sur le véhicule et le problème. [1]",
+            "Demander type de véhicule, souci et souhait de rappel."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Expliquer les principaux cas d’atelier en rubriques courtes."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Demander type de véhicule, souci et souhait de rappel."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Demander type de véhicule, souci et souhait de rappel."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "dachbau",
+    "code": "a5815220fe52a73959e24495",
+    "company": "Dachbau H&A GmbH",
+    "url": "https://www.dachbau-ha.de/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://www.dachbau-ha.de/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Dacharbeiten nach Anliegen ordnen",
+        "summary": "Die vielen sehr unterschiedlichen Leistungen brauchen eine neue Ordnung und passende Belege; ein einzelner Texttausch reicht dafür nicht. Leistungswege für Neubau, Sanierung, Reparatur und Wartung, Projektbeispiele und Anfrage mit Dachtyp und Anliegen.",
+        "findings": [
+          [
+            "Langer allgemeiner Einstieg",
+            "Die Startseite beginnt mit mehreren Qualitätsversprechen, bevor die zahlreichen Dachleistungen genannt werden. [1]",
+            "Leistungswege für Neubau."
+          ],
+          [
+            "Angebot als Sammelliste",
+            "Sanierung, Dämmung, Gauben, Flachdach, Notdienst und Reinigung stehen auf derselben Seite; der Kontakt liefert keine erkennbare Vorhabenswahl. [1]",
+            "Sanierung."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Leistungswege für Neubau."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "Sanierung."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "Reparatur und Wartung."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für Dachbau H&A GmbH Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Separate planned roof work, repairs and urgent needs",
+        "summary": "The site describes many roof services in broad prose. A new structure could distinguish project types, show genuine examples and make the first enquiry more specific.",
+        "findings": [
+          [
+            "Broad introduction",
+            "The home page discusses craftsmanship and customer service at length before explaining individual roof tasks. [1]",
+            "Put new roofs, renovation, repairs and maintenance into clear routes."
+          ],
+          [
+            "Little project guidance",
+            "A long service list does not show what information a customer should provide for each roof need. [1]",
+            "Add relevant project examples and ask for roof type and issue."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Put new roofs, renovation, repairs and maintenance into clear routes."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Add relevant project examples and ask for roof type and issue."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Add relevant project examples and ask for roof type and issue."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "Séparer travaux de toiture planifiés, réparations et urgences",
+        "summary": "Le site décrit de nombreux services de toiture dans un texte général. Une nouvelle structure pourrait distinguer les projets, montrer de vrais exemples et préciser la première demande.",
+        "findings": [
+          [
+            "Une longue introduction générale",
+            "L’accueil parle du savoir-faire et du service avant d’expliquer les différents travaux de toiture. [1]",
+            "Créer des parcours pour neuf, rénovation, réparation et entretien."
+          ],
+          [
+            "Peu d’aide au projet",
+            "Une longue liste n’indique pas les informations à fournir pour chaque besoin. [1]",
+            "Ajouter des exemples pertinents et demander type de toiture et problème."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Créer des parcours pour neuf, rénovation, réparation et entretien."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Ajouter des exemples pertinents et demander type de toiture et problème."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Ajouter des exemples pertinents et demander type de toiture et problème."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
+  },
+  {
+    "id": "mas",
+    "code": "4501ab830bc58ab2f1b2ecae",
+    "company": "MAS-GmbH",
+    "url": "https://www.mas-gmbh.eu/",
+    "measuredAt": "2026-09-27",
+    "lighthouseVersion": "",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite",
+        "https://www.mas-gmbh.eu/"
+      ],
+      [
+        "2",
+        "Leistungsseite",
+        "https://www.mas-gmbh.eu/firmenprofil/leistungen/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Tiefbauprojekte für Auftraggeber verständlich machen",
+        "summary": "Ein neuer Auftritt könnte die vorhandene Fachkompetenz und Projekte in klare Wege für unterschiedliche Auftraggeber übersetzen. Der Betrieb hat einen Lagerplatz in Hattersheim, sein Firmensitz liegt in Frankfurt. Leistungsseiten nach Bauvorhaben, ausgewählte Projekte und Kontakt nach Auftraggeber, Standort und Planungsstand.",
+        "findings": [
+          [
+            "Technischer Einstieg ohne Besucherführung",
+            "Die Startseite nennt Rohrleitungsbau und zahlreiche Auftraggeber sowie Gewerkelisten, aber keinen frühen Einstieg nach Auftragstyp. [1]",
+            "Leistungsseiten nach Bauvorhaben."
+          ],
+          [
+            "Leistungsseite erklärt Fachbereiche als Liste",
+            "Entsorgung, Versorgung, Tunnelbau und weitere Arbeiten werden fachlich aufgelistet; Ablauf und erforderliche Anfrageangaben bleiben offen. [2]",
+            "ausgewählte Projekte und Kontakt nach Auftraggeber."
+          ]
+        ],
+        "steps": [
+          [
+            "Zuerst",
+            "Leistungen ordnen",
+            "Leistungsseiten nach Bauvorhaben."
+          ],
+          [
+            "Danach",
+            "Belege und Ablauf",
+            "ausgewählte Projekte und Kontakt nach Auftraggeber."
+          ],
+          [
+            "Zum Abschluss",
+            "Anfrageweg prüfen",
+            "Standort und Planungsstand."
+          ]
+        ],
+        "flow": [
+          "Anliegen wählen",
+          "Leistung und Beispiele prüfen",
+          "Passende Anfrage stellen"
+        ],
+        "cta": "Gern besprechen wir, wie eine neue Website für MAS-GmbH Leistungen, Beispiele und Kontakt auf Ihr tatsächliches Angebot abstimmt. Schreiben Sie uns Ihr wichtigstes Vorhaben oder rufen Sie an.",
+        "methodextra": "Es wurden keine standardisierten Leistungs- oder Suchmaschinenmessungen vorgenommen. Die Bewertung betrifft die gesichteten Inhalte und Wege, nicht den tatsächlichen Anfrageeingang.",
+        "methodology": "Am 27. September 2026 wurden die angegebenen Seiten im Desktop-Browser bei 1280 Pixeln und im mobilen Browser bei 390 Pixeln geprüft. Die Ansichten wurden als Screenshots gesichert. Geprüft wurden sichtbare Inhalte, Linkziele und die Seitenbreite; Buchungs-, Versand- oder Geschäftsprozesse wurden nicht ausgelöst. Weitere Unterseiten wurden dort berücksichtigt, wo sie als Quelle genannt sind.",
+        "searchNote": "Rankings, KI-Suchergebnisse und tatsächliche Anfragen wurden nicht gemessen. Mögliche Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen.",
+        "measurementNote": "Keine vergleichbaren Laborläufe vorhanden. Es werden daher keine Performance-, SEO- oder Barrierefreiheitswerte vergeben."
+      },
+      "en": {
+        "title": "Address private and institutional civil-engineering clients separately",
+        "summary": "The site contains substantial technical expertise, but different clients must work through the same long introduction. A new structure could connect project types, references and an appropriate first contact.",
+        "findings": [
+          [
+            "Technical list in one sequence",
+            "Pipe construction, rehabilitation, tunnel work and sewer work appear together on the home page. [1]",
+            "Create routes by project type and client need."
+          ],
+          [
+            "Different clients share one enquiry",
+            "The company names public bodies, builders and private clients without separate guidance for their planning stages. [2]",
+            "Ask for client type, location and planning status."
+          ]
+        ],
+        "steps": [
+          [
+            "First",
+            "Service routes",
+            "Create routes by project type and client need."
+          ],
+          [
+            "Next",
+            "Examples and process",
+            "Ask for client type, location and planning status."
+          ],
+          [
+            "Then",
+            "Enquiry route",
+            "Ask for client type, location and planning status."
+          ]
+        ],
+        "flow": [
+          "Choose a need",
+          "Review service and examples",
+          "Send a focused enquiry"
+        ],
+        "cta": "If you are considering a complete rebuild of the website, we can discuss how to present your actual services and prepare relevant enquiries. Contact Suchio by email or phone.",
+        "methodextra": "No standardised performance or search measurements were performed. The assessment covers the inspected pages and their visitor routes, not actual enquiry volumes.",
+        "methodology": "On 27 September 2026, the cited pages were inspected in a desktop browser at 1280 px and a mobile browser at 390 px. Screenshots were retained. Visible content, links and page width were checked; no booking or message was submitted.",
+        "searchNote": "Search rankings, AI search results and actual enquiries were not measured. Potential effects on clarity and trust are editorial assessments.",
+        "measurementNote": "No comparable laboratory runs are available, so no performance, SEO or accessibility score is reported."
+      },
+      "fr": {
+        "title": "S’adresser distinctement aux clients privés et publics du génie civil",
+        "summary": "Le site contient une expertise technique solide, mais les différents clients parcourent la même longue introduction. Une nouvelle structure pourrait relier types de projet, références et premier contact adapté.",
+        "findings": [
+          [
+            "Une liste technique continue",
+            "Canalisations, rénovation, tunnels et égouts sont réunis sur l’accueil. [1]",
+            "Créer des parcours selon projet et besoin du client."
+          ],
+          [
+            "Des clients différents, une seule demande",
+            "Le site nomme organismes publics, entreprises et particuliers sans guider leurs étapes de planification. [2]",
+            "Demander type de client, lieu et stade du projet."
+          ]
+        ],
+        "steps": [
+          [
+            "D’abord",
+            "Parcours des prestations",
+            "Créer des parcours selon projet et besoin du client."
+          ],
+          [
+            "Ensuite",
+            "Exemples et déroulement",
+            "Demander type de client, lieu et stade du projet."
+          ],
+          [
+            "Enfin",
+            "Parcours de contact",
+            "Demander type de client, lieu et stade du projet."
+          ]
+        ],
+        "flow": [
+          "Choisir un besoin",
+          "Examiner prestation et exemples",
+          "Envoyer une demande ciblée"
+        ],
+        "cta": "Si vous envisagez une refonte complète du site, nous pouvons discuter de la présentation de vos prestations réelles et d’un contact adapté. Contactez Suchio par courriel ou téléphone.",
+        "methodextra": "Aucune mesure standardisée de performance ou de recherche n’a été réalisée. L’évaluation concerne les pages et parcours examinés, non le volume réel des demandes.",
+        "methodology": "Le 27 septembre 2026, les pages citées ont été examinées dans un navigateur de bureau à 1280 px et mobile à 390 px. Des captures ont été conservées. Les contenus visibles, liens et largeurs ont été vérifiés ; aucun message ni réservation n’a été envoyé.",
+        "searchNote": "Classements, résultats de recherche par IA et demandes réelles n’ont pas été mesurés. Les effets possibles sur la clarté et la confiance sont des appréciations éditoriales.",
+        "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
+      }
+    }
   }
 ]

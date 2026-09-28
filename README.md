@@ -1,107 +1,76 @@
 # Suchio
 
-Suchio is the main website for an independent digital growth and technology studio. It is a multilingual Next.js application with German, English, and French routes, localized content, service pages, and a contact flow.
+The German, English, and French website for Suchio, an independent digital growth and technology studio. Built with React, the Next.js App Router, TypeScript, and Tailwind CSS. Production runs on Cloudflare Workers through vinext.
 
-## Technology
+## Local development
 
-- Next.js 16 with the App Router
-- Bun for package management, tests, builds, and deployment scripts
-- vinext and Cloudflare Workers for the production runtime
-- React 19 and TypeScript
-- Tailwind CSS 4
-- Motion for interface animation
-- Bun's native test runner
+Use Bun 1.4.0, as pinned in `package.json` and CI.
 
-## Development
-
-Install the dependencies:
-
-```bash
-bun install
-```
-
-Start the development server:
-
-```bash
+```sh
+bun ci
 bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+The Next.js development server runs at `http://localhost:3000`. For the vinext development server, use `bun run dev:vinext` (port 3001).
 
-## Design system
+For local Next.js contact delivery, copy `.env.example` to `.env.local` and supply `RESEND_API_KEY`, `CONTACT_EMAIL_TO`, and `CONTACT_EMAIL_FROM`. Use a sender configured in Resend. These values are also required as production Worker bindings for contact delivery; `.env.local` does not configure production.
 
-[`DESIGN.md`](DESIGN.md) is the visual authority for every route and locale. It defines Suchio's public semantic roles, shared composition patterns, signature explanatory visuals, documented exceptions, and review criteria.
+## Builds and checks
 
-`src/styles/theme.css` owns the current token values, `src/styles/app.css` exposes them as Tailwind utilities, and shared components own recurring composition and behavior. Reuse those roles and components before adding local values or copying a pattern. When a genuinely recurring role is missing, update the token, Tailwind exposure, design authority, and relevant design-system coverage together.
+The project maintains two runtime paths:
 
-After updating DM Sans, run `bun scripts/sync-fonts.mjs` to refresh the checked-in subsets, license, and font CSS.
+| Runtime | Build | Run the built app locally |
+| --- | --- | --- |
+| Next.js | `bun run build` | `bun run start` |
+| Cloudflare Workers through vinext | `bun run build:vinext` | `bun run start:vinext` |
 
-Treat locale content, narrow reflow, keyboard focus, and reduced motion as part of the same visual change.
+Common checks are `bun run lint`, `bun run typecheck`, `bun run test`, and `bun run validate:content`. The complete verification sequence lives in [.github/workflows/ci.yml](.github/workflows/ci.yml).
 
-## Verification
+Browser tests require both builds and Playwright browsers:
 
-CI runs the following checks in order:
-
-```bash
-bun audit
-bun run lint
-bun run types:workers --check
-bun run validate:content
-bun run test
+```sh
+bunx playwright install chromium firefox webkit
 bun run build
 bun run build:vinext
-bunx wrangler deploy --config wrangler.jsonc --dry-run
-bun run validate:seo
-bun run validate:performance
-bun run validate:bundle
 bun run test:e2e
 ```
 
-The content validator checks home FAQ structure and locale parity. Bun tests protect service and legal content structure, stable IDs, placeholders, contact validation, localization boundaries, and design tokens.
+On Linux, browser installation may also require Playwright's `--with-deps` option, as used in CI. The suite starts Next.js on port 3100 and a local Worker on port 3101, with mail credentials cleared. Chromium covers both runtimes; the cross-browser suite also runs Firefox and WebKit against the Worker. See [playwright.config.ts](playwright.config.ts).
 
-The SEO validator inspects generated HTML, sitemap entries, robots directives, structured data, metadata, and internal links. Bundle checks cover both build outputs. Performance checks budget generated HTML, styles, and the transitive JavaScript loaded by each route.
+## Deployment
 
-The Chromium suite runs against both the Bun Next.js server and the local Cloudflare Worker. Focused Firefox and WebKit tests also exercise the Worker. Install all three engines with bunx playwright install chromium firefox webkit. It covers every public route, redirects, localized 404s, keyboard navigation, narrow reflow, contact delivery and recovery, draft retention, explicit language selection, JavaScript-disabled forms and disclosures, French text spacing, enlarged-text reflow, accessibility, reduced motion, failed illustration downloads, pending form edits, and retry cooldowns. Rate limiting and throttled mobile performance run against the Worker. Performance checks cover normal/reduced motion, scrolling illustrations, and contact interactions.
+With Cloudflare credentials and production mail bindings configured, deploy the site using:
 
-Build both runtimes before end-to-end checks. For TypeScript changes that do not need a production build, run `bun run typecheck`. While deferring public copy edits, run `bun scripts/validate-copy.mjs HEAD` to compare the current content with the committed version.
-
-## Localization and content
-
-Locales are registered in `src/i18n/config.json`. The shared `src/app/[lang]` route tree renders every configured locale.
-
-German is served from the unprefixed route tree, English from `/en`, and French from `/fr`. Explicit default-locale URLs such as `/de/about` redirect to the canonical unprefixed URL. On Cloudflare, prerendered HTML is served as static assets; vinext handles React navigation data and its compatibility headers. The Worker distinguishes HTML and React navigation-data requests on public page routes, handles legacy redirects, and serves `/api/contact` and `/api/health`. Other assets bypass the Worker. Localized `404.html` files provide the existing translated error pages for unknown URLs.
-
-Shared interface copy lives in `src/i18n`. FAQs live in locale-specific JSON files under `src/content`.
-
-Keep all configured locales equivalent when you change public content, metadata, navigation, forms, or accessibility labels.
-
-## Contact form
-
-The contact form validates enquiries in the browser and in a shared server handler, then sends them through Resend without writing them to a website database. Copy `.env.example` to `.env.local` and add a Resend API key. Verify the domain used by `CONTACT_EMAIL_FROM` in Resend before sending enquiries to recipients outside the Resend account.
-
-## Cloudflare deployment
-
-Build the Cloudflare output and prepare prerendered routes, fonts, security headers, `robots.txt`, and `sitemap.xml` as static assets:
-
-```bash
-bun run build:vinext
-```
-
-For Cloudflare Workers Builds, set the build command to `bun run build:vinext` and the deploy command to `bunx wrangler deploy --config dist/server/wrangler.json`. The generated Wrangler config is required because Vinext produces the deployable Worker entry during the build.
-
-Run the built Worker locally or deploy it:
-
-```bash
-bun run start:vinext
+```sh
 bun run deploy:vinext
 ```
 
-The production Worker is configured in `wrangler.jsonc`. Add `RESEND_API_KEY`, `CONTACT_EMAIL_TO`, and `CONTACT_EMAIL_FROM` as Worker secrets. Canonical URLs, Open Graph metadata, `robots.txt`, and `sitemap.xml` use the production origin defined in `src/lib/site-config.ts`.
+Use `bun run deploy:redirects` for the separate domain-redirect Worker. Both commands run the CI verification sequence first and stop if checks fail or the source changes during verification. Worker configuration lives in [wrangler.jsonc](wrangler.jsonc) and [wrangler.redirects.jsonc](wrangler.redirects.jsonc).
 
-## Operations
+To run the release verification without publishing:
 
-See [`OPERATIONS.md`](OPERATIONS.md) for monitoring, contact diagnostics, deployment verification, and rollback.
+```sh
+bun run deploy:vinext --check-only
+```
 
-## Planned work
+## Editing the site
 
-[`BACKLOG.md`](BACKLOG.md) records validated review findings that need more evidence, deployment observation, or design work before implementation.
+### Audit measurement and administration
+
+The production Worker serves `/admin/audits` with a built-in login for `contact@suchio.net`. No Cloudflare Access subscription or additional identity provider is used. Only a SHA-256 digest of a generated 256-bit password is provisioned as a Worker secret. Human-chosen low-entropy passwords are not supported by this verifier. The session is an opaque random token in a Secure, HttpOnly, SameSite=Strict cookie; D1 stores only its hash and the allowed identity. Sessions expire after one hour, logout revokes them server-side, and password rotation invalidates previous sessions. Login attempts are rate-limited; mutation endpoints require same-origin POSTs. Missing configuration fails closed. The Next.js server does not implement these Worker-only endpoints.
+
+Provision the credential with `bun scripts/setup-audit-admin.mjs`. It writes the login details only to ignored `.wrangler/audit-admin-login.txt` and provisions the password digest via Wrangler. Store the password in a password manager and remove this local plaintext file afterward. Use `--resume` if provisioning failed or `--rotate` for a new password. Never copy the test credential from `tests/fixtures/worker.vars` into production. No paid plan should be activated for this feature; it uses the existing Worker and D1 resources within their applicable quotas.
+
+The EU-jurisdiction D1 database is bound as `AUDIT_DB`; schema files live in `migrations/audit-visits`. Apply locally with `bunx wrangler d1 migrations apply AUDIT_DB --local`, and to production with `bunx wrangler d1 migrations apply AUDIT_DB --remote` before deployment. Deploy through the verification command above. Then check logged-out denial, login, logout and session replay denial, link checks, a consent followed by withdrawal, and the scheduled cleanup. Never describe configuration alone as a successful live login.
+
+The dashboard shows **confirmed visits**, not unique readers or complete traffic. Declining leaves the full report accessible. Per-report receipts prevent duplicate submissions; no automatic recount occurs on reload. Preview links use `?audit_preview=1`. The separate link check verifies the published HTML's report marker, not rendering or form delivery. Records expire after 30 days and an hourly cron purges them. At campaign closure or report-wide withdrawal, use **Messdaten löschen** for each affected report; campaign closure is a manual operation. Before reusing restored backups, run the expiry purge and reapply any intervening deletions. Provider backups and security logs have separate retention rules. Preserve the versioned consent text while records referring to it exist.
+
+Focused verification: `bun test tests/audit-measurement.spec.ts` and, after both builds, `bunx playwright test e2e/audit-consent.spec.ts e2e/audits.spec.ts`. Production credentials must never be replaced with test credentials to make an end-to-end test pass.
+
+- Routes and API endpoints: `src/app`; production Worker entry point: `src/cloudflare-worker.ts`.
+- Shared UI and page compositions: `src/components`.
+- Localized copy and locale configuration: `src/i18n`; FAQ and audit data: `src/content`.
+- Design tokens and global styles: `src/styles`.
+- Unit and architecture checks: `tests`; browser checks: `e2e`.
+
+German is the default locale. Locale configuration is defined in [src/i18n/config.json](src/i18n/config.json).

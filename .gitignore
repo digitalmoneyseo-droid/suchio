@@ -11,3 +11,5 @@ test-results/
 /dist/
 .vinext/
 .wrangler/
+/output/
+/tmp/

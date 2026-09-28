@@ -23,7 +23,7 @@ test("every public and legacy route reaches the production Worker for RSC or red
   expect(Array.isArray(configured)).toBeTrue();
   if (!Array.isArray(configured)) throw new Error("Missing Worker routes");
   const expected = [...publicRoutes.map(route => route.pathname), ...legacyServiceRoutes.map(route => route.from), "/de", "/de/*", "/api/contact", "/api/health", "/api/security-report", "/audit/*", "/en/audit/*", "/fr/audit/*", "/datenschutz", "/en/datenschutz", "/fr/datenschutz"];
-  expect([...configured].sort()).toEqual([...new Set(expected)].sort());
+  expect([...configured].sort()).toEqual([...new Set([...expected, "/api/audit-visits", "/admin/audits", "/admin/audits/*"])].sort());
   const proxy = await Bun.file("src/proxy.ts").text();
   const matcher = proxy.match(/matcher:\s*(\[[\s\S]*?\])/);
   expect(matcher).not.toBeNull();
@@ -56,9 +56,9 @@ test("preserves service sections, item order, and placeholders in every locale",
 
 test("preserves legal disclosures, links, and dates without changing localized wording", () => {
   for (const locale of locales) expect(contentShape(legalContent[locale])).toEqual(contentShape(legalContent.de));
-  expect(legalContent.de.privacy.updated).toBe("Stand: 9. September 2026");
-  expect(legalContent.en.privacy.updated).toBe("Last updated: 9 September 2026");
-  expect(legalContent.fr.privacy.updated).toBe("Mise à jour : 9 septembre 2026");
+  expect(legalContent.de.privacy.updated).toBe("Stand: 26. September 2026");
+  expect(legalContent.en.privacy.updated).toBe("Last updated: 26 September 2026");
+  expect(legalContent.fr.privacy.updated).toBe("Mise à jour : 26 septembre 2026");
 });
 
 test("keeps service identities equivalent across locales", () => {

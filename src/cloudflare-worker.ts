@@ -6,8 +6,11 @@ import { securityHeaders } from "./lib/security-headers";
 import { getLegacyServiceRedirectPath } from "./lib/service-routes";
 import { healthResponse } from "./lib/health";
 import { handleSecurityReport } from "./lib/security-report";
+import { handleAuditVisit, purgeAuditVisits } from "./lib/audit-measurement";
+import { handleAuditAdmin } from "./lib/audit-admin";
+import { purgeAdminSessions } from "./lib/audit-admin-auth";
 
-type CloudflareEnv = Pick<CloudflareBindings, "ASSETS" | "CONTACT_RATE_LIMITER"> & Partial<Pick<CloudflareBindings, "RESEND_API_KEY" | "CONTACT_EMAIL_FROM" | "CONTACT_EMAIL_TO">>;
+type CloudflareEnv = Pick<CloudflareBindings, "ASSETS" | "CONTACT_RATE_LIMITER" | "AUDIT_DB" | "AUDIT_ADMIN_EMAIL" | "AUDIT_ADMIN_PASSWORD_HASH"> & Partial<Pick<CloudflareBindings, "RESEND_API_KEY" | "CONTACT_EMAIL_FROM" | "CONTACT_EMAIL_TO">>;
 
 interface CloudflareContext {
   passThroughOnException(): void;
@@ -73,10 +76,28 @@ function isRscRequest(request: Request, url: URL) {
 
 
 const worker = {
+  async scheduled(_controller: ScheduledController, env: CloudflareEnv) {
+    await purgeAuditVisits(env.AUDIT_DB);
+    await purgeAdminSessions(env.AUDIT_DB);
+  },
   async fetch(request: Request, env: CloudflareEnv | undefined, context: CloudflareContext) {
     if (!env?.ASSETS) return vinextHandler.fetch(request, env, context);
 
     const url = new URL(request.url);
+    if (url.pathname === "/admin/audits" || url.pathname.startsWith("/admin/audits/")) {
+      try { return await handleAuditAdmin(request, env); }
+      catch { return new Response("Auswertung vorübergehend nicht verfügbar.", { status: 503, headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" } }); }
+    }
+    if (url.pathname === "/api/audit-visits") {
+      try {
+        if (request.method === "POST") {
+          const ip = request.headers.get("cf-connecting-ip") ?? "local";
+          const limit = await env.CONTACT_RATE_LIMITER.limit({ key: `suchio:audit-consent:${ip}` });
+          if (!limit.success) return new Response(null, { status: 429, headers: { "Cache-Control": "no-store" } });
+        }
+        return withSecurityHeaders(await handleAuditVisit(request, env.AUDIT_DB));
+      } catch { return new Response(null, { status: 503, headers: { "Cache-Control": "no-store" } }); }
+    }
 
     const legacyServiceRedirect = getLegacyServiceRedirectPath(url.pathname);
     if (legacyServiceRedirect) {

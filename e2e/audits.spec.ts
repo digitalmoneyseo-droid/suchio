@@ -2,6 +2,8 @@ import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import audits from "../src/content/audits.json" with { type: "json" };
 
+const campaignIds = new Set("mp alles krebs schwenke stueben luepke weber seta ruppert winter och hereth wagner bb geiss gigadent laporta boxen dachbau mas".split(" "));
+
 test("individual audit links resolve in every locale without exposing other recipients", async ({ request }) => {
   for (const locale of ["de", "en", "fr"] as const) {
     const prefix = locale === "de" ? "" : `/${locale}`;
@@ -9,7 +11,11 @@ test("individual audit links resolve in every locale without exposing other reci
       const response = await request.get(`${prefix}/audit/${audit.code}`);
       expect(response.status()).toBe(200);
       const html = await response.text();
-      expect(html).toContain(audit.content[locale].title.replaceAll("&", "&amp;"));
+      if (campaignIds.has(audit.id)) {
+        expect(html).toContain(audit.company.replaceAll("&", "&amp;"));
+      } else {
+        expect(html).toContain(audit.content[locale].title.replaceAll("&", "&amp;"));
+      }
       expect(html).toMatch(/<meta name="robots" content="noindex,\s*follow"/);
       expect(html).toContain('name="referrer" content="no-referrer"');
       for (const other of audits.filter(other => other.code !== audit.code)) expect(html).not.toContain(other.code);
@@ -43,5 +49,5 @@ test("audit page stays readable on narrow screens and links to contact and priva
   expect(results.violations).toEqual([]);
   await page.locator('main a[href="/fr/privacy#briefwerbung"]').click();
   await expect(page.locator("#briefwerbung h2")).toHaveText("Confidentialité du courrier publicitaire");
-  await expect(page.locator("#briefwerbung")).toContainText("OpenAI Ireland Ltd.");
+  await expect(page.locator("#briefwerbung")).toContainText("Le service Codex d’OpenAI");
 });

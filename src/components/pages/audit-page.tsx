@@ -1,20 +1,26 @@
 import { CtaButton } from "@/components/cta-button";
+import { AuditVisitChoice } from "@/components/audit-visit-choice";
 import { EditorialHero } from "@/components/editorial-hero";
+import { CampaignAuditPage } from "@/components/pages/campaign-audit-page";
 import { auditUi } from "@/i18n/audit-ui";
+import { getCampaignReview } from "@/lib/audit-campaign-review";
 import { localizePath } from "@/lib/locale-path";
 import type { Locale } from "@/i18n/config";
 import type { Audit } from "@/lib/audits";
 
 export function AuditPage({ audit, locale }: { audit: Audit; locale: Locale }) {
+  const campaignReview = getCampaignReview(audit.id);
+  if (campaignReview) return <CampaignAuditPage audit={audit} review={campaignReview} locale={locale} />;
   const copy = audit.content[locale];
   const ui = auditUi[locale];
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 3 });
-  return <main id="main-content">
+  return <main id="main-content" data-audit-code={audit.code}>
     <EditorialHero title={copy.title} copy={copy.summary}>
-      <p className="m-0 text-meta text-muted">{ui.label} · {audit.company} · <time dateTime={audit.measuredAt}>{ui.date}</time></p>
+      <p className="m-0 text-meta text-muted">{ui.label} · {audit.company} · <time dateTime={audit.measuredAt}>{new Intl.DateTimeFormat(locale, { dateStyle: "long", timeZone: "UTC" }).format(new Date(`${audit.measuredAt}T00:00:00Z`))}</time></p>
       <a href="#findings" className="text-ui font-medium text-accent underline underline-offset-4">{ui.findings}</a>
     </EditorialHero>
     <div className="px-page pb-section">
+      <AuditVisitChoice code={audit.code} locale={locale} />
       <div className="mx-auto max-w-layout">
         <section id="findings" className="scroll-mt-32 border-t border-line py-section-compact" aria-labelledby="findings-title">
           <h2 id="findings-title" className="m-0 mb-heading-gap text-heading-lg">{ui.findings}</h2>
@@ -52,7 +58,7 @@ export function AuditPage({ audit, locale }: { audit: Audit; locale: Locale }) {
               </div>)}
             </dl>
             <p className="mt-6 max-w-reading text-sm/6 text-muted">{ui.scoreNote}</p>
-          </> : <p className="max-w-reading text-base/7 text-muted">{ui.incomplete}</p>}
+          </> : <p className="max-w-reading text-base/7 text-muted">{copy.measurementNote ?? ui.incomplete}</p>}
           {audit.metrics && <dl className="mt-10 grid grid-cols-3 gap-6 max-compact:grid-cols-1">
             {audit.metrics.map((value, index) => <div key={ui.metricLabels[index]} className="min-w-0 border-t border-line pt-5">
               <dt className="text-ui text-muted">{ui.metricLabels[index]}</dt>
@@ -65,7 +71,7 @@ export function AuditPage({ audit, locale }: { audit: Audit; locale: Locale }) {
         <section className="border-t border-line py-section-compact" aria-labelledby="method-title">
           <div className="max-w-reading">
             <h2 id="method-title" className="m-0 text-heading-lg">{ui.methodology}</h2>
-            {[ui.method, ui.search, ui.own].map(text => <p key={text} className="mt-5 mb-0 text-base/7 text-muted">{text}</p>)}
+            {[copy.methodology ?? ui.method, copy.searchNote ?? ui.search, ui.own].map(text => <p key={text} className="mt-5 mb-0 text-base/7 text-muted">{text}</p>)}
             <h3 className="mt-10 mb-0 text-heading-md">{ui.validationTitle}</h3>
             <p className="mt-4 mb-0 text-base/7 text-muted">{ui.validation}</p>
           </div>
@@ -76,7 +82,7 @@ export function AuditPage({ audit, locale }: { audit: Audit; locale: Locale }) {
           <ol className="mt-6 grid max-w-reading list-none gap-5 p-0">
             {audit.sources.map(([number, title, href]) => <li key={number} className="text-sm/6 text-muted">
               <span className="font-mono">[{number}] </span>
-              {href.startsWith("https://") ? <><span>{locale === "de" ? title : ui.sourcePage}</span><br/><a href={href} rel="noreferrer" className="break-all text-accent underline underline-offset-4">{href}</a></> : ui.report}
+              {href.startsWith("https://") ? <><span>{locale === "de" ? title : ui.sourcePage}</span><br/><a href={href} rel="noreferrer" className="break-all text-accent underline underline-offset-4">{href}</a></> : (copy.evidenceNote ?? ui.report)}
             </li>)}
           </ol>
         </section>

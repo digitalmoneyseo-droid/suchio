@@ -14,6 +14,16 @@
     "virtual:vinext-worker-entry": "./dist/server/index.js"
   },
   "workers_dev": false,
+  "vars": {
+    "AUDIT_ADMIN_EMAIL": "contact@suchio.net"
+  },
+  "d1_databases": [{
+    "binding": "AUDIT_DB",
+    "database_name": "suchio-audit-visits",
+    "database_id": "2c9456c0-4b91-422a-985c-93fada65e7ad",
+    "migrations_dir": "migrations/audit-visits"
+  }],
+  "triggers": { "crons": ["17 * * * *"] },
   "ratelimits": [
     { "name": "CONTACT_RATE_LIMITER", "namespace_id": "2026090501", "simple": { "limit": 10, "period": 60 } }
   ],
@@ -35,6 +45,9 @@
       "/api/contact",
       "/api/health",
       "/api/security-report",
+      "/api/audit-visits",
+      "/admin/audits",
+      "/admin/audits/*",
       "/audit/*",
       "/en/audit/*",
       "/fr/audit/*",
@@ -89,10 +102,11 @@
     "head_sampling_rate": 1,
     "logs": {
       "enabled": true,
+      "invocation_logs": false,
       "head_sampling_rate": 1
     },
     "traces": {
-      "enabled": true,
+      "enabled": false,
       "head_sampling_rate": 0.1
     }
   }
