@@ -1,4 +1,4 @@
-export type ContactErrorCode = "forbidden" | "unsupported_content" | "too_large" | "invalid_request" | "invalid_fields" | "unavailable" | "delivery_failed" | "rate_limited";
+type ContactErrorCode = "forbidden" | "unsupported_content" | "too_large" | "invalid_request" | "invalid_fields" | "unavailable" | "delivery_failed" | "rate_limited";
 
 const failures: Record<ContactErrorCode, readonly [status: number, message: string]> = {
   forbidden: [403, "Forbidden"],

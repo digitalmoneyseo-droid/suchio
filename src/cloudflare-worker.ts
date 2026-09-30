@@ -1,21 +1,15 @@
 import { contactError } from "./lib/contact-response";
-import vinextHandler from "vinext/server/fetch-handler";
+import { handle } from "@astrojs/cloudflare/handler";
 import { defaultLocale, hasLocale, localeCookie, type Locale } from "./i18n/config";
 import { handleContactRequest } from "./lib/contact-handler";
 import { securityHeaders } from "./lib/security-headers";
 import { getLegacyServiceRedirectPath } from "./lib/service-routes";
-import { healthResponse } from "./lib/health";
 import { handleSecurityReport } from "./lib/security-report";
 import { handleAuditVisit, purgeAuditVisits } from "./lib/audit-measurement";
 import { handleAuditAdmin } from "./lib/audit-admin";
 import { purgeAdminSessions } from "./lib/audit-admin-auth";
 
 type CloudflareEnv = Pick<CloudflareBindings, "ASSETS" | "CONTACT_RATE_LIMITER" | "AUDIT_DB" | "AUDIT_ADMIN_EMAIL" | "AUDIT_ADMIN_PASSWORD_HASH"> & Partial<Pick<CloudflareBindings, "RESEND_API_KEY" | "CONTACT_EMAIL_FROM" | "CONTACT_EMAIL_TO">>;
-
-interface CloudflareContext {
-  passThroughOnException(): void;
-  waitUntil(promise: Promise<unknown>): void;
-}
 
 function cookieLocale(request: Request) {
   const cookie = request.headers.get("cookie");
@@ -24,10 +18,6 @@ function cookieLocale(request: Request) {
   const prefix = `${localeCookie}=`;
   const value = cookie.split(";").map((entry) => entry.trim()).find((entry) => entry.startsWith(prefix))?.slice(prefix.length);
   return value && hasLocale(value) ? value : undefined;
-}
-
-function preferredLocale(request: Request): Locale {
-  return cookieLocale(request) ?? defaultLocale;
 }
 
 function redirect(location: string, locale?: Locale, status = 307) {
@@ -68,20 +58,12 @@ async function handleContactRoute(request: Request, env: CloudflareEnv) {
   return withSecurityHeaders(response);
 }
 
-function isRscRequest(request: Request, url: URL) {
-  return request.headers.get("rsc") === "1"
-    || request.headers.get("accept")?.includes("text/x-component")
-    || url.searchParams.has("_rsc");
-}
-
-
 const worker = {
   async scheduled(_controller: ScheduledController, env: CloudflareEnv) {
     await purgeAuditVisits(env.AUDIT_DB);
     await purgeAdminSessions(env.AUDIT_DB);
   },
-  async fetch(request: Request, env: CloudflareEnv | undefined, context: CloudflareContext) {
-    if (!env?.ASSETS) return vinextHandler.fetch(request, env, context);
+  async fetch(request: Request, env: CloudflareEnv, context: ExecutionContext) {
 
     const url = new URL(request.url);
     if (url.pathname === "/admin/audits" || url.pathname.startsWith("/admin/audits/")) {
@@ -106,11 +88,8 @@ const worker = {
     }
 
     if (url.pathname === "/" && (request.method === "GET" || request.method === "HEAD")) {
-      const locale = preferredLocale(request);
+      const locale = cookieLocale(request) ?? defaultLocale;
       if (locale !== defaultLocale) return redirect(`/${locale}${url.search}`);
-      return isRscRequest(request, url)
-        ? withSecurityHeaders(await vinextHandler.fetch(request, env, context))
-        : withSecurityHeaders(await env.ASSETS.fetch(request));
     }
 
     if (url.pathname === "/de" || url.pathname.startsWith("/de/")) {
@@ -129,16 +108,17 @@ const worker = {
       }
       return withSecurityHeaders(await handleSecurityReport(request));
     }
-    if (url.pathname === "/api/health") {
-      if (request.method !== "GET" && request.method !== "HEAD") return withSecurityHeaders(new Response(null, { status: 405, headers: { Allow: "GET, HEAD" } }));
-      return withSecurityHeaders(healthResponse({ apiKey: env.RESEND_API_KEY, to: env.CONTACT_EMAIL_TO, from: env.CONTACT_EMAIL_FROM }));
-    }
 
-    if (request.method === "GET" || request.method === "HEAD") return isRscRequest(request, url)
-      ? withSecurityHeaders(await vinextHandler.fetch(request, env, context))
-      : withSecurityHeaders(await env.ASSETS.fetch(request));
-    return vinextHandler.fetch(request, env, context);
+    if (request.method === "GET" || request.method === "HEAD") {
+      const response = await handle(request, env, context);
+      if (response.status !== 404) return withSecurityHeaders(response);
+      const locale = url.pathname.split("/")[1];
+      const notFoundPath = hasLocale(locale) && locale !== defaultLocale ? `/${locale}/404` : "/404";
+      const missing = await env.ASSETS.fetch(new Request(new URL(notFoundPath, url), { method: request.method }));
+      return withSecurityHeaders(new Response(missing.body, { status: 404, headers: missing.headers }));
+    }
+    return withSecurityHeaders(await handle(request, env, context));
   },
-};
+} satisfies ExportedHandler<CloudflareEnv>;
 
 export default worker;

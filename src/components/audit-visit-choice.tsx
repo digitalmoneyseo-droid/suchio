@@ -1,15 +1,12 @@
 "use client";
 
-import { useRef, useState, useSyncExternalStore } from "react";
+import { useRef, useState } from "react";
+import { useHydrated } from "@/components/use-hydrated";
 import { measurementCopy, measurementConsentVersion } from "@/i18n/audit-measurement";
 import type { Locale } from "@/i18n/config";
 
-const subscribe = () => () => {};
-const clientSnapshot = () => true;
-const serverSnapshot = () => false;
-
 export function AuditVisitChoice(props: { code: string; locale: Locale }) {
-  const hydrated = useSyncExternalStore(subscribe, clientSnapshot, serverSnapshot);
+  const hydrated = useHydrated();
   return hydrated ? <BrowserVisitChoice key={props.code} {...props} /> : null;
 }
 

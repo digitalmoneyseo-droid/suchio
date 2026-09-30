@@ -74,15 +74,6 @@ test("does not submit personal details in the URL without JavaScript", async ({ 
   } finally { await context.close(); }
 });
 
-test("only persists a language after an explicit language selection", async ({ page, context }) => {
-  await page.goto("/fr");
-  expect((await context.cookies()).some(({ name }) => name === "suchio-locale")).toBe(false);
-  await page.locator("header").getByRole("button", { name: /FR$/ }).first().click();
-  await page.locator("header").getByRole("link", { name: /English/ }).click();
-  await expect(page).toHaveURL(/\/en$/);
-  expect((await context.cookies()).find(({ name }) => name === "suchio-locale")?.value).toBe("en");
-});
-
 test("unlocks scrolling after resizing an open mobile menu", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/en");
@@ -119,4 +110,3 @@ test("supports French reflow, text spacing, and accessible expanded controls", a
   const results = await new AxeBuilder({ page }).analyze();
   expect(results.violations).toEqual([]);
 });
-

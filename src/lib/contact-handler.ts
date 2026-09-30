@@ -2,10 +2,10 @@ import { contactError } from "@/lib/contact-response";
 import { readLimitedJson } from "@/lib/request-body";
 import { getServiceCopy } from "@/i18n/services";
 import { hasLocale, t, type Locale } from "@/lib/i18n";
-import { isServiceId } from "@/lib/service-catalog";
+import { isServiceId } from "@/lib/service-routes";
 import { budgetOptions, isBudgetId, type BudgetId } from "@/lib/contact-options";
+import { emailPattern, isHttpUrl } from "@/lib/contact-validation";
 
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const contactEmailLocale = "de" satisfies Locale;
 const languageLabels = {
   de: "Deutsch",
@@ -216,14 +216,6 @@ function escapeHtml(value: string): string {
 
 function cleanString(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
-}
-
-function isHttpUrl(value: string): boolean {
-  try {
-    return ["http:", "https:"].includes(new URL(value).protocol);
-  } catch {
-    return false;
-  }
 }
 
 function budgetLabel(locale: Locale, budgetId: BudgetId): string {

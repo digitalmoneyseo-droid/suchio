@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { getOptimizationScene, OPTIMIZATION_FLIGHT_DELAY_MS, OPTIMIZATION_FLIGHT_DURATION_MS, OPTIMIZATION_RESULTS_DELAY_MS, OPTIMIZATION_TYPING_DELAY_MS, type OptimizationScene } from "@/components/offer-animations/optimization-scene";
 import { useHydratedReducedMotion } from "@/components/offer-animations/use-hydrated-reduced-motion";
 import type { OptimizationAnimationCopy } from "@/i18n/services";
+import { OFFER_EASE_OUT } from "@/components/offer-animations/motion-tokens";
 
 const WINNER_BADGE_HEIGHT = 32;
 const WINNER_BADGE_DURATION = 0.45;
@@ -56,10 +57,7 @@ export function OptimizationSearchAnimation({ copy }: { copy: OptimizationAnimat
   const reducedMotion = useHydratedReducedMotion();
   const scene = useOptimizationScene(isInView, reducedMotion, copy.query.length);
   const [resultsHeight, setResultsHeight] = useState(0);
-  const typedLength = reducedMotion ? copy.query.length : scene.typedLength;
-  const resultsVisible = reducedMotion || scene.resultsVisible;
-  const flightStarted = reducedMotion || scene.flightStarted;
-  const currentRank = reducedMotion ? 1 : scene.rank;
+  const { typedLength, resultsVisible, flightStarted, rank: currentRank } = scene;
   const winnerLanded = currentRank === 1;
 
   useEffect(() => {
@@ -114,14 +112,14 @@ export function OptimizationSearchAnimation({ copy }: { copy: OptimizationAnimat
     </div>
 
     <div className="flex min-h-0 min-w-0 w-full flex-1 flex-col">
-      <motion.div data-optimization-top-ranked className="relative min-h-0 shrink-0 overflow-visible text-[clamp(.5rem,.85vw,.64rem)] font-semibold uppercase tracking-[.16em] text-[#b9780d]" initial={false} animate={{ height: winnerLanded ? WINNER_BADGE_HEIGHT : 0 }} transition={{ height: { duration: reducedMotion ? 0 : WINNER_BADGE_DURATION, ease: [0.16, 1, 0.3, 1] } }}>
-        <motion.div className="pointer-events-none absolute inset-x-1 top-0 flex h-8 items-end gap-2 pt-1 max-[640px]:gap-1.5" initial={false} animate={{ opacity: winnerLanded ? 1 : 0 }} transition={{ delay: reducedMotion ? 0 : 0.24, duration: reducedMotion ? 0 : 0.2, ease: [0.16, 1, 0.3, 1] }}>
+      <motion.div data-optimization-top-ranked className="relative min-h-0 shrink-0 overflow-visible text-[clamp(.5rem,.85vw,.64rem)] font-semibold uppercase tracking-[.16em] text-[#b9780d]" initial={false} animate={{ height: winnerLanded ? WINNER_BADGE_HEIGHT : 0 }} transition={{ height: { duration: reducedMotion ? 0 : WINNER_BADGE_DURATION, ease: OFFER_EASE_OUT } }}>
+        <motion.div className="pointer-events-none absolute inset-x-1 top-0 flex h-8 items-end gap-2 pt-1 max-[640px]:gap-1.5" initial={false} animate={{ opacity: winnerLanded ? 1 : 0 }} transition={{ delay: reducedMotion ? 0 : 0.24, duration: reducedMotion ? 0 : 0.2, ease: OFFER_EASE_OUT }}>
           <span className="mb-1.5 h-px min-w-3 flex-1 bg-[#e8c77f] max-[640px]:mb-1" />
           <span className="flex shrink-0 flex-col items-center leading-none"><Crown data-optimization-top-ranked-icon className="size-4 text-[#b9780d] max-[640px]:size-3.5" strokeWidth={1.8} aria-hidden="true" /><span data-optimization-top-ranked-label className="mt-0.5 whitespace-nowrap">{copy.topRankedLabel}</span></span>
           <span className="mb-1.5 h-px min-w-3 flex-1 bg-[#e8c77f] max-[640px]:mb-1" />
         </motion.div>
       </motion.div>
-      <motion.div ref={resultsViewportRef} data-optimization-results className="relative mt-2 min-h-0 min-w-0 w-full flex-1 overflow-hidden" initial={false} animate={{ opacity: resultsReady ? 1 : 0, y: resultsReady ? 0 : 6 }} transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}>
+      <motion.div ref={resultsViewportRef} data-optimization-results className="relative mt-2 min-h-0 min-w-0 w-full flex-1 overflow-hidden" initial={false} animate={{ opacity: resultsReady ? 1 : 0, y: resultsReady ? 0 : 6 }} transition={{ duration: 0.32, ease: OFFER_EASE_OUT }}>
         <div className="absolute inset-y-0 inset-x-px min-w-0 overflow-hidden">
           <motion.ol className="absolute inset-x-0 top-0 m-0 grid min-w-0 list-none gap-1.5 overflow-hidden p-0 transform-gpu will-change-transform [backface-visibility:hidden]" initial={false} animate={{ y: flightStarted ? 0 : -resultStackOffset }} transition={{ y: { duration: reducedMotion || !flightStarted ? 0 : OPTIMIZATION_FLIGHT_DURATION_MS / 1000, ease: [0.9, 0, 0.1, 1] } }}>
             {Array.from({ length: 20 }, (_, index) => {

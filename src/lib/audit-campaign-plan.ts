@@ -1,10 +1,9 @@
-import "server-only";
 import type { Locale } from "@/i18n/config";
 
 type Localized = Record<Locale, string>;
 type Stack = "astro" | "astro-filter" | "astro-phone" | "next-catalog";
 
-export type CampaignPlan = {
+type CampaignPlan = {
   design: Localized;
   journey: Localized;
   stack: Stack;

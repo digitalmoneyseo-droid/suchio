@@ -1,0 +1,5 @@
+@import "./fonts.css";
+@import "./mono-fonts.css";
+@import "./app.css";
+
+@source "../**/*.{astro,ts,tsx}";

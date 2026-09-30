@@ -366,21 +366,20 @@ function Scene({ clipId, copy }: { clipId: string; copy: WebExperienceAnimationC
       />
 
       <g clipPath={`url(#${clipId})`}>
-        <HeroScene copy={copy} scene={scene} variant="desktop" />
+        <HeroScene copy={copy} scene={scene} />
       </g>
 
-      <BrowserChrome scene={scene} variant="desktop" />
+      <BrowserChrome scene={scene} />
     </svg>
   );
 }
 
-function BrowserChrome({ scene, variant }: { scene: SceneGeometry; variant: SceneVariant }) {
-  const isDesktop = variant === "desktop";
+function BrowserChrome({ scene }: { scene: SceneGeometry }) {
   const urlBoxY = scene.urlCenterY - 5;
   const urlBaselineY = scene.urlCenterY + 2.45;
 
   return (
-    <g data-web-experience-reveal="chrome" style={isDesktop ? { opacity: 0 } : undefined}>
+    <g data-web-experience-reveal="chrome" style={{ opacity: 0 }}>
       <rect data-web-experience-divider fill="var(--color-line)" {...scene.divider} />
 
       <g data-web-experience-desktop-controls>
@@ -398,47 +397,46 @@ function BrowserChrome({ scene, variant }: { scene: SceneGeometry; variant: Scen
   );
 }
 
-function HeroScene({ copy, scene, variant }: { copy: WebExperienceAnimationCopy; scene: SceneGeometry; variant: SceneVariant }) {
-  const isDesktop = variant === "desktop";
+function HeroScene({ copy, scene }: { copy: WebExperienceAnimationCopy; scene: SceneGeometry }) {
   const words = copy.headline.trim().split(/\s+/);
   const secondLine = words.pop() ?? "";
   const firstLine = words.join(" ");
 
   return (
     <g>
-      <g data-web-experience-part="accent" style={isDesktop ? { opacity: 0 } : undefined}>
+      <g data-web-experience-part="accent" style={{ opacity: 0 }}>
         <rect fill="var(--color-brand-400)" rx="3" {...scene.accent} />
       </g>
 
-      <g data-web-experience-part="headline" style={isDesktop ? { opacity: 0 } : undefined}>
+      <g data-web-experience-part="headline" style={{ opacity: 0 }}>
         <text data-web-experience-headline fill="var(--color-neutral-900)" fontFamily="inherit" fontSize="18.4" fontWeight="600" x={scene.headline.x} y={scene.headline.y}>
           <tspan x={scene.headline.x}>{firstLine}</tspan>
           <tspan dy="1.03em" x={scene.headline.x}>{secondLine}</tspan>
         </text>
       </g>
 
-      <IllustrationLine geometry={scene.primaryLine} hidden={isDesktop} part="primary-line" />
-      <IllustrationLine geometry={scene.secondaryLine} hidden={isDesktop} part="secondary-line" />
-      <InquiryCta copy={copy} geometry={scene.cta} hidden={isDesktop} />
-      <CardStack scene={scene} variant={variant} />
+      <IllustrationLine geometry={scene.primaryLine} part="primary-line" />
+      <IllustrationLine geometry={scene.secondaryLine} part="secondary-line" />
+      <InquiryCta copy={copy} geometry={scene.cta} />
+      <CardStack scene={scene} />
     </g>
   );
 }
 
-function IllustrationLine({ geometry, hidden, part }: { geometry: RectGeometry; hidden: boolean; part: string }) {
+function IllustrationLine({ geometry, part }: { geometry: RectGeometry; part: string }) {
   return (
-    <g data-web-experience-part={part} style={hidden ? { opacity: 0 } : undefined}>
+    <g data-web-experience-part={part} style={{ opacity: 0 }}>
       <rect fill="var(--color-neutral-200)" rx="3" {...geometry} />
     </g>
   );
 }
 
-function InquiryCta({ copy, geometry, hidden }: { copy: WebExperienceAnimationCopy; geometry: { x: number; y: number }; hidden: boolean }) {
+function InquiryCta({ copy, geometry }: { copy: WebExperienceAnimationCopy; geometry: { x: number; y: number } }) {
   const width = 92;
   const height = 24;
 
   return (
-    <g data-web-experience-part="cta" style={hidden ? { opacity: 0 } : undefined}>
+    <g data-web-experience-part="cta" style={{ opacity: 0 }}>
       <rect data-web-experience-cta-bg fill="var(--color-neutral-900)" height={height} rx="12" width={width} x={geometry.x} y={geometry.y} />
       <text
         data-web-experience-cta-label
@@ -458,19 +456,18 @@ function InquiryCta({ copy, geometry, hidden }: { copy: WebExperienceAnimationCo
   );
 }
 
-function CardStack({ scene, variant }: { scene: SceneGeometry; variant: SceneVariant }) {
-  const isDesktop = variant === "desktop";
+function CardStack({ scene }: { scene: SceneGeometry }) {
 
   return (
     <g data-web-experience-part="image">
       <rect data-web-experience-image-bounds fill="transparent" {...scene.imageBounds} />
-      <g data-web-experience-card="back" style={isDesktop ? { opacity: 0 } : undefined}>
+      <g data-web-experience-card="back" style={{ opacity: 0 }}>
         <SvgCard fill="var(--color-neutral-100)" geometry={scene.cards.back} stroke="var(--color-neutral-300)" />
       </g>
-      <g data-web-experience-card="middle" style={isDesktop ? { opacity: 0 } : undefined}>
+      <g data-web-experience-card="middle" style={{ opacity: 0 }}>
         <SvgCard fill="white" geometry={scene.cards.middle} stroke="var(--color-line-strong)" />
       </g>
-      <g data-web-experience-card="front" style={isDesktop ? { opacity: 0 } : undefined}>
+      <g data-web-experience-card="front" style={{ opacity: 0 }}>
         <FrontCard geometry={scene.cards.front} values={scene.frontCard} />
       </g>
     </g>

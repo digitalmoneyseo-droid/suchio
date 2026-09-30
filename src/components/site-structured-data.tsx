@@ -1,4 +1,5 @@
 import { publicBusinessAddress, publicContactEmail, publicContactPhone } from "@/lib/contact";
+import { StructuredData } from "@/components/structured-data";
 import { locales } from "@/lib/i18n";
 import { absoluteUrl } from "@/lib/site";
 
@@ -36,10 +37,5 @@ export function SiteStructuredData() {
     ],
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
-    />
-  );
+  return <StructuredData value={schema} />;
 }

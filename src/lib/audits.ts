@@ -1,8 +1,7 @@
-import "server-only";
 import data from "@/content/audits.json";
 import type { Locale } from "@/i18n/config";
 
-export interface AuditContent {
+interface AuditContent {
   title: string;
   summary: string;
   findings: string[][];

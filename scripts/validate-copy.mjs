@@ -15,9 +15,11 @@ for (const file of ["services.ts", "services-fr.ts", "legal-content.ts", "transl
   if (await process.exited !== 0) throw new Error(`Cannot read ${base}:${file}`);
   await Bun.write(resolve(directory, file), source);
 }
+// These retired keys never rendered; 404 copy remains in not-found.ts.
+const retiredKeys = new Set(["footer.explore", "footer.connect", "footer.email", "notFound.title", "notFound.copy", "notFound.back"]);
 function copyOnly(value) {
   if (Array.isArray(value)) return value.map(copyOnly);
-  if (value && typeof value === "object") return Object.fromEntries(Object.entries(value).filter(([key]) => key !== "id").map(([key, entry]) => [key, copyOnly(entry)]));
+  if (value && typeof value === "object") return Object.fromEntries(Object.entries(value).filter(([key]) => key !== "id" && !retiredKeys.has(key)).map(([key, entry]) => [key, copyOnly(entry)]));
   return value;
 }
 for (const [file, name, current] of [["services.ts", "servicesContent", servicesContent], ["legal-content.ts", "legalContent", legalContent], ["translations.ts", "dictionaries", dictionaries]]) {

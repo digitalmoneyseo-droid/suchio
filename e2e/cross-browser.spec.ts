@@ -2,16 +2,23 @@ import { expect, test } from "@playwright/test";
 import { publicRoutes } from "../src/lib/public-routes";
 import { expectContentWithinViewport, fillEnquiry } from "./helpers";
 
-test("language changes keep the regular header without a fallback bar", async ({ page }) => {
-  await page.goto("/en");
-  for (const [language, path] of [["Français", "/fr"], ["Deutsch", "/"], ["English", "/en"]]) {
+test("language changes preserve the page and document language, persist only explicit choices, and keep the hydrated header", async ({ page, context }) => {
+  await page.goto("/fr");
+  expect((await context.cookies()).some(({ name }) => name === "suchio-locale")).toBe(false);
+  await page.goto("/en/about");
+  for (const [language, path, locale] of [["Français", "/fr/about", "fr"], ["Deutsch", "/about", "de"], ["English", "/en/about", "en"]]) {
     const header = page.locator("header");
     await header.locator('button[aria-controls="desktop-language-menu"]').click();
     await header.getByRole("link", { name: new RegExp(`^${language}`) }).click();
-    await expect(page).toHaveURL(new RegExp(`${path === "/" ? "/" : path}$`));
+    await expect(page).toHaveURL(new RegExp(`${path}$`));
+    await expect(page.locator("html")).toHaveAttribute("lang", locale);
+    await expect.poll(async () => (await context.cookies()).find(({ name }) => name === "suchio-locale")?.value).toBe(locale);
     await expect(header).toBeVisible();
     await expect(page.locator("[data-navigation-fallback]")).toHaveCount(0);
   }
+  await page.goto("/");
+  await expect(page).toHaveURL(/\/en$/);
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
 });
 
 test("FAQ and service disclosures animate both ways and honor reduced motion", async ({ page }) => {
@@ -46,7 +53,6 @@ test("French routes reflow at 320px with standard and enlarged text", async ({ p
     await page.goto(route.pathname);
     await expect(page.locator("header")).toBeVisible();
     await page.evaluate(() => document.fonts.ready);
-    await page.addStyleTag({ content: ".deferred-rendering { content-visibility: visible !important; }" });
     for (const size of [16, 32]) {
       await page.evaluate(size => document.documentElement.style.fontSize = `${size}px`, size);
       await expectContentWithinViewport(page);
@@ -140,7 +146,7 @@ test("navigation and illustrations remain available when JavaScript is disabled"
 });
 
 test("mobile navigation and disclosures work in normal and reduced motion", async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
+  await page.setViewportSize({ width: 320, height: 844 });
   for (const reducedMotion of ["no-preference", "reduce"] as const) {
     await page.emulateMedia({ reducedMotion });
     await page.goto("/fr");
@@ -154,5 +160,8 @@ test("mobile navigation and disclosures work in normal and reduced motion", asyn
     await disclosure.locator("summary").click();
     await expect(disclosure).toHaveAttribute("open", "");
     await expect(disclosure.locator("p")).toBeVisible();
+    await page.locator('button[aria-controls="site-menu"]').press("Enter");
+    await page.locator('#site-menu a[href="/fr/contact"]').click();
+    await expect(page).toHaveURL(/\/fr\/contact$/);
   }
 });

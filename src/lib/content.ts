@@ -1,14 +1,10 @@
-import "server-only";
-import { locales, type Locale } from "@/lib/i18n";
+import { hasLocale, type Locale } from "@/i18n/config";
 import { loadContentRepository, type Faq } from "@/lib/content-core";
 
-export type { Faq } from "@/lib/content-core";
-
-export interface ContentEntry<T> { id: string; data: T }
 const content = loadContentRepository();
 
-export async function getFaqs(locale: Locale): Promise<ContentEntry<Faq>[]> {
+export async function getFaqs(locale: Locale): Promise<Faq[]> {
   const faqs = (await content).faqs[locale];
-  if (!faqs || !locales.includes(locale)) throw new Error(`FAQ content is unavailable for locale: ${locale}.`);
+  if (!faqs || !hasLocale(locale)) throw new Error(`FAQ content is unavailable for locale: ${locale}.`);
   return faqs;
 }

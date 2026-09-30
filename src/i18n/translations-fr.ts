@@ -1,5 +1,4 @@
 import type { MessageKey } from "./translations";
-import { notFoundMessages } from "./not-found";
 
 export const frMessages: Readonly<Record<MessageKey, string>> = {
   "nav.services": "Services",
@@ -14,14 +13,11 @@ export const frMessages: Readonly<Record<MessageKey, string>> = {
   "meta.siteTitle": "Suchio | Sites web, croissance & automatisation",
   "meta.aboutDescription": "Suchio est un studio indépendant spécialisé dans les sites web, les applications, la visibilité, les campagnes payantes, l’IA et l’automatisation.",
   "a11y.skip": "Aller au contenu",
-  "footer.explore": "Découvrir",
-  "footer.connect": "Nous contacter",
   "footer.studio": "Studio",
   "footer.legal": "Juridique",
   "footer.imprint": "Mentions légales",
   "footer.privacy": "Politique de confidentialité",
   "service.otherServices": "Autres services",
-  "footer.email": "E-mail",
   "meta.imprintDescription": "Mentions légales et identification de Suchio, Aleks Tsenov.",
   "meta.privacyDescription": "Politique de confidentialité de Suchio pour l’hébergement, les demandes de contact, l’e-mail et la préférence linguistique.",
   "home.heroLine1": "Conçu pour",
@@ -88,9 +84,6 @@ export const frMessages: Readonly<Record<MessageKey, string>> = {
   "contact.formBodyName": "Nom",
   "contact.formBodyEmail": "E-mail",
   "contact.formBodyMessage": "Projet et objectif",
-  "notFound.title": notFoundMessages.fr.title,
-  "notFound.copy": notFoundMessages.fr.copy,
-  "notFound.back": notFoundMessages.fr.back,
   "about.title": "Plusieurs disciplines. Une direction claire.",
   "about.copy": "Suchio réunit conception et développement web, référencement, campagnes payantes et automatisation lorsqu’un projet demande plusieurs disciplines.",
   "about.pov": "Pourquoi nous relions les disciplines",

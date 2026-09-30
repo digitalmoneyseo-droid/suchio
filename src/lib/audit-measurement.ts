@@ -1,4 +1,5 @@
 import reports from "../content/audits.json";
+import { readLimitedBytes } from "./request-body";
 
 export const consentVersion = "2026-09-26-v1";
 export const retentionSeconds = 30 * 24 * 60 * 60;
@@ -25,20 +26,8 @@ export async function receiptHash(receipt: string) {
 
 export async function boundedText(body: ReadableStream<Uint8Array> | null, limit: number): Promise<string | null> {
   if (!body) return null;
-  const reader = body.getReader();
-  const chunks: Uint8Array[] = [];
-  let length = 0;
-  while (true) {
-    const part = await reader.read();
-    if (part.done) break;
-    length += part.value.length;
-    if (length > limit) { await reader.cancel(); return null; }
-    chunks.push(part.value);
-  }
-  const buffer = new Uint8Array(length);
-  let offset = 0;
-  for (const chunk of chunks) { buffer.set(chunk, offset); offset += chunk.length; }
-  return new TextDecoder().decode(buffer);
+  const bytes = await readLimitedBytes(body, limit);
+  return bytes === null ? null : new TextDecoder().decode(bytes);
 }
 
 async function boundedJson(request: Request): Promise<Record<string, unknown> | null> {

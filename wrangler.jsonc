@@ -7,25 +7,32 @@
     "nodejs_compat"
   ],
   "main": "src/cloudflare-worker.ts",
-  // Vinext writes the bundled worker after the build. This alias keeps the
-  // default `wrangler deploy` command usable when Workers Builds is not given
-  // the generated config explicitly.
-  "alias": {
-    "virtual:vinext-worker-entry": "./dist/server/index.js"
-  },
   "workers_dev": false,
   "vars": {
     "AUDIT_ADMIN_EMAIL": "contact@suchio.net"
   },
-  "d1_databases": [{
-    "binding": "AUDIT_DB",
-    "database_name": "suchio-audit-visits",
-    "database_id": "2c9456c0-4b91-422a-985c-93fada65e7ad",
-    "migrations_dir": "migrations/audit-visits"
-  }],
-  "triggers": { "crons": ["17 * * * *"] },
+  "d1_databases": [
+    {
+      "binding": "AUDIT_DB",
+      "database_name": "suchio-audit-visits",
+      "database_id": "2c9456c0-4b91-422a-985c-93fada65e7ad",
+      "migrations_dir": "migrations/audit-visits"
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "17 * * * *"
+    ]
+  },
   "ratelimits": [
-    { "name": "CONTACT_RATE_LIMITER", "namespace_id": "2026090501", "simple": { "limit": 10, "period": 60 } }
+    {
+      "name": "CONTACT_RATE_LIMITER",
+      "namespace_id": "2026090501",
+      "simple": {
+        "limit": 10,
+        "period": 60
+      }
+    }
   ],
   "routes": [
     {
@@ -36,24 +43,15 @@
   "assets": {
     "directory": "dist/client",
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page",
+    "not_found_handling": "none",
     "binding": "ASSETS",
     "run_worker_first": [
       "/",
       "/de",
       "/de/*",
-      "/api/contact",
-      "/api/health",
-      "/api/security-report",
-      "/api/audit-visits",
+      "/api/*",
       "/admin/audits",
       "/admin/audits/*",
-      "/audit/*",
-      "/en/audit/*",
-      "/fr/audit/*",
-      "/datenschutz",
-      "/en/datenschutz",
-      "/fr/datenschutz",
       "/services/websites-apps",
       "/services/seo-ai-visibility",
       "/services/paid-campaigns",
@@ -65,33 +63,7 @@
       "/fr/services/websites-apps",
       "/fr/services/seo-ai-visibility",
       "/fr/services/paid-campaigns",
-      "/fr/services/ai-automation",
-      "/about",
-      "/contact",
-      "/imprint",
-      "/privacy",
-      "/services/websites",
-      "/services/seo",
-      "/services/ads",
-      "/services/automation",
-      "/en",
-      "/en/about",
-      "/en/contact",
-      "/en/imprint",
-      "/en/privacy",
-      "/en/services/websites",
-      "/en/services/seo",
-      "/en/services/ads",
-      "/en/services/automation",
-      "/fr",
-      "/fr/about",
-      "/fr/contact",
-      "/fr/imprint",
-      "/fr/privacy",
-      "/fr/services/websites",
-      "/fr/services/seo",
-      "/fr/services/ads",
-      "/fr/services/automation"
+      "/fr/services/ai-automation"
     ]
   },
   "cache": {

@@ -24,16 +24,6 @@ button { border: 0; background: transparent; color: inherit; }
   to { transform: scaleX(1); }
 }
 
-.deferred-rendering {
-  content-visibility: auto;
-  contain-intrinsic-block-size: auto 48rem;
-}
-@media (max-width: 900px) {
-  .deferred-rendering {
-    contain-intrinsic-block-size: auto 64rem;
-  }
-}
-
 .header-language {
   transition: color 180ms var(--ease-out), scale 150ms var(--ease-out);
 }

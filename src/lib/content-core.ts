@@ -1,5 +1,4 @@
-import type { Locale } from "../i18n/config";
-import config from "../i18n/config.json";
+import { defaultLocale, locales, type Locale } from "../i18n/config";
 import de01 from "../content/faqs/de/01.json";
 import de02 from "../content/faqs/de/02.json";
 import de03 from "../content/faqs/de/03.json";
@@ -25,15 +24,8 @@ export interface Faq {
   answer: string;
 }
 
-interface ContentEntry<T> {
-  id: string;
-  data: T;
-}
-
-type LocalizedEntries<T> = Record<Locale, ContentEntry<T>[]>;
-
-export interface ContentRepository {
-  faqs: LocalizedEntries<Faq>;
+interface ContentRepository {
+  faqs: Record<Locale, Faq[]>;
 }
 
 function record(value: unknown, source: string): Record<string, unknown> {
@@ -81,31 +73,29 @@ const faqFiles: Record<Locale, readonly (readonly [id: string, value: unknown])[
   fr: [["01", fr01], ["02", fr02], ["03", fr03], ["04", fr04], ["05", fr05]],
 };
 
-function readFaqs(locale: Locale): ContentEntry<Faq>[] {
+function readFaqs(locale: Locale): Faq[] {
   const entries = faqFiles[locale]
     .map(([id, value]) => {
       const source = `src/content/faqs/${locale}/${id}.json`;
       const data = parseFaq(value, source);
       if (data.locale !== locale) throw new Error(`Wrong locale in ${source}.`);
-      return { id, data };
+      return data;
     })
-    .sort((a, b) => a.data.order - b.data.order);
+    .sort((a, b) => a.order - b.order);
 
   for (const field of ["translationKey", "slug", "order"] as const) {
-    const values = entries.map((entry) => entry.data[field]);
+    const values = entries.map((entry) => entry[field]);
     if (new Set(values).size !== values.length) throw new Error(`Duplicate ${field} in faqs/${locale}.`);
   }
   return entries;
 }
 
-function signature(entries: ContentEntry<Faq>[]): string[] {
-  return entries.map(({ data }) => `${data.translationKey}|${data.slug}|${data.order}`);
+function signature(entries: Faq[]): string[] {
+  return entries.map((data) => `${data.translationKey}|${data.slug}|${data.order}`);
 }
 
 export async function loadContentRepository(): Promise<ContentRepository> {
-  const locales = Object.keys(config.locales) as Locale[];
-  const defaultLocale = config.defaultLocale as Locale;
-  const faqs = Object.fromEntries(locales.map((locale) => [locale, readFaqs(locale)] as const)) as LocalizedEntries<Faq>;
+  const faqs = Object.fromEntries(locales.map((locale) => [locale, readFaqs(locale)] as const)) as Record<Locale, Faq[]>;
   const referenceSignature = JSON.stringify(signature(faqs[defaultLocale]));
 
   for (const locale of locales) {

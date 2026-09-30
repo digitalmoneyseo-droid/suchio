@@ -1,0 +1,10 @@
+---
+import { getServiceCatalog } from "@/lib/service-catalog";
+import type { Locale } from "@/lib/i18n";
+
+import Service from "@/components/offer-service.astro";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const services = getServiceCatalog(locale);
+---
+<div class="mx-auto max-w-[70rem]">{services.map((service, index) => <Service locale={locale} service={service} revealDelay={index * 50} />)}</div>

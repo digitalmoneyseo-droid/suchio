@@ -1,7 +1,7 @@
 import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-const chunkDirectories = [join(process.cwd(), ".next", "static", "chunks"), join(process.cwd(), "dist", "client")];
+const chunkDirectories = [join(process.cwd(), "dist", "client")];
 const dictionaryMarkers = [
   "Belege vor Meinung",
   "Evidence before opinion",

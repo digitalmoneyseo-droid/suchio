@@ -14,7 +14,7 @@ interface LegalLink {
   label: string;
 }
 
-export interface LegalSection {
+interface LegalSection {
   id: string;
   title: string;
   paragraphs?: string[];
@@ -23,7 +23,7 @@ export interface LegalSection {
   links?: LegalLink[];
 }
 
-export interface LegalPageContent {
+interface LegalPageContent {
   eyebrow: string;
   title: string;
   intro: string;

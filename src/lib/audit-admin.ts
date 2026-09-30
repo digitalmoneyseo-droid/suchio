@@ -58,7 +58,6 @@ export async function handleAuditAdmin(request: Request, env: Env) {
     return measurementResponse({ error: "Nicht autorisiert." }, 403);
   }
   if (request.method === "POST" && (path === "/admin/audits/check" || path === "/admin/audits/delete")) {
-    if (!sameOrigin(request)) return measurementResponse({ error: "origin" }, 403);
     if (!request.headers.get("content-type")?.startsWith("application/x-www-form-urlencoded")) return measurementResponse({ error: "content_type" }, 400);
     const text = await boundedText(request.body, 1024);
     if (text === null) return measurementResponse({ error: "size" }, 413);

@@ -1,0 +1,11 @@
+---
+import Disclosure from "@/components/disclosure.astro";
+import type { Faq } from "@/lib/content-core";
+interface Props { items: readonly Pick<Faq, "question" | "answer">[]; id?: string }
+const { items, id = "faq" } = Astro.props;
+---
+<div class="reveal" data-reveal>
+  {items.map((item, index) => <Disclosure id={`${id}-${index}`} group={id} title={item.question}>
+    <p class="m-0">{item.answer}</p>
+  </Disclosure>)}
+</div>

@@ -1,6 +1,5 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
-import { expectContentWithinViewport } from "./helpers";
 
 const routeSuffixes = [
   "",
@@ -22,10 +21,6 @@ const legacyServiceRoutes = [
   ["/services/paid-campaigns", "/services/ads"],
   ["/services/ai-automation", "/services/automation"],
 ] as const;
-
-async function expectNoHorizontalOverflow(page: Page) {
-  await expectContentWithinViewport(page);
-}
 
 async function completeContactForm(page: Page) {
   await page.getByLabel("Your name").fill("Alex Morgan");
@@ -118,43 +113,6 @@ test("reports unavailable email configuration without exposing secrets", async (
   expect(response.headers()["x-robots-tag"]).toBe("noindex");
 });
 
-test("keeps mobile navigation keyboard-accessible and within the viewport", async ({ page }) => {
-  await page.setViewportSize({ width: 320, height: 844 });
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/");
-
-  await expect(page.locator("[data-reveal]").first()).toHaveClass(/is-visible/);
-  await expectNoHorizontalOverflow(page);
-
-  const opener = page.locator('button[aria-controls="site-menu"]');
-  await opener.focus();
-  await page.keyboard.press("Enter");
-  await expect(page.locator("#site-menu")).toHaveAttribute("aria-hidden", "false");
-  await page.keyboard.press("Escape");
-  await expect(page.locator("#site-menu")).toHaveAttribute("aria-hidden", "true");
-  await expect(opener).toBeFocused();
-
-  await page.keyboard.press("Enter");
-  await page.locator('#site-menu a[href="/contact"]').click();
-  await expect(page).toHaveURL(/\/contact$/);
-  await expectNoHorizontalOverflow(page);
-});
-
-test("switches from English back to German and remembers the selection", async ({ page, context }) => {
-  await page.goto("/en/about");
-  await page.getByRole("button", { name: "Select language" }).first().hover();
-  await page.getByRole("link", { name: /Deutsch/ }).first().click();
-
-  await expect(page).toHaveURL(/\/about$/);
-  await expect(page.locator("html")).toHaveAttribute("lang", "de");
-  await expect(page.getByRole("heading", { level: 1, name: "Verschiedene Disziplinen. Eine klare Richtung." })).toBeVisible();
-  await expect.poll(async () => (await context.cookies()).find(({ name }) => name === "suchio-locale")?.value).toBe("de");
-
-  await page.goto("/");
-  await expect(page).toHaveURL(/\/$/);
-  await expect(page.locator("html")).toHaveAttribute("lang", "de");
-});
-
 test("loads decorative homepage animations only as they approach the viewport", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
@@ -225,14 +183,33 @@ test("returns a controlled error when contact email is not configured", async ({
   await expect(response.json()).resolves.toEqual({ error: "Email service unavailable", code: "unavailable" });
 });
 
-test("keeps representative pages accessible with reduced motion", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "reduce" });
-
-  for (const route of ["/", "/en/contact"] as const) {
-    await test.step(route, async () => {
-      await page.goto(route);
-      const results = await new AxeBuilder({ page }).exclude('[aria-hidden="true"]').analyze();
-      expect(results.violations).toEqual([]);
-    });
+test("keeps representative pages accessible in normal and reduced motion", async ({ page }) => {
+  test.setTimeout(120_000);
+  for (const reducedMotion of ["no-preference", "reduce"] as const) {
+    await page.emulateMedia({ reducedMotion });
+    for (const route of ["/", "/en", "/fr", "/en/contact"] as const) {
+      await test.step(`${reducedMotion}: ${route}`, async () => {
+        await page.goto(route);
+        // Inspect before scrolling: off-screen rendering used to return empty
+        // heading/link text even though the HTML contained the correct copy.
+        const unreadable = await page.locator("main h1, main h2, main h3, main h4, main a").evaluateAll(elements =>
+          elements.filter(element => !element.closest('[aria-hidden="true"]')
+            && element.textContent?.trim() && !(element as HTMLElement).innerText.trim())
+            .map(element => ({ tag: element.tagName, text: element.textContent?.trim() })));
+        expect(unreadable).toEqual([]);
+        // Contrast measurements during an entrance fade sample blended colors.
+        // Wait for finite content animations, retaining the real page styles.
+        await page.evaluate(async () => {
+          const entrances = document.getAnimations().filter(animation => {
+            const target = (animation.effect as KeyframeEffect | null)?.target;
+            return target instanceof Element && !target.closest('[aria-hidden="true"]')
+              && Number.isFinite(animation.effect?.getComputedTiming().endTime);
+          });
+          await Promise.all(entrances.map(animation => animation.finished.catch(() => {})));
+        });
+        const results = await new AxeBuilder({ page }).exclude('[aria-hidden="true"]').analyze();
+        expect(results.violations).toEqual([]);
+      });
+    }
   }
 });

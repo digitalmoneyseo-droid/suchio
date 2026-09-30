@@ -24,7 +24,7 @@ function sessionToken(request: Request) {
   return token && /^[a-f0-9]{64}$/.test(token) ? token : null;
 }
 
-export function sessionCookie(token: string, maxAge = sessionSeconds) {
+function sessionCookie(token: string, maxAge = sessionSeconds) {
   return `${cookieName}=${token}; Path=/; Secure; HttpOnly; SameSite=Strict; Max-Age=${maxAge}`;
 }
 

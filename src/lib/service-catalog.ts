@@ -10,8 +10,6 @@ import {
 import type { Locale } from "@/lib/i18n";
 import { getServicePath, serviceOrder } from "@/lib/service-routes";
 
-export { getServicePath, isServiceId, serviceOrder } from "@/lib/service-routes";
-
 export type ServiceAnimation =
   | { type: "web-experience"; copy: WebExperienceAnimationCopy }
   | { type: "optimization"; copy: OptimizationAnimationCopy }
@@ -25,13 +23,6 @@ export type ServiceCatalogEntry = {
   href: string;
   reverse: boolean;
   theme: string;
-};
-
-const servicePolicy: Record<ServiceId, { reverse: boolean; theme: string }> = {
-  "websites-apps": { reverse: false, theme: "bg-white text-ink" },
-  "seo-ai-visibility": { reverse: true, theme: "bg-white text-ink" },
-  "paid-campaigns": { reverse: false, theme: "bg-white text-ink" },
-  "ai-automation": { reverse: true, theme: "bg-white text-ink" },
 };
 
 export function getServiceCatalog(locale: Locale): ServiceCatalogEntry[] {
@@ -51,14 +42,13 @@ export function getServiceCatalog(locale: Locale): ServiceCatalogEntry[] {
   return serviceOrder.map((id) => {
     const copy = copyById.get(id);
     if (!copy) throw new Error(`Missing ${id} service copy for ${locale}.`);
-    const policy = servicePolicy[id];
     return {
       id,
       copy,
       animation: animationById[id],
       href: getServicePath(id, locale),
-      reverse: policy.reverse,
-      theme: policy.theme,
+      reverse: id === "seo-ai-visibility" || id === "ai-automation",
+      theme: "bg-white text-ink",
     };
   });
 }

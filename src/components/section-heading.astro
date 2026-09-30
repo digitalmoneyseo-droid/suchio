@@ -1,0 +1,8 @@
+---
+interface Props { title: string; copy?: string; align?: "left" | "center" }
+const { title, copy, align = "left" } = Astro.props;
+---
+<div class={`reveal mb-heading-gap max-w-[45rem] ${align === "center" ? "mx-auto text-center" : ""}`} data-reveal>
+      <h2 class="m-0 text-heading-lg">{title}</h2>
+      {copy && <p class={`mt-4 max-w-narrow text-lg/7 text-muted ${align === "center" ? "mx-auto" : ""}`}>{copy}</p>}
+    </div>

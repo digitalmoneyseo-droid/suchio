@@ -32,7 +32,9 @@ for (const file of new Bun.Glob("**/*.html").scanSync({ cwd: output, onlyFiles: 
   assert(inlineCss <= 70_000, file + ": inline CSS exceeds 70 KB");
   for (const { href } of styles) assert(Bun.file(join(output, href.replace(/^\//, ""))).size > 0, file + ": missing stylesheet");
   const seen = new Set();
-  for (const url of [...links.filter(({ rel, href }) => rel === "modulepreload" && href).map(({ href }) => href), ...scripts.filter(({ type, src }) => type === "module" && src).map(({ src }) => src)]) {
+  const islands = [...html.matchAll(/<astro-island\b[^>]*>/gi)].map(match => attributes(match[0]));
+  const hydratedModules = islands.filter(island => island.client === "load" || island.client === "only").flatMap(island => [island["component-url"], island["renderer-url"]]).filter(Boolean);
+  for (const url of [...links.filter(({ rel, href }) => rel === "modulepreload" && href).map(({ href }) => href), ...scripts.filter(({ type, src }) => type === "module" && src).map(({ src }) => src), ...hydratedModules]) {
     await moduleGraph(join(output, url.split("?")[0].replace(/^\//, "")), seen);
   }
   const rawJs = [...seen].reduce((sum, path) => sum + cache.get(path).raw, 0);

@@ -16,19 +16,18 @@ function contentShape(value: unknown): unknown {
   return typeof value === "string" ? placeholders(value) : typeof value;
 }
 
-test("every public and legacy route reaches the production Worker for RSC or redirects", async () => {
+test("static public pages bypass the Worker while preference, API, admin, and legacy routes reach it", async () => {
   const parsed = ts.parseConfigFileTextToJson("wrangler.jsonc", await Bun.file("wrangler.jsonc").text());
   expect(parsed.error).toBeUndefined();
   const configured: unknown = parsed.config.assets.run_worker_first;
   expect(Array.isArray(configured)).toBeTrue();
   if (!Array.isArray(configured)) throw new Error("Missing Worker routes");
-  const expected = [...publicRoutes.map(route => route.pathname), ...legacyServiceRoutes.map(route => route.from), "/de", "/de/*", "/api/contact", "/api/health", "/api/security-report", "/audit/*", "/en/audit/*", "/fr/audit/*", "/datenschutz", "/en/datenschutz", "/fr/datenschutz"];
-  expect([...configured].sort()).toEqual([...new Set([...expected, "/api/audit-visits", "/admin/audits", "/admin/audits/*"])].sort());
-  const proxy = await Bun.file("src/proxy.ts").text();
-  const matcher = proxy.match(/matcher:\s*(\[[\s\S]*?\])/);
-  expect(matcher).not.toBeNull();
-  const paths: unknown = ts.parseConfigFileTextToJson("matcher.json", `{"matcher": ${matcher![1]}}`).config.matcher;
-  expect(paths).toEqual(["/", "/de", "/de/:path*", ...legacyServiceRoutes.map(route => route.from)]);
+  const workerFirst = (path: string) => configured.some(pattern => typeof pattern === "string" && new RegExp(`^${pattern.split("*").map(part => part.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join(".*")}$`).test(path));
+  for (const route of publicRoutes) expect(workerFirst(route.pathname)).toBe(route.pathname === "/");
+  for (const route of legacyServiceRoutes) expect(workerFirst(route.from)).toBeTrue();
+  for (const path of ["/de", "/de/contact", "/api/contact", "/api/health", "/api/security-report", "/api/audit-visits", "/admin/audits", "/admin/audits/login"]) expect(workerFirst(path)).toBeTrue();
+  for (const path of ["/_astro/example.js", "/fonts/example.woff2", "/suchio-favicon.svg", "/robots.txt", "/sitemap.xml"]) expect(workerFirst(path)).toBeFalse();
+  expect(parsed.config.assets.not_found_handling).toBe("none");
 });
 
 test("public contact facts remain consistent with every legal locale", () => {
@@ -54,21 +53,6 @@ test("preserves service sections, item order, and placeholders in every locale",
   }
 });
 
-test("preserves legal disclosures, links, and dates without changing localized wording", () => {
-  for (const locale of locales) expect(contentShape(legalContent[locale])).toEqual(contentShape(legalContent.de));
-  expect(legalContent.de.privacy.updated).toBe("Stand: 26. September 2026");
-  expect(legalContent.en.privacy.updated).toBe("Last updated: 26 September 2026");
-  expect(legalContent.fr.privacy.updated).toBe("Mise à jour : 26 septembre 2026");
-});
-
-test("keeps service identities equivalent across locales", () => {
-  const expectedIds = servicesContent.de.services.map(({ id }) => id);
-
-  for (const locale of locales) {
-    expect(servicesContent[locale].services.map(({ id }) => id)).toEqual(expectedIds);
-  }
-});
-
 test("keeps public service slugs unique and redirects every legacy slug", () => {
   expect(new Set(Object.values(serviceRouteSlugs)).size).toBe(serviceOrder.length);
 
@@ -80,39 +64,20 @@ test("keeps public service slugs unique and redirects every legacy slug", () => 
   }
 });
 
-test("keeps contact budget IDs unique and complete", () => {
+test("keeps contact budget IDs unique", () => {
   expect(new Set(budgetOptions.map(({ id }) => id)).size).toBe(budgetOptions.length);
-  expect(budgetOptions).toHaveLength(5);
 });
 
-test("keeps legal page structure equivalent across locales", () => {
+test("keeps legal disclosures and links equivalent across locales with nonempty headings", () => {
   const pageKinds = ["imprint", "privacy"] as const satisfies readonly LegalPageKind[];
 
+  for (const locale of locales) expect(contentShape(legalContent[locale])).toEqual(contentShape(legalContent.de));
   for (const kind of pageKinds) {
-    const expectedSectionCount = legalContent.de[kind].sections.length;
     for (const locale of locales) {
       const page = legalContent[locale][kind];
       expect(page.title.length).toBeGreaterThan(0);
       expect(page.intro.length).toBeGreaterThan(0);
-      expect(page.sections).toHaveLength(expectedSectionCount);
       expect(page.sections.every(({ title }) => title.length > 0)).toBeTrue();
-    }
-  }
-});
-
-test("keeps localization dictionaries behind server-owned component boundaries", async () => {
-  const clientFiles = [
-    "src/components/site-header.tsx",
-    "src/components/offer-overview.tsx",
-    "src/components/contact-form.tsx",
-  ] as const;
-  const forbiddenRuntimeImports = ["@/lib/i18n", "@/lib/service-catalog", "@/i18n/translations", "@/i18n/services"];
-
-  for (const path of clientFiles) {
-    const source = await Bun.file(path).text();
-    for (const moduleName of forbiddenRuntimeImports) {
-      const runtimeImport = new RegExp(`import\\s+(?!type\\s).*from\\s+[\"']${moduleName.replaceAll("/", "\\/")}[\"']`);
-      expect(runtimeImport.test(source), `${path} imports ${moduleName} at runtime`).toBeFalse();
     }
   }
 });

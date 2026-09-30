@@ -16,7 +16,7 @@ export const serviceRouteSlugs = {
   "ai-automation": "automation",
 } as const satisfies Record<ServiceId, string>;
 
-export type ServiceRouteResolution =
+type ServiceRouteResolution =
   | { kind: "current"; serviceId: ServiceId }
   | { kind: "legacy"; serviceId: ServiceId }
   | { kind: "missing" };

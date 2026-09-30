@@ -1,0 +1,59 @@
+---
+import type { GetStaticPaths } from "astro";
+import SiteLayout from "@/layouts/site-layout.astro";
+import HomePage from "@/components/pages/home-page.astro";
+import AboutPage from "@/components/pages/about-page.astro";
+import ContactPage from "@/components/pages/contact-page.astro";
+import ServicePage from "@/components/pages/service-page.astro";
+import LegalPage from "@/components/pages/legal-page.astro";
+import AuditPage from "@/components/pages/audit-page.astro";
+import NotFoundPage from "@/components/pages/not-found-page.astro";
+import { publicRoutes } from "@/lib/public-routes";
+import { audits, type Audit } from "@/lib/audits";
+import { locales, localizePath, t, type Locale } from "@/lib/i18n";
+import { resolveServiceRouteSlug } from "@/lib/service-routes";
+import { getServiceCopy } from "@/i18n/services";
+import { auditUi } from "@/i18n/audit-ui";
+import { notFoundMessages } from "@/i18n/not-found";
+
+export const getStaticPaths = (() => {
+  const routes = [
+    ...publicRoutes,
+    ...locales.map(locale => ({ locale, basePath: "/datenschutz", pathname: localizePath("/datenschutz", locale) })),
+    ...locales.filter(locale => locale !== "de").map(locale => ({ locale, basePath: "/404", pathname: localizePath("/404", locale) })),
+    ...locales.flatMap(locale => audits.map(audit => ({ locale, basePath: "/audit", pathname: localizePath(`/audit/${audit.code}`, locale), audit }))),
+  ];
+  return routes.map(route => ({ params: { path: route.pathname.slice(1) || undefined }, props: route }));
+}) satisfies GetStaticPaths;
+
+interface Props { locale: Locale; basePath: string; pathname: string; audit?: Audit }
+const { locale, basePath, pathname, audit } = Astro.props;
+const service = basePath.startsWith("/services/") ? resolveServiceRouteSlug(basePath.slice("/services/".length)) : undefined;
+const serviceId = service?.kind === "current" ? service.serviceId : undefined;
+const serviceCopy = serviceId ? getServiceCopy(locale, serviceId) : undefined;
+const kind = basePath === "/imprint" ? "imprint" : "privacy";
+const legal = ["/imprint", "/privacy", "/datenschutz"].includes(basePath);
+const missing = basePath === "/404";
+const title = serviceCopy?.name
+  ?? (basePath === "/about" ? t(locale, "nav.about")
+    : basePath === "/contact" ? t(locale, "nav.contact")
+    : legal ? t(locale, `${kind}.title`)
+    : audit ? auditUi[locale].label
+    : missing ? notFoundMessages[locale].title : undefined);
+const description = serviceCopy?.page.metaDescription
+  ?? (basePath === "/about" ? t(locale, "meta.aboutDescription")
+    : basePath === "/contact" ? t(locale, "contact.copy")
+    : basePath === "/datenschutz" && locale === "de" ? "Datenschutz beim Websitebesuch, bei Kontaktanfragen und bei unserer Briefwerbung."
+    : legal ? t(locale, kind === "imprint" ? "meta.imprintDescription" : "meta.privacyDescription")
+    : audit ? auditUi[locale].linkNote
+    : missing ? notFoundMessages[locale].copy : t(locale, "home.heroDescription"));
+---
+<SiteLayout locale={locale} pathname={pathname} canonicalPathname={basePath === "/datenschutz" ? localizePath("/privacy", locale) : pathname} documentTitle={missing ? notFoundMessages[locale].title : undefined} title={title} description={description} noindex={legal || !!audit || missing} referrer={audit ? "no-referrer" : undefined}>
+  {basePath === "/" && <HomePage locale={locale} />}
+  {basePath === "/about" && <AboutPage locale={locale} />}
+  {basePath === "/contact" && <ContactPage locale={locale} />}
+  {serviceId && <ServicePage locale={locale} serviceId={serviceId} />}
+  {legal && <LegalPage locale={locale} kind={kind} />}
+  {audit && <AuditPage locale={locale} audit={audit} />}
+  {missing && <NotFoundPage copy={notFoundMessages[locale]} homeHref={localizePath("/", locale)} />}
+</SiteLayout>

@@ -1,9 +1,15 @@
 import { defineConfig, globalIgnores } from "eslint/config";
-import nextTypescript from "eslint-config-next/typescript";
-import nextVitals from "eslint-config-next/core-web-vitals";
+import tseslint from "typescript-eslint";
+import astro from "eslint-plugin-astro";
+import reactHooks from "eslint-plugin-react-hooks";
 
 export default defineConfig([
-  ...nextVitals,
-  ...nextTypescript,
-  globalIgnores([".next/**", ".vinext/**", ".wrangler/**", "dist/**", "output/**", "test-results/**", "playwright-report/**", "node_modules/**", "next-env.d.ts", "src/worker-configuration.d.ts"]),
+  ...tseslint.configs.recommended,
+  ...astro.configs.recommended,
+  {
+    files: ["**/*.tsx"],
+    plugins: { "react-hooks": reactHooks },
+    rules: reactHooks.configs.recommended.rules,
+  },
+  globalIgnores([".astro/**", ".next/**", ".vinext/**", ".wrangler/**", "dist/**", "output/**", "test-results/**", "playwright-report/**", "node_modules/**", "next-env.d.ts", "src/worker-configuration.d.ts"]),
 ]);

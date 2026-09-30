@@ -1,9 +1,7 @@
-type FaqItem = {
-  question: string;
-  answer: string;
-};
+import { StructuredData } from "@/components/structured-data";
+import type { Faq } from "@/lib/content-core";
 
-export function FaqStructuredData({ items }: { items: readonly FaqItem[] }) {
+export function FaqStructuredData({ items }: { items: readonly Pick<Faq, "question" | "answer">[] }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -17,10 +15,5 @@ export function FaqStructuredData({ items }: { items: readonly FaqItem[] }) {
     })),
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
-    />
-  );
+  return <StructuredData value={schema} />;
 }

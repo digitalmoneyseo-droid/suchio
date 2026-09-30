@@ -25,12 +25,12 @@ jobs:
       - run: bun audit
       - run: bunx playwright install --with-deps chromium firefox webkit
       - run: bun run lint
+      - run: bun run typecheck
       - run: bun run types:workers --check
       - run: bun run validate:content
       - run: bun run test
       - run: bun run build
-      - run: bun run build:vinext
-      - run: bunx wrangler deploy --config wrangler.jsonc --dry-run
+      - run: bunx wrangler deploy --config dist/server/wrangler.json --dry-run
       - run: bunx wrangler deploy --config wrangler.redirects.jsonc --dry-run
       - run: bun run validate:seo
       - run: bun run validate:performance

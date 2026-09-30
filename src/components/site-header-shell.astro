@@ -1,0 +1,24 @@
+---
+import { SiteHeader, type SiteHeaderCopy } from "@/components/site-header";
+import { publicContactEmail } from "@/lib/contact";
+import { t, type Locale } from "@/lib/i18n";
+import { getServiceCatalog } from "@/lib/service-catalog";
+
+interface Props { locale: Locale; pathname: string }
+const { locale, pathname } = Astro.props;
+const copy = {
+  about: t(locale, "nav.about"),
+  brandHome: t(locale, "nav.brandHome"),
+  closeMenu: t(locale, "nav.closeMenu"),
+  contact: t(locale, "nav.contact"),
+  mainMenu: t(locale, "nav.mainMenu"),
+  openMenu: t(locale, "nav.openMenu"),
+  selectLocale: t(locale, "nav.selectLocale"),
+  services: t(locale, "nav.services"),
+  siteMenu: t(locale, "nav.siteMenu"),
+} satisfies SiteHeaderCopy;
+const services = getServiceCatalog(locale).map(({ id, copy: serviceCopy, href }) => ({
+  id, name: serviceCopy.name, navDescription: serviceCopy.navDescription, href,
+}));
+---
+<SiteHeader client:load contactEmail={publicContactEmail} copy={copy} locale={locale} services={services} pathname={pathname} />

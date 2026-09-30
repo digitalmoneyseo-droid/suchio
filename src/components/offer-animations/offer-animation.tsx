@@ -30,7 +30,7 @@ export function OfferAnimation({ animation, locale }: { animation: ServiceAnimat
   }, []);
 
   return (
-    <div ref={containerRef} className="h-full min-h-0 w-full">
+    <div ref={containerRef} className="relative h-full min-h-0 w-full">
       <AnimationBoundary key={animation.type} type={animation.type}>
         {ready ? <Suspense fallback={<StaticOfferVisual type={animation.type} />}>{renderDeferredAnimation(animation, locale)}</Suspense> : <StaticOfferVisual type={animation.type} />}
       </AnimationBoundary>

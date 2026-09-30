@@ -1,6 +1,7 @@
 "use client";
 
 import { serviceIcons as sharedServiceIcons } from "@/components/service-icons";
+import { serviceStyles } from "@/components/service-styles";
 
 import { ArrowRight, ArrowUpRight, Check, ChevronDown, CircleHelp, LoaderCircle } from "lucide-react";
 import { type FormEvent, type ReactNode, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -9,7 +10,8 @@ import type { ServiceId } from "@/i18n/services";
 import type { BudgetId } from "@/lib/contact-options";
 import { useContactDraft, type ContactDraft } from "@/components/contact-draft";
 import { retryAfterSeconds } from "@/lib/contact-response";
-import Link from "next/link";
+import { emailPattern, isHttpUrl } from "@/lib/contact-validation";
+import { useHydrated } from "@/components/use-hydrated";
 
 type FieldName = "name" | "email" | "companyUrl" | "service" | "budget" | "message";
 type Errors = Partial<Record<FieldName | "form", string>>;
@@ -53,10 +55,7 @@ export type ContactFormCopy = {
 const fieldControlClass = "min-w-0 w-full rounded-control border-0 bg-surface-subtle px-4 text-ink shadow-surface transition-[background-color,box-shadow,scale] duration-150 ease-[var(--ease-out)] placeholder:text-subtle hover:bg-white hover:shadow-surface-hover focus-visible:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus aria-invalid:outline-2 aria-invalid:outline-error motion-reduce:transition-none";
 
 const serviceOptionStyles: Record<ServiceChoiceId, { selected: string; icon: string }> = {
-  "websites-apps": { selected: "peer-checked:bg-service-websites-bg peer-checked:text-service-websites-fg", icon: "bg-service-websites-bg text-service-websites-fg" },
-  "seo-ai-visibility": { selected: "peer-checked:bg-service-search-bg peer-checked:text-service-search-fg", icon: "bg-service-search-bg text-service-search-fg" },
-  "paid-campaigns": { selected: "peer-checked:bg-service-campaigns-bg peer-checked:text-service-campaigns-fg", icon: "bg-service-campaigns-bg text-service-campaigns-fg" },
-  "ai-automation": { selected: "peer-checked:bg-service-automation-bg peer-checked:text-service-automation-fg", icon: "bg-service-automation-bg text-service-automation-fg" },
+  ...serviceStyles,
   "not-sure": { selected: "peer-checked:bg-surface-selected peer-checked:text-ink peer-checked:shadow-surface-hover", icon: "bg-white text-subtle" },
 };
 
@@ -78,7 +77,7 @@ export function ContactForm({
   const { draft, setDraft } = useContactDraft();
   const formRef = useRef<HTMLFormElement>(null);
   const pendingRequest = useRef<AbortController | null>(null);
-  const hydrated = useSyncExternalStore(subscribeToHydration, () => true, () => false);
+  const hydrated = useHydrated();
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [retrySeconds, setRetrySeconds] = useState(0);
@@ -188,7 +187,7 @@ export function ContactForm({
     const nextErrors: Errors = {};
 
     if (!name) nextErrors.name = copy.required;
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) nextErrors.email = copy.emailError;
+    if (!emailPattern.test(email)) nextErrors.email = copy.emailError;
     if (companyUrl && !isHttpUrl(companyUrl)) nextErrors.companyUrl = copy.companyUrlError;
     if (!service) nextErrors.service = copy.required;
     if (!budget) nextErrors.budget = copy.required;
@@ -260,6 +259,8 @@ export function ContactForm({
       </div>
     );
   }
+
+  const submitLabel = `${status === "sending" ? copy.sending : copy.submit}${retrySeconds > 0 ? ` (${new Intl.NumberFormat(locale, { style: "unit", unit: "second", unitDisplay: "narrow" }).format(retrySeconds)})` : ""}`;
 
   return (
     <form ref={formRef} className="grid min-w-0 gap-6" method="post" action="/api/contact" aria-busy={status === "sending"} noValidate onChange={() => saveDraft()} onSubmit={onSubmit}>
@@ -477,10 +478,9 @@ export function ContactForm({
             <span className="pill-button__label-track grid">
               <span className="col-start-1 row-start-1 flex items-center gap-2" aria-live="polite">
                 {status === "sending" ? <LoaderCircle className="size-4 animate-spin motion-reduce:animate-none" aria-hidden="true" /> : null}
-                {status === "sending" ? copy.sending : copy.submit}
-                {retrySeconds > 0 ? ` (${new Intl.NumberFormat(locale, { style: "unit", unit: "second", unitDisplay: "narrow" }).format(retrySeconds)})` : null}
+                {submitLabel}
               </span>
-              <span className="col-start-1 row-start-1 block translate-y-full" aria-hidden="true">{status === "sending" ? copy.sending : copy.submit}{retrySeconds > 0 ? ` (${new Intl.NumberFormat(locale, { style: "unit", unit: "second", unitDisplay: "narrow" }).format(retrySeconds)})` : null}</span>
+              <span className="col-start-1 row-start-1 block translate-y-full" aria-hidden="true">{submitLabel}</span>
             </span>
           </span>
           <span className="pill-button__icon relative size-8 flex-none overflow-hidden rounded-pill bg-white text-ink" aria-hidden="true">
@@ -490,15 +490,13 @@ export function ContactForm({
         </button>
         <p id="contact-form-note" className="mt-4 mb-0 max-w-[36rem] text-sm text-muted">
           {copy.note}
-          {" "}<Link href={privacy.href} className="underline underline-offset-2">{privacy.label}</Link>
+          {" "}<a href={privacy.href} className="underline underline-offset-2">{privacy.label}</a>
         </p>
         {errors.form ? <p className="mt-4 mb-0 text-sm text-error" role="alert">{errors.form} <a className="underline underline-offset-2" href={`mailto:${contactEmail}`}>{contactEmail}</a></p> : null}
       </div>
     </form>
   );
 }
-
-function subscribeToHydration() { return () => {}; }
 
 function subscribeToLocation(onStoreChange: () => void) {
   window.addEventListener("popstate", onStoreChange);
@@ -511,14 +509,6 @@ function getLocationSearch() {
 
 function getServerLocationSearch() {
   return "";
-}
-
-function isHttpUrl(value: string) {
-  try {
-    return ["http:", "https:"].includes(new URL(value).protocol);
-  } catch {
-    return false;
-  }
 }
 
 function Field({

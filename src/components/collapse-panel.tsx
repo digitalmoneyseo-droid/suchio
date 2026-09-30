@@ -5,7 +5,6 @@ type CollapsePanelProps = {
   expanded: boolean;
   id: string;
   labelledBy: string;
-  ariaLabel?: string;
 };
 
 export function CollapsePanel({
@@ -13,16 +12,13 @@ export function CollapsePanel({
   expanded,
   id,
   labelledBy,
-  ariaLabel,
 }: CollapsePanelProps) {
   return (
     <div
-      aria-label={ariaLabel}
-      aria-labelledby={ariaLabel ? undefined : labelledBy}
+      aria-labelledby={labelledBy}
       className={`grid transition-[grid-template-rows] duration-200 ease-[cubic-bezier(.4,0,.2,1)] motion-reduce:transition-none ${expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
       id={id}
       inert={!expanded}
-      role={ariaLabel ? "region" : undefined}
     >
       <div className="min-h-0 overflow-hidden">
         <div className="max-h-[60vh] overflow-y-auto">{children}</div>

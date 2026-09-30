@@ -1,0 +1,27 @@
+---
+import Disclosure from "@/components/disclosure.astro";
+import CtaButton from "@/components/cta-button.astro";
+import { OfferAnimation } from "@/components/offer-animations/offer-animation";
+import type { ServiceCatalogEntry } from "@/lib/service-catalog";
+import type { Locale } from "@/i18n/config";
+interface Props { locale: Locale; service: ServiceCatalogEntry; revealDelay: number }
+const { locale, service, revealDelay } = Astro.props;
+const { copy } = service;
+---
+<div class="reveal mb-content-stack last:mb-0" data-reveal style={{ "--reveal-delay": `${revealDelay}ms` }}>
+    <article class="grid grid-cols-2 items-center gap-x-8 max-nav:grid-cols-1 max-nav:gap-10">
+      <div class={`min-w-0 max-w-[31rem] ${service.reverse ? "nav:order-2 nav:justify-self-end" : ""}`}>
+        <h3 class="m-0 text-heading-md">{copy.name}</h3>
+        <p class="mt-4 max-w-[46ch] text-lg/7 text-muted">{copy.summary}</p>
+        <div class="relative mt-8">{copy.rows.map(([label, detail], row) => (
+          <Disclosure id={`service-${service.id}-${row}`} group={`service-${service.id}`} title={label} compact defaultOpen={row === 0}>
+            <p class="m-0 max-w-[44ch]">{detail}</p>
+          </Disclosure>
+        ))}</div>
+        <CtaButton href={service.href} className="mt-6">{copy.cta}</CtaButton>
+      </div>
+      <div data-offer-visual={service.animation.type} class={`relative grid min-w-0 aspect-[1.1/1] min-h-[24rem] overflow-hidden rounded-card p-10 shadow-surface [&>*]:relative ${service.theme} ${service.reverse ? "nav:order-1" : ""} max-nav:mx-auto max-nav:aspect-[4/3] max-nav:min-h-0 max-nav:w-full max-nav:max-w-[44rem] max-narrow:h-[clamp(19rem,68vw,25rem)] max-narrow:aspect-auto max-narrow:p-4`} aria-hidden="true">
+        <OfferAnimation client:load animation={service.animation} locale={locale} />
+      </div>
+    </article>
+  </div>
