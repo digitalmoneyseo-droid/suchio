@@ -18,6 +18,12 @@ export async function fillEnquiry(page: Page) {
   await page.locator("#contact-email").fill("test@example.com");
   await page.locator("#contact-message").fill("A synthetic enquiry for browser regression verification.");
   await page.getByRole("radio", { name: "Not sure yet", exact: true }).check();
-  await page.locator("#contact-budget").click();
-  await page.getByRole("option", { name: "Still open", exact: true }).click();
+  const budget = page.locator("#contact-budget");
+  // Keyboard selection avoids pointer clicks racing WebKit's smooth scrolling.
+  // Pointer selection is covered separately by the budget control test.
+  await budget.press("ArrowDown");
+  await page.keyboard.press("End");
+  await page.keyboard.press("Enter");
+  await expect(budget).toContainText("Still open");
+  await expect(page.locator('input[name="budget"]')).toHaveValue("budget-5");
 }

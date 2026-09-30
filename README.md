@@ -46,6 +46,8 @@ bun run deploy
 
 Use `bun run deploy:redirects` for the separate domain-redirect Worker. Both commands run the CI verification sequence first and stop if checks fail or the source changes during verification. Configuration lives in [wrangler.jsonc](wrangler.jsonc) and [wrangler.redirects.jsonc](wrangler.redirects.jsonc). Deployments use the generated `dist/server/wrangler.json`; the source configuration identifies the custom Worker entrypoint used by Astro in development and builds.
 
+For the existing Cloudflare Git integration, set **Settings → Builds → Build command** to `bun run build` and **Deploy command** to `bunx wrangler deploy --config dist/server/wrangler.json`. These dashboard settings are separate from repository scripts; remove any old `build:vinext` or `deploy:vinext` commands. GitHub CI runs the browser and release checks; the Cloudflare build generates and deploys the application.
+
 To verify the release without publishing:
 
 ```sh

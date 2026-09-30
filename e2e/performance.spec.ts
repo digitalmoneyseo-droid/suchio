@@ -29,7 +29,9 @@ test("mobile performance budgets across locales and page types", async ({ browse
                 if (entry.entryType === "largest-contentful-paint") window.suchioLab.lcp = entry.startTime;
                 if (entry.entryType === "layout-shift" && "hadRecentInput" in entry && !entry.hadRecentInput && "value" in entry && typeof entry.value === "number") { window.suchioLab.cls += entry.value; if (entry.value > 0.05 && "sources" in entry) console.log("Layout shift", JSON.stringify(entry.sources)); }
                 if (entry.entryType === "longtask") window.suchioLab.blocking += Math.max(0, entry.duration - 50);
-                if (entry.entryType === "event") window.suchioLab.interaction = Math.max(window.suchioLab.interaction, entry.duration);
+                // Pointer enter/over events during page load have no interaction
+                // ID. Count actual click/keyboard interactions for this budget.
+                if (entry.entryType === "event" && "interactionId" in entry && typeof entry.interactionId === "number" && entry.interactionId > 0) window.suchioLab.interaction = Math.max(window.suchioLab.interaction, entry.duration);
               }
             }).observe({ type, buffered: true, ...(type === "event" ? { durationThreshold: 16 } : {}) });
           }
