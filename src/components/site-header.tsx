@@ -36,7 +36,7 @@ type SiteHeaderService = {
 
 
 
-function localeSwitchPath(pathname: string, currentLocale: Locale, candidate: Locale) {
+export function localeSwitchPath(pathname: string, currentLocale: Locale, candidate: Locale) {
   const path = alternatePath(pathname, candidate);
   if (candidate !== defaultLocale || currentLocale === defaultLocale) return path;
   return path === "/" ? `/${defaultLocale}` : `/${defaultLocale}${path}`;
@@ -236,21 +236,6 @@ export function SiteHeader({ contactEmail, copy, locale, services, pathname: ren
   const servicesActive = pathname.startsWith(localizePath("/services/", locale));
   return (
     <>
-      <noscript>
-        <style>{"[data-navigation-enhanced]{display:none!important}"}</style>
-      <nav data-navigation-fallback aria-label={copy.mainMenu} className="fixed inset-x-4 top-6 z-50 max-h-[80vh] overflow-y-auto rounded-control bg-white p-3 shadow-floating">
-        <details>
-          <summary className="min-h-11 cursor-pointer text-sm font-medium">{copy.mainMenu}</summary>
-          <div className="grid min-w-0 gap-2 py-2 text-sm">
-            <a className="py-2" href={localizePath("/", locale)}>{copy.brandHome}</a>
-            {services.map(service => <a className="py-2" key={service.id} href={service.href}>{service.name}</a>)}
-            {navItems.map(item => <a className="py-2" key={item.href} href={localizePath(item.href, locale)}>{item.label}</a>)}
-            <span className="mt-2 font-medium">{copy.selectLocale}</span>
-            {locales.map(candidate => <a className="py-2" key={candidate} href={localeSwitchPath(pathname, locale, candidate)} hrefLang={candidate} lang={candidate} aria-current={candidate === locale ? "page" : undefined}>{localeConfig[candidate].name}</a>)}
-          </div>
-        </details>
-      </nav>
-      </noscript>
       <header data-navigation-enhanced className="fixed left-1/2 z-50 flex w-max -translate-x-1/2 items-center gap-2 max-nav:right-4 max-nav:left-4 max-nav:w-auto max-nav:[translate:none] max-narrow:gap-1" style={{ top: "max(1.5rem, env(safe-area-inset-top))" }}>
         <a href={localizePath("/", locale)} onClick={scrollToPageTop} className="group/brand inline-flex min-w-0 h-11 items-center justify-center rounded-control bg-white px-4.5 max-narrow:px-2 shadow-surface transition-[transform,box-shadow] duration-150 hover:shadow-surface-hover active:scale-[.96] motion-reduce:transition-none motion-reduce:active:scale-100" aria-label={copy.brandHome}><BrandMark /></a>
         <nav className="relative inline-flex h-11 items-center justify-center gap-px rounded-control bg-white p-1 shadow-surface max-nav:hidden" aria-label={copy.mainMenu}>

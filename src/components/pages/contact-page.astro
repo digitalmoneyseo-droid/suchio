@@ -49,6 +49,7 @@ const formCopy = {
       <section class="px-page pb-section">
         <div class="reveal mx-auto max-w-[50rem]" data-reveal>
           <div class="rounded-shell bg-white p-10 shadow-surface max-narrow:p-card-padding">
+            <noscript><p class="text-sm text-error">{formCopy.error} <a class="underline" href={`mailto:${publicContactEmail}`}>{publicContactEmail}</a></p></noscript>
             <ContactForm client:load contactEmail={publicContactEmail} copy={formCopy} locale={locale} services={services} privacy={{ href: localizePath("/privacy", locale), label: t(locale, "footer.privacy") }} />
           </div>
         </div>

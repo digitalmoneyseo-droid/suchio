@@ -264,7 +264,6 @@ export function ContactForm({
 
   return (
     <form ref={formRef} className="grid min-w-0 gap-6" method="post" action="/api/contact" aria-busy={status === "sending"} noValidate onChange={() => saveDraft()} onSubmit={onSubmit}>
-      <noscript><p className="text-sm text-error">{copy.error} <a className="underline" href={`mailto:${contactEmail}`}>{contactEmail}</a></p></noscript>
       {preselectedServiceLabel ? <p className="mt-0 mb-2 inline-flex max-w-full flex-wrap justify-self-start rounded-control bg-interaction px-3 py-2 text-sm text-muted"><span>{copy.selectedService}: </span>&nbsp;<strong className="font-semibold text-ink">{preselectedServiceLabel}</strong></p> : null}
       <div className="grid grid-cols-2 gap-4 max-narrow:grid-cols-1">
         <Field id="contact-name" label={copy.name} error={errors.name} required={copy.requiredLabel}>

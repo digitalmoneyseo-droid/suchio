@@ -4323,5 +4323,2230 @@
         "measurementNote": "Aucun essai de laboratoire comparable n’est disponible ; aucun score de performance, de référencement ou d’accessibilité n’est donc attribué."
       }
     }
+  },
+  {
+    "id": "okt-onh",
+    "code": "d45fbcf752a8bffdb251",
+    "company": "Oltmann & Niethammer GbR",
+    "url": "https://www.onh-haustechnik.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://www.onh-haustechnik.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://www.onh-haustechnik.de/LEISTUNGEN"
+      ],
+      [
+        "3",
+        "Geprüfte Seite / Checked page / Page examinée 3",
+        "https://www.onh-haustechnik.de/KONTAKT"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Haustechnik braucht einen klareren Einstieg",
+        "summary": "Ein Besucher wählt Heizung, Sanitär oder Kundendienst, erkennt den jeweiligen Leistungsumfang und erreicht eine passende Anfrage oder den Telefonkontakt.",
+        "findings": [
+          [
+            "Leistungen bleiben Stichworte",
+            "Die Seite nennt fünf Bereiche von Heizung bis Kundendienst und zeigt Partnerlogos. Was ein typischer Auftrag umfasst und wie die Beratung beginnt, wird dort nicht erklärt. Interessenten müssen diese Grundfragen erst im Gespräch stellen. [2]",
+            "Eigene Seiten für Heizungsprojekte, Sanitärarbeiten und Kundendienst mit Umfang und nächstem Schritt."
+          ],
+          [
+            "Vorstellung vor Anliegen",
+            "Auf dem Handy folgen auf das große Logo zunächst Begrüßung, Betriebsfoto und Verbandszeichen. Der Einstieg in eine passende Leistung rückt dadurch weiter nach unten. Der dekorative Hintergrund und die uneinheitlichen Größen verstärken die ältere Vorlagenoptik. [1]",
+            "Bereits im Einstieg zwischen geplantem Vorhaben und Kundendienst unterscheiden."
+          ],
+          [
+            "Formular ohne Leistungsbezug",
+            "Ein Kontaktformular ist vorhanden. Es fragt allgemeine Kontaktdaten und eine Nachricht ab, übernimmt aber keine zuvor gewählte Leistung. Dadurch beginnt jede Anfrage wieder mit einer freien Erklärung. [3]",
+            "Die gewählte Leistung in eine kurze Anfrage übernehmen; Telefon als direkten Weg sichtbar halten."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Heating and plumbing need a clearer entry point",
+        "summary": "Visitors choose heating, plumbing or maintenance, understand the scope and reach a relevant enquiry or phone call.",
+        "findings": [
+          [
+            "Services remain keywords",
+            "The page lists five areas, from heating to customer service, alongside partner logos. It does not explain typical work or how consultation starts; visitors must ask those basic questions separately. [2]",
+            "Dedicated heating, plumbing and maintenance pages with scope and next steps."
+          ],
+          [
+            "Introduction before the visitor’s need",
+            "On a phone, the large logo is followed by a welcome, premises photo and association badges. Relevant services appear later, while the decorative background and inconsistent sizing reinforce the old template look. [1]",
+            "Separate planned projects and maintenance in the opening section."
+          ],
+          [
+            "A form without service context",
+            "A contact form exists, asking for contact details and a message, but it carries no selected service context. Every enquiry starts with an open-ended explanation. [3]",
+            "Carry the chosen service into a short enquiry and keep telephone contact visible."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Un accès plus clair au chauffage et au sanitaire",
+        "summary": "Le visiteur choisit chauffage, sanitaire ou entretien, comprend le périmètre et accède à une demande pertinente ou à l’appel.",
+        "findings": [
+          [
+            "Des prestations réduites à des mots",
+            "La page présente cinq domaines et des logos partenaires. Elle n’explique pas les travaux habituels ni le début du conseil ; ces questions restent à poser lors du contact. [2]",
+            "Des pages chauffage, sanitaire et entretien avec périmètre et étape suivante."
+          ],
+          [
+            "La présentation avant le besoin",
+            "Sur mobile, le grand logo précède l’accueil, la photo des locaux et les signes professionnels. Les prestations arrivent plus bas ; le fond décoratif et les tailles variables renforcent l’aspect ancien. [1]",
+            "Distinguer les projets prévus de l’entretien dès l’accueil."
+          ],
+          [
+            "Un formulaire sans contexte de prestation",
+            "Un formulaire existe avec coordonnées et message, sans reprendre une prestation sélectionnée. Chaque demande recommence par une explication libre. [3]",
+            "Reprendre la prestation dans une demande courte et garder l’appel accessible."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-steinkellner",
+    "code": "8d550d6d8e9944304356",
+    "company": "M. Steinkellner Garten- und Landschaftsbau",
+    "url": "https://www.steinkellner-galabau.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://www.steinkellner-galabau.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://www.steinkellner-galabau.de/leistungen/"
+      ],
+      [
+        "3",
+        "Geprüfte Seite / Checked page / Page examinée 3",
+        "https://www.steinkellner-galabau.de/kontakt/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Ihre Gartenprojekte werden auf dem Handy zu klein",
+        "summary": "Vom Gartenwunsch zu einem vergleichbaren Projekt, den zusammengehörigen Leistungen und einer Anfrage mit Ort und Umfang.",
+        "findings": [
+          [
+            "Desktoplayout bleibt auf dem Handy",
+            "Im mobilen Browser mit 390 Pixel Gerätegröße beträgt die Layoutbreite 980 Pixel. Menü und Inhalt bleiben nebeneinander. Die verkleinerte Schrift und die kleinen Bilder erschweren den Überblick; dies ist ein Layoutbefund, keine Ladezeitmessung. [1]",
+            "Ein echtes mobiles Layout mit lesbarer Schrift und großen, antippbaren Einstiegen."
+          ],
+          [
+            "Lange Liste statt Projektentscheidung",
+            "Die Leistungsseite bündelt viele Arbeiten von Pflanzung bis Entwässerung als Liste. Ein Besucher mit einem Gartenumbau muss selbst ableiten, welche Tätigkeiten zusammengehören. Die vorhandene Projektgalerie bietet Material für eine verständlichere Zuordnung. [2]",
+            "Nach Gartenneugestaltung, Außenanlagen und Pflege gliedern und passende Projekte direkt zuordnen."
+          ],
+          [
+            "Anfrage und Angebotsregel verbinden",
+            "Das Formular ist vorhanden; die Hinweise nennen eine mögliche Gebühr für individuelle Angebote und Leistungsverzeichnisse. Diese Regel sollte im passenden Projektweg früh verständlich sein, damit die Erwartungen vor der Anfrage übereinstimmen. [3]",
+            "Projektumfang erfragen und die bestehenden Angebotsbedingungen nachvollziehbar einordnen."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Garden projects shrink on a phone",
+        "summary": "From a garden idea to a comparable project, related services and an enquiry with location and scope.",
+        "findings": [
+          [
+            "Desktop layout persists on phones",
+            "On a 390 px mobile device, the layout is 980 px wide. Menu and content remain side by side; reduced text and photographs hinder browsing. This is a layout finding, not a speed measurement. [1]",
+            "A genuine mobile layout with readable text and large touch targets."
+          ],
+          [
+            "A long list instead of project guidance",
+            "The service page lists work from planting to drainage. Visitors planning a garden renovation must determine which tasks belong together. The existing project gallery could support clearer guidance. [2]",
+            "Group by garden redesign, outdoor spaces and maintenance, linking relevant projects."
+          ],
+          [
+            "Connect enquiries to estimate conditions",
+            "A form exists; the contact information mentions possible fees for individual estimates and specifications. Those conditions should be clear in the relevant project journey before an enquiry. [3]",
+            "Ask about project scope and explain the existing estimate conditions."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Des projets de jardin trop petits sur mobile",
+        "summary": "Du besoin de jardin à un projet comparable, aux prestations associées et à une demande avec lieu et périmètre.",
+        "findings": [
+          [
+            "La mise en page de bureau persiste",
+            "Sur un écran mobile de 390 px, la mise en page mesure 980 px. Menu et contenu restent côte à côte, avec textes et images réduits. Il s’agit d’un constat de mise en page, pas de vitesse. [1]",
+            "Une vraie mise en page mobile avec texte lisible et zones tactiles larges."
+          ],
+          [
+            "Une longue liste au lieu d’un choix de projet",
+            "La page liste des travaux de plantation à drainage. Le visiteur doit comprendre seul lesquels composent son projet. La galerie existante pourrait mieux guider ce choix. [2]",
+            "Regrouper par réaménagement, espaces extérieurs et entretien, avec projets associés."
+          ],
+          [
+            "Relier la demande aux conditions du devis",
+            "Le formulaire existe ; les informations signalent des frais possibles pour certains devis détaillés. Ces conditions devraient apparaître clairement avant la demande. [3]",
+            "Demander le périmètre du projet et expliquer les conditions actuelles du devis."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-lotus",
+    "code": "3d703f35a928c93aebac",
+    "company": "Kosmetikstudio Lotus",
+    "url": "https://www.kosmetikstudio-lotus.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://www.kosmetikstudio-lotus.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://www.kosmetikstudio-lotus.de/kontakt.html"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Behandlungen hinter einer alten Seitenoptik",
+        "summary": "Besucher wählen ein Anliegen, lesen die passende Behandlung und erreichen direkt die telefonische Terminabsprache samt Rückrufhinweis.",
+        "findings": [
+          [
+            "Verkleinerte Desktopansicht",
+            "Die mobile Prüfung bei 390 Pixel Gerätegröße ergibt eine Layoutbreite von 980 Pixel. Das seitliche Bildmenü und die Textspalte bleiben nebeneinander. Kleine Beschriftungen erschweren die Wahl einer Behandlung. [1]",
+            "Behandlungsgruppen als große mobile Einstiege statt eines verkleinerten Seitenmenüs."
+          ],
+          [
+            "Begrüßung statt Behandlungsorientierung",
+            "Der Einstieg stellt das Studio vor. Die seitliche Auswahl verlangt bereits die Kenntnis einzelner Begriffe. Eine kurze Übersicht nach Anliegen würde neuen Besuchern helfen, die vorhandenen Behandlungsinformationen sinnvoll einzuordnen. [1]",
+            "Anliegen, passende Behandlung und Ablauf einer Beratung zusammenführen."
+          ],
+          [
+            "Telefonweg bleibt eine spätere Information",
+            "Die Kontaktseite erklärt die telefonische Terminabsprache und den Rückruf bei Abwesenheit. Dieser tatsächliche Weg gehört auch an die Behandlungsinformationen. Ein neuer Aufbau sollte die persönliche Absprache unterstützen. [2]",
+            "Gut sichtbarer Telefonkontakt mit verständlichem Rückrufhinweis."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Treatments behind a dated page design",
+        "summary": "Visitors choose a need, read the relevant treatment and reach telephone appointments with callback information.",
+        "findings": [
+          [
+            "A shrunken desktop page",
+            "The 390 px mobile check yields a 980 px layout. The side image menu and text column remain adjacent, making small labels difficult to use when selecting a treatment. [1]",
+            "Large mobile treatment categories instead of a reduced side menu."
+          ],
+          [
+            "Welcome instead of treatment guidance",
+            "The opening introduces the studio. The sidebar assumes familiarity with individual treatment terms. A short needs-based overview would help first-time visitors interpret the available information. [1]",
+            "Connect the visitor’s need, relevant treatment and consultation process."
+          ],
+          [
+            "The telephone route appears later",
+            "The contact page explains telephone appointments and callbacks when unavailable. This actual process should accompany treatment information and remain the basis of the new journey. [2]",
+            "A visible call action with clear callback information."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Des soins derrière une présentation vieillissante",
+        "summary": "Le visiteur choisit un besoin, lit le soin correspondant et accède au rendez-vous téléphonique avec indication du rappel.",
+        "findings": [
+          [
+            "Une page de bureau réduite",
+            "Le test mobile à 390 px donne une page de 980 px. Le menu en images reste à côté du texte, avec de petites légendes difficiles à utiliser pour choisir un soin. [1]",
+            "De grandes catégories de soins sur mobile au lieu d’un menu latéral réduit."
+          ],
+          [
+            "L’accueil avant le choix du soin",
+            "L’accueil présente le studio. Le menu suppose de connaître les termes des soins. Une vue par besoin aiderait les nouveaux visiteurs à comprendre les informations disponibles. [1]",
+            "Relier le besoin, le soin adapté et le déroulement du conseil."
+          ],
+          [
+            "L’appel apparaît plus tard",
+            "La page contact explique les rendez-vous téléphoniques et rappels. Ce fonctionnement devrait accompagner les soins et structurer le nouveau parcours. [2]",
+            "Un appel visible avec une explication claire du rappel."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-nailstyle",
+    "code": "0d94abd836066bae6e64",
+    "company": "nailStyle - dress your nails",
+    "url": "https://www.nagelstudio-hattersheim.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://www.nagelstudio-hattersheim.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://www.nagelstudio-hattersheim.de/galerie"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Nageldesign verliert sich zwischen fremden Themen",
+        "summary": "Eine Kundin wählt Neuaufbau oder Pflege, sieht den vorhandenen Preis und fragt gezielt einen Termin an; Gutscheine erhalten einen eigenen verständlichen Ablauf.",
+        "findings": [
+          [
+            "Mobile Seite bleibt zu breit",
+            "Im mobilen Test mit 390 Pixel Gerätegröße bleibt die Layoutbreite bei 768 Pixel. Der kleinteilige Kopfbereich und die dicht gesetzten Informationen werden verkleinert. Das erschwert Lesbarkeit und Angebotswahl. [1]",
+            "Eine echte mobile Anordnung mit größeren Schaltflächen und klarer Behandlungsauswahl."
+          ],
+          [
+            "Gutschein und Behandlung konkurrieren",
+            "Der Startseiteninhalt stellt Gutscheine und weitere Angebote neben das Nagelstudio. Beim Gutschein soll der Käufer Angaben gesondert über Formular oder WhatsApp senden. Ein zusammenhängender Weg von Angebot zu Anfrage ist schwer zu erkennen. [1]",
+            "Nageldesign priorisieren; Gutscheine und weitere Angebote in eigene, klar erklärte Bereiche ordnen."
+          ],
+          [
+            "Preise im Behandlungsinhalt bündeln",
+            "Die Nageldesign-Seite nennt bereits konkrete Preise für mehrere Anwendungen. Diese vorhandenen Angaben sollten direkt mit der Behandlungsauswahl verbunden sein, statt neue Kundinnen durch mehrere unterschiedlich gestaltete Seiten zu führen. [2]",
+            "Vorhandene Preise, Behandlungsunterschiede und Kontakt in einem durchgängigen Weg verbinden."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Nail design gets lost among unrelated topics",
+        "summary": "A client chooses a new set or maintenance, sees the existing price and makes a targeted appointment enquiry; vouchers have a separate clear process.",
+        "findings": [
+          [
+            "The mobile page remains too wide",
+            "In the 390 px mobile test, layout width remains 768 px. The compact header and dense information shrink, hindering readability and offer selection. [1]",
+            "A genuine mobile arrangement with larger controls and clear treatment choices."
+          ],
+          [
+            "Vouchers compete with treatments",
+            "The homepage combines vouchers and other offers with the nail studio. Voucher buyers are asked to send details separately through a form or WhatsApp, breaking the offer-to-enquiry journey. [1]",
+            "Prioritise nail design; give vouchers and other offers separate, clearly explained areas."
+          ],
+          [
+            "Connect prices with treatment information",
+            "The nail design page already lists prices for several treatments. Those details should accompany treatment selection rather than sending new clients through differently styled pages. [2]",
+            "Link existing prices, treatment differences and contact in one consistent journey."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Le stylisme ongulaire se perd parmi d’autres sujets",
+        "summary": "La cliente choisit pose ou entretien, voit le tarif existant et demande un rendez-vous ciblé ; les bons ont leur propre parcours.",
+        "findings": [
+          [
+            "Une page mobile trop large",
+            "Dans le test mobile à 390 px, la page reste à 768 px. L’en-tête compact et les informations denses sont réduits, ce qui gêne lecture et choix. [1]",
+            "Une vraie disposition mobile avec commandes larges et choix clair des soins."
+          ],
+          [
+            "Bons cadeaux et soins se concurrencent",
+            "L’accueil mélange bons cadeaux et autres offres au studio. Pour le bon, les informations doivent être envoyées séparément par formulaire ou WhatsApp, fragmentant le parcours. [1]",
+            "Prioriser les ongles ; organiser bons et autres offres dans des espaces distincts."
+          ],
+          [
+            "Relier prix et informations de soins",
+            "La page onglerie donne déjà plusieurs tarifs. Ces informations devraient accompagner le choix du soin plutôt que disperser la cliente entre pages de styles différents. [2]",
+            "Relier tarifs existants, différences entre soins et contact dans un parcours cohérent."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-fennes",
+    "code": "7caf3cb711f945a13e57",
+    "company": "Praxis Silvia Fennes-Flohr",
+    "url": "https://www.praxis-fennes-flohr.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://www.praxis-fennes-flohr.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://www.praxis-fennes-flohr.de/hattersheim/"
+      ],
+      [
+        "3",
+        "Geprüfte Seite / Checked page / Page examinée 3",
+        "https://www.praxis-fennes-flohr.de/contact-us/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Viele Therapiebegriffe, wenig Hilfe für neue Patienten",
+        "summary": "Standort Hattersheim wählen, Therapie oder Training verstehen und mit klarer Vorbereitung direkt den Praxisstandort kontaktieren.",
+        "findings": [
+          [
+            "Therapieliste verlangt Vorwissen",
+            "Der Angebotsblock enthält 21 Begriffe, darunter Abkürzungen wie PNF und N.A.P. Die Seite erläutert diese Einträge nicht einzeln. Neue Patienten müssen daraus selbst ableiten, welche Information für ihre ärztliche Verordnung oder ihr Anliegen relevant ist. [2]",
+            "Freigegebene Erläuterungen nach Behandlung, Training und Prävention anbieten."
+          ],
+          [
+            "Kleine Texte vor der Entscheidung",
+            "In der mobilen Ansicht folgt auf das große Bild ein schmaler, zentrierter Vorstellungstext. Standort- und Angebotsinformationen verteilen sich über weitere Blöcke. Das macht die erste Orientierung mühsamer als ein klarer Einstieg nach Standort und Anliegen. [1]",
+            "Standort und Angebotsgruppe früh wählen lassen; Absätze linksbündig und lesbar gestalten."
+          ],
+          [
+            "Terminvorbereitung gehört zur Leistung",
+            "Die Kontaktseite erklärt, dass Beschwerden bereits beim ersten Terminwunsch genannt werden sollen. Diese Vorbereitung steht getrennt von den Angeboten. Telefon und E-Mail sind vorhanden; es fehlt die nachvollziehbare Verbindung von Information und nächstem Schritt. [3]",
+            "Bei jedem Angebotsbereich den passenden Standort und die Vorbereitung des Erstkontakts erklären."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Many therapy terms, little guidance for new patients",
+        "summary": "Choose Hattersheim, understand therapy or training and contact that practice with clear preparation.",
+        "findings": [
+          [
+            "The therapy list assumes prior knowledge",
+            "The offer block contains 21 terms, including abbreviations such as PNF and N.A.P., without individual explanations. New patients must determine which information relates to their referral or need. [2]",
+            "Offer approved explanations grouped by therapy, training and prevention."
+          ],
+          [
+            "Small text before the decision",
+            "The mobile view places narrow centred introductory text after a large image, with location and offer details spread across later blocks. A clear location-and-need entry would be easier to follow. [1]",
+            "Let visitors choose location and offer early; use readable left-aligned text."
+          ],
+          [
+            "Appointment preparation belongs with the service",
+            "The contact page asks callers to describe their complaint when arranging the first appointment. This preparation is separated from the offers. Telephone and email exist but are not connected into a clear information-to-contact journey. [3]",
+            "Explain the relevant location and first-contact preparation within each offer area."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "De nombreux termes, peu d’aide pour les nouveaux patients",
+        "summary": "Choisir Hattersheim, comprendre thérapie ou entraînement et contacter ce cabinet avec les informations utiles.",
+        "findings": [
+          [
+            "La liste suppose des connaissances",
+            "Le bloc contient 21 termes, dont PNF et N.A.P., sans explication individuelle. Les nouveaux patients doivent déterminer seuls leur rapport avec l’ordonnance ou le besoin. [2]",
+            "Proposer des explications validées par thérapie, entraînement et prévention."
+          ],
+          [
+            "Des petits textes avant le choix",
+            "Sur mobile, un texte centré étroit suit une grande image ; lieux et offres sont dispersés plus bas. Une entrée par lieu et besoin serait plus facile à suivre. [1]",
+            "Faire choisir tôt le lieu et l’offre ; utiliser des paragraphes lisibles alignés à gauche."
+          ],
+          [
+            "La préparation du rendez-vous accompagne le soin",
+            "La page contact demande de préciser le motif au premier rendez-vous. Cette préparation est séparée des offres. Téléphone et courriel existent sans parcours clairement relié aux informations. [3]",
+            "Expliquer lieu et préparation du premier contact dans chaque domaine."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-knab",
+    "code": "26627970e945daa7abea",
+    "company": "Fahrschule Michael Knab",
+    "url": "https://www.fahrschule-knab.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://www.fahrschule-knab.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://www.fahrschule-knab.de/%C3%BCber-uns/hattersheim/"
+      ],
+      [
+        "3",
+        "Geprüfte Seite / Checked page / Page examinée 3",
+        "https://www.fahrschule-knab.de/kontakt/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Der Weg zum Führerschein ist zu verstreut",
+        "summary": "Führerschein wählen, Hattersheimer Kurs und Bürozeiten sehen, dann Preis- oder Anmeldefrage stellen; Fahrstundenangelegenheiten führen direkt zum Telefon.",
+        "findings": [
+          [
+            "Kursplakat verdrängt die erste Auswahl",
+            "Auf dem Handy steht der große Winterkurs-Hinweis vor der Orientierung nach Führerscheinangebot. Die Startseite verweist dann getrennt auf Anmeldung, Ablauf, Fristen und Fragen. Neue Interessenten müssen sich ihren Einstieg daraus selbst zusammensetzen. [1]",
+            "Führerschein und Standort zuerst wählen; den passenden Kurs anschließend zuordnen."
+          ],
+          [
+            "Standortseite verweist weiter",
+            "Die Hattersheimer Seite verweist für Öffnungszeiten auf Kontakt und für Unterricht auf Kalender. Diese Informationen sind vorhanden, stehen aber nicht gemeinsam beim Standort. Das erschwert die Planung des ersten Besuchs. [2]",
+            "Standort, Bürozeiten und zugehörige Kurstermine in einer Übersicht verbinden."
+          ],
+          [
+            "Anfragearten brauchen einen klaren Weg",
+            "Preise werden über einen eigenen Weg angefragt; das allgemeine Formular dient anderen Fragen. Fahrstundenabsprachen und Absagen dürfen ausdrücklich nicht per E-Mail erfolgen. Diese wichtige Unterscheidung sollte vor der Kontaktwahl verständlich sein. [3]",
+            "Preisfrage, allgemeine Frage und Telefonkontakt zum Fahrlehrer klar unterscheiden."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "The route to a licence is too scattered",
+        "summary": "Choose a licence, see Hattersheim courses and office hours, then ask about prices or registration; driving lesson matters lead directly to a call.",
+        "findings": [
+          [
+            "A course poster precedes the first choice",
+            "On a phone, a large winter course notice comes before licence guidance. The homepage then points separately to registration, process, deadlines and questions, leaving new visitors to assemble the route. [1]",
+            "Choose licence and location first, then show the relevant course."
+          ],
+          [
+            "The branch page sends visitors elsewhere",
+            "The Hattersheim page sends visitors to contact for opening hours and the calendar for lessons. The information exists but is not gathered at the branch page, making first-visit planning harder. [2]",
+            "Combine branch, office hours and relevant courses in one overview."
+          ],
+          [
+            "Enquiry types need a clear route",
+            "Prices have a separate enquiry route; the general form serves other questions. Driving lesson arrangements and cancellations explicitly cannot use email. This distinction should be clear before choosing contact. [3]",
+            "Separate price enquiries, general questions and calls to the instructor."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Le parcours vers le permis est trop dispersé",
+        "summary": "Choisir le permis, voir cours et horaires à Hattersheim, puis poser la question tarifaire ou d’inscription ; les leçons passent par téléphone.",
+        "findings": [
+          [
+            "L’affiche précède le premier choix",
+            "Sur mobile, la grande annonce du cours d’hiver précède les permis. L’accueil renvoie séparément à inscription, déroulement, délais et questions, laissant le visiteur composer son parcours. [1]",
+            "Choisir d’abord permis et lieu, puis afficher le cours adapté."
+          ],
+          [
+            "La page locale renvoie ailleurs",
+            "La page Hattersheim renvoie au contact pour les horaires et au calendrier pour les cours. Les informations existent sans être réunies au lieu, compliquant la première visite. [2]",
+            "Réunir lieu, horaires du bureau et cours associés dans une vue."
+          ],
+          [
+            "Les types de demande nécessitent un parcours clair",
+            "Les tarifs ont leur propre demande, le formulaire général sert aux autres questions. Les leçons et annulations ne peuvent pas passer par courriel. Cette règle devrait précéder le choix du contact. [3]",
+            "Distinguer demande de tarif, question générale et appel au moniteur."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-gashi",
+    "code": "9454eab936026cee9df0",
+    "company": "Gashi GmbH",
+    "url": "https://garten-gashi.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://garten-gashi.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://garten-gashi.de/projektgalerie/"
+      ],
+      [
+        "3",
+        "Geprüfte Seite / Checked page / Page examinée 3",
+        "https://garten-gashi.de/leistungen/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Gartenarbeit ohne sichtbare Projektbelege",
+        "summary": "Gartenanliegen und gewünschte Unterstützung wählen, vergleichbare Arbeiten sehen und Umfang sowie Ort in einer Projektanfrage nennen.",
+        "findings": [
+          [
+            "Projektgalerie ohne Projekte",
+            "Die verlinkte Projektgalerie zeigt in der Prüfung Überschrift und Seitenrahmen, aber keine dargestellten Gartenprojekte. Wer die Ausführung vor einer Anfrage beurteilen möchte, findet dort keine konkreten Belege. [2]",
+            "Freigegebene Arbeiten mit Ausgangslage, ausgeführten Leistungen und Bildern darstellen."
+          ],
+          [
+            "Vorlagenreste schwächen den Eindruck",
+            "Auf der Startseite bleibt die Bezeichnung einer rechten Seitenleiste sichtbar. Zusammen mit großen Serifenüberschriften und engen Textabsätzen entsteht kein einheitlicher Auftritt. Das kann die Einschätzung der Sorgfalt vor dem ersten Kontakt erschweren. [1]",
+            "Ein durchgängiges Layout ohne Platzhalter, mit klarer Hierarchie und echten Gartenbildern."
+          ],
+          [
+            "Leistungsumfang unterschiedlich erklärt",
+            "Die Leistungsseite erklärt mehrere Arbeitsbereiche, lässt den Eintrag zum Poolbau jedoch ohne eigene Erläuterung stehen. Die Unterstützung bei Eigenleistungen wird dagegen beschrieben. Diese Unterschiede brauchen einen nachvollziehbaren Projektweg. [3]",
+            "Vollausführung und Unterstützung bei Eigenleistungen verständlich unterscheiden."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Garden work without visible project evidence",
+        "summary": "Choose the garden need and level of support, review comparable work and state scope and location in the enquiry.",
+        "findings": [
+          [
+            "A project gallery without projects",
+            "The linked gallery shows its heading and page frame but no displayed garden projects in the check. Visitors seeking to judge the work before enquiring find no concrete evidence there. [2]",
+            "Show approved work with the initial brief, services performed and photographs."
+          ],
+          [
+            "Template remnants weaken the impression",
+            "The homepage retains a right-sidebar label. Large serif headings and cramped paragraphs produce an inconsistent presentation that can weaken the impression of care before first contact. [1]",
+            "A consistent layout without placeholders, clear hierarchy and real garden photographs."
+          ],
+          [
+            "Uneven explanations of service scope",
+            "The service page explains several areas but leaves pool construction without its own explanation. Support for clients doing some work themselves is described; these differences need a clearer project route. [3]",
+            "Clearly distinguish full delivery and support for client-led work."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Des travaux de jardin sans projets visibles",
+        "summary": "Choisir le besoin et l’aide souhaitée, voir des travaux comparables et indiquer périmètre et lieu.",
+        "findings": [
+          [
+            "Une galerie sans projets",
+            "La galerie liée affiche son titre et son cadre sans projets de jardin lors de la vérification. Le visiteur ne peut pas y apprécier les réalisations avant sa demande. [2]",
+            "Présenter des travaux validés avec besoin initial, prestations et photos."
+          ],
+          [
+            "Les restes du modèle affaiblissent l’impression",
+            "L’accueil conserve une mention de barre latérale droite. Grands titres à empattements et paragraphes serrés créent une présentation hétérogène qui peut nuire à l’impression de soin. [1]",
+            "Un design cohérent sans éléments résiduels, avec hiérarchie claire et vraies photos."
+          ],
+          [
+            "Des explications inégales",
+            "La page explique plusieurs domaines mais laisse la piscine sans détail propre. L’aide aux travaux réalisés par le client est décrite ; ces différences demandent un parcours clair. [3]",
+            "Distinguer réalisation complète et aide aux travaux du client."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-tera",
+    "code": "d15e45e3ab97784d4915",
+    "company": "Tera Facility GmbH",
+    "url": "https://tera-gmbh.com/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://tera-gmbh.com/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://tera-gmbh.com/unsere-leistungen/"
+      ],
+      [
+        "3",
+        "Geprüfte Seite / Checked page / Page examinée 3",
+        "https://tera-gmbh.com/referenzen/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Leistungen brauchen mehr Erklärung",
+        "summary": "Objekt und Reinigungs- oder Ausbauanliegen wählen, passende Leistung sowie Referenz sehen und Umfang, Ort und Zeitrahmen anfragen.",
+        "findings": [
+          [
+            "Sechs Überschriften ohne Leistungsbeschreibung",
+            "Die Übersicht zeigt sechs Bereiche, darunter Gebäudereinigung, Trockenbau und Bodenarbeiten, mit Bildern und Überschriften. Erklärende Absätze zum jeweiligen Umfang fehlen dort. Ein Interessent kann die Eignung für sein Objekt deshalb nur grob einschätzen. [2]",
+            "Eigene Leistungsseiten mit Objektarten, Umfang und Ablauf einer Anfrage."
+          ],
+          [
+            "Gebäudenamen erklären den Auftrag nicht",
+            "Die Referenzseite zeigt sechs benannte Gebäude mit Bildern. Welche Leistungen Tera dort erbracht hat, wird in den sichtbaren Einträgen nicht erläutert. Die vorhandenen Referenzen helfen so nur begrenzt beim Vergleich eines neuen Vorhabens. [3]",
+            "Vorhandene Referenzen mit bestätigtem Auftragsumfang und zugehöriger Leistung verbinden."
+          ],
+          [
+            "Allgemeines Bild vor konkretem Nutzen",
+            "Der große Bildbereich nimmt in der mobilen Ansicht viel Platz ein, bevor das breite Angebot erklärt wird. Reinigung und Ausbau stehen im weiteren Verlauf nebeneinander. Ein gezielter Einstieg nach Anliegen würde früher Orientierung geben. [1]",
+            "Reinigung und Ausbau früh unterscheiden und direkt zu passenden Belegen führen."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Services need clearer explanations",
+        "summary": "Choose property and cleaning or refurbishment need, see relevant service and reference, then enquire with scope, place and timeframe.",
+        "findings": [
+          [
+            "Six headings without service descriptions",
+            "The overview shows six areas, including cleaning, drywall and flooring, with images and headings but no explanatory scope paragraphs. Visitors can only roughly judge suitability for their property. [2]",
+            "Dedicated pages explaining property types, scope and the enquiry process."
+          ],
+          [
+            "Building names do not explain the assignment",
+            "The reference page shows six named buildings with photographs but no visible explanation of Tera’s work there. Existing references therefore give limited support for comparing a new assignment. [3]",
+            "Connect existing references with confirmed scope and the relevant service."
+          ],
+          [
+            "A generic image before specific value",
+            "A large image occupies much of the mobile opening before the broad offer is explained. Cleaning and refurbishment appear alongside each other later; a needs-based entry would provide earlier direction. [1]",
+            "Separate cleaning and refurbishment early, linking relevant evidence."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Les prestations nécessitent plus d’explications",
+        "summary": "Choisir bâtiment et besoin, voir prestation et référence pertinentes, puis demander avec périmètre, lieu et délai.",
+        "findings": [
+          [
+            "Six titres sans description",
+            "La vue montre six domaines, dont nettoyage, cloisons et sols, avec images et titres sans détail de périmètre. Le visiteur ne peut juger que sommairement leur pertinence. [2]",
+            "Des pages expliquant types de bâtiments, périmètre et demande."
+          ],
+          [
+            "Les noms des bâtiments n’expliquent pas la mission",
+            "La page montre six bâtiments nommés et photographiés sans préciser les prestations de Tera. Les références aident peu à comparer une nouvelle mission. [3]",
+            "Relier les références existantes au périmètre confirmé et à la prestation."
+          ],
+          [
+            "Une image générale avant la valeur précise",
+            "Une grande image occupe l’entrée mobile avant l’explication des offres. Nettoyage et travaux apparaissent ensuite ensemble ; une entrée par besoin guiderait plus tôt. [1]",
+            "Distinguer tôt nettoyage et travaux, avec preuves pertinentes."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-fritz",
+    "code": "add7184fa83c71aabe8f",
+    "company": "Stephanie Fritz Friseure",
+    "url": "https://www.stephaniefritz.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://www.stephaniefritz.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://www.stephaniefritz.de/#prices"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Salonbesucher brauchen mehr als ein großes Porträt",
+        "summary": "Anwendung wählen, Umfang und bestätigte Preisgrundlage verstehen und den telefonischen Terminwunsch direkt starten.",
+        "findings": [
+          [
+            "Inhalt reicht über den Handybildschirm",
+            "Im mobilen Test ist der Seiteninhalt 560 Pixel breit, während die Gerätegröße 390 Pixel beträgt. Der Bildbereich prägt den Einstieg; praktische Leistungsinformationen folgen später. Die Breite und die Bildgewichtung erschweren den schnellen Überblick. [1]",
+            "Den Einstieg an die mobile Breite anpassen und Angebote sowie Anruf direkt sichtbar machen."
+          ],
+          [
+            "Preisliste ohne Preisbeträge",
+            "Der als Preisliste bezeichnete Bereich nennt Anwendungen und Beschreibungen, enthält im geprüften sichtbaren Inhalt aber keine Preisbeträge. Besucher können damit den ungefähren Rahmen vor einer Terminanfrage nicht einschätzen. [2]",
+            "Nach Abstimmung konkrete Preise oder verständliche Preisgrundlagen bei den Leistungen erklären."
+          ],
+          [
+            "Kontakt ohne gewähltes Angebot",
+            "Telefon und Kontaktformular sind vorhanden. Das Formular verlangt allgemeine Kontaktangaben und eine Nachricht, verbindet diese aber nicht mit einer konkreten Anwendung. Der neue Aufbau könnte den Terminwunsch verständlicher vorbereiten. [1]",
+            "Leistung, Preisgrundlage und Telefonkontakt in einem durchgängigen Weg zeigen."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Salon visitors need more than a large portrait",
+        "summary": "Choose a treatment, understand scope and confirmed pricing basis, then start the telephone appointment request.",
+        "findings": [
+          [
+            "Content extends beyond the phone screen",
+            "The mobile test measures 560 px of page content on a 390 px device. The portrait dominates the opening and practical service details follow later; width and image weighting hinder a quick overview. [1]",
+            "Fit the opening to mobile width and show offers and calls immediately."
+          ],
+          [
+            "A price list without amounts",
+            "The section labelled price list contains treatments and descriptions but no visible price amounts in the checked content. Visitors cannot estimate the price range before requesting an appointment. [2]",
+            "After agreement, explain actual prices or clear pricing principles alongside services."
+          ],
+          [
+            "Contact without the selected service",
+            "Telephone and a form exist. The form asks for general contact details and a message but does not connect them to a specific treatment. A new structure could prepare appointment requests more clearly. [1]",
+            "Connect the service, pricing basis and telephone contact in one journey."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Les visiteurs du salon ont besoin de plus qu’un portrait",
+        "summary": "Choisir un soin, comprendre périmètre et prix confirmés, puis appeler pour le rendez-vous.",
+        "findings": [
+          [
+            "Le contenu dépasse l’écran",
+            "Le test mesure 560 px de contenu sur un écran de 390 px. Le portrait domine l’entrée et les informations pratiques arrivent ensuite ; largeur et poids visuel compliquent le repérage. [1]",
+            "Adapter l’entrée au mobile et montrer directement offres et appel."
+          ],
+          [
+            "Une liste de prix sans montants",
+            "La section intitulée tarifs présente soins et descriptions sans montant visible dans le contenu examiné. Le visiteur ne peut estimer le budget avant de demander un rendez-vous. [2]",
+            "Après accord, expliquer tarifs ou bases de prix avec les prestations."
+          ],
+          [
+            "Le contact sans prestation choisie",
+            "Téléphone et formulaire existent. Ce dernier demande coordonnées et message sans les relier à un soin précis. Une nouvelle structure pourrait mieux préparer la demande. [1]",
+            "Relier prestation, base de prix et appel dans un même parcours."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-dueck",
+    "code": "3fa0d278043166a16b22",
+    "company": "Dück GbR KFZ-Meisterbetrieb & Handel",
+    "url": "https://kfz-dueck.chayns.site/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://kfz-dueck.chayns.site/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://kfz-dueck.chayns.site/events"
+      ],
+      [
+        "3",
+        "Geprüfte Seite / Checked page / Page examinée 3",
+        "https://kfz-dueck.chayns.site/leistungen"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Werkstattleistungen brauchen einen eindeutigen Terminweg",
+        "summary": "Anliegen auswählen, den tatsächlichen Werkstatt- oder Partnerablauf verstehen und über den vorhandenen Telefonkontakt einen Besuch abstimmen.",
+        "findings": [
+          [
+            "Terminmenü ohne nächsten Schritt",
+            "Der Menüpunkt Termine führt auf einen Bereich, der in der Prüfung nur den Seitenrahmen und die Navigation zeigt. Es ist dort keine Terminliste oder Buchungsoption sichtbar. Anruf und E-Mail sind auf der Startseite vorhanden, werden hier aber nicht als Ersatz erklärt. [2]",
+            "Den Menüpunkt direkt zum tatsächlichen Weg einer Werkstattanfrage führen."
+          ],
+          [
+            "HU-Hinweise widersprechen sich",
+            "Die Leistungsseite nennt die Durchführung der HU mit AU in Zusammenarbeit mit Prüforganisationen. Die Startseite erklärt dagegen ausdrücklich, dass keine HU/AU mehr in der eigenen Werkstatt stattfindet und verweist nach Kriftel. Diese Angaben brauchen eine einheitliche Einordnung. [3]",
+            "Den tatsächlich gültigen Partnerablauf bestätigen und an allen Stellen konsistent erklären."
+          ],
+          [
+            "Reparaturbereiche bleiben eine Liste",
+            "Nach einem allgemeinen Einleitungstext folgen Reparaturbereiche wie Bremsen, Klimaanlage und Motordiagnose überwiegend als Stichworte. Typische Anliegen und die Vorbereitung des Werkstattbesuchs werden nicht bei den einzelnen Bereichen erklärt. [3]",
+            "Wartung, Reparatur und Partnerprüfung als verständliche Wege mit direktem Telefonkontakt."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Workshop services need an unambiguous appointment route",
+        "summary": "Choose the need, understand the actual workshop or partner process and arrange a visit through the existing phone route.",
+        "findings": [
+          [
+            "An appointments menu without a next step",
+            "The appointments item leads to a page showing only the frame and navigation in the check, with no visible events or booking option. Calls and email exist on the homepage but are not explained here as the alternative. [2]",
+            "Route the menu directly to the actual workshop enquiry process."
+          ],
+          [
+            "Inspection information conflicts",
+            "The services page mentions inspections with testing organisations, while the homepage explicitly states that inspections no longer take place in the workshop and points to Kriftel. The information needs a consistent explanation. [3]",
+            "Confirm the current partner process and explain it consistently throughout."
+          ],
+          [
+            "Repair areas remain a list",
+            "After a general introduction, repair areas such as brakes, air conditioning and diagnostics appear mainly as keywords, without individual guidance on common needs or preparing a visit. [3]",
+            "Clear routes for maintenance, repairs and partner inspections, with direct calls."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Les prestations d’atelier ont besoin d’un parcours clair",
+        "summary": "Choisir le besoin, comprendre atelier ou partenaire et convenir d’une visite par le téléphone existant.",
+        "findings": [
+          [
+            "Un menu rendez-vous sans étape suivante",
+            "Le menu rendez-vous ouvre une page ne montrant que cadre et navigation, sans liste ni réservation visible. Appel et courriel existent à l’accueil sans être expliqués ici comme alternative. [2]",
+            "Faire mener le menu au véritable processus de demande à l’atelier."
+          ],
+          [
+            "Les indications de contrôle divergent",
+            "La page prestations mentionne des contrôles avec des organismes, tandis que l’accueil précise qu’ils ne se font plus à l’atelier et renvoie à Kriftel. Il faut harmoniser l’explication. [3]",
+            "Confirmer le fonctionnement avec le partenaire et l’expliquer partout de manière cohérente."
+          ],
+          [
+            "Les réparations restent une liste",
+            "Après l’introduction, freins, climatisation et diagnostic restent surtout des mots, sans explication par domaine des besoins courants et de la préparation de la visite. [3]",
+            "Des parcours entretien, réparation et contrôle partenaire avec appel direct."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-mueller",
+    "code": "41e3ed5cd6bc5c3ec38f",
+    "company": "Müller Bistro",
+    "url": "https://www.mueller-bistro.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://www.mueller-bistro.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://www.mueller-bistro.de/Speisekarte/"
+      ],
+      [
+        "3",
+        "Geprüfte Seite / Checked page / Page examinée 3",
+        "https://www.mueller-bistro.de/Reservierung/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Speisekarte und Reservierung brauchen Vorrang",
+        "summary": "Gäste sehen Küche und Karte, prüfen Öffnung und aktuelle Pause und finden die telefonische Reservierung ab 16:30 Uhr. Gruppen erhalten den passenden separaten Hinweis.",
+        "findings": [
+          [
+            "Speisekarte als vier Bilder",
+            "Die Speisekarte besteht aus vier Bilddateien ohne beschreibende Alternativtexte. Speisen und Preise sind nicht als regulärer Seitentext vorhanden. Auf dem Handy müssen Gäste die Bilder lesen und bei Bedarf vergrößern. [2]",
+            "Gerichte, Preise und Kategorien als gut lesbaren, pflegbaren Text ausgeben."
+          ],
+          [
+            "Nachrichten vor Besuchsplanung",
+            "Die Startadresse öffnet den Nachrichtenbereich. Die aktuelle Pause ist eine nützliche Information, steht aber ohne direkten Zusammenhang zu Speisekarte, Öffnungszeiten und Reservierungsregel. Die dekorative Großfläche verzögert den inhaltlichen Überblick. [1]",
+            "Essen, Öffnungszeiten und Reservierung zuerst; aktuelle Hinweise klar zuordnen."
+          ],
+          [
+            "Telefonische Regel früh erklären",
+            "Reservierungen werden laut Seite telefonisch ab 16:30 Uhr angenommen. Besondere Anlässe ab 25 Personen sind ebenfalls genannt. Diese konkreten Wege sollten direkt bei der Besuchsentscheidung erreichbar sein. [3]",
+            "Anruffunktion mit gültiger Uhrzeit und getrennte Information für größere Gruppen."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Menus and reservations need priority",
+        "summary": "Guests see food and menu, check hours and current closure, then find telephone reservations from 16:30. Groups get separate relevant information.",
+        "findings": [
+          [
+            "The menu is four images",
+            "The menu uses four image files without descriptive alternative text. Dishes and prices are not regular page text, so mobile visitors must read and, if needed, enlarge the images. [2]",
+            "Publish dishes, prices and categories as readable, maintainable text."
+          ],
+          [
+            "News before planning a visit",
+            "The root address opens the news area. The current closure notice is useful but is not directly connected to the menu, hours and reservation rule. A large decorative area delays the content overview. [1]",
+            "Prioritise food, hours and reservations, with current notices in context."
+          ],
+          [
+            "Explain the telephone policy early",
+            "The page says reservations are accepted by phone from 16:30 and mentions special occasions from 25 people. These concrete routes should be available directly when planning a visit. [3]",
+            "A call action with the stated time and separate larger-group information."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Carte et réservation doivent être prioritaires",
+        "summary": "Les visiteurs voient cuisine et carte, vérifient horaires et pause, puis trouvent la réservation téléphonique dès 16 h 30. Les groupes ont leur information propre.",
+        "findings": [
+          [
+            "La carte en quatre images",
+            "La carte utilise quatre images sans texte alternatif descriptif. Plats et prix ne sont pas du texte de page ; sur mobile, les visiteurs doivent lire ou agrandir les images. [2]",
+            "Publier plats, prix et catégories sous forme de texte lisible et modifiable."
+          ],
+          [
+            "Les nouvelles avant la visite",
+            "L’adresse principale ouvre les nouvelles. La pause actuelle est utile mais peu reliée à la carte, aux horaires et à la réservation. Une grande zone décorative retarde le repérage. [1]",
+            "Prioriser cuisine, horaires et réservation, avec annonces contextualisées."
+          ],
+          [
+            "Expliquer tôt la règle téléphonique",
+            "La page indique les réservations par téléphone dès 16 h 30 et les occasions dès 25 personnes. Ces parcours doivent être accessibles lors de la préparation de visite. [3]",
+            "Un appel avec l’horaire annoncé et des informations distinctes pour les groupes."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-chakra",
+    "code": "b0c6251d6fa09403e01a",
+    "company": "Salon Chakra",
+    "url": "https://friseur-chakra.com/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://friseur-chakra.com/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://friseur-chakra.com/?page_id=12039"
+      ],
+      [
+        "3",
+        "Geprüfte Seite / Checked page / Page examinée 3",
+        "https://friseur-chakra.com/?page_id=86"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Salonangebote brauchen eine ruhigere Präsentation",
+        "summary": "Haare, Kosmetik oder Brautstyling wählen, bestätigte Preise und den beschriebenen Beratungsablauf sehen und direkt telefonisch Kontakt aufnehmen.",
+        "findings": [
+          [
+            "Angebote verlieren sich in kleinen Texten",
+            "Die Leistungsseite erklärt Haare, Kosmetik und Brautangebot in kleinen Absätzen auf farbigen Flächen. Die geringe visuelle Hierarchie macht Unterschiede und nächsten Schritt schwerer erfassbar. Preise existieren auf einer separaten Seite. [2]",
+            "Drei klare Angebotsbereiche mit passender Preisinformation und Telefonkontakt."
+          ],
+          [
+            "Kontakt und Rechtstext vermischen sich",
+            "Der Menüpunkt Kontakt/DSGVO verbindet die Kontaktdaten mit einer langen Datenschutzerklärung. In der Prüfung erscheint außerdem eine Fehlermeldung der eingebetteten Karte. Telefonnummer und Anschrift sind vorhanden, brauchen aber einen eigenständigen übersichtlichen Kontaktbereich. [3]",
+            "Kontaktinformationen von Rechtstexten trennen und Anfahrt ohne notwendige Kartenfreigabe erklären."
+          ],
+          [
+            "Vorlagenlink statt Salonprofil",
+            "Der Facebook-Verweis im Seitenfuß zeigt auf ein Themefusion-Profil. Der Link ist damit kein Beleg für ein eigenes Salonprofil. Zusammen mit der älteren Gestaltung wirkt der Auftritt nicht konsequent auf den Betrieb zugeschnitten. [1]",
+            "Nur bestätigte Salonprofile verlinken; die gesamte Gestaltung auf den Salon ausrichten."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Salon services need a calmer presentation",
+        "summary": "Choose hair, cosmetics or bridal styling, see confirmed prices and the stated consultation process, then call directly.",
+        "findings": [
+          [
+            "Offers get lost in small text",
+            "The service page explains hair, cosmetics and bridal work in small paragraphs on coloured surfaces. Weak visual hierarchy obscures differences and next steps; prices exist on a separate page. [2]",
+            "Three clear offer areas with relevant prices and telephone contact."
+          ],
+          [
+            "Contact and legal text are mixed",
+            "The contact/privacy menu combines contact details with a long privacy notice. An embedded map error also appears in the check. Phone and address exist but need a clear dedicated contact area. [3]",
+            "Separate contact from legal text and explain directions without requiring map consent."
+          ],
+          [
+            "A template link instead of a salon profile",
+            "The footer Facebook link points to a Themefusion profile, so it does not establish a salon profile. Together with the older design, it suggests the template was not fully adapted. [1]",
+            "Link only confirmed salon profiles and tailor the entire design to the salon."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Les offres du salon ont besoin d’une présentation sobre",
+        "summary": "Choisir cheveux, cosmétique ou mariage, voir tarifs validés et conseil prévu, puis appeler directement.",
+        "findings": [
+          [
+            "Les offres se perdent dans les petits textes",
+            "La page décrit cheveux, cosmétique et mariage en petits paragraphes colorés. La hiérarchie faible complique les différences et la suite ; les tarifs existent séparément. [2]",
+            "Trois offres claires avec tarifs pertinents et appel."
+          ],
+          [
+            "Contact et texte juridique se mélangent",
+            "Le menu contact/confidentialité mêle coordonnées et longue notice. La carte intégrée affiche aussi une erreur lors du test. Téléphone et adresse existent mais nécessitent un espace clair. [3]",
+            "Séparer contact et textes juridiques, expliquer l’accès sans dépendre du consentement à la carte."
+          ],
+          [
+            "Un lien de modèle au lieu du salon",
+            "Le lien Facebook du pied de page pointe vers Themefusion, pas vers un profil du salon. Avec le design ancien, il donne l’impression d’un modèle peu personnalisé. [1]",
+            "Ne lier que les profils confirmés et adapter toute la présentation au salon."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-dasdach",
+    "code": "1a7ed224b5b77a6e2a6c",
+    "company": "Das Dach",
+    "url": "https://www.das-dach.com/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://das-dach.com/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://das-dach.com/impressum/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Dacharbeiten verschwinden hinter einem leeren Einstieg",
+        "summary": "Bauherr wählt Sanierung, Reparatur oder Ergänzung, erkennt den passenden Leistungsumfang und fragt mit Ort, Dachart und Anliegen an.",
+        "findings": [
+          [
+            "Leerer Auftakt vor Leistungen",
+            "Auch nach zusätzlicher Wartezeit bleibt der Desktop-Einstieg überwiegend eine große weiße Fläche mit kleinem Logo und Kontaktaktion. Die vorhandenen Leistungen und Projekte stehen weiter unten. Das erschwert die schnelle Einschätzung des Angebots. [1]",
+            "Dacharbeiten und ein echtes Projekt bereits im ersten Bildschirm verständlich zeigen."
+          ],
+          [
+            "Neun Bereiche ohne klare Projektwahl",
+            "Der Leistungsabschnitt bündelt neun Bereiche von Steildach bis Holzbau in kurzen Einträgen. Vorhandene Projektbilder bieten Anschauung, erklären aber den jeweiligen Auftragsumfang nicht. Bauherren müssen selbst die passende Kombination bestimmen. [1]",
+            "Dachsanierung, Reparatur und ergänzende Arbeiten mit passenden Projekterläuterungen verbinden."
+          ],
+          [
+            "Fremde Vorlagenreste bleiben sichtbar",
+            "Auf der geprüften Impressumsseite stehen englische Vorlagenmenüpunkte und ein allgemeiner Newsletteraufruf. Diese Elemente passen nicht zum übrigen deutschen Betriebsauftritt und tragen keine konkrete Leistungsaussage. [2]",
+            "Eine vollständig abgestimmte deutsche Seitenstruktur mit bewusst gewählten Funktionen."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Roofing work hides behind an empty opening",
+        "summary": "Homeowners choose renovation, repairs or additional work, understand the scope and enquire with location, roof type and need.",
+        "findings": [
+          [
+            "An empty opening before services",
+            "Even after extra waiting, the desktop opening remains mostly a large white area with a small logo and contact action. Existing services and projects are farther down, making the offer harder to assess quickly. [1]",
+            "Show roofing work and a real project clearly in the first screen."
+          ],
+          [
+            "Nine areas without clear project guidance",
+            "The service section groups nine areas from pitched roofs to timber construction in short entries. Existing project photographs illustrate work without explaining assignment scope, leaving homeowners to find the right combination. [1]",
+            "Connect roof renovation, repairs and related work to explained projects."
+          ],
+          [
+            "Foreign template remnants remain visible",
+            "The checked legal page displays English template menu items and a generic newsletter prompt. These elements do not fit the German business presentation or clarify its services. [2]",
+            "A fully coordinated German site structure with deliberately selected functions."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Les travaux de toiture derrière une entrée vide",
+        "summary": "Le propriétaire choisit rénovation, réparation ou complément, comprend le périmètre et demande avec lieu, type de toiture et besoin.",
+        "findings": [
+          [
+            "Une entrée vide avant les prestations",
+            "Même après une attente supplémentaire, l’entrée de bureau reste surtout blanche avec petit logo et contact. Prestations et projets arrivent plus bas, compliquant l’évaluation rapide. [1]",
+            "Présenter les travaux et un vrai projet dès le premier écran."
+          ],
+          [
+            "Neuf domaines sans choix clair",
+            "Le bloc regroupe neuf domaines, de toiture inclinée à charpente. Les photos montrent des travaux sans en préciser le périmètre, laissant le propriétaire composer son besoin. [1]",
+            "Relier rénovation, réparation et travaux complémentaires aux projets expliqués."
+          ],
+          [
+            "Des restes de modèle restent visibles",
+            "La page légale examinée affiche des menus anglais et un appel général à la newsletter. Ces éléments ne correspondent pas au site allemand ni à ses prestations. [2]",
+            "Une structure allemande harmonisée et des fonctions choisies."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-neli",
+    "code": "4659a8ebd2c976240218",
+    "company": "Neli's Atelier",
+    "url": "https://www.schneiderei-neli.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://www.schneiderei-neli.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://www.schneiderei-neli.de/leistungen-und-services/"
+      ],
+      [
+        "3",
+        "Geprüfte Seite / Checked page / Page examinée 3",
+        "https://www.schneiderei-neli.de/impressum/kontakt/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Nähkurse und Änderungen brauchen getrennte Einstiege",
+        "summary": "Änderung oder Kurs wählen, benötigte Informationen und bestätigte Termine sehen und eine passende Anfrage starten.",
+        "findings": [
+          [
+            "Kursplakate bestimmen den Einstieg",
+            "Im mobilen Einstieg stehen zwei große Kursplakate für Erwachsene und Kinder. Wer eine Änderung oder Anpassung sucht, muss an diesen Informationen vorbeiscrollen. Termine und Kursdetails stehen dort innerhalb von Bildern. [1]",
+            "Änderungen, Anfertigungen und Kurse gleich am Anfang unterscheiden; Kurstermine als Text pflegen."
+          ],
+          [
+            "Unterschiedliche Anliegen in einem Textfluss",
+            "Die Leistungsseite erklärt Änderungen, Brautmode und Nähkurse gemeinsam. Diese Informationen sind vorhanden, benötigen aber unterschiedliche nächste Schritte: eine Kleidungsanpassung und eine Kursanmeldung sind keine gleiche Entscheidung. [2]",
+            "Eigene Wege für Kleidungsanpassung und Kursinteresse mit passenden Kontaktinformationen."
+          ],
+          [
+            "Kontakt im Impressumsbereich",
+            "Die Kontaktseite liegt unter dem Impressumsbereich und enthält ein allgemeines Nachrichtenformular. Eine Anfrage übernimmt weder den Änderungswunsch noch einen konkreten Kurs. Die Zuordnung muss der Besucher selbst in der Nachricht leisten. [3]",
+            "Kontakt als eigenen Hauptweg zeigen und den gewählten Anlass übernehmen."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Sewing courses and alterations need separate entry points",
+        "summary": "Choose alteration or course, see the required information and confirmed dates, then make a relevant enquiry.",
+        "findings": [
+          [
+            "Course posters dominate the opening",
+            "The mobile opening shows two large adult and children’s course posters. Visitors needing alterations must scroll past them; dates and course details are embedded in images. [1]",
+            "Separate alterations, custom work and courses immediately; maintain course dates as text."
+          ],
+          [
+            "Different needs in one text stream",
+            "The service page explains alterations, bridal wear and classes together. The information exists but needs different next steps: garment fitting and course registration are different decisions. [2]",
+            "Separate garment fitting and course-interest journeys with relevant contact details."
+          ],
+          [
+            "Contact under the legal section",
+            "The contact page sits under the legal section and uses a general message form. It carries neither an alteration request nor a particular course, leaving the visitor to explain the context. [3]",
+            "Make contact a main route and carry the chosen topic."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Cours de couture et retouches nécessitent des entrées distinctes",
+        "summary": "Choisir retouche ou cours, voir informations utiles et dates confirmées, puis envoyer une demande pertinente.",
+        "findings": [
+          [
+            "Les affiches dominent l’entrée",
+            "L’entrée mobile affiche deux grandes annonces de cours adultes et enfants. Le visiteur cherchant une retouche doit les dépasser ; dates et détails sont dans les images. [1]",
+            "Distinguer retouches, confection et cours dès l’entrée ; gérer les dates en texte."
+          ],
+          [
+            "Des besoins différents dans un même texte",
+            "La page explique ensemble retouches, mariage et cours. Les informations existent, mais adaptation d’un vêtement et inscription à un cours nécessitent des suites distinctes. [2]",
+            "Des parcours vêtement et cours distincts avec contacts adaptés."
+          ],
+          [
+            "Le contact sous la rubrique légale",
+            "Le contact est sous la rubrique légale avec un formulaire général. Il ne reprend ni retouche ni cours précis ; le visiteur doit en expliquer le contexte. [3]",
+            "Faire du contact un accès principal et reprendre le sujet choisi."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-gurk",
+    "code": "a82f3a79e08183b1c856",
+    "company": "Schneiderei Cornelia Gurk",
+    "url": "http://www.schneiderei-hattersheim.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "http://www.schneiderei-hattersheim.de/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Änderungen gehen hinter Modebildern unter",
+        "summary": "Kleidungsart und Änderung wählen, den vorhandenen Preisrahmen sehen und die telefonische Terminabsprache direkt erreichen.",
+        "findings": [
+          [
+            "Modebilder vor der Änderungsfrage",
+            "Der Startseitenslider zeigt drei Shirt-Themen mit Verweisen auf eine weitere Website. Die lokale Änderungsschneiderei und ihre konkrete Preisübersicht folgen darunter. Auf dem Handy ist zuerst ein angeschnittenes Modemotiv sichtbar. [1]",
+            "Änderungswunsch und telefonische Absprache zuerst; Modeangebote bewusst separat präsentieren."
+          ],
+          [
+            "Preisübersicht ist mobil kleinteilig",
+            "Eine ausführliche Preisliste ist bereits vorhanden. Die schmalen Tabellen und langen aufeinanderfolgenden Kleidungsgruppen sind auf dem Handy jedoch schwer überblickbar. Besucher müssen bis zur passenden Änderung durchscrollen. [1]",
+            "Vorhandene Preise nach Kleidungsart übersichtlich auswählen und gut lesbar darstellen."
+          ],
+          [
+            "Terminregel am Ende des Inhalts",
+            "Die Bitte um telefonische Terminvereinbarung steht nach dem langen Leistungs- und Preisbereich. Diese Regel sollte beim jeweiligen Änderungswunsch sichtbar sein. Ein Formular oder eine Onlinebuchung ist dafür nicht erforderlich. [1]",
+            "Telefonkontakt und Öffnungszeiten bei jeder Leistungsgruppe direkt erreichbar machen."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Alterations get lost behind fashion images",
+        "summary": "Choose garment and alteration, see the existing price range and reach telephone arrangements directly.",
+        "findings": [
+          [
+            "Fashion images before the alteration need",
+            "The homepage slider has three shirt themes linking to another website. Local alterations and the actual pricing overview appear below, with a cropped fashion image first on mobile. [1]",
+            "Prioritise alterations and telephone arrangements, with fashion offers in a separate area."
+          ],
+          [
+            "Pricing is dense on mobile",
+            "A detailed price list already exists, but narrow tables and many consecutive garment groups are difficult to scan on mobile. Visitors must scroll to find their alteration. [1]",
+            "Let visitors select garment types and read existing prices clearly."
+          ],
+          [
+            "The appointment rule appears late",
+            "The request to arrange appointments by phone follows the long service and pricing area. It should be visible with each alteration; a form or online booking is unnecessary for this route. [1]",
+            "Keep calls and opening hours accessible within each service group."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Les retouches passent derrière les photos de mode",
+        "summary": "Choisir vêtement et retouche, voir la base tarifaire existante et appeler directement.",
+        "findings": [
+          [
+            "La mode avant le besoin de retouche",
+            "Le diaporama présente trois thèmes de hauts avec renvoi vers un autre site. Retouches locales et tarifs suivent ; sur mobile, une image de mode coupée apparaît d’abord. [1]",
+            "Prioriser retouches et appel, avec la mode dans une zone distincte."
+          ],
+          [
+            "Des tarifs denses sur mobile",
+            "Une liste détaillée existe déjà, mais tables étroites et groupes successifs se parcourent difficilement sur mobile. Il faut défiler jusqu’à la retouche voulue. [1]",
+            "Permettre le choix du vêtement et afficher les tarifs existants lisiblement."
+          ],
+          [
+            "La règle du rendez-vous apparaît tard",
+            "La demande de rendez-vous téléphonique suit les longues prestations et tarifs. Elle devrait apparaître avec chaque retouche ; formulaire ou réservation en ligne ne sont pas nécessaires. [1]",
+            "Rendre appel et horaires accessibles dans chaque groupe."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-bm",
+    "code": "7fce9802c153367810b5",
+    "company": "B&M Gebäude Service GmbH",
+    "url": "https://bm-gebaeudeservice.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://bm-gebaeudeservice.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://bm-gebaeudeservice.de/glasreinigung/"
+      ],
+      [
+        "3",
+        "Geprüfte Seite / Checked page / Page examinée 3",
+        "https://bm-gebaeudeservice.de/kontakt/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Gebäudeservice ist noch zu allgemein dargestellt",
+        "summary": "Objekt und Bedarf wählen, den Umfang einmaliger oder regelmäßiger Betreuung verstehen und eine Anfrage mit den relevanten Eckdaten starten.",
+        "findings": [
+          [
+            "Breites Angebot ohne Objektwahl",
+            "Die Startseite nennt sechs Leistungsbereiche von Gebäudereinigung bis Gartenbau. Der Einstieg bleibt allgemein; eine Hausverwaltung oder ein Gewerbebetrieb muss selbst erkennen, welche Kombination zum eigenen Objekt passt. Vorhandene Kontaktwege lösen diese Inhaltsfrage noch nicht. [1]",
+            "Nach Objektart und einmaliger oder regelmäßiger Betreuung verständlich gliedern."
+          ],
+          [
+            "Leistungsseite bleibt allgemein",
+            "Die Glasreinigungsseite beschreibt Nutzen und Innen- sowie Außenreinigung. Konkrete Objektanforderungen, Zugänglichkeit oder der Ablauf einer ersten Einschätzung werden im geprüften Inhalt nicht erklärt. Das erschwert die Vorbereitung einer belastbaren Anfrage. [2]",
+            "Den bestätigten Leistungsumfang und die benötigten ersten Objektangaben erklären."
+          ],
+          [
+            "Allgemeines Formular statt Objektanfrage",
+            "Telefon, E-Mail und Formular sind vorhanden. Das Formular fragt Kontaktdaten und Nachricht ab, bietet aber keine Auswahl von Objektart oder Betreuungsbedarf. Interessenten müssen die wichtigen Angaben selbst strukturieren. [3]",
+            "Kurze Anfrage mit optionalen Angaben zu Objekt, Ort und Betreuungsbedarf."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Building services are presented too generally",
+        "summary": "Choose property and need, understand one-off or regular service scope and enquire with relevant details.",
+        "findings": [
+          [
+            "A broad offer without property selection",
+            "The homepage lists six areas from cleaning to landscaping. Its general opening leaves property managers and businesses to identify the right combination. Existing contact routes do not resolve that information gap. [1]",
+            "Organise clearly by property type and one-off or regular service."
+          ],
+          [
+            "The service page stays general",
+            "The glass cleaning page describes benefits and indoor and outdoor work but does not explain property requirements, accessibility or the first assessment process in the checked content. That makes a useful enquiry harder to prepare. [2]",
+            "Explain confirmed scope and the initial property information needed."
+          ],
+          [
+            "A general form instead of a property enquiry",
+            "Phone, email and a form exist. The form asks for contact details and a message but offers no property-type or service-frequency selection, leaving visitors to structure the information. [3]",
+            "A short enquiry with optional property, location and service needs."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Les services immobiliers restent trop généraux",
+        "summary": "Choisir bâtiment et besoin, comprendre intervention ponctuelle ou régulière et demander avec les données utiles.",
+        "findings": [
+          [
+            "Une offre large sans choix de bâtiment",
+            "L’accueil liste six domaines, du nettoyage au jardin. Le gestionnaire ou l’entreprise doit déterminer seul la combinaison adaptée. Les contacts existants ne répondent pas à cette question. [1]",
+            "Organiser par type de bâtiment et intervention ponctuelle ou régulière."
+          ],
+          [
+            "La page prestation reste générale",
+            "La page vitres explique bénéfices et intérieur/extérieur sans préciser contraintes, accès ou première évaluation dans le contenu examiné. Une demande utile reste difficile à préparer. [2]",
+            "Expliquer périmètre confirmé et premières informations nécessaires."
+          ],
+          [
+            "Un formulaire général plutôt qu’une demande liée au bâtiment",
+            "Téléphone, courriel et formulaire existent. Le formulaire demande coordonnées et message sans choix du bâtiment ou de la fréquence ; le visiteur doit structurer les données. [3]",
+            "Une demande courte avec bâtiment, lieu et besoin facultatifs."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-plattenbarth",
+    "code": "17f5c659b8ae4d2446b3",
+    "company": "Platten Barth",
+    "url": "https://www.plattenbarth.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://www.plattenbarth.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://www.plattenbarth.de/fliesenarbeiten/"
+      ],
+      [
+        "3",
+        "Geprüfte Seite / Checked page / Page examinée 3",
+        "https://www.plattenbarth.de/kontakt/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Fliesenprojekte brauchen mehr als wechselnde Werbebilder",
+        "summary": "Bad, Außenfläche oder Reparatur wählen, ein passendes reales Beispiel und den Umfang sehen und mit Ort sowie Anliegen Kontakt aufnehmen.",
+        "findings": [
+          [
+            "Wechselnde Botschaften im großen Einstieg",
+            "Der Slider enthält fünf unterschiedliche Motive, von der allgemeinen Betriebsbotschaft bis zu Großformatfliesen. Auf dem Handy nimmt dieser Bereich viel Höhe ein. Eine stabile Entscheidung nach Bad, Außenbereich oder Reparatur kommt dadurch zu kurz. [1]",
+            "Ein prägnanter Projektauftakt und feste Einstiege nach Vorhaben."
+          ],
+          [
+            "Leistungsumfang ohne konkrete Projektgeschichte",
+            "Die geprüfte Fliesenarbeitsseite erläutert mögliche Arbeiten und verweist auf Beratung. Ein konkretes ausgeführtes Beispiel mit Ausgangslage, Materialentscheidung und Ergebnis fehlt in diesem Seiteninhalt. Das erschwert die Übertragung auf den eigenen Raum. [2]",
+            "Bestätigte Projektbeispiele bei passenden Leistungen zeigen."
+          ],
+          [
+            "Anfrage beginnt ohne Projektkontext",
+            "Telefon, E-Mail und Kontaktformular sind vorhanden. Das Formular fragt allgemeine Angaben, Betreff und Nachricht, führt aber nicht nach Badumbau, Außenfläche oder Reparatur. Die zuvor betrachtete Leistung wird nicht als klare Auswahl mitgenommen. [3]",
+            "Vorhaben und Ort optional übernehmen und den Beratungsbedarf gezielt vorbereiten."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Tile projects need more than rotating promotional images",
+        "summary": "Choose bathroom, exterior or repair, see a relevant real example and scope, then contact with location and need.",
+        "findings": [
+          [
+            "Changing messages in a large opening",
+            "The slider contains five themes, from a general business message to large-format tiles. It occupies substantial mobile height and gives too little space to stable bathroom, exterior or repair choices. [1]",
+            "A focused project opening with fixed project choices."
+          ],
+          [
+            "Service scope without a concrete project story",
+            "The checked tiling page explains possible work and consultation but contains no specific completed case with initial brief, material choice and result. Visitors have less help relating it to their room. [2]",
+            "Show confirmed project examples with relevant services."
+          ],
+          [
+            "Enquiries start without project context",
+            "Phone, email and a form exist. The form asks for details, subject and message but does not organise bathroom work, outdoor areas or repairs or clearly carry a selected service. [3]",
+            "Optionally carry the project and location to prepare the consultation."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Les projets de carrelage nécessitent plus qu’un diaporama",
+        "summary": "Choisir salle de bains, extérieur ou réparation, voir cas réel et périmètre puis contacter avec lieu et besoin.",
+        "findings": [
+          [
+            "Des messages changeants dans une grande entrée",
+            "Le diaporama contient cinq thèmes, du message général aux grands formats. Il occupe beaucoup de hauteur mobile au détriment d’un choix stable salle de bains, extérieur ou réparation. [1]",
+            "Une entrée projet précise avec choix fixes."
+          ],
+          [
+            "Un périmètre sans histoire de projet précise",
+            "La page carrelage explique travaux possibles et conseil sans cas précis comprenant besoin, matériau et résultat. Le visiteur peut moins facilement le relier à sa pièce. [2]",
+            "Montrer des projets confirmés avec les prestations pertinentes."
+          ],
+          [
+            "La demande commence sans contexte",
+            "Téléphone, courriel et formulaire existent. Celui-ci demande coordonnées, objet et message sans structurer salle de bains, extérieur ou réparation ni reprendre clairement le choix. [3]",
+            "Reprendre éventuellement projet et lieu pour préparer le conseil."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-altan",
+    "code": "2871bfae046222b85098",
+    "company": "Altan Automobile",
+    "url": "http://www.altanautomobile.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "http://www.altanautomobile.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "http://www.altanautomobile.de/Kontakt.php"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Ersatzteilsuche braucht einen klareren Fahrzeugbezug",
+        "summary": "Ersatzteilbedarf wählen, Fahrzeugidentifikation mit Hilfen ausfüllen und Versandbedingungen verstehen; Fahrzeughandel und Abschleppdienst erhalten eigene Wege.",
+        "findings": [
+          [
+            "Teilegruppen ersetzen keine Bedarfsklärung",
+            "Die Startseite nennt 16 Teilegruppen. Viele Verweise führen auf dieselbe Produktübersicht; eine Auswahl nach Fahrzeug und benötigtem Teil erfolgt dort nicht. Der Besucher muss den Zusammenhang zur eigenen Teileanfrage selbst herstellen. [1]",
+            "Ersatzteilanfrage nach Fahrzeug und konkretem Teil als eigenen Einstieg erklären."
+          ],
+          [
+            "Viele Angaben ohne Hilfestellung",
+            "Ein spezialisiertes Formular ist bereits vorhanden: Es fragt Fahrzeugtyp, Schlüsselnummer, Fahrgestellnummer und Ersatzteil ab, außerdem die volle Anschrift. Bei den technischen Kennungen fehlen im sichtbaren Inhalt erklärende Hinweise. Das kann unkundige Besucher bremsen. [2]",
+            "Vorhandene Fahrzeugfelder mit verständlicher Hilfe versehen und notwendige Angaben gemeinsam festlegen."
+          ],
+          [
+            "Unterschiedliche Fahrzeuganliegen vermischen sich",
+            "Autoverwertung, Fahrzeughandel, Gebrauchtteile und Abschleppdienst teilen denselben Einstieg. Der wichtigste Teilekontakt erscheint erst nach mehreren allgemeinen Blöcken. Die vorhandene Vorkasse- und Versandregel gehört gezielt in den Teileablauf. [1]",
+            "Teileanfrage, Fahrzeuganliegen und Abschleppkontakt separat führen."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Parts enquiries need clearer vehicle context",
+        "summary": "Choose a parts need, enter vehicle identification with guidance and understand delivery conditions; vehicle sales and towing get separate routes.",
+        "findings": [
+          [
+            "Parts categories do not clarify the need",
+            "The homepage lists 16 parts groups. Many links lead to the same product overview without vehicle-and-part selection there, leaving visitors to connect the catalogue to their enquiry. [1]",
+            "Explain vehicle-and-part enquiries as a dedicated entry point."
+          ],
+          [
+            "Many fields without guidance",
+            "A specialised form already asks for vehicle type, identification codes, VIN and part, plus a full address. The visible content gives no explanatory help for the technical identifiers, which can hinder unfamiliar visitors. [2]",
+            "Add clear guidance to existing vehicle fields and agree which information is necessary."
+          ],
+          [
+            "Different vehicle needs are mixed",
+            "Recycling, vehicle sales, used parts and towing share one opening. The parts contact appears after several general blocks; existing advance-payment and delivery conditions belong in that specific journey. [1]",
+            "Separate parts enquiries, vehicle matters and towing contact."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "La recherche de pièces nécessite un lien clair au véhicule",
+        "summary": "Choisir la pièce, remplir l’identification avec aide et comprendre la livraison ; véhicules et remorquage ont des parcours propres.",
+        "findings": [
+          [
+            "Les catégories ne précisent pas le besoin",
+            "L’accueil liste 16 groupes. De nombreux liens mènent à la même vue produit sans choix du véhicule et de la pièce ; le visiteur doit établir lui-même le lien avec la demande. [1]",
+            "Expliquer une demande véhicule et pièce comme entrée propre."
+          ],
+          [
+            "De nombreux champs sans aide",
+            "Un formulaire spécialisé demande déjà véhicule, codes, numéro de châssis et pièce, plus l’adresse complète. Les identifiants techniques manquent d’explication visible, ce qui peut freiner les visiteurs. [2]",
+            "Ajouter une aide claire aux champs existants et convenir des données nécessaires."
+          ],
+          [
+            "Des besoins automobiles se mélangent",
+            "Recyclage, véhicules, pièces et remorquage partagent l’entrée. Le contact pièces arrive après des blocs généraux ; conditions de paiement et livraison doivent accompagner ce parcours. [1]",
+            "Séparer pièces, véhicules et contact remorquage."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-salzmann",
+    "code": "b9c0941dbe2248e04287",
+    "company": "Autohaus Salzmann",
+    "url": "https://auto-salzmann.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://auto-salzmann.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://auto-salzmann.de/service/"
+      ],
+      [
+        "3",
+        "Geprüfte Seite / Checked page / Page examinée 3",
+        "https://auto-salzmann.de/kontakt/"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Werkstattservice bleibt ein langer Katalog",
+        "summary": "Kunde wählt Wartung, Diagnose oder Prüfung, versteht Umfang und vorhandene Zusatzleistungen und erreicht direkt die telefonische Abstimmung.",
+        "findings": [
+          [
+            "17 Serviceeinträge ohne geführte Auswahl",
+            "Die Serviceübersicht enthält 17 Einträge, von Reparatur bis Zulassungsdienst. Hinweise zum Hol- und Bringservice und zur Unfallabwicklung sind vorhanden. Die einzelnen Bereiche erklären jedoch nicht, wie ein Kunde sein Anliegen vorbereitet oder den passenden Service auswählt. [2]",
+            "Wartung, Diagnose, Prüfung und Unfallthemen als verständliche Anliegenwege."
+          ],
+          [
+            "Vorstellung und Stellenangebot vor Servicewahl",
+            "Die Startseite erklärt Markenspezialisierung und Personalsuche, bevor ein konkretes Werkstattanliegen gewählt werden kann. In der mobilen Ansicht stehen Logo und Markenbilder weit vorne. Praktische Serviceentscheidung bekommt dadurch weniger Gewicht. [1]",
+            "Das konkrete Fahrzeuganliegen früh zeigen; Bewerbung als separaten Weg führen."
+          ],
+          [
+            "Kontakt ohne Servicevorbereitung",
+            "Telefon, E-Mail und Öffnungszeiten sind auf der Kontaktseite vorhanden. Sie sind nicht mit einer zuvor gewählten Leistung oder kurzen Vorbereitungshinweisen verbunden. Ein direkter Weg aus jeder Servicegruppe würde den Anruf gezielter machen. [3]",
+            "Telefonkontakt und benötigte erste Fahrzeugangaben bei jeder Servicegruppe zeigen."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Workshop services remain a long catalogue",
+        "summary": "Customers choose maintenance, diagnosis or inspection, understand scope and existing extras, then reach telephone arrangements directly.",
+        "findings": [
+          [
+            "17 service entries without guided choices",
+            "The service overview contains 17 entries from repairs to registration. Pickup and accident-handling notes exist, but individual areas do not explain preparation or guide service selection. [2]",
+            "Clear need-based routes for maintenance, diagnostics, inspections and accidents."
+          ],
+          [
+            "Introduction and recruitment before service choice",
+            "The homepage explains brand specialisation and recruitment before a concrete workshop need can be selected. Logo and brand imagery dominate the mobile opening, giving practical service decisions less weight. [1]",
+            "Show vehicle needs early and keep recruitment as a separate journey."
+          ],
+          [
+            "Contact without service preparation",
+            "Phone, email and hours exist on the contact page but are not connected to a selected service or brief preparation guidance. Direct contact from each service group would make calls more focused. [3]",
+            "Show calls and the initial vehicle information needed with each service group."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Les prestations restent un long catalogue",
+        "summary": "Le client choisit entretien, diagnostic ou contrôle, comprend périmètre et options existantes puis appelle directement.",
+        "findings": [
+          [
+            "17 entrées sans choix guidé",
+            "La vue contient 17 entrées, de réparation à immatriculation. Des notes sur transport et accidents existent, mais les domaines ne guident pas choix et préparation. [2]",
+            "Des parcours entretien, diagnostic, contrôle et accident."
+          ],
+          [
+            "Présentation et recrutement avant le service",
+            "L’accueil présente spécialisation et recrutement avant le choix du besoin. Logo et marques dominent l’entrée mobile, laissant moins de place au service pratique. [1]",
+            "Montrer tôt les besoins du véhicule et séparer le recrutement."
+          ],
+          [
+            "Un contact sans préparation du service",
+            "Téléphone, courriel et horaires existent sans lien avec une prestation choisie ou conseils de préparation. Un accès direct par groupe rendrait l’appel plus ciblé. [3]",
+            "Afficher appel et premières données véhicule avec chaque groupe."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
+  },
+  {
+    "id": "okt-laackmann",
+    "code": "c827588ee8caa6135be2",
+    "company": "Laackmann GmbH",
+    "url": "https://www.laackmann-galabau.de/",
+    "measuredAt": "2026-10-01",
+    "lighthouseVersion": "Nicht eingesetzt / Not used / Non utilisé",
+    "scores": null,
+    "metrics": null,
+    "sources": [
+      [
+        "1",
+        "Startseite / Home / Accueil",
+        "https://www.laackmann-galabau.de/"
+      ],
+      [
+        "2",
+        "Geprüfte Seite / Checked page / Page examinée 2",
+        "https://www.laackmann-galabau.de/referenzen.html"
+      ],
+      [
+        "3",
+        "Geprüfte Seite / Checked page / Page examinée 3",
+        "https://www.laackmann-galabau.de/leistungen.html"
+      ]
+    ],
+    "content": {
+      "de": {
+        "title": "Gartenprojekte brauchen einen klareren Zusammenhang",
+        "summary": "Privates Gartenprojekt oder laufende Grünpflege wählen, vergleichbare Arbeiten sehen und Ort, Umfang sowie Betreuungswunsch im Erstkontakt klären.",
+        "findings": [
+          [
+            "Referenzen bleiben nach Materialien sortiert",
+            "Die Referenzseite führt neun Rubriken, von Terrasse bis Vorher-nachher. Fotos und allgemeine Arbeitserklärungen sind vorhanden. Der jeweilige Kundenwunsch, die zusammengehörigen Arbeiten und das Ergebnis eines einzelnen Projekts werden nicht als Fallbeispiel erklärt. [2]",
+            "Aus vorhandenen Bildern freigegebene Projektfälle mit Aufgabe und Ergebnis zusammenstellen."
+          ],
+          [
+            "Neubau und laufende Pflege brauchen andere Wege",
+            "Die Übersicht unterscheidet Garten- und Landschaftsbau von Grünflächenpflege. Viele Einsatzfelder folgen als Aufzählung. Ein privater Gartenumbau und die laufende Betreuung einer Wohnanlage brauchen jedoch unterschiedliche Informationen und Anfragevorbereitung. [3]",
+            "Projektanfrage und Pflegebedarf mit jeweils passenden Beispielen und Eckdaten erklären."
+          ],
+          [
+            "Begrüßung statt konkreter Gartenidee",
+            "Die Startseite nennt Erfahrung, Einzugsgebiet und Kontakt. Das große Hintergrundbild zeigt Blätter statt eines konkreten ausgeführten Vorhabens. Die vorhandenen Arbeitsbilder erhalten dadurch im ersten Eindruck wenig Gewicht. [1]",
+            "Ein passendes reales Gartenprojekt früh zeigen und zu Vorhaben oder Pflegebedarf führen."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, KI-Suchergebnisse, tatsächliche Anfragen und Umsatz wurden nicht gemessen. Folgen für Orientierung und Vertrauen sind redaktionelle Einschätzungen. Die technische und gestalterische Umsetzung ist ein Vorschlag zur Abstimmung.",
+        "methodology": "Geprüft am 1. Oktober 2026 im Chromium-Browser: Desktop 1280 × 900 Pixel und mobile Emulation 390 × 844 Pixel. Sichtbare Inhalte, Linkziele und Seitenbreite wurden geprüft und als Screenshots gesichert. Verfügbare Cookie-Ablehnung wurde genutzt. Keine Anfrage, Zahlung oder Buchung wurde ausgelöst. Die unten genannten Seiten bilden eine Stichprobe.",
+        "searchNote": "",
+        "measurementNote": "Die hervorgehobene Zahl beschreibt ausschließlich die bezeichnete Seite oder Ansicht, keine Gesamtwertung. Menüs, Sliderklone und wiederholte Elemente werden nicht als zusätzliche Inhalte gezählt. Seitenbreite ist kein Ladezeitwert; Layout und CMS-Signale beweisen keine langsame Website. Abnahme des neuen Auftritts: verständliche Leistungswahl, erreichbarer Kontakt, keine horizontale Inhaltsverkleinerung bei 390 Pixel und Prüfung mit Tastatur sowie vergrößerter Schrift."
+      },
+      "en": {
+        "title": "Garden projects need clearer context",
+        "summary": "Choose a private garden project or ongoing care, review comparable work and clarify location, scope and service needs in first contact.",
+        "findings": [
+          [
+            "References remain organised by work categories",
+            "The reference page has nine categories from terraces to before-and-after, with photographs and general explanations. It does not describe an individual client brief, connected work and result as a case study. [2]",
+            "Build approved project cases from existing photographs, with brief and result."
+          ],
+          [
+            "New landscaping and ongoing care need different routes",
+            "The overview separates landscaping from green-space care, followed by lists of applications. A private garden renovation and ongoing estate maintenance need different information and preparation. [3]",
+            "Explain project enquiries and maintenance needs with distinct examples and key details."
+          ],
+          [
+            "Welcome instead of a concrete garden idea",
+            "The homepage states experience, service area and contact. Its large backdrop shows foliage rather than a completed project, giving existing work photographs little weight in the first impression. [1]",
+            "Show a relevant real garden project early and guide to projects or maintenance."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Rankings, AI search results, actual enquiries and revenue were not measured. Effects on orientation and trust are editorial assessments. Technical and design implementation remains a proposal for discussion.",
+        "methodology": "Checked on 1 October 2026 in Chromium: desktop 1280 × 900 px and mobile emulation 390 × 844 px. Visible content, link destinations and width were examined and screenshots saved. Available cookie rejection was used. No enquiry, payment or booking was submitted. The pages below form a sample.",
+        "searchNote": "",
+        "measurementNote": "The highlighted figure describes only the specified page or view, not an overall score. Menus, slider clones and repeated elements are not counted as extra content. Width is not load time; layout and CMS signals do not prove slowness. Acceptance criteria: clear service choice, accessible contact, no horizontal content shrinking at 390 px, keyboard and enlarged-text checks."
+      },
+      "fr": {
+        "title": "Les projets de jardin ont besoin d’un contexte clair",
+        "summary": "Choisir jardin privé ou entretien régulier, voir des travaux comparables et préciser lieu, périmètre et besoin.",
+        "findings": [
+          [
+            "Les références restent classées par catégories",
+            "La page comporte neuf rubriques avec photos et explications générales. Elle ne décrit pas un besoin client, les travaux associés et le résultat comme cas précis. [2]",
+            "Composer des cas validés à partir des photos, avec besoin et résultat."
+          ],
+          [
+            "Création et entretien nécessitent des parcours distincts",
+            "La vue distingue aménagement et entretien, puis liste les applications. Un jardin privé et l’entretien d’une résidence nécessitent des informations et préparations différentes. [3]",
+            "Expliquer projet et entretien avec exemples et données propres."
+          ],
+          [
+            "L’accueil avant une idée de jardin précise",
+            "L’accueil indique expérience, zone et contact. Le grand fond montre du feuillage plutôt qu’un projet réalisé, donnant peu de poids aux vraies réalisations. [1]",
+            "Montrer tôt un vrai projet pertinent et guider vers projet ou entretien."
+          ]
+        ],
+        "steps": [],
+        "flow": [],
+        "cta": "contact@suchio.net",
+        "methodextra": "Classement, résultats IA, demandes réelles et chiffre d’affaires n’ont pas été mesurés. Les effets sur orientation et confiance sont des appréciations. La réalisation technique et visuelle reste une proposition à discuter.",
+        "methodology": "Vérifié le 1er octobre 2026 dans Chromium : bureau 1280 × 900 px et émulation mobile 390 × 844 px. Contenus visibles, liens et largeur ont été examinés et capturés. Le refus des cookies disponible a été utilisé. Aucune demande, paiement ou réservation n’a été envoyé. Les pages ci-dessous constituent un échantillon.",
+        "searchNote": "",
+        "measurementNote": "Le chiffre concerne seulement la page ou vue citée, pas une note globale. Menus, clones et répétitions ne sont pas comptés comme contenus supplémentaires. La largeur n’est pas une durée ; mise en page et CMS ne prouvent pas une lenteur. Réception : choix clair, contact accessible, pas de réduction horizontale à 390 px, clavier et texte agrandi."
+      }
+    }
   }
 ]

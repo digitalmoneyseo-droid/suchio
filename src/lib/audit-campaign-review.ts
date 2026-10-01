@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/config";
+import octoberCampaign from "@/content/audit-campaign-2026-10-01.json";
 
 type Localized = Record<Locale, string>;
 type Technology = { platform: string | null; evidence: "generator" | "html" | "unknown" };
@@ -137,5 +138,5 @@ const reviews: Record<string, CampaignReview> = {
 };
 
 export function getCampaignReview(id: string): CampaignReview | undefined {
-  return reviews[id];
+  return reviews[id] ?? (octoberCampaign.reviews as Record<string, CampaignReview>)[id];
 }

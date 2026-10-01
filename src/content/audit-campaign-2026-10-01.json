@@ -1,0 +1,871 @@
+{
+  "reviews": {
+    "okt-onh": {
+      "headline": {
+        "de": "Haustechnik braucht einen klareren Einstieg",
+        "en": "Heating and plumbing need a clearer entry point",
+        "fr": "Un accès plus clair au chauffage et au sanitaire"
+      },
+      "verdict": {
+        "de": "Die Benutzeroberfläche wirkt durch den Wasserhintergrund, die schmale Seitennavigation und die kleinen Leistungslisten veraltet. Das Benutzererlebnis führt zunächst durch die Firmenvorstellung, statt ein konkretes Heizungs- oder Sanitäranliegen verständlich aufzunehmen.",
+        "en": "The water background, narrow sidebar and small service lists make the interface look dated. The journey starts with company information rather than a clear heating or plumbing need.",
+        "fr": "Le fond aquatique, le menu latéral étroit et les petites listes donnent une interface vieillissante. Le parcours commence par la présentation de l’entreprise plutôt que par un besoin précis."
+      },
+      "fact": {
+        "value": "5",
+        "label": {
+          "de": "Leistungsbegriffe auf der geprüften Leistungsseite, ohne Erläuterung des jeweiligen Angebots",
+          "en": "Service terms on the checked service page, without explanations of the individual offers",
+          "fr": "Intitulés de prestations sur la page examinée, sans explication de chaque offre"
+        },
+        "source": "2"
+      },
+      "technology": {
+        "platform": "CM4all",
+        "evidence": "html"
+      }
+    },
+    "okt-steinkellner": {
+      "headline": {
+        "de": "Ihre Gartenprojekte werden auf dem Handy zu klein",
+        "en": "Garden projects shrink on a phone",
+        "fr": "Des projets de jardin trop petits sur mobile"
+      },
+      "verdict": {
+        "de": "Die gedrängte, zweispaltige Benutzeroberfläche wirkt veraltet. Auf dem Handy bleibt die breite Desktopanordnung bestehen. Das Benutzererlebnis erschwert dadurch, Leistungen und vorhandene Projektbilder vor einer Anfrage zu erfassen.",
+        "en": "The cramped two-column interface looks dated. Its broad desktop layout persists on a phone, making services and existing project photographs harder to review before enquiring.",
+        "fr": "L’interface compacte à deux colonnes paraît vieillissante. Sa disposition de bureau reste large sur mobile, ce qui complique la lecture des prestations et projets."
+      },
+      "fact": {
+        "value": "980 px",
+        "label": {
+          "de": "Layoutbreite in der mobilen Prüfung bei 390 Pixel Gerätegröße",
+          "en": "Layout width in the mobile check on a 390 px device",
+          "fr": "Largeur de mise en page lors du test mobile sur un écran de 390 px"
+        },
+        "source": "1"
+      },
+      "technology": {
+        "platform": "IONOS MyWebsite",
+        "evidence": "generator"
+      }
+    },
+    "okt-lotus": {
+      "headline": {
+        "de": "Behandlungen hinter einer alten Seitenoptik",
+        "en": "Treatments behind a dated page design",
+        "fr": "Des soins derrière une présentation vieillissante"
+      },
+      "verdict": {
+        "de": "Die pfirsichfarbenen Flächen, Bildschaltflächen und schmalen Textspalten lassen die Benutzeroberfläche veraltet wirken. Auf dem Handy wird der Desktopaufbau verkleinert. Das erschwert das Benutzererlebnis bei Behandlungswahl und telefonischer Terminaufnahme.",
+        "en": "Peach surfaces, image buttons and narrow text columns make the interface look dated. On a phone the desktop layout shrinks, hindering treatment selection and telephone appointments.",
+        "fr": "Les surfaces pêche, boutons en images et colonnes étroites donnent un aspect ancien. Sur mobile, la page de bureau est réduite, compliquant le choix d’un soin et l’appel."
+      },
+      "fact": {
+        "value": "980 px",
+        "label": {
+          "de": "Layoutbreite im mobilen Browser bei 390 Pixel Gerätegröße",
+          "en": "Mobile browser layout width on a 390 px device",
+          "fr": "Largeur de page dans le navigateur mobile sur un écran de 390 px"
+        },
+        "source": "1"
+      },
+      "technology": {
+        "platform": "LivePages",
+        "evidence": "html"
+      }
+    },
+    "okt-nailstyle": {
+      "headline": {
+        "de": "Nageldesign verliert sich zwischen fremden Themen",
+        "en": "Nail design gets lost among unrelated topics",
+        "fr": "Le stylisme ongulaire se perd parmi d’autres sujets"
+      },
+      "verdict": {
+        "de": "Die gedrängte, uneinheitliche Benutzeroberfläche wirkt veraltet und wenig ansprechend. Gutscheine, Behandlungen und weitere Themen stehen ohne klare Rangfolge nebeneinander. Das Benutzererlebnis hilft neuen Kundinnen zu wenig, passende Nagelpflege und Preisrahmen zu finden.",
+        "en": "The cramped, inconsistent interface looks dated. Vouchers, treatments and other topics compete without a clear order, making it harder for new clients to find suitable nail care and pricing.",
+        "fr": "L’interface compacte et hétérogène paraît vieillissante. Bons cadeaux, soins et autres sujets se mêlent, compliquant le choix du soin et la recherche des prix."
+      },
+      "fact": {
+        "value": "768 px",
+        "label": {
+          "de": "Layoutbreite im mobilen Test bei 390 Pixel Gerätegröße",
+          "en": "Layout width in the mobile test on a 390 px device",
+          "fr": "Largeur de page dans le test mobile sur un écran de 390 px"
+        },
+        "source": "1"
+      },
+      "technology": {
+        "platform": null,
+        "evidence": "unknown"
+      }
+    },
+    "okt-fennes": {
+      "headline": {
+        "de": "Viele Therapiebegriffe, wenig Hilfe für neue Patienten",
+        "en": "Many therapy terms, little guidance for new patients",
+        "fr": "De nombreux termes, peu d’aide pour les nouveaux patients"
+      },
+      "verdict": {
+        "de": "Die kleinen, zentrierten Textblöcke und die stark gesperrten Überschriften lassen die Benutzeroberfläche veraltet wirken. Das Benutzererlebnis trennt Therapie und Prävention am Standort Hattersheim zu wenig nach den Fragen neuer Patienten.",
+        "en": "Small centred text blocks and heavily spaced headings make the interface look dated. The Hattersheim journey does not clearly organise therapy and prevention around new patients’ questions.",
+        "fr": "Les petits blocs centrés et les titres très espacés donnent un aspect ancien. À Hattersheim, le parcours distingue peu thérapie et prévention selon les questions des nouveaux patients."
+      },
+      "fact": {
+        "value": "21",
+        "label": {
+          "de": "Angebotsbegriffe im Therapieblock der Hattersheimer Seite, überwiegend ohne Erklärung",
+          "en": "Offer terms in the Hattersheim therapy block, largely without explanation",
+          "fr": "Intitulés dans le bloc thérapie de Hattersheim, pour la plupart sans explication"
+        },
+        "source": "2"
+      },
+      "technology": {
+        "platform": "WordPress",
+        "evidence": "generator"
+      }
+    },
+    "okt-knab": {
+      "headline": {
+        "de": "Der Weg zum Führerschein ist zu verstreut",
+        "en": "The route to a licence is too scattered",
+        "fr": "Le parcours vers le permis est trop dispersé"
+      },
+      "verdict": {
+        "de": "Die alte Vorlagenoptik, der große Kursflyer und die gedrängten Navigationsbereiche lassen die Benutzeroberfläche veraltet wirken. Das Benutzererlebnis verteilt Führerscheinauswahl, Anmeldung, Kalender und Anfrage auf zu viele getrennte Stellen.",
+        "en": "An old template look, large course poster and cramped navigation make the interface appear dated. Licence choice, registration, calendar and enquiries are spread across separate areas.",
+        "fr": "Le modèle ancien, la grande affiche et les menus compacts donnent un aspect vieillissant. Choix du permis, inscription, calendrier et demandes sont dispersés."
+      },
+      "fact": {
+        "value": "2",
+        "label": {
+          "de": "getrennte Anfragewege auf der Startseite: Preisanfrage und allgemeines Kontaktformular",
+          "en": "Separate homepage enquiry routes: prices and general contact",
+          "fr": "Parcours de demande distincts sur l’accueil : tarifs et contact général"
+        },
+        "source": "1"
+      },
+      "technology": {
+        "platform": "IONOS MyWebsite",
+        "evidence": "generator"
+      }
+    },
+    "okt-gashi": {
+      "headline": {
+        "de": "Gartenarbeit ohne sichtbare Projektbelege",
+        "en": "Garden work without visible project evidence",
+        "fr": "Des travaux de jardin sans projets visibles"
+      },
+      "verdict": {
+        "de": "Die schmale Textgestaltung, uneinheitlichen Überschriften und sichtbare Vorlagenreste lassen die Benutzeroberfläche unfertig und wenig ansprechend wirken. Das Benutzererlebnis erklärt den Leistungsumfang, liefert aber auf der geprüften Projektgalerie keine Arbeiten zur Einordnung.",
+        "en": "Narrow text, inconsistent headings and template remnants make the interface feel unfinished. Services are described, but the checked gallery supplies no project evidence to support a decision.",
+        "fr": "Le texte étroit, les titres variables et les restes de modèle donnent une interface inachevée. Les prestations sont décrites, mais la galerie examinée ne montre pas de réalisations."
+      },
+      "fact": {
+        "value": "0",
+        "label": {
+          "de": "Projektbeispiele im sichtbaren Inhalt der geprüften Projektgalerie",
+          "en": "Project examples in the visible content of the checked gallery",
+          "fr": "Exemples de projets dans le contenu visible de la galerie examinée"
+        },
+        "source": "2"
+      },
+      "technology": {
+        "platform": "WordPress",
+        "evidence": "generator"
+      }
+    },
+    "okt-tera": {
+      "headline": {
+        "de": "Leistungen brauchen mehr Erklärung",
+        "en": "Services need clearer explanations",
+        "fr": "Les prestations nécessitent plus d’explications"
+      },
+      "verdict": {
+        "de": "Das große allgemeine Reinigungsbild und die gleichförmigen Angebotskacheln lassen die Benutzeroberfläche austauschbar wirken. Das Benutzererlebnis erklärt zu wenig, was ein bestimmtes Gebäude- oder Ausbauvorhaben tatsächlich umfasst.",
+        "en": "The large generic cleaning image and uniform offer tiles make the interface feel interchangeable. The journey gives too little explanation of what a specific building or refurbishment assignment involves.",
+        "fr": "La grande photo générale de nettoyage et les tuiles uniformes donnent une interface peu distinctive. Le parcours explique peu le contenu d’une mission précise."
+      },
+      "fact": {
+        "value": "6",
+        "label": {
+          "de": "Leistungsüberschriften auf der geprüften Übersichtsseite, ohne erklärende Leistungsabsätze",
+          "en": "Service headings on the checked overview, without explanatory paragraphs",
+          "fr": "Titres de prestations dans la vue examinée, sans paragraphes explicatifs"
+        },
+        "source": "2"
+      },
+      "technology": {
+        "platform": "WordPress",
+        "evidence": "generator"
+      }
+    },
+    "okt-fritz": {
+      "headline": {
+        "de": "Salonbesucher brauchen mehr als ein großes Porträt",
+        "en": "Salon visitors need more than a large portrait",
+        "fr": "Les visiteurs du salon ont besoin de plus qu’un portrait"
+      },
+      "verdict": {
+        "de": "Der dominante Bildauftakt, die kleinen Texte und die schmale Inhaltsanordnung lassen die Benutzeroberfläche veraltet wirken. Das Benutzererlebnis verbindet Behandlungswahl, Preisinformation und Terminwunsch zu wenig; auf dem Handy ragt Inhalt über die Bildschirmbreite hinaus.",
+        "en": "A dominant portrait opening, small text and narrow content layout make the interface look dated. Services, pricing and appointments are weakly connected, while content extends beyond the mobile width.",
+        "fr": "Le grand portrait d’entrée, les petits textes et les zones étroites donnent un aspect ancien. Soins, prix et rendez-vous sont peu reliés, et du contenu dépasse la largeur mobile."
+      },
+      "fact": {
+        "value": "560 px",
+        "label": {
+          "de": "gemessene Seitenbreite bei 390 Pixel mobiler Gerätegröße",
+          "en": "Measured page width on a 390 px mobile device",
+          "fr": "Largeur mesurée de page sur un écran mobile de 390 px"
+        },
+        "source": "1"
+      },
+      "technology": {
+        "platform": null,
+        "evidence": "unknown"
+      }
+    },
+    "okt-dueck": {
+      "headline": {
+        "de": "Werkstattleistungen brauchen einen eindeutigen Terminweg",
+        "en": "Workshop services need an unambiguous appointment route",
+        "fr": "Les prestations d’atelier ont besoin d’un parcours clair"
+      },
+      "verdict": {
+        "de": "Der fotografische Hintergrund und die gleichförmige Leistungsliste lassen die Benutzeroberfläche veraltet wirken. Das Benutzererlebnis wird zusätzlich durch unterschiedliche HU-Angaben und einen Terminbereich ohne sichtbare Inhalte unklar.",
+        "en": "The photographic backdrop and uniform service list make the interface look dated. Conflicting inspection information and an empty visible appointments area make the journey less clear.",
+        "fr": "Le fond photographique et la liste uniforme donnent un aspect ancien. Des indications différentes sur le contrôle et un espace rendez-vous vide rendent le parcours moins clair."
+      },
+      "fact": {
+        "value": "0",
+        "label": {
+          "de": "sichtbare Termine oder Buchungsoptionen im geprüften Bereich „Termine“",
+          "en": "Visible appointments or booking options in the checked appointments area",
+          "fr": "Rendez-vous ou options de réservation visibles dans l’espace examiné"
+        },
+        "source": "2"
+      },
+      "technology": {
+        "platform": "chayns",
+        "evidence": "html"
+      }
+    },
+    "okt-mueller": {
+      "headline": {
+        "de": "Speisekarte und Reservierung brauchen Vorrang",
+        "en": "Menus and reservations need priority",
+        "fr": "Carte et réservation doivent être prioritaires"
+      },
+      "verdict": {
+        "de": "Die dekorative Bildgestaltung und die bildbasierte Speisekarte lassen die Benutzeroberfläche veraltet wirken. Das Benutzererlebnis beginnt bei Nachrichten statt bei Essen, Öffnungszeiten und dem tatsächlichen Reservierungsweg.",
+        "en": "Decorative imagery and an image-based menu make the interface look dated. The journey begins with news rather than food, opening hours and the actual reservation process.",
+        "fr": "Le décor photographique et la carte en images donnent un aspect ancien. Le parcours débute par les nouvelles plutôt que cuisine, horaires et réservation."
+      },
+      "fact": {
+        "value": "4",
+        "label": {
+          "de": "Speisekarten-Bilddateien auf der geprüften Seite statt Speisen und Preisen als Seitentext",
+          "en": "Menu image files on the checked page instead of dishes and prices as page text",
+          "fr": "Fichiers images de carte sur la page examinée au lieu de plats et prix en texte"
+        },
+        "source": "2"
+      },
+      "technology": {
+        "platform": "CM4all",
+        "evidence": "html"
+      }
+    },
+    "okt-chakra": {
+      "headline": {
+        "de": "Salonangebote brauchen eine ruhigere Präsentation",
+        "en": "Salon services need a calmer presentation",
+        "fr": "Les offres du salon ont besoin d’une présentation sobre"
+      },
+      "verdict": {
+        "de": "Die türkisfarbenen Textflächen, der dunkle Musterhintergrund und kleine Schrift lassen die Benutzeroberfläche veraltet und wenig ansprechend wirken. Das Benutzererlebnis verbindet die vorhandenen Leistungen, Preise und den telefonischen Terminwunsch zu wenig.",
+        "en": "Turquoise text areas, a dark patterned backdrop and small type make the interface look dated. Existing services, prices and telephone appointments are insufficiently connected.",
+        "fr": "Surfaces turquoise, fond sombre à motifs et petits caractères donnent un aspect ancien. Prestations, tarifs et rendez-vous téléphonique sont peu reliés."
+      },
+      "fact": {
+        "value": "1",
+        "label": {
+          "de": "Facebook-Verweis im geprüften Seitenfuß führt zur Theme-Vorlage statt zum Salon",
+          "en": "Facebook link in the checked footer points to the theme vendor rather than the salon",
+          "fr": "Lien Facebook du pied de page examiné vers le fournisseur du modèle, pas le salon"
+        },
+        "source": "1"
+      },
+      "technology": {
+        "platform": "WordPress",
+        "evidence": "generator"
+      }
+    },
+    "okt-dasdach": {
+      "headline": {
+        "de": "Dacharbeiten verschwinden hinter einem leeren Einstieg",
+        "en": "Roofing work hides behind an empty opening",
+        "fr": "Les travaux de toiture derrière une entrée vide"
+      },
+      "verdict": {
+        "de": "Große leere Flächen, kleine Inhalte und fremdsprachige Vorlagenreste lassen die Benutzeroberfläche unfertig wirken. Das Benutzererlebnis führt erst spät zu den vorhandenen Dachleistungen und Projektbildern.",
+        "en": "Large empty areas, small content and foreign-language template remnants make the interface feel unfinished. Existing roofing services and project photographs appear late in the journey.",
+        "fr": "Grandes zones vides, petits contenus et restes de modèle en langue étrangère donnent une interface inachevée. Prestations et photos arrivent tard."
+      },
+      "fact": {
+        "value": "9",
+        "label": {
+          "de": "Leistungsbereiche im geprüften Startseitenabschnitt, überwiegend als kurze Einträge",
+          "en": "Service areas in the checked homepage section, mainly brief entries",
+          "fr": "Domaines de prestations dans l’accueil examiné, surtout en entrées courtes"
+        },
+        "source": "1"
+      },
+      "technology": {
+        "platform": "WordPress",
+        "evidence": "generator"
+      }
+    },
+    "okt-neli": {
+      "headline": {
+        "de": "Nähkurse und Änderungen brauchen getrennte Einstiege",
+        "en": "Sewing courses and alterations need separate entry points",
+        "fr": "Cours de couture et retouches nécessitent des entrées distinctes"
+      },
+      "verdict": {
+        "de": "Die schmale Vorlagenoptik und großen Kursplakate lassen die Benutzeroberfläche veraltet wirken. Das Benutzererlebnis stellt Kurse vor die Auswahl zwischen Änderung, individueller Anfertigung und Nähkurs.",
+        "en": "A narrow template layout and large course posters make the interface look dated. Courses appear before a clear choice between alterations, custom sewing and classes.",
+        "fr": "Le modèle étroit et les grandes affiches donnent un aspect ancien. Les cours précèdent le choix clair entre retouches, confection et formation."
+      },
+      "fact": {
+        "value": "2",
+        "label": {
+          "de": "große Kursplakate vor einer erklärten Leistungsauswahl im geprüften mobilen Einstieg",
+          "en": "Large course posters before explained service choices in the checked mobile opening",
+          "fr": "Grandes affiches de cours avant un choix expliqué dans l’entrée mobile examinée"
+        },
+        "source": "1"
+      },
+      "technology": {
+        "platform": "IONOS MyWebsite",
+        "evidence": "generator"
+      }
+    },
+    "okt-gurk": {
+      "headline": {
+        "de": "Änderungen gehen hinter Modebildern unter",
+        "en": "Alterations get lost behind fashion images",
+        "fr": "Les retouches passent derrière les photos de mode"
+      },
+      "verdict": {
+        "de": "Der ältere Modeslider, die kleinen Texte und die langen Tabellen lassen die Benutzeroberfläche veraltet wirken. Das Benutzererlebnis beginnt bei Shirts statt bei einem konkreten Änderungswunsch und führt erst später zur telefonischen Terminvereinbarung.",
+        "en": "An older fashion slider, small text and long tables make the interface look dated. The journey begins with shirts rather than an alteration need and reaches telephone appointments later.",
+        "fr": "Le diaporama de mode ancien, les petits textes et longues tables donnent un aspect vieillissant. Le parcours commence par des hauts plutôt qu’une retouche et mène tard à l’appel."
+      },
+      "fact": {
+        "value": "3",
+        "label": {
+          "de": "Shirt-Motive im Startseitenslider vor der Übersicht der Änderungsleistungen",
+          "en": "Shirt themes in the homepage slider before the alteration overview",
+          "fr": "Thèmes de hauts dans le diaporama avant les retouches"
+        },
+        "source": "1"
+      },
+      "technology": {
+        "platform": "WordPress",
+        "evidence": "generator"
+      }
+    },
+    "okt-bm": {
+      "headline": {
+        "de": "Gebäudeservice ist noch zu allgemein dargestellt",
+        "en": "Building services are presented too generally",
+        "fr": "Les services immobiliers restent trop généraux"
+      },
+      "verdict": {
+        "de": "Die große allgemeine Bildfläche, wechselnde Textgrößen und gleichförmigen Leistungsbegriffe lassen die Benutzeroberfläche vorlagenhaft und wenig individuell wirken. Das Benutzererlebnis führt nicht gezielt vom konkreten Objekt zur passenden Reinigung und Anfrage.",
+        "en": "The large generic image area, varying text sizes and uniform service terms make the interface feel template-based. The journey does not guide a specific property need to the relevant cleaning service and enquiry.",
+        "fr": "La grande image générale, les tailles variables et intitulés uniformes donnent une interface peu personnalisée. Le parcours ne relie pas clairement bâtiment, nettoyage adapté et demande."
+      },
+      "fact": {
+        "value": "6",
+        "label": {
+          "de": "Leistungsbereiche im geprüften Startseitenkatalog ohne Auswahl nach Objektbedarf",
+          "en": "Service areas in the checked homepage catalogue without property-based selection",
+          "fr": "Domaines dans le catalogue d’accueil examiné sans choix par besoin du bâtiment"
+        },
+        "source": "1"
+      },
+      "technology": {
+        "platform": "WordPress",
+        "evidence": "generator"
+      }
+    },
+    "okt-plattenbarth": {
+      "headline": {
+        "de": "Fliesenprojekte brauchen mehr als wechselnde Werbebilder",
+        "en": "Tile projects need more than rotating promotional images",
+        "fr": "Les projets de carrelage nécessitent plus qu’un diaporama"
+      },
+      "verdict": {
+        "de": "Der große dunkle Slider, die dominanten Großbuchstaben und die kleinen Texte lassen die Benutzeroberfläche unruhig und wenig ansprechend wirken. Das Benutzererlebnis bietet viele Werbebotschaften, führt aber zu wenig vom Raumvorhaben zur passenden Lösung.",
+        "en": "A large dark slider, dominant capitals and small text make the interface feel busy. The journey offers many promotional messages but gives limited guidance from a room project to a suitable solution.",
+        "fr": "Le grand diaporama sombre, les majuscules et petits textes donnent une interface chargée. Les messages publicitaires guident peu du projet de pièce vers la solution."
+      },
+      "fact": {
+        "value": "5",
+        "label": {
+          "de": "unterschiedliche Einstiegsmotive im Startseitenslider vor einer stabilen Projektwahl",
+          "en": "Different opening themes in the homepage slider before stable project choices",
+          "fr": "Thèmes d’entrée du diaporama avant un choix de projet stable"
+        },
+        "source": "1"
+      },
+      "technology": {
+        "platform": "WordPress",
+        "evidence": "generator"
+      }
+    },
+    "okt-altan": {
+      "headline": {
+        "de": "Ersatzteilsuche braucht einen klareren Fahrzeugbezug",
+        "en": "Parts enquiries need clearer vehicle context",
+        "fr": "La recherche de pièces nécessite un lien clair au véhicule"
+      },
+      "verdict": {
+        "de": "Die grauen Verlaufsflächen, der alte Bildslider und die kleine Katalogschrift lassen die Benutzeroberfläche veraltet wirken. Das Benutzererlebnis wechselt von allgemeinen Teilegruppen zu einem umfangreichen Formular, ohne die Fahrzeugidentifikation ausreichend zu führen.",
+        "en": "Grey gradients, an older slider and small catalogue text make the interface look dated. The journey moves from general parts categories to a long form without enough guidance on vehicle identification.",
+        "fr": "Dégradés gris, ancien diaporama et petit texte donnent un aspect vieillissant. Le parcours passe de catégories générales à un long formulaire sans assez guider l’identification du véhicule."
+      },
+      "fact": {
+        "value": "16",
+        "label": {
+          "de": "Teilegruppen im geprüften Startseitenkatalog statt einer geführten Suche nach Fahrzeug und Bedarf",
+          "en": "Parts categories in the checked homepage catalogue instead of guided vehicle-and-need selection",
+          "fr": "Groupes de pièces dans l’accueil examiné au lieu d’un choix guidé par véhicule et besoin"
+        },
+        "source": "1"
+      },
+      "technology": {
+        "platform": null,
+        "evidence": "unknown"
+      }
+    },
+    "okt-salzmann": {
+      "headline": {
+        "de": "Werkstattservice bleibt ein langer Katalog",
+        "en": "Workshop services remain a long catalogue",
+        "fr": "Les prestations restent un long catalogue"
+      },
+      "verdict": {
+        "de": "Die schmale graue Vorlage, kleinen Schriften und gestapelten Markenbilder lassen die Benutzeroberfläche veraltet wirken. Das Benutzererlebnis stellt die Werkstatt vor, führt aber zu wenig vom konkreten Fahrzeuganliegen zur passenden Leistung und zum Anruf.",
+        "en": "A narrow grey template, small type and stacked brand images make the interface look dated. The site introduces the workshop but gives little guidance from a vehicle need to the relevant service and call.",
+        "fr": "Le modèle gris étroit, petits caractères et logos empilés donnent un aspect ancien. Le site présente l’atelier sans guider clairement du besoin à la prestation puis à l’appel."
+      },
+      "fact": {
+        "value": "17",
+        "label": {
+          "de": "Serviceeinträge auf der geprüften Seite, überwiegend ohne Erklärung des Ablaufs",
+          "en": "Service entries on the checked page, mostly without process explanations",
+          "fr": "Entrées sur la page service examinée, surtout sans explication du déroulement"
+        },
+        "source": "2"
+      },
+      "technology": {
+        "platform": "WordPress",
+        "evidence": "generator"
+      }
+    },
+    "okt-laackmann": {
+      "headline": {
+        "de": "Gartenprojekte brauchen einen klareren Zusammenhang",
+        "en": "Garden projects need clearer context",
+        "fr": "Les projets de jardin ont besoin d’un contexte clair"
+      },
+      "verdict": {
+        "de": "Der großflächige Blätterhintergrund, die schmale Textfläche und seitliche Katalognavigation lassen die Benutzeroberfläche veraltet wirken. Das Benutzererlebnis trennt Leistungen und vorhandene Referenzbilder, statt Gartenwünsche und laufende Pflege verständlich zu führen.",
+        "en": "A large foliage backdrop, narrow text area and side catalogue navigation make the interface look dated. Services and existing reference photographs are separated instead of guiding garden projects and ongoing care.",
+        "fr": "Le grand fond de feuillage, texte étroit et menu latéral donnent un aspect ancien. Prestations et photos sont séparées plutôt que de guider projets et entretien."
+      },
+      "fact": {
+        "value": "9",
+        "label": {
+          "de": "Rubriken im geprüften Referenzbereich statt beschriebener einzelner Projektfälle",
+          "en": "Categories in the checked reference area instead of described individual project cases",
+          "fr": "Rubriques dans les références examinées plutôt que cas individuels décrits"
+        },
+        "source": "2"
+      },
+      "technology": {
+        "platform": "Contao",
+        "evidence": "generator"
+      }
+    }
+  },
+  "plans": {
+    "okt-onh": {
+      "design": {
+        "de": "Den Wasserhintergrund und die kleinen Listen durch ruhige Flächen, gut lesbare Schrift und echte Fotos von Anlagen und Arbeiten ersetzen.",
+        "en": "Replace the water backdrop and tiny lists with calm surfaces, readable type and real work photography.",
+        "fr": "Remplacer le fond aquatique et les petites listes par des surfaces sobres, une typographie lisible et de vraies photos."
+      },
+      "journey": {
+        "de": "Ein Besucher wählt Heizung, Sanitär oder Kundendienst, erkennt den jeweiligen Leistungsumfang und erreicht eine passende Anfrage oder den Telefonkontakt.",
+        "en": "Visitors choose heating, plumbing or maintenance, understand the scope and reach a relevant enquiry or phone call.",
+        "fr": "Le visiteur choisit chauffage, sanitaire ou entretien, comprend le périmètre et accède à une demande pertinente ou à l’appel."
+      },
+      "stack": "astro",
+      "implementation": {
+        "de": "Leistungen als getrennte Inhaltsdatensätze pflegen; die Auswahl im Formular vorbelegen. Referenzfotos erst nach Freigabe mit ausgeführten Arbeiten beschriften.",
+        "en": "Maintain services as separate content records and preselect the form topic. Label approved reference photographs with the actual work performed.",
+        "fr": "Gérer les prestations séparément et présélectionner le sujet du formulaire. Décrire les travaux réels sur les photos validées."
+      }
+    },
+    "okt-steinkellner": {
+      "design": {
+        "de": "Größere Projektfotos, weniger grüne Rahmenflächen und klare Typografie statt des schmalen Kataloglayouts.",
+        "en": "Larger project photographs, fewer green frame surfaces and clear typography instead of the narrow catalogue layout.",
+        "fr": "De plus grandes photos, moins de cadres verts et une typographie claire plutôt qu’un catalogue étroit."
+      },
+      "journey": {
+        "de": "Vom Gartenwunsch zu einem vergleichbaren Projekt, den zusammengehörigen Leistungen und einer Anfrage mit Ort und Umfang.",
+        "en": "From a garden idea to a comparable project, related services and an enquiry with location and scope.",
+        "fr": "Du besoin de jardin à un projet comparable, aux prestations associées et à une demande avec lieu et périmètre."
+      },
+      "stack": "astro-filter",
+      "implementation": {
+        "de": "Vorhandene Galerien als Projektkarten mit Aufgabe, Material und Ausführung ordnen. Ein kleiner React-Filter könnte tatsächliche Projekte nach Arbeitstyp auswählen; mobil auf 390 Pixel ohne Verkleinerung prüfen.",
+        "en": "Organise existing galleries as project cards with brief, materials and work. A small React filter could select real projects by type; verify at 390 px without shrinking the page.",
+        "fr": "Organiser les galeries en fiches avec besoin, matériaux et travaux. Un petit filtre React pourrait sélectionner les projets réels ; vérifier à 390 px sans réduction de page."
+      }
+    },
+    "okt-lotus": {
+      "design": {
+        "de": "Die dekorative Vorlagenoptik durch helle, ruhige Flächen, große Schrift und echte Studio- und Behandlungsbilder ersetzen.",
+        "en": "Replace the decorative template with light, calm surfaces, large type and real studio and treatment photography.",
+        "fr": "Remplacer le décor ancien par des surfaces claires, une grande typographie et de vraies photos du studio et des soins."
+      },
+      "journey": {
+        "de": "Besucher wählen ein Anliegen, lesen die passende Behandlung und erreichen direkt die telefonische Terminabsprache samt Rückrufhinweis.",
+        "en": "Visitors choose a need, read the relevant treatment and reach telephone appointments with callback information.",
+        "fr": "Le visiteur choisit un besoin, lit le soin correspondant et accède au rendez-vous téléphonique avec indication du rappel."
+      },
+      "stack": "astro-phone",
+      "implementation": {
+        "de": "Behandlungstexte als strukturierte Inhalte pflegen, Menü als echten Text ausgeben und auf jeder Behandlungsseite eine antippbare Telefonnummer bereitstellen. Inhalte bei 390 Pixel und vergrößerter Schrift abnehmen.",
+        "en": "Maintain structured treatment text, render navigation as real text and add tap-to-call on each treatment page. Verify at 390 px and enlarged text.",
+        "fr": "Structurer les textes des soins, rendre le menu en vrai texte et proposer un appel sur chaque page. Vérifier à 390 px et avec texte agrandi."
+      }
+    },
+    "okt-nailstyle": {
+      "design": {
+        "de": "Ein einheitliches Schrift- und Farbsystem mit groß dargestellten echten Nagelarbeiten; weniger Kleinteiligkeit und klar getrennte Angebotstypen.",
+        "en": "A consistent type and colour system with large photographs of real nail work, less clutter and separate offer types.",
+        "fr": "Un système cohérent de typographie et couleurs, de grandes photos réelles et des offres distinctes."
+      },
+      "journey": {
+        "de": "Eine Kundin wählt Neuaufbau oder Pflege, sieht den vorhandenen Preis und fragt gezielt einen Termin an; Gutscheine erhalten einen eigenen verständlichen Ablauf.",
+        "en": "A client chooses a new set or maintenance, sees the existing price and makes a targeted appointment enquiry; vouchers have a separate clear process.",
+        "fr": "La cliente choisit pose ou entretien, voit le tarif existant et demande un rendez-vous ciblé ; les bons ont leur propre parcours."
+      },
+      "stack": "astro",
+      "implementation": {
+        "de": "Behandlungen mit Preis und Dauer nur nach Bestätigung pflegen. Gutscheininformation und Kontaktkanäle konsistent verlinken; keine Zahlungs- oder Buchungsfunktion ohne Abstimmung einbauen.",
+        "en": "Maintain treatment prices and durations only after confirmation. Link voucher information and contact channels consistently; agree any payment or booking feature first.",
+        "fr": "Publier prix et durées après validation. Relier bons et contacts de manière cohérente ; convenir d’abord de toute fonction de paiement ou réservation."
+      }
+    },
+    "okt-fennes": {
+      "design": {
+        "de": "Ruhige Praxisgestaltung mit gut lesbaren linksbündigen Texten und echten Raumaufnahmen; die enge Zentrierung und starke Buchstabenabstände auflösen.",
+        "en": "A calm practice design with readable left-aligned text and real room photography, replacing cramped centred blocks and heavy letter spacing.",
+        "fr": "Une présentation sobre avec textes alignés à gauche et vraies photos, sans blocs centrés étroits ni espacements excessifs."
+      },
+      "journey": {
+        "de": "Standort Hattersheim wählen, Therapie oder Training verstehen und mit klarer Vorbereitung direkt den Praxisstandort kontaktieren.",
+        "en": "Choose Hattersheim, understand therapy or training and contact that practice with clear preparation.",
+        "fr": "Choisir Hattersheim, comprendre thérapie ou entraînement et contacter ce cabinet avec les informations utiles."
+      },
+      "stack": "astro-phone",
+      "implementation": {
+        "de": "Standorte und Angebote als verknüpfte Inhalte pflegen; Telefonnummer und Trainingszeiten standortbezogen ausgeben. Fachliche Texte manuell freigeben und keine Gesundheitsdaten über einen KI-Assistenten erfassen.",
+        "en": "Link location and offer records; display location-specific phone and training hours. Approve clinical text manually and do not collect health data through an AI assistant.",
+        "fr": "Relier lieux et offres ; afficher téléphone et horaires par cabinet. Valider les textes professionnels et ne pas recueillir de données de santé via un assistant IA."
+      }
+    },
+    "okt-knab": {
+      "design": {
+        "de": "Den plakatartigen Einstieg durch ein ruhiges, modernes Layout mit klaren Karten für Führerscheine und Standorte ersetzen.",
+        "en": "Replace the poster-led opening with a calm modern layout and clear licence and location cards.",
+        "fr": "Remplacer l’entrée par affiche par un design sobre et des cartes permis et lieux."
+      },
+      "journey": {
+        "de": "Führerschein wählen, Hattersheimer Kurs und Bürozeiten sehen, dann Preis- oder Anmeldefrage stellen; Fahrstundenangelegenheiten führen direkt zum Telefon.",
+        "en": "Choose a licence, see Hattersheim courses and office hours, then ask about prices or registration; driving lesson matters lead directly to a call.",
+        "fr": "Choisir le permis, voir cours et horaires à Hattersheim, puis poser la question tarifaire ou d’inscription ; les leçons passent par téléphone."
+      },
+      "stack": "astro",
+      "implementation": {
+        "de": "Standorte, Kurse und Führerscheine strukturiert verknüpfen. Eine kleine React-Auswahl kann den richtigen Anfrageweg anzeigen; die verbindliche Kontaktregel bleibt Bestandteil der Texte.",
+        "en": "Link locations, courses and licences as structured data. A small React selector can show the correct contact route while preserving the stated contact policy.",
+        "fr": "Relier lieux, cours et permis comme données structurées. Un petit sélecteur React peut indiquer le bon contact tout en conservant la règle annoncée."
+      }
+    },
+    "okt-gashi": {
+      "design": {
+        "de": "Ein ruhiges Raster mit konsistenter Typografie und echten Vorher-nachher-Projekten statt Textvorlage und leeren Galerieflächen.",
+        "en": "A calm grid with consistent typography and genuine before-and-after projects instead of a text template and empty gallery.",
+        "fr": "Une grille sobre, une typographie cohérente et de vrais projets avant/après au lieu de zones vides."
+      },
+      "journey": {
+        "de": "Gartenanliegen und gewünschte Unterstützung wählen, vergleichbare Arbeiten sehen und Umfang sowie Ort in einer Projektanfrage nennen.",
+        "en": "Choose the garden need and level of support, review comparable work and state scope and location in the enquiry.",
+        "fr": "Choisir le besoin et l’aide souhaitée, voir des travaux comparables et indiquer périmètre et lieu."
+      },
+      "stack": "astro-filter",
+      "implementation": {
+        "de": "Bestätigte Projekte als Inhaltsdatensätze mit Arbeitstyp pflegen; die Galerie nur mit vorhandenen Fotos füllen. Ein React-Filter kann Gartenbau, Pflege und Eigenleistungsunterstützung zuordnen.",
+        "en": "Maintain confirmed project records by type; populate the gallery only with available photographs. A React filter could group landscaping, care and support for client-led work.",
+        "fr": "Gérer les projets confirmés par type, avec uniquement des photos disponibles. Un filtre React pourrait organiser aménagement, entretien et aide au client."
+      }
+    },
+    "okt-tera": {
+      "design": {
+        "de": "Ein prägnanter Einstieg mit echten Objektbildern und klar getrennten Leistungsgruppen; weniger generische Bildfläche und mehr lesbarer Kontext.",
+        "en": "A focused opening with real property photographs and distinct service groups, less generic imagery and more readable context.",
+        "fr": "Une entrée précise avec vraies photos et groupes distincts, moins de décor et davantage de contexte lisible."
+      },
+      "journey": {
+        "de": "Objekt und Reinigungs- oder Ausbauanliegen wählen, passende Leistung sowie Referenz sehen und Umfang, Ort und Zeitrahmen anfragen.",
+        "en": "Choose property and cleaning or refurbishment need, see relevant service and reference, then enquire with scope, place and timeframe.",
+        "fr": "Choisir bâtiment et besoin, voir prestation et référence pertinentes, puis demander avec périmètre, lieu et délai."
+      },
+      "stack": "astro",
+      "implementation": {
+        "de": "Leistungen und Referenzen getrennt modellieren und miteinander verknüpfen. Ein kurzes Formular übernimmt den Bereich; optionale Objektangaben helfen der Vorbereitung, ohne vertrauliche Unterlagen zu verlangen.",
+        "en": "Model and link services and references separately. A short form carries the selected area; optional property details help preparation without requesting confidential documents.",
+        "fr": "Modéliser et relier prestations et références. Un formulaire court reprend le domaine ; des détails facultatifs aident sans demander de documents confidentiels."
+      }
+    },
+    "okt-fritz": {
+      "design": {
+        "de": "Echte Salon- und Arbeitsbilder mit ruhiger Typografie; das Porträt ergänzend zeigen und den ersten Bildschirm auf Leistung und Kontakt ausrichten.",
+        "en": "Real salon and work photographs with calm typography; keep the portrait as supporting material and focus the first screen on services and contact.",
+        "fr": "Vraies photos du salon et du travail, typographie sobre ; garder le portrait en complément et privilégier prestations et contact."
+      },
+      "journey": {
+        "de": "Anwendung wählen, Umfang und bestätigte Preisgrundlage verstehen und den telefonischen Terminwunsch direkt starten.",
+        "en": "Choose a treatment, understand scope and confirmed pricing basis, then start the telephone appointment request.",
+        "fr": "Choisir un soin, comprendre périmètre et prix confirmés, puis appeler pour le rendez-vous."
+      },
+      "stack": "astro-phone",
+      "implementation": {
+        "de": "Anwendungen als strukturierte Inhalte mit Preisgrundlage pflegen. Bilder in passenden Größen ausliefern und mobile Breite samt vergrößerter Schrift testen; die Telefonnummer als echte Anruffunktion umsetzen.",
+        "en": "Maintain treatments as structured content with pricing information. Serve appropriately sized images and test mobile width and enlarged text; implement a real call link.",
+        "fr": "Structurer les soins avec prix, adapter les tailles d’images et tester mobile et texte agrandi ; prévoir un véritable lien d’appel."
+      }
+    },
+    "okt-dueck": {
+      "design": {
+        "de": "Eine ruhigere Werkstattgestaltung mit gut lesbarer Schrift und klaren Leistungsgruppen statt Hintergrundfoto und Listencharakter.",
+        "en": "A calmer workshop design with readable text and distinct service groups instead of backdrop photography and lists.",
+        "fr": "Une présentation plus sobre avec texte lisible et groupes distincts plutôt qu’un fond photo et des listes."
+      },
+      "journey": {
+        "de": "Anliegen auswählen, den tatsächlichen Werkstatt- oder Partnerablauf verstehen und über den vorhandenen Telefonkontakt einen Besuch abstimmen.",
+        "en": "Choose the need, understand the actual workshop or partner process and arrange a visit through the existing phone route.",
+        "fr": "Choisir le besoin, comprendre atelier ou partenaire et convenir d’une visite par le téléphone existant."
+      },
+      "stack": "astro-phone",
+      "implementation": {
+        "de": "Leistungsdaten und Partnerhinweise zentral pflegen, damit HU-Angaben nicht auseinanderlaufen. Eine mobile Anruffunktion führt direkt zur Werkstatt; einen leeren Veranstaltungskalender nicht als Terminweg verwenden.",
+        "en": "Maintain service and partner information centrally to prevent conflicting inspection details. A mobile call action goes to the workshop; an empty events calendar should not serve as the appointment route.",
+        "fr": "Centraliser prestations et informations partenaires pour éviter les divergences. Un appel mobile mène à l’atelier ; un calendrier vide ne doit pas servir de prise de rendez-vous."
+      }
+    },
+    "okt-mueller": {
+      "design": {
+        "de": "Ruhige Typografie und appetitliche echte Speisenbilder statt dekorativer Großflächen und kleiner Speisekartenbilder.",
+        "en": "Calm typography and real food photographs instead of large decoration and small menu images.",
+        "fr": "Typographie sobre et vraies photos de plats plutôt que grands décors et petites cartes en images."
+      },
+      "journey": {
+        "de": "Gäste sehen Küche und Karte, prüfen Öffnung und aktuelle Pause und finden die telefonische Reservierung ab 16:30 Uhr. Gruppen erhalten den passenden separaten Hinweis.",
+        "en": "Guests see food and menu, check hours and current closure, then find telephone reservations from 16:30. Groups get separate relevant information.",
+        "fr": "Les visiteurs voient cuisine et carte, vérifient horaires et pause, puis trouvent la réservation téléphonique dès 16 h 30. Les groupes ont leur information propre."
+      },
+      "stack": "astro-phone",
+      "implementation": {
+        "de": "Gerichte und Preise als strukturierte Inhalte, Öffnungszeiten und Sonderpausen als zentrale Daten pflegen. Keine Onlinebuchung entgegen der beschriebenen telefonischen Regel einplanen.",
+        "en": "Maintain dishes and prices as structured content and hours and closures centrally. Do not plan online booking against the stated telephone policy.",
+        "fr": "Structurer plats et tarifs, centraliser horaires et fermetures. Ne pas prévoir de réservation en ligne contraire au fonctionnement téléphonique."
+      }
+    },
+    "okt-chakra": {
+      "design": {
+        "de": "Ruhige, helle Flächen, gut lesbare Schrift und echte Salonarbeiten; das dunkle Muster und die schwer lesbaren Textflächen ersetzen.",
+        "en": "Calm light surfaces, readable type and real salon work, replacing the dark pattern and hard-to-read areas.",
+        "fr": "Surfaces claires, caractères lisibles et vraies réalisations, sans fond sombre ni zones difficiles à lire."
+      },
+      "journey": {
+        "de": "Haare, Kosmetik oder Brautstyling wählen, bestätigte Preise und den beschriebenen Beratungsablauf sehen und direkt telefonisch Kontakt aufnehmen.",
+        "en": "Choose hair, cosmetics or bridal styling, see confirmed prices and the stated consultation process, then call directly.",
+        "fr": "Choisir cheveux, cosmétique ou mariage, voir tarifs validés et conseil prévu, puis appeler directement."
+      },
+      "stack": "astro-phone",
+      "implementation": {
+        "de": "Angebote und Preise verknüpft pflegen. Beim Brautbereich den vorhandenen Beratungstermin samt Probe verständlich erklären; Karteneinbettung optional, Adresse und Anruf immer verfügbar halten.",
+        "en": "Link offers and pricing. Explain the existing bridal consultation and trial; make the map optional while keeping address and calls always available.",
+        "fr": "Relier offres et prix. Expliquer consultation et essai mariage ; rendre la carte facultative, adresse et appel toujours disponibles."
+      }
+    },
+    "okt-dasdach": {
+      "design": {
+        "de": "Die leere Großfläche durch einen klaren Dachprojekt-Einstieg ersetzen; durchgängige Typografie, großzügige Projektbilder und abgestimmte deutsche Beschriftungen.",
+        "en": "Replace the empty area with a clear roofing-project opening, consistent typography, generous photographs and coordinated German labels.",
+        "fr": "Remplacer le vide par une entrée projet toiture, une typographie cohérente, de grandes photos et des textes harmonisés."
+      },
+      "journey": {
+        "de": "Bauherr wählt Sanierung, Reparatur oder Ergänzung, erkennt den passenden Leistungsumfang und fragt mit Ort, Dachart und Anliegen an.",
+        "en": "Homeowners choose renovation, repairs or additional work, understand the scope and enquire with location, roof type and need.",
+        "fr": "Le propriétaire choisit rénovation, réparation ou complément, comprend le périmètre et demande avec lieu, type de toiture et besoin."
+      },
+      "stack": "astro-filter",
+      "implementation": {
+        "de": "Die vorhandenen Projektgalerien als bestätigte Fallbeispiele pflegen und mit Leistungen verbinden. Bilder passend skalieren; das Formular kann den gewählten Bereich übernehmen, ohne unverbindliche Zahlen als Angebot auszugeben.",
+        "en": "Maintain existing galleries as confirmed case examples linked to services. Size images appropriately; the form can carry the selected area without presenting unconfirmed figures as quotations.",
+        "fr": "Gérer les galeries existantes comme cas validés reliés aux prestations. Adapter les images ; reprendre le domaine choisi sans présenter des chiffres non confirmés comme devis."
+      }
+    },
+    "okt-neli": {
+      "design": {
+        "de": "Das Atelier mit ruhigen Flächen, echten Näharbeiten und lesbaren Kurskarten zeigen; Plakate als ergänzende Downloads statt dominanten Einstieg einsetzen.",
+        "en": "Present the atelier with calm surfaces, real sewing work and readable course cards; use posters as supporting downloads instead of the main opening.",
+        "fr": "Présenter l’atelier avec surfaces sobres, vrais travaux et cartes de cours lisibles ; garder les affiches en documents complémentaires."
+      },
+      "journey": {
+        "de": "Änderung oder Kurs wählen, benötigte Informationen und bestätigte Termine sehen und eine passende Anfrage starten.",
+        "en": "Choose alteration or course, see the required information and confirmed dates, then make a relevant enquiry.",
+        "fr": "Choisir retouche ou cours, voir informations utiles et dates confirmées, puis envoyer une demande pertinente."
+      },
+      "stack": "astro",
+      "implementation": {
+        "de": "Kurse mit Datum, Zielgruppe und bestätigtem Preis als Inhaltsdatensätze pflegen. Eine Anfrage kann den Kursnamen übernehmen; Änderungen erhalten einen eigenen kurzen Kontaktweg.",
+        "en": "Maintain courses as records with date, audience and confirmed price. An enquiry can carry the course name; alterations get a separate short contact route.",
+        "fr": "Gérer les cours avec date, public et tarif confirmé. La demande peut reprendre le cours ; les retouches ont un contact court distinct."
+      }
+    },
+    "okt-gurk": {
+      "design": {
+        "de": "Ein klarer Atelierauftritt mit lesbarer Typografie, ruhigen Flächen und Bildern tatsächlicher Änderungen statt eines dominanten Modesliders.",
+        "en": "A clear atelier presentation with readable type, calm surfaces and real alteration photographs instead of a dominant fashion slider.",
+        "fr": "Une présentation claire avec typographie lisible, surfaces sobres et vraies retouches plutôt qu’un diaporama dominant."
+      },
+      "journey": {
+        "de": "Kleidungsart und Änderung wählen, den vorhandenen Preisrahmen sehen und die telefonische Terminabsprache direkt erreichen.",
+        "en": "Choose garment and alteration, see the existing price range and reach telephone arrangements directly.",
+        "fr": "Choisir vêtement et retouche, voir la base tarifaire existante et appeler directement."
+      },
+      "stack": "astro-phone",
+      "implementation": {
+        "de": "Preispositionen strukturiert nach Kleidungsart pflegen, mobil als lesbare Karten statt enger Tabellen ausgeben und Anruffunktionen bei den Kategorien zeigen.",
+        "en": "Maintain prices by garment type, render readable mobile cards instead of narrow tables and show call actions alongside categories.",
+        "fr": "Structurer les prix par vêtement, afficher des cartes mobiles lisibles plutôt que tables étroites et proposer l’appel avec les catégories."
+      }
+    },
+    "okt-bm": {
+      "design": {
+        "de": "Ein eigenständiger, ruhiger Auftritt mit echten Einsatzbildern, lesbarer Typografie und gezielt gewichteten Objekt- und Leistungsbereichen.",
+        "en": "A distinctive calm presentation with real work photographs, readable typography and focused property and service sections.",
+        "fr": "Une présentation propre et sobre, avec vraies photos, typographie lisible et rubriques ciblées."
+      },
+      "journey": {
+        "de": "Objekt und Bedarf wählen, den Umfang einmaliger oder regelmäßiger Betreuung verstehen und eine Anfrage mit den relevanten Eckdaten starten.",
+        "en": "Choose property and need, understand one-off or regular service scope and enquire with relevant details.",
+        "fr": "Choisir bâtiment et besoin, comprendre intervention ponctuelle ou régulière et demander avec les données utiles."
+      },
+      "stack": "astro",
+      "implementation": {
+        "de": "Objektarten und Leistungsbereiche als verknüpfte Inhalte pflegen. Formularfelder nach bestätigtem Bedarf auswählen, serverseitig validieren und Telefon sowie E-Mail als direkte Alternativen erreichbar halten.",
+        "en": "Link property types and services as content. Select form fields according to confirmed needs, validate on the server and keep phone and email accessible.",
+        "fr": "Relier bâtiments et prestations. Choisir les champs selon les besoins confirmés, valider côté serveur et garder appel et courriel accessibles."
+      }
+    },
+    "okt-plattenbarth": {
+      "design": {
+        "de": "Großzügige Bilder echter Räume, klare lesbare Überschriften und eine ruhige Projektordnung statt wechselnder Werbebotschaften über dunklen Bildern.",
+        "en": "Generous photographs of real rooms, readable headings and calm project structure instead of rotating promotional text over dark images.",
+        "fr": "Grandes photos de pièces réelles, titres lisibles et structure sobre plutôt que messages tournants sur images sombres."
+      },
+      "journey": {
+        "de": "Bad, Außenfläche oder Reparatur wählen, ein passendes reales Beispiel und den Umfang sehen und mit Ort sowie Anliegen Kontakt aufnehmen.",
+        "en": "Choose bathroom, exterior or repair, see a relevant real example and scope, then contact with location and need.",
+        "fr": "Choisir salle de bains, extérieur ou réparation, voir cas réel et périmètre puis contacter avec lieu et besoin."
+      },
+      "stack": "astro-filter",
+      "implementation": {
+        "de": "Vorhandene und freigegebene Projekte nach Raum und Arbeitstyp strukturieren. Ein kleiner Referenzfilter ist nur sinnvoll, wenn dafür genug reale Projekte vorliegen; Anfragekontext aus der Leistung übernehmen.",
+        "en": "Structure approved projects by room and work type. A small reference filter makes sense only with enough real cases; carry service context into enquiries.",
+        "fr": "Structurer les projets validés par pièce et type. Un filtre ne convient qu’avec assez de cas réels ; reprendre la prestation dans la demande."
+      }
+    },
+    "okt-altan": {
+      "design": {
+        "de": "Klare Angebotskarten, größere lesbare Texte und echte Teile- und Betriebsbilder statt grauer Katalogflächen und wechselnder Sliderbotschaften.",
+        "en": "Clear offer cards, larger readable text and real parts and premises photographs instead of grey catalogue surfaces and rotating messages.",
+        "fr": "Cartes d’offres claires, texte plus grand et vraies photos plutôt que surfaces grises et messages tournants."
+      },
+      "journey": {
+        "de": "Ersatzteilbedarf wählen, Fahrzeugidentifikation mit Hilfen ausfüllen und Versandbedingungen verstehen; Fahrzeughandel und Abschleppdienst erhalten eigene Wege.",
+        "en": "Choose a parts need, enter vehicle identification with guidance and understand delivery conditions; vehicle sales and towing get separate routes.",
+        "fr": "Choisir la pièce, remplir l’identification avec aide et comprendre la livraison ; véhicules et remorquage ont des parcours propres."
+      },
+      "stack": "astro",
+      "implementation": {
+        "de": "Astro für Inhalte und einen kleinen React-Baustein für geführte Fahrzeugangaben einsetzen. Formular serverseitig validieren; keine Live-Bestände oder automatische Passgarantie ohne vorhandene Daten und fachliche Prüfung versprechen.",
+        "en": "Use Astro for content and a small React element for guided vehicle details. Validate on the server; do not promise live stock or automatic fit guarantees without actual data and professional checks.",
+        "fr": "Utiliser Astro pour les contenus et un petit composant React pour guider les données véhicule. Valider côté serveur ; ne pas promettre stock réel ou compatibilité automatique sans données et contrôle."
+      }
+    },
+    "okt-salzmann": {
+      "design": {
+        "de": "Eine ruhige Werkstattgestaltung mit gut lesbaren Texten und echten Arbeitsbildern; den grauen Vorlagenrahmen und dominanten Logoaufbau ersetzen.",
+        "en": "A calm workshop design with readable text and real work photography, replacing the grey template frame and dominant logo arrangement.",
+        "fr": "Une présentation sobre avec textes lisibles et vraies photos, sans cadre gris ni logos dominants."
+      },
+      "journey": {
+        "de": "Kunde wählt Wartung, Diagnose oder Prüfung, versteht Umfang und vorhandene Zusatzleistungen und erreicht direkt die telefonische Abstimmung.",
+        "en": "Customers choose maintenance, diagnosis or inspection, understand scope and existing extras, then reach telephone arrangements directly.",
+        "fr": "Le client choisit entretien, diagnostic ou contrôle, comprend périmètre et options existantes puis appelle directement."
+      },
+      "stack": "astro-phone",
+      "implementation": {
+        "de": "Die Serviceeinträge in verknüpfte Inhaltsgruppen überführen. Öffnungszeiten und Bedingungen zentral pflegen; die tatsächlich angebotenen Zusatzleistungen nur nach Bestätigung mit den passenden Wegen verknüpfen.",
+        "en": "Turn service entries into linked content groups. Maintain hours and terms centrally and link extras to relevant routes after confirming the current offer.",
+        "fr": "Transformer les entrées en groupes reliés. Centraliser horaires et conditions, relier les options après confirmation des offres actuelles."
+      }
+    },
+    "okt-laackmann": {
+      "design": {
+        "de": "Große echte Gartenprojekte, ruhige Flächen und klar lesbare Schrift statt dekorativem Blätterhintergrund und schmalem Textkasten.",
+        "en": "Large real garden projects, calm surfaces and readable type instead of a decorative foliage backdrop and narrow text box.",
+        "fr": "De grands projets réels, surfaces sobres et texte lisible plutôt qu’un fond de feuillage et cadre étroit."
+      },
+      "journey": {
+        "de": "Privates Gartenprojekt oder laufende Grünpflege wählen, vergleichbare Arbeiten sehen und Ort, Umfang sowie Betreuungswunsch im Erstkontakt klären.",
+        "en": "Choose a private garden project or ongoing care, review comparable work and clarify location, scope and service needs in first contact.",
+        "fr": "Choisir jardin privé ou entretien régulier, voir des travaux comparables et préciser lieu, périmètre et besoin."
+      },
+      "stack": "astro-filter",
+      "implementation": {
+        "de": "Referenzbilder mit bestätigten Projektdaten als Content Collections pflegen. Ein React-Filter kann Vorhaben und Pflegebeispiele trennen; die Anfrage übernimmt die ausgewählte Gruppe.",
+        "en": "Maintain reference photographs and confirmed project data in content collections. A React filter could separate projects and maintenance examples and carry that selection into the enquiry.",
+        "fr": "Gérer photos et données confirmées en collections de contenus. Un filtre React peut distinguer projets et entretien et reprendre le choix dans la demande."
+      },
+      "ai": {
+        "de": "Optional könnte ein Textwerkzeug aus freigegebenen, nicht vertraulichen Projektnotizen erste Bildbeschreibungen vorschlagen. Fachliche Angaben und Veröffentlichung bleiben bei Ihrer Freigabe.",
+        "en": "An optional writing tool could suggest captions from approved non-confidential project notes. You retain approval of technical details and publication.",
+        "fr": "Un outil rédactionnel facultatif pourrait proposer des légendes depuis des notes validées non confidentielles. Vous validez les détails et la publication."
+      }
+    }
+  }
+}

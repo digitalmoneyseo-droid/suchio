@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/config";
+import octoberCampaign from "@/content/audit-campaign-2026-10-01.json";
 
 type Localized = Record<Locale, string>;
 type Stack = "astro" | "astro-filter" | "astro-phone" | "next-catalog";
@@ -166,5 +167,5 @@ const plans: Record<string, CampaignPlan> = {
 };
 
 export function getCampaignPlan(id: string): CampaignPlan | undefined {
-  return plans[id];
+  return plans[id] ?? (octoberCampaign.plans as Record<string, CampaignPlan>)[id];
 }

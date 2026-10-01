@@ -1,8 +1,10 @@
 ---
-import { SiteHeader, type SiteHeaderCopy } from "@/components/site-header";
+import { SiteHeader, localeSwitchPath, type SiteHeaderCopy } from "@/components/site-header";
 import { publicContactEmail } from "@/lib/contact";
 import { t, type Locale } from "@/lib/i18n";
 import { getServiceCatalog } from "@/lib/service-catalog";
+import { localeConfig, locales } from "@/i18n/config";
+import { localizePath } from "@/lib/locale-path";
 
 interface Props { locale: Locale; pathname: string }
 const { locale, pathname } = Astro.props;
@@ -21,4 +23,20 @@ const services = getServiceCatalog(locale).map(({ id, copy: serviceCopy, href })
   id, name: serviceCopy.name, navDescription: serviceCopy.navDescription, href,
 }));
 ---
+<noscript>
+  <style is:inline>[data-navigation-enhanced]{display:none!important}</style>
+  <nav data-navigation-fallback aria-label={copy.mainMenu} class="fixed inset-x-4 top-6 z-50 max-h-[80vh] overflow-y-auto rounded-control bg-white p-3 shadow-floating">
+    <details>
+      <summary class="min-h-11 cursor-pointer text-sm font-medium">{copy.mainMenu}</summary>
+      <div class="grid min-w-0 gap-2 py-2 text-sm">
+        <a class="py-2" href={localizePath("/", locale)}>{copy.brandHome}</a>
+        {services.map(service => <a class="py-2" href={service.href}>{service.name}</a>)}
+        <a class="py-2" href={localizePath("/about", locale)}>{copy.about}</a>
+        <a class="py-2" href={localizePath("/contact", locale)}>{copy.contact}</a>
+        <span class="mt-2 font-medium">{copy.selectLocale}</span>
+        {locales.map(candidate => <a class="py-2" href={localeSwitchPath(pathname, locale, candidate)} hreflang={candidate} lang={candidate} aria-current={candidate === locale ? "page" : undefined}>{localeConfig[candidate].name}</a>)}
+      </div>
+    </details>
+  </nav>
+</noscript>
 <SiteHeader client:load contactEmail={publicContactEmail} copy={copy} locale={locale} services={services} pathname={pathname} />
